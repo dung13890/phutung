@@ -1,0 +1,816 @@
+@import './partials/reset';
+@import './partials/variables'; // colors, fonts etc...
+@import './partials/mixins'; // custom mixins
+@import './partials/layout'; // responsive grid and media queries
+@import "/vendor/font-awesome/css/font-awesome.min.css";
+@import "/vendor/opensans/openSans.css";
+*, *::after, *::before {
+  
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font: {
+    size: 1.5rem;
+    family: $primary-font; // variables inside partials > _variables.scss
+  }
+  line-height:1.4;
+  color: $color-5;
+  background-color: $color-4;
+}
+
+a {
+  color: $color-2;
+  text-decoration: none;
+}
+
+.container {
+	margin-left: auto;
+  	margin-right: auto;
+  	padding: 0 .5em;
+
+	@include MQ(L) {
+	 & {
+	 	width:1170px;
+	 	padding: 0;
+	 }
+	}
+}
+
+.transition-view {
+  @include transition(all .5s ease);
+}
+.fade-enter, .fade-leave {
+  opacity: 0;
+  @include transform(translate3d(10px, 0, 0));
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.section {
+  margin-bottom: 1.5em;
+  .section-title {
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 1em;
+    padding-bottom: .5em;
+    font-size: .9em;
+    font-weight: bold;
+    color: $color-6;
+    border-bottom: 3px solid $color-6;
+    text-transform: capitalize;
+  }
+}
+
+.main-content {
+  position: relative;
+  overflow:hidden;
+  padding-top: $tab-filter-height;
+  min-height: 100vh;
+  @include clearfix;
+}
+
+.is-fixed {
+  .nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.pull-right {
+	float:right !important;
+}
+.pull-left {
+	float:left !important;
+}
+
+.main-nav {
+	position: relative;
+  height: 0;
+  &.menu-drop {
+    z-index: 9999;
+    .nav-wrapper {
+      .nav-inner {
+      	.menu-btn {
+      		background: $background-0;
+      	}
+	      ul.menu {
+	      	top:100%;
+	      	position: absolute;
+	      	right:0;
+	      	min-width:200px;
+	      	height:auto;
+	      	box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.15);
+	      	a {
+	      		display: block;
+	      		color:$color-5;
+	      		&.v-link-active, &:hover {
+		        	background: $color-6;
+		        	color:$color-3;
+		    			@include border-radius(0);
+			    	}
+	      	}
+	      }
+    	}
+  	}
+	}
+  .nav-wrapper {
+  	background-color: $color-6;
+  	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.6);
+  	z-index: 10;
+  	@include clearfix;
+  	.nav-inner {
+	    position: relative;
+	    height: $tab-filter-height;
+	    width: auto;
+	    cursor: auto;
+	    margin: 0 auto;
+	    z-index: 1;
+	    .menu-btn {
+	      @include MQ(M) {
+	        & {
+	          display: none;
+	        }
+	      }
+	      padding: 0;
+	      display: block;
+	      background: none;
+	      border: none;
+	      position: relative;
+	      outline: none;
+	      float: right;
+	      -webkit-tap-highlight-color: rgba(0,0,0,0);
+	      -webkit-tap-highlight-color: transparent;
+	      cursor: pointer;
+	      color: $color-3;
+	      i {
+	        margin: ($tab-filter-height - 25px) / 2;
+	        display: block;
+	        font-size: 2rem;
+	        width: 25px;
+	        height: 25px;
+	      }
+	    }
+	    ul {
+	      float:left
+	    }
+	    ul.left {
+	      .logo {
+	      	display:inline-block;
+	      	vertical-align: middle;
+    		background-position: center center;
+    		background-repeat: no-repeat;
+    		background-size: auto 100%;
+    		border-radius: 0;
+    		min-width: 150px;
+    		width: auto;
+		    line-height: ($tab-filter-height - 16px);
+		    height: ($tab-filter-height - 16px);
+		    margin: 8px 0;
+	      }
+	    }
+	    ul.menu {
+	    	height: 0;
+	    	background: #fff;
+	    	opacity: .95;
+	    	overflow: hidden;
+		    @include MQ(M) {
+		      	& {
+			        height: auto;
+			        position: static;
+			        background: transparent;
+			        li {
+			          display: inline-block;
+			          margin: 0 1px;
+			        }
+		      	}
+		    }
+		    a {
+	      	  	display: inline-block;
+		      	padding: 0 1em;
+		      	margin: 8px 0;
+		      	width: auto;
+		      	line-height: ($tab-filter-height - 16px);
+		      	height: ($tab-filter-height - 16px);
+		      	color: $color-3;
+		      	font-weight: 700;
+		      	font-size: 1.3rem;
+		      	&.v-link-active, &:hover {
+		        	background: $background-0;
+		    	}
+		    	.no-touch &:hover {
+			       color: lighten($color-3, 10%);
+			    }
+		    }
+	    }
+	}
+  }
+}
+
+.slider {
+  	position: relative;
+  	margin: 0;
+  	@include user-select();
+  	.frame {
+        position: relative;
+        width: auto;
+        margin: 0 auto;
+        overflow: hidden;
+        white-space: nowrap;
+        .slides {
+          	display: block;
+            padding: 0;
+		    margin: 0;
+		    list-style: none;
+		    font-size: 0;
+        }
+    	li {
+          	position: relative;
+          	display: inline-block;
+          	text-align: center;
+          	vertical-align: middle;
+          	width:100%;
+	        img {
+	           display: block;
+	           width:100%;
+	        }
+    	}
+  	}
+  	.prev, .next {
+    	position: absolute;
+    	top: 50%;
+    	margin-top: -25px;
+    	width:30px;
+    	height:30px;
+    	border-radius:100%;
+    	display: block;
+    	cursor: pointer;
+    	background-color: rgba(255, 255, 255, .32);
+    	text-align: center;
+    	i {
+    		font-size: 2rem;
+    		line-height:30px;
+    	}
+  	}
+  	.prev {
+    	left: 10%;
+  	}
+  	.next {
+    	right: 10%;
+  	}
+}
+
+#products {
+	.slider {
+		overflow: hidden;
+		.frame {
+			margin: 0 -1rem;
+			ul {
+				li {
+					@include MQ (S) {
+						& {
+							width:50%
+						}
+					}
+					@include MQ (M) {
+						& {
+							width:33.33%
+						}
+					}
+					@include MQ (L) {
+						& {
+							width:25%
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.product {
+	margin: 0 1rem;
+	padding: 0.5rem;
+	border-radius: 4px;
+	background: $color-3;
+	a {
+		display:block;
+		position:relative;
+		img {
+	    	width:100%;
+	    }
+	    span.code {
+	    	position: absolute;
+		    right: 0;
+		    top: 0;
+		    display: inline-block;
+		    font-size: .8em;
+		    font-weight: bold;
+		    color: $color-8;
+		    padding: .5em;
+		    background-color: rgba(255, 255, 255, 0.9);
+	    }
+	}
+	figcaption	{
+		font-size: 1.6rem;
+		.item-info {
+			width: 100%;
+		    background-color: $color-7;
+		    padding: .5em;
+		    z-index: 5;
+			a, em {
+				display:block
+			}
+			a {
+			    text-decoration: none;
+			    width: 100%;
+			    white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    line-height: 2em;
+			}
+			em.amount {
+				font-weight: bold;
+				color: $color-9
+			}
+		}
+	}
+}
+
+.item-move {
+	/* applied to the element when moving */
+	@include transition( transform .5s cubic-bezier(.55,0,.1,1));
+}
+
+.product-detail {
+	margin: 0 -1rem;
+	.product-image, .product-property {
+		width:100%;
+		padding: 0 1rem;
+		float:left;
+		font-size:1.5rem;
+		line-height:1.4;
+	}
+	.product-image {
+		img {
+			width:100%;
+		}
+	}
+	.product-property {
+		.attr {
+			padding: .5em 0;
+			border-bottom: 1px dashed $color-8;
+		}
+		.title {
+			font-size: 2.3rem;
+			line-height:1.4;
+			padding: 1rem 0;
+			color: $color-6;
+			margin-bottom: 0;
+			margin-top:2em;
+			@include MQ(S) {
+				& {
+					margin-top:0;
+				}
+			}
+		}
+		.amount {
+			font-weight:bold;
+			color: $color-9;
+			font-size: 1.5em;
+		}
+		.property {
+			p {
+				padding:.5rem 0;
+				strong {
+					font-weight:bold;
+				}	
+			}
+		}
+		.category {
+			line-height:2rem;
+		}
+	}
+	@include MQ(M) {
+		.product-image, .product-property {
+			width:50%;
+		}
+	}
+}
+.product-description {
+	margin: 3em 0;
+	p {
+		margin-bottom: 1rem;
+	}
+}
+
+#home-slide {
+    
+}
+
+#posts {
+	.list-post {
+		margin: 0 -.5rem;
+		overflow: hidden;
+		.post-right {
+			.posts {
+				text-align:center;
+				img {
+					width: 8rem;
+				    height: 8rem;
+				    margin-bottom:0.5rem;
+				    border-radius: 100%;
+				}
+				.info {
+					span {
+						color:$color-9;
+					}
+					p {
+						&:before, &:after {
+							font: normal normal normal 14px/1 FontAwesome;
+							font-size:1.5em;
+							margin: 0 .5rem;
+							color:#eee;
+						}
+						&:before {
+							content: "\f10d";
+						}
+						&:after {
+							content: "\f10e";
+						}
+					}
+				}
+			}
+		}
+		.post-left, .post-right {
+			float:left;
+			width:100%;
+			overflow:hidden;
+		}
+		@include MQ (M) {
+			.post-left {
+				width:65%;
+			}
+			.post-right {
+				width:35%;
+			}
+		}
+		.post-title {
+			display: inline-block;
+	    	margin: .5rem;
+	    	text-transform: capitalize;
+	    	font-size: .9em;
+	    	font-weight: bold;
+	    	color:$color-3;
+	    	background-color: $color-6;
+	    	border-bottom: 2px solid $color-8;
+	    	padding: .8em 1em;
+		}
+		.posts {
+			background:$color-3;
+			margin: 0 .5rem 1rem .5rem;
+	    	padding: 2rem;
+	    	border-radius: 4px;
+	    	overflow:hidden;
+	    	min-height:17em;
+	    	> a {
+	    		width:40%;
+	    		float:left;
+	    		padding-right:2rem;
+	    		img {
+	    			max-width:100%;
+	    		}
+	    	}
+			.info {
+				.title {
+					font-size: 1.3em;
+					line-height:1.2em;
+					font-weight: bold;
+					color: $color-6;
+					text-transform: capitalize;
+				}
+				p {
+					font-weight: normal;
+					font-size: 1.5rem;
+					line-height: 1.4;
+					margin: 1em 0;
+				}
+				.tags {
+					line-height:1.3;
+				}
+			}
+		}
+	}
+}
+
+.post-detail {
+	.post-title {
+		font-size: 2em;
+	    line-height: 1.2em;
+	    font-weight: bold;
+	    color: $color-6;
+	}
+	.post-tags {
+		font-size: 1.5rem;
+    	line-height: 2.2rem;
+    	color: $color-11;
+    	margin-bottom: 3rem;
+    	a {
+    		color:$color-11;
+    		&:hover {
+    			text-decoration: underline;
+    		}
+    	}
+	}
+	.post-description {
+		p {
+			font-weight: normal;
+		    font-size: 1.5rem;
+		    line-height: 1.4;
+		    margin: 1em 0;
+		}
+	}
+}
+
+#banner {
+	.banner {
+		margin: 0 -.5rem;
+		overflow:hidden;
+		a {
+			display:none;
+			@include MQ (S) {
+				display:block;
+				width:50%;
+				float:left;
+				padding:.5rem;
+			}
+			img {
+    			width:100%;
+    		}
+    		&:hover {
+    			img {
+    				box-shadow: 0 4px 4px 0 rgba(0,0,0,.15);
+    				opacity: .85;
+    			}
+    		}
+		}
+	}
+}
+
+.desktop {
+	width:200%;
+	margin-left: -100%;
+	@include transition(all .3s ease);
+	#sidebar, #content-wrapper {
+		padding: 0 1rem;
+		top:0;
+		float:left;
+    	width:50%;
+    	overflow: hidden;
+    	@include transition(all .3s ease);
+    }
+    #content-wrapper {
+    	.products {
+    		text-align:center;
+    		margin: -1rem -.3rem 0;
+    		li {
+    			display:inline-block;
+    			width:50%;
+    			padding: 1rem 0.3rem;
+    			.product {
+    				margin:0;
+    				border-radius:2px;
+    			}
+    		}
+    		@include MQ (M) {
+    			& {
+    				margin:-1rem -1rem 0;
+    				li {
+    					width:33.33%;
+    					padding:1rem;
+    				}
+    			}
+    		}
+    	}
+    }
+	@include MQ (M) {
+		& {
+			width:100%;
+			margin: 0;
+			#sidebar {
+				width:0;
+				padding:0;
+
+			}
+			#content-wrapper {
+				width:100%;
+			}
+		}
+	}
+	@include MQ(L) {
+		& {
+			width:100%;
+			margin:0;
+			#sidebar {
+				width:25%;
+				padding: 0 1rem;
+			}
+			#content-wrapper {
+				width:75%;
+			}
+		}
+	}
+	&.sidebar-open {
+		margin: 0;
+		@include MQ (M) {
+			#sidebar {
+				width:30%;
+				padding: 0 1rem;
+			}
+			#content-wrapper {
+				width:70%;
+			}
+		}
+	}
+}
+
+.breadcrumb {
+  padding: 1em 0;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      a {
+        display: inline-block;
+        text-decoration: none;
+        vertical-align: middle;
+        padding-right: .5em;
+        .fa {
+          padding-left: .5em;
+          display: inline-block;
+        }
+      }
+      &:last-child {
+      	color:$color-8;
+	    a {
+	        padding-right: 0;
+	        color:$color-8;
+	        .fa {
+	          display: none;
+	        }
+	    }
+	  }
+    }
+  }
+}
+
+.box {
+    padding: 1em;
+    background: $color-3;
+    color: $color-5;
+    box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.15);
+    margin-bottom:1em;
+    .title {
+	    margin-bottom: 1em;
+	    padding-bottom: 1em;
+	    font-size: .9em;
+	    font-weight: bold;
+	    color: #color-6;
+	    border-bottom: 2px solid $color-7;
+	    text-transform: capitalize;
+		
+	}
+	.box-search {
+		input {
+			width: 100%;
+		    padding: .5em;
+		    outline: none;
+		    border: 2px solid $color-12;
+		    background-color:$color-4;
+		    font-size:1.5rem;
+		    @include appearance;
+		    &:focus {
+		    	border-color: $color-8;
+		    	background-color:$color-3;
+		    }
+		}
+	}
+    ul.box-list {
+    	transition: all .3s ease;
+    	overflow: hidden;
+    	padding: 0;
+    	li {
+    		margin-bottom: 0.5rem;
+    		padding-bottom: 0.5rem;
+    		cursor: pointer;
+    		line-height: 1.5em;
+    		font-size: 1em;
+    		border-bottom: 1px solid $color-7;
+    		&:last-child {
+    			border:0;
+    			margin-bottom:0;
+    		}
+    		a {
+    			color:$color-5;
+    			display:block;
+    			&:hover, &.v-link-active {
+    				color: $color-8;
+    			}
+    		}
+    	}
+    }
+}
+
+.row {
+	@include clearfix;
+	margin:0 -1rem;
+}
+
+.toggle-switch {
+	@include MQ(L) {
+		& {
+			display:none;
+		}
+	}
+	&.open {
+		background-color: $color-8;
+		span {
+			@include transform(translate3d(0, -100%, 0));
+		}
+	}
+	display: block;
+    position: relative;
+    margin-bottom: 1em;
+    @include transition(background-color .3s ease);
+    background-color: $color-6;
+    color: $color-3;
+    width: 100%;
+    height: 3.5rem;
+    overflow: hidden;
+    span {
+    	display: inline-block;
+	    width: 100%;
+	    @include transition(transform 0.3s ease);
+	    text-align: center;
+	    line-height: 1.7rem;
+	    font-size: 13px;
+	    font-weight: 900;
+	    padding: .8rem 0;
+    }
+}
+
+#footer {
+	margin-top: 1em;
+    background-color: $color-10;
+    color: $color-4;
+    .copy-right, .info {
+    	width:100%;
+    	float:left;
+    	margin:2rem 0;
+    }
+    .copy-right, .info {
+    	@include MQ(M) {
+    		& {
+    			width:50%;
+    		}
+    	}
+    }
+    .info {
+    	ul {
+    		li {
+    			margin-bottom:1rem;
+    			@include MQ(S) {
+    				& {
+		    			display:inline-block;
+		    			float:left;
+		    			margin-right:1rem;
+    				}
+    			}
+    			a {
+		    		line-height: 1.2rem;
+		    		color:$color-4;
+		    	}
+    		}
+    	}
+    }
+
+}

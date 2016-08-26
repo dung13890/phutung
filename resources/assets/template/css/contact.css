@@ -1,0 +1,90 @@
+/* #contact -----------------------------------*/
+#contact .form .title {
+    text-transform: uppercase;
+    font-size: 15px;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 10px;
+    border-left: 13px solid #ec1c24;
+    font-weight: 600;
+    color: #999999;
+    margin-bottom: 30px;
+}
+
+#contact .form .form-control {
+    border-radius: 0;
+}
+
+#contact .form textarea {
+    resize: none;
+}
+
+#contact .form .btn {
+    border-radius: 0;
+}
+
+#contact .sidebar {
+    width: 100%;
+    background: #e6e7e8;
+}
+
+#contact .sidebar .heading {
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    text-align: center;
+    font-size: 17px;
+    text-transform: uppercase;
+    line-height: 40px;
+    background: #ec1c24;
+    position: relative;
+}
+
+#contact .sidebar .heading span {
+    position: absolute;
+    top: 13px;
+    left: 35px;
+}
+
+#contact .sidebar .heading span img {
+    width: 30px;
+    height: 45px;
+}
+
+#contact .sidebar .branch {
+    padding: 10px 0 21px 0;
+    background: url('../img/line-branch.png') no-repeat;
+    background-size: 100% 7px;
+    background-position: center bottom;
+}
+
+#contact .sidebar .branch:last-child {
+    background-image: none;
+}
+
+#contact .sidebar .branch .title {
+    padding: 0;
+}
+
+#contact .sidebar .branch p {
+    text-indent: 30px;
+    margin: 0;
+}
+
+#contact .sidebar .branch p.address {
+    background: url('../img/icon-address-o.png') no-repeat;
+    background-size: 15px 15px;
+    background-position: 10px center;
+}
+
+#contact .sidebar .branch p.phone {
+    background: url('../img/icon-phone-o.png') no-repeat;
+    background-size: 15px 15px;
+    background-position: 10px center;
+}
+
+#contact .sidebar .branch p.email {
+    background: url('../img/icon-envelope-o.png') no-repeat;
+    background-size: 15px 15px;
+    background-position: 10px center;
+}

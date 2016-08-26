@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^5.0.0",
+    "bootstrap-sass": "^3.0.0"
+  },
+  "dependencies": {
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "bootstrap-sass": "^3.0.0",
+    "dropzone": "^4.3.0",
+    "laravel-elixir": "^5.0.0",
+    "laravel-elixir-vueify": "^1.0.3",
+    "vue": "^1.0.26",
+    "vue-resource": "^0.9.3",
+    "vueify": "^8.5.4",
+    "vueify-insert-css": "^1.0.0"
+  }
+}

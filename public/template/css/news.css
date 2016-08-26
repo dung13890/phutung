@@ -1,0 +1,85 @@
+/*#news ---------------------------------------*/
+#news {
+    width: 100%;
+}
+
+#news .big-news {
+    float: left;
+    padding: 10px 0;
+}
+
+#news .big-news .image, #news .big-news .text {
+    float: left;
+    width: 50%;
+}
+
+#news .big-news .image img {
+    width: 100%;
+    border: 2px solid #6d6e70;
+}
+
+#news .big-news .image {
+    position: relative;
+}
+
+#news .big-news .image .caption {
+    width: 100%;
+    padding: 7px;
+    font-size: 13px;
+    background: #333;
+    opacity: 0.9;
+    color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#news .big-news .text {
+    padding-left: 7px;
+}
+
+#news .list-news {
+    float: left;
+    width: 100%;
+    margin-top: 35px;
+}
+
+#news .list-news .news {
+    float: left;
+    width: 100%;
+    padding: 20px 8px 20px 8px;
+    border-bottom: 1px solid #a6a8ab;
+}
+
+#news .list-news .news:first-child {
+    border-top: 1px solid #a6a8ab;
+}
+
+#news .list-news .news:last-child {
+    border-bottom: 0;
+}
+
+#news .list-news .news .image {
+    float: left;
+    width: 25%;
+    display: block;
+}
+
+#news .list-news .news .info {
+    float: left;
+    width: 73%;
+    display: block;
+}
+
+#news .list-news .news .image img {
+    width: 150px;
+    border: 3px solid #ffffff;
+}
+
+#news .list-news .news .info > a {
+    height: 70px;
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #231f20;
+    font-weight: 600;
+}
