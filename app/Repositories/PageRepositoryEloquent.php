@@ -21,4 +21,9 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
     {
     	return $this->model->allTags()->paginate($paginate);
     }
+
+    public function findBySlug($slug)
+    {
+        return $this->model->findBySlug($slug);
+    }
 }

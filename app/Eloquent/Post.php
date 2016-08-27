@@ -21,6 +21,11 @@ class Post extends Abstracts\Sluggable implements TaggableInterface
         'save_to' => 'slug',
     ];
 
+    public function getImageTinyAttribute($value)
+    {
+        return app()['glide.builder']->getUrl($this->image,['p' => 'tiny']);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -29,5 +34,10 @@ class Post extends Abstracts\Sluggable implements TaggableInterface
     public function categories()
     {
     	return $this->belongsToMany(Category::class);
+    }
+
+    public function seo()
+    {
+        return $this->morphOne(Seo::class, 'seoable');
     }
 }

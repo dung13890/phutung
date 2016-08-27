@@ -3,11 +3,14 @@
 namespace App\Jobs\Category;
 
 use App\Jobs\Job;
+use App\Traits\Jobs\UploadToimageTrait;
 use App\Repositories\Contracts\CategoryRepository;
 use Illuminate\Database\Eloquent\Model;
 
 class Update extends Job
 {
+    use UploadToimageTrait;
+
     protected $attributes;
 
     protected $entity;
@@ -28,6 +31,12 @@ class Update extends Job
         if (isset($this->attributes['type'])) {
             unset($this->attributes['type']);
         }
-        return $repository->update($this->entity, $this->attributes);
+
+        if (isset($this->attributes['banner'])) {
+            $banner = $this->uploadToImage($this->attributes['banner'], $this->entity->banner, $this->attributes['slogan']);
+            $this->entity->images()->save($banner);
+        }
+
+        $repository->update($this->entity, $this->attributes);
     }
 }

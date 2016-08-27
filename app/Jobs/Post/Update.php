@@ -36,10 +36,19 @@ class Update extends Job
             }
             $this->attributes['image'] = $this->uploadFile($this->attributes['image'], $path);
         }
+
         $repository->update($this->entity, $this->attributes);
+
+        $this->entity->seo()->update([
+            'title' => $this->attributes['seo_title'],
+            'description' => $this->attributes['seo_description'],
+            'keywords' => $this->attributes['seo_keywords']
+        ]);
+
         if (isset($this->attributes['category_id'])) {
             $this->entity->categories()->sync($this->attributes['category_id']);
         }
+
         if (isset($this->attributes['tags'])) {
             $this->entity->setTags($this->attributes['tags']);
         }

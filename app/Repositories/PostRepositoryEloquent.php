@@ -22,9 +22,9 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
     	return $this->model->allTags()->paginate($paginate);
     }
 
-    public function featured()
+    public function getHome($limit, $columns = ['*'])
     {
-        return $this->model->with('categories')->where('featured',true)->where('locked',false)->orderBy('id','DESC')->first();
+        return $this->model->where('featured', true)->where('locked', false)->orderBy('id', 'DESC')->take($limit)->get($columns);
     }
 
     public function findBySlug($slug)

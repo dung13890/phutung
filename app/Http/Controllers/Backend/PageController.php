@@ -43,7 +43,6 @@ class PageController extends BackendController
     {
     	parent::edit($id);
     	$this->before(__FUNCTION__, $this->compacts['item']);
-        $this->compacts['tags'] = $this->compacts['item']->tags->lists('name','name')->all();
 
         return $this->viewRender();
     }
@@ -55,11 +54,6 @@ class PageController extends BackendController
         $this->before(__FUNCTION__, $entity);
 
         return $this->updateData($data, $service, $entity);
-    }
-
-    public function getTags()
-    {
-        return $this->repository->allTags(9);
     }
 
     public function destroy(PageService $service, $id)

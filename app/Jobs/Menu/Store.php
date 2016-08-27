@@ -40,7 +40,7 @@ class Store extends Job
             $typeName = strtolower(class_basename($type));
             $menu = app(MenuRepository::class)->create([
                 'name' => $value['name'],
-                'src' => parse_url(route("{$typeName}.slug",$type->slug), PHP_URL_PATH)
+                'src' => parse_url(route("{$typeName}.show",$type->slug), PHP_URL_PATH)
             ]);
             $type->menus()->save($menu);
         }

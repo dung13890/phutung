@@ -43,6 +43,11 @@ class AppServiceProvider extends ServiceProvider
                 'base_url' => null,
                 'max_image_size' => 2000 * 2000,
                 'presets' => [
+                    'tiny' => [
+                        'w' => 150,
+                        'h' => 100,
+                        'fit' => 'crop',
+                    ],
                     'thumbnail' => [
                         'w' => 100,
                         'h' => 100,
@@ -64,8 +69,13 @@ class AppServiceProvider extends ServiceProvider
                         'fit' => 'crop',
                     ],
                     'slider' => [
-                        'w' => 1320,
-                        'h' => 460,
+                        'w' => 1920,
+                        'h' => 558,
+                        'fit' => 'crop',
+                    ],
+                    'banner' => [
+                        'w' => 1096,
+                        'h' => 350,
                         'fit' => 'crop',
                     ],
                 ],

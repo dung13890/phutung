@@ -26,63 +26,32 @@
 
     <div class="title news-title">Tin tức & Sự kiện</div>
     <!-- Section -->
+    <?php
+        $postFirst = $posts->shift();
+    ?>
     <div class="section">
         <div class="info">
-            <a href="#" title=""><img src="/template/img/big-news.png" alt="BIG-NEWS"></a>
+            <a href="{{ route('post.show',$postFirst->slug) }}" title="{{ $postFirst->name }}"><img src="{{ ( $postFirst->image ) ? route('image',$postFirst->image_small) :  asset('assets/img/backend/no_image.jpg') }}" ></a>
             <div class="text">
-                <a href="#">Công ty cổ phần thiết bị tân phát tổ chức tham quan du lịch tại đã nằng</a>
-                <p>Hè về là dịp lý tưởng để tổ chức những chuyến du lịch dài ngày.</p>
+                <a href="{{ route('post.show',$postFirst->slug) }}">{{ $postFirst->name }}</a>
+                <p>{{ str_limit($postFirst->intro, 100) }}</p>
             </div>
         </div>
         <div class="list">
+            @foreach ($posts as $post)
             <div class="news">
                 <div class="image">
-                    <a href="#"><img src="/template/img/news-001.png" alt=""></a>
+                    <a href="{{ route('post.show',$post->slug) }}"><img src="{{ ( $post->image ) ? route('image',$post->image_tiny) :  asset('assets/img/backend/no_image.jpg') }}" ></a>
                 </div>
                 <div class="detail">
-                    <a href="#">Công ty Cổ phần thiết bị Tân Phát tổ chức tham quan du lịch tại Đà Nằng</a>
+                    <a href="{{ route('post.show',$post->slug) }}">{{ $post->name }}</a>
                     <div>
-                        <span>22/08/2016 | 111 người đọc</span>
-                        <span class="pull-right"><a href="#">Xem chi tiết &raquo;</a></span>
+                        <span>{{ date('d/m/Y', strtotime($post->created_at)) }}</span>
+                        <span class="pull-right"><a href="{{ route('post.show',$post->slug) }}">Xem chi tiết &raquo;</a></span>
                     </div>
                 </div>
             </div>
-            <div class="news">
-                <div class="image">
-                    <a href="#"><img src="/template/img/news-002.png" alt=""></a>
-                </div>
-                <div class="detail">
-                    <a href="#">Công ty Cổ phần thiết bị Tân Phát tổ chức tham quan du lịch tại Đà Nằng</a>
-                    <div>
-                        <span>22/08/2016 | 111 người đọc</span>
-                        <span class="pull-right"><a href="#">Xem chi tiết &raquo;</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="news">
-                <div class="image">
-                    <a href="#"><img src="/template/img/news-001.png" alt=""></a>
-                </div>
-                <div class="detail">
-                    <a href="#">Công ty Cổ phần thiết bị Tân Phát tổ chức tham quan du lịch tại Đà Nằng</a>
-                    <div>
-                        <span>22/08/2016 | 111 người đọc</span>
-                        <span class="pull-right"><a href="#">Xem chi tiết &raquo;</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="news">
-                <div class="image">
-                    <a href="#"><img src="/template/img/news-002.png" alt=""></a>
-                </div>
-                <div class="detail">
-                    <a href="#">Công ty Cổ phần thiết bị Tân Phát tổ chức tham quan du lịch tại Đà Nằng</a>
-                    <div>
-                        <span>22/08/2016 | 111 người đọc</span>
-                        <span class="pull-right"><a href="#">Xem chi tiết &raquo;</a></span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div><!-- /#home -->

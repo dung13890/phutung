@@ -24,4 +24,9 @@ class Image extends Model
     {
     	return $this->src;
     }
+
+    public function getImageBannerAttribute($value)
+    {
+        return app()['glide.builder']->getUrl($this->image,['p' => 'banner']);
+    }
 }

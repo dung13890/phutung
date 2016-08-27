@@ -22,6 +22,7 @@ class UploadServiceJob extends AbstractServiceJob implements UploadService
 
 	public function update(Model $entity, array $attributes)
 	{
+		return $this->dispatch(new Update($entity, $attributes));
 	}
 
 	public function delete(Model $entity)

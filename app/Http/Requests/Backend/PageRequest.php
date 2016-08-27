@@ -35,6 +35,9 @@ class PageRequest extends Request
         return [
             'name' => "required|min:4|max:255",
             'locked' => 'sometimes|boolean',
+            'image'=> 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+            'seo_title' => "min:2|max:56",
+            'seo_description' => "min:2|max:120"
         ];
     }
 }

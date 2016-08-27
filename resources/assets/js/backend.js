@@ -172,7 +172,7 @@ function renderTable(route, columns, options, callback, selector) {
         }
     };
     options = $.extend(defaultOptions, options);
-    if (typeof callback === 'function') setTimeout(callback, 500);
+    if (typeof callback === 'function') setTimeout(callback, 1000);
     if (route) {
         $(selector).DataTable(options);
         $('.dataTables_filter input').attr('placeholder','Search...');

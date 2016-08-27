@@ -5,6 +5,7 @@ namespace App\Jobs\Post;
 use App\Jobs\Job;
 use App\Traits\Jobs\UploadableTrait;
 use App\Repositories\Contracts\PostRepository;
+//use App\Eloquent\Seo;
 
 class Store extends Job
 {
@@ -26,13 +27,23 @@ class Store extends Job
     {
         $path = strtolower(class_basename($repository->getModel()));
         $this->attributes['user_id'] = \Auth::user()->id;
+
         if (isset($this->attributes['image'])) {
             $this->attributes['image'] = $this->uploadFile($this->attributes['image'], $path);
         }
+
         $post = $repository->create($this->attributes);
+
         $post->categories()->sync($this->attributes['category_id']);
+
         if (isset($this->attributes['tags'])) {
             $post->setTags($this->attributes['tags']);
         }
+
+        $post->seo()->create([
+            'title' => $this->attributes['seo_title'],
+            'description' => $this->attributes['seo_description'],
+            'keywords' => $this->attributes['seo_keywords']
+        ]);
     }
 }

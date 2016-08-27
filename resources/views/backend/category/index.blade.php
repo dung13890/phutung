@@ -15,11 +15,11 @@
     @endif
 
     @if(isset($item))
-    {{ Form::model($item, ['method' => 'PATCH','url' => route('backend.category.update', $item->id), 'role'  => 'form', 'autocomplete'=>'off']) }}
+    {{ Form::model($item, ['method' => 'PATCH','url' => route('backend.category.update', $item->id), 'role'  => 'form', 'files' => true, 'autocomplete'=>'off']) }}
         @include('backend.category._form')
     {{ Form::close() }}
     @else
-    {{ Form::open(['url' => route('backend.category.store'), 'autocomplete'=>'off']) }}
+    {{ Form::open(['url' => route('backend.category.store'), 'files' => true, 'autocomplete'=>'off']) }}
         {{ Form::hidden('type',$type) }}
         @include('backend.category._form')
     {{ Form::close() }}

@@ -26,12 +26,11 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 	Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
 		Route::get('/', ['as'=>'home.index', 'uses'=>'HomeController@index']);
-		Route::get('test', ['as'=>'home.test', 'uses'=>'HomeController@test']);
 		Route::resource('category', 'CategoryController', ['only' => [
             'index', 'show'
         ]]);
-        Route::get('category/{slug}', ['as' => 'category.slug', 'uses' => 'CategoryController@slug']);
-        Route::get('page/{slug}', ['as' => 'page.slug', 'uses' => 'PageController@slug']);
+        Route::get('category/{slug}', ['as' => 'category.show', 'uses' => 'CategoryController@show']);
+        Route::get('page/{slug}', ['as' => 'page.show', 'uses' => 'PageController@show']);
         Route::get('product/{slug}', ['as' => 'product.show', 'uses' => 'ProductController@show']);
         Route::get('post/{slug}', ['as' => 'post.show', 'uses' => 'PostController@show']);
         

@@ -32,6 +32,9 @@ class CategoryController extends BackendController
         $this->compacts['listItems'] = (!isset($this->compacts['item'])) ? 
             $this->compacts['items']->lists('name','id')->prepend('Root',0) :
             $this->compacts['items']->lists('name','id')->forget($this->compacts['item']->id)->prepend('Root',0);
+        if (isset($this->compacts['item'])) {
+            $this->compacts['banner'] = $this->compacts['item']->banner;
+        }
 
         return $this->viewRender();
     }

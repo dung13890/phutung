@@ -51,6 +51,7 @@
 @endpush
 
 @push('form-partials')
+@include('backend._partials.form.seo', ['value' => isset($item->seo) ? $item->seo : null] )
 @include('backend._partials.form.image', ['imageName' => 'image'])
 @include('backend._partials.form.category', ['rootCategories' => $rootCategories])
 @endpush

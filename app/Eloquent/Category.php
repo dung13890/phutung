@@ -37,4 +37,14 @@ class Category extends Abstracts\Sluggable
     {
         return $this->morphMany(Menu::class, 'menuable');
     }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function getBannerAttribute()
+    {
+        return $this->images()->first();
+    }
 }

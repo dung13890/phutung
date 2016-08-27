@@ -9,7 +9,7 @@
             $html .= '<li data-target="#slider" data-slide-to="' . $count . '"></li>';
         ?>
         <div class="item @if ($count++ === 1) active @endif">
-            <img src="{{ route('image', $__slide->image_default) }}" alt="{{ $__slide->name }}"/>
+            <img src="{{ route('image', $__slide->image_slide) }}" alt="{{ $__slide->name }}"/>
         </div>
         @endforeach
     </div>

@@ -18,6 +18,7 @@ class CreatePagesTable extends Migration
             $table->string('slug')->index()->nullable();
             $table->text('intro');
             $table->text('description');
+            $table->string('image');
             $table->boolean('featured')->default(false);
             $table->boolean('locked')->default(false);
             $table->timestamps();

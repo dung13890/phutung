@@ -33,12 +33,14 @@ class CategoryRequest extends Request
             return [
                 'name' => "required|min:4|max:255",
                 'locked' => 'sometimes|boolean',
+                'banner'=> 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             ];
         }
         else{
             return [
                 'name' => "required|min:4|max:255",
                 'locked' => 'sometimes|boolean',
+                'banner'=> 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200', 
                 'type' => "required|in:". implode(',',config('developer.categories'))
             ];
         }

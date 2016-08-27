@@ -31,6 +31,9 @@ class Delete extends Job
         if (!empty($this->entity->image)) {
             $this->destroyFile($this->entity->image);
         }
+        if ($this->entity->seo) {
+            $this->entity->seo()->delete();
+        }
         $repository->delete($this->entity);
     }
 }

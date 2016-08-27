@@ -2,18 +2,21 @@
 
 @push('prestyles')
 {{ HTML::style("vendor/summernote/css/summernote.css") }}
-{{ HTML::style("vendor/select2/css/select2.min.css") }}
+{{ HTML::style('vendor/jasny-bootstrap/css/jasny-bootstrap.min.css') }}
 <style>
-	.select2-container--default .select2-selection--multiple .select2-selection__choice {
-		border-radius: 0;
-	}
-	.select2-container--default .select2-selection--multiple {
-		border-radius: 0;
-		border: 1px solid #ccc;
-	}
 	.animated {
 		animation-fill-mode: none;
 	}
+	.fileinput, .fileinput .fileinput-preview {
+        width: 100%;
+    }
+    .fileinput .fileinput-preview {
+        width: 100%;
+        border-radius: 0;
+    }
+    .fileinput .fileinput-preview img {
+        height: 150px;
+    }
 </style>
 @endpush
 
@@ -24,20 +27,21 @@
 </div>
 
 <div class="form-group">
-	{{ Form::label('tags', 'Từ khóa', ['class'=>'control-label']) }}
-    {!! Form::select('tags[]', isset($tags) ? $tags : [], isset($tags) ? $tags : [], ['class' => 'form-control', 'multiple' => true]) !!}
+	{{ Form::label('banner', 'Banner', ['class'=>'control-label']) }}
+    @include('backend._partials.form.image-form', ['imageName' => 'image','value'=> isset($item) ? $item->image_default : null])
 </div>
 
 
 @endpush
 
 @push('form-partials')
+@include('backend._partials.form.seo', ['value' => isset($item->seo) ? $item->seo : null] )
 @include('backend.page._intro')
 @endpush
 
 @push('prescripts')
 {{ HTML::script('vendor/summernote/js/summernote.min.js') }}
-{{ HTML::script('vendor/select2/js/select2.min.js') }}
+{{ HTML::script('vendor/jasny-bootstrap/js/jasny-bootstrap.min.js') }}
 <script>
 	var route = laroute.route('backend.page.tags');
 	$(function () {
@@ -55,7 +59,6 @@
                 }
             }
 		});
-		select2Init(route);
 	})
 </script>
 @endpush
