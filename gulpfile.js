@@ -51,7 +51,6 @@ elixir(function(mix) {
       ],'public/assets/js/backend/backend.js')
     .version([
         'assets/css/backend/backend.css',
-        'assets/css/frontend/frontend.css',
         'assets/js/backend/backend.js',
         'assets/vue/backend/dropzone.js',
         'assets/js/frontend/frontend.js',

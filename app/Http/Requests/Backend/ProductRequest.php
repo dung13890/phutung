@@ -40,6 +40,8 @@ class ProductRequest extends Request
                 'category_id' => "required|not_in:0",
                 'sale' => "sometimes|boolean",
                 'locked' => 'sometimes|boolean',
+                'seo_title' => "min:2|max:56",
+                'seo_description' => "min:2|max:120",
                 'image'=> 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             ];
         }
@@ -51,6 +53,8 @@ class ProductRequest extends Request
                 'sale' => "sometimes|boolean",
                 'locked' => 'sometimes|boolean',
                 'image'=> 'required|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+                'seo_title' => "min:2|max:56",
+                'seo_description' => "min:2|max:120",
                 'type' => "required|in:". implode(',',config('developer.typeProduct'))
             ];
         }

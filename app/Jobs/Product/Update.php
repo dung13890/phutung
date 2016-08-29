@@ -37,16 +37,33 @@ class Update extends Job
             }
             $this->attributes['image'] = $this->uploadFile($this->attributes['image'], $path);
         }
+
         $repository->update($this->entity, $this->attributes);
+
+        $dataSeo = [
+            'title' => $this->attributes['seo_title'],
+            'description' => $this->attributes['seo_description'],
+            'keywords' => $this->attributes['seo_keywords']
+        ];
+
+        if (!$this->entity->seo) {
+            $this->entity->seo()->create($dataSeo);
+        } else {
+            $this->entity->seo()->update($dataSeo);
+        }
+
         if (isset($this->attributes['category_id'])) {
             $this->entity->categories()->sync($this->attributes['category_id']);
         }
+
         if (isset($this->attributes['property_id'])) {
             $this->entity->properties()->sync($this->attributes['property_id']);
         }
+
         if (isset($this->attributes['tags'])) {
             $this->entity->setTags($this->attributes['tags']);
         }
+
         if (isset($this->attributes['image_id'])) {
             $this->entity->images()->whereNotIn('id', $this->attributes['image_id'])->delete();
             $this->entity->images()->saveMany($imageRepository->find($this->attributes['image_id']));

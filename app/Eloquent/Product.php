@@ -41,8 +41,8 @@ class Product extends Abstracts\Sluggable implements TaggableInterface
         return $this->morphMany(Image::class, 'imageable');
     }
 
-    public function orders()
+    public function seo()
     {
-        return $this->belongsToMany(Order::class)->withPivot('quantity','price','property');
+        return $this->morphOne(Seo::class, 'seoable');
     }
 }

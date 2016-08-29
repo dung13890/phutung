@@ -34,6 +34,9 @@ class Delete extends Job
         if (count($this->entity->images)) {
             $this->entity->images()->delete();
         }
+        if ($this->entity->seo) {
+            $this->entity->seo()->delete();
+        }
         $repository->delete($this->entity);
     }
 }

@@ -41,5 +41,11 @@ class Store extends Job
         if (isset($this->attributes['image_id'])) {
             $product->images()->saveMany($imageRepository->find($this->attributes['image_id']));
         }
+
+        $product->seo()->create([
+            'title' => $this->attributes['seo_title'],
+            'description' => $this->attributes['seo_description'],
+            'keywords' => $this->attributes['seo_keywords']
+        ]);
     }
 }
