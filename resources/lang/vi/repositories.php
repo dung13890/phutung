@@ -30,6 +30,7 @@ return [
     'slide' => 'slide',
     'config' => 'cấu hình',
     'menu' => 'menu',
+    'contact' => 'Liên hệ',
 
 
 
@@ -43,4 +44,7 @@ return [
 
     'updated_unsuccessfully'  => 'Lỗi cập nhật.',
     'updated_successfully'  => 'Cập nhật thành công.',
+
+    'created_contact_unsuccessfully'  => 'Gửi thông tin thành công.',
+    'created_contact_successfully'  => 'Lỗi gửi thông tin thất bại.',
 ];

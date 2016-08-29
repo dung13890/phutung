@@ -131,6 +131,10 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Contracts\SlideRepository::class,
             \App\Repositories\SlideRepositoryEloquent::class
         );
+        $this->app->bind(
+            \App\Repositories\Contracts\ContactRepository::class,
+            \App\Repositories\ContactRepositoryEloquent::class
+        );
 
         $this->app->bind(
             \App\Services\Contracts\UserService::class,
@@ -179,6 +183,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             \App\Services\Contracts\SlideService::class,
             \App\Services\SlideServiceJob::class
+        );
+        $this->app->bind(
+            \App\Services\Contracts\ContactService::class,
+            \App\Services\ContactServiceJob::class
         );
 
         $this->composers();

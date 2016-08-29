@@ -68,6 +68,14 @@ var plugins = {
       in: 'select2/dist/css/select2.min.css',
       out: 'select2/css/select2.min.css'
     },
+    {
+      in: 'toastr/toastr.min.js',
+      out: 'toastr/toastr.min.js'
+    },
+    {
+      in: 'toastr/toastr.min.css',
+      out: 'toastr/toastr.min.css'
+    },
   ],
   vue: [
     {

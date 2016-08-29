@@ -41,6 +41,7 @@
                 </li>
                 @endforeach
             </ul>
+            <nav>{!!$posts->render()!!}</nav>
         </div>
     </div>
 </div>

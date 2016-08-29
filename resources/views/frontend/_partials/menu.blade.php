@@ -15,6 +15,9 @@
                     <a href="{{ $__menu->src }}" title="{{ $__menu->name }}">{{ $__menu->name }}</a>
                 </li>
                 @endforeach
+                <li @if (parse_url(Request::url(), PHP_URL_PATH) === '/lien-he') class="active" @endif >
+                    <a href="/lien-he" title="Liên hệ">Liên hệ</a>
+                </li>
             </ul>
         </div><!-- /.links -->
 

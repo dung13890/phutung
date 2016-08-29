@@ -4,11 +4,11 @@
         <ul class="list-unstyled">
         	@foreach ($categories as $category)
             <li>
-            	<a href="{{ route(strtolower(class_basename($category)) . '.show',$category->slug) }}">{{ $category->name }}</a>
+            	<a href="{{ route(strtolower(class_basename($category)) . '.show', $category->slug) }}">{{ $category->name }}</a>
             	@if (count($category->children))
             		<ul class="submenu">
             		@foreach ($category->children as $children)
-                        <li><a href="{{ route(strtolower(class_basename($category)) . '.show',$category->slug) }}">{{ $children->name }}</a></li>
+                        <li><a href="{{ route(strtolower(class_basename($category)) . '.show', $children->slug) }}">{{ $children->name }}</a></li>
             		@endforeach
                     </ul>
             	@endif

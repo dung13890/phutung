@@ -30,7 +30,7 @@ class CategoryController extends FrontendController
     			break;
     		case 'product':
             case 'accessary':
-    			$this->compacts['products'] = $this->compacts['item']->products;
+    			$this->compacts['products'] = $this->compacts['item']->products()->paginate(4);
     			$this->view = 'product.category';
     			break;
     		

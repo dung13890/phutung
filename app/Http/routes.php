@@ -26,9 +26,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 	Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
 		Route::get('/', ['as'=>'home.index', 'uses'=>'HomeController@index']);
-		Route::resource('category', 'CategoryController', ['only' => [
-            'index', 'show'
-        ]]);
+		Route::get('lien-he', ['as' => 'home.contact', 'uses' => 'HomeController@contact']);
+		Route::POST('contact', ['as' => 'home.post.contact', 'uses' => 'HomeController@postContact']);
         Route::get('category/{slug}', ['as' => 'category.show', 'uses' => 'CategoryController@show']);
         Route::get('page/{slug}', ['as' => 'page.show', 'uses' => 'PageController@show']);
         Route::get('product/{slug}', ['as' => 'product.show', 'uses' => 'ProductController@show']);
@@ -65,6 +64,9 @@ Route::group(['middlewareGroups' => ['web']], function () {
 		Route::get('page/data', ['as'=>'backend.page.data', 'uses'=>'PageController@getData']);
 		Route::get('page/tags', ['as'=>'backend.page.tags', 'uses'=>'PageController@getTags']);
 		Route::resource('page', 'PageController');
+
+		Route::get('contact/data', ['as'=>'backend.contact.data', 'uses'=>'ContactController@getData']);
+		Route::resource('contact', 'ContactController', ['only' => ['index', 'show', 'destroy']]);
 
 		Route::get('product/data/type/{type}', ['as'=>'backend.product.data.type', 'uses'=>'ProductController@getDataWithType']);
 		Route::get('product/type/{type}', ['as'=>'backend.product.type', 'uses'=>'ProductController@type']);

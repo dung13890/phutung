@@ -84,7 +84,7 @@
             </li>
             @endcan
             @can('config-read')
-            <li class="treeview @if (Request::is('backend/config*') || Request::is('backend/slide')) active @endif">
+            <li class="treeview @if (Request::is('backend/config*') || Request::is('backend/slide*') || Request::is('backend/contact*')) active @endif">
                 <a href="#">
                     <i class="fa fa-cogs"></i> <span>Cài đặt</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -95,6 +95,7 @@
                     @can('slide-read')
                     <li @if (Request::is('backend/slide*')) class="active" @endif><a href="{{route('backend.slide.index')}}"><i class="fa fa-circle-o"></i> Slide</a></li>
                     @endcan
+                    <li @if (Request::is('backend/contact*')) class="active" @endif><a href="{{route('backend.contact.index')}}"><i class="fa fa-circle-o"></i> Liên hệ</a></li>
                 </ul>
             </li>
             @endcan

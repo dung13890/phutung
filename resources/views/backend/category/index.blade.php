@@ -1,4 +1,4 @@
-@extends('layouts.menu.index')
+produ@extends('layouts.menu.index')
 
 @push('menu.left')
 <div class="box-body">
