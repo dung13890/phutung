@@ -59,7 +59,7 @@
                 </div>
             </div>
             @endforeach
-            <nav>{!!$posts->render()!!}</nav>
+            <nav>{!! $posts->render() !!}</nav>
         </div>
 
 		@endif

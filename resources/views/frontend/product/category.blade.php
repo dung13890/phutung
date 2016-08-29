@@ -41,7 +41,7 @@
                 </li>
                 @endforeach
             </ul>
-            <nav>{!!$posts->render()!!}</nav>
+            <nav>{!!$products->render()!!}</nav>
         </div>
     </div>
 </div>
