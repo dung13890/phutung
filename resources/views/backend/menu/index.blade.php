@@ -18,7 +18,8 @@
         <li class="active"><a href="#link" data-toggle="tab" >Link</a></li>
         <li><a href="#post" data-toggle="tab" >Post</a></li>
         <li><a href="#page" data-toggle="tab" >Page</a></li>
-        <li><a href="#product" data-toggle="tab" >Product</a></li>
+        <li><a href="#product" data-toggle="tab" >Thiết bị</a></li>
+        <li><a href="#accessary" data-toggle="tab" >Phụ tùng</a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active block-style" id="link">
@@ -32,6 +33,9 @@
         </div>
         <div class="tab-pane block-style" id="product">
             @include('backend.menu._select',['listSelect'=>$categoryProduct])
+        </div>
+        <div class="tab-pane block-style" id="accessary">
+            @include('backend.menu._select',['listSelect'=>$categoryAccessary])
         </div>
 
         <hr>

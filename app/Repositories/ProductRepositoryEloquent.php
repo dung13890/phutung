@@ -12,9 +12,9 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
         parent::__construct($model);
     }
 
-    public function datatables($columns = ['*'],  $with = [])
+    public function getDataWithType($type, $columns = ['*'])
     {
-    	return $this->model->with($with)->orderBy('id', 'desc')->get($columns);
+        return $this->model->where('type', $type)->orderBy('id', 'DESC')->get($columns);
     }
 
     public function allTags($paginate = 9)

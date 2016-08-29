@@ -25,6 +25,7 @@
     <div class="clear"></div>
 
     <div class="title news-title">Tin tức & Sự kiện</div>
+    @if (count($posts))
     <!-- Section -->
     <?php
         $postFirst = $posts->shift();
@@ -54,5 +55,6 @@
             @endforeach
         </div>
     </div>
+    @endif
 </div><!-- /#home -->
 @endsection

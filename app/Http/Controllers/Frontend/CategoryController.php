@@ -29,6 +29,7 @@ class CategoryController extends FrontendController
     			$this->view = 'post.category';
     			break;
     		case 'product':
+            case 'accessary':
     			$this->compacts['products'] = $this->compacts['item']->products;
     			$this->view = 'product.category';
     			break;

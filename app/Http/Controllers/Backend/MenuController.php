@@ -33,7 +33,8 @@ class MenuController extends BackendController
     	parent::index();
     	$this->compacts['action'] = 'Order sort';
     	$this->compacts['categoryPost'] = $this->categoryRepository->getDataWithType('post',$this->dataCategory)->lists('name','id');
-    	$this->compacts['categoryProduct'] = $this->categoryRepository->getDataWithType('product',$this->dataCategory)->lists('name','id');
+        $this->compacts['categoryProduct'] = $this->categoryRepository->getDataWithType('product',$this->dataCategory)->lists('name','id');
+    	$this->compacts['categoryAccessary'] = $this->categoryRepository->getDataWithType('accessary',$this->dataCategory)->lists('name','id');
     	$this->compacts['pages'] = $this->pageRepository->all($this->dataCategory)->lists('name','id');
     	$this->compacts['items'] = $this->repository->getRoot($this->dataSelect);
     	return $this->viewRender();
@@ -53,6 +54,7 @@ class MenuController extends BackendController
     	try {
     		$service->serialize($data);
             $this->e['message'] = $this->trans('object_updated_successfully');
+            \Cache::forget('__menus');
     	} catch (\Exception $e) {
     		$this->e['code'] = 100;
     		$this->e['message'] = $this->trans('object_updated_unsuccessfully');

@@ -10,7 +10,7 @@ use App\Services\Contracts\ProductService;
 
 class ProductController extends BackendController
 {
-    protected $dataSelect = ['id','name','price','image','locked','sale','price_sale'];
+    protected $dataSelect = ['id', 'name', 'price', 'image', 'locked'];
 
     protected $dataCategory = ['id', 'name', 'parent_id'];
 
@@ -20,8 +20,6 @@ class ProductController extends BackendController
 
     protected $propertyRepository;
 
-    protected $typeCategory = 'product';
-
     public function __construct(ProductRepository $product, CategoryRepository $category, PropertyRepository $property)
     {
         parent::__construct($product);
@@ -29,39 +27,12 @@ class ProductController extends BackendController
         $this->propertyRepository = $property;
     }
 
-    public function getData($items = null)
+    public function getDataWithType($type)
     {
-        //$this->before('index');
-        return \Datatables::of($items ? $items : $this->repository->datatables($this->dataSelect))
-        ->editColumn('image', function ($item) {
-            return $item->image_thumbnail;
-        })
-        ->editColumn('price', function ($item) {
-        	return number_format( ($item->sale) ?  $item->price_sale : $item->price);
-        })
-        ->addColumn('actions', function ($item) {
-            $actions = [];
-                if ($this->before('show', $item, false)) {
-                    $actions['show'] = [
-                        'uri' => route($this->viewPrefix.$this->repositoryName.'.show', $item->id),
-                        'label' => $this->trans('show'),
-                    ];
-                }
-                if ($this->before('edit',$item, false)) {
-                    $actions['edit'] = [
-                        'uri' => route($this->viewPrefix.$this->repositoryName.'.edit', $item->id),
-                        'label' => $this->trans('edit'),
-                    ];
-                }
-                if ($this->before('delete',$item, false)) {
-                    $actions['delete'] = [
-                        'uri' => route($this->viewPrefix.$this->repositoryName.'.destroy', $item->id),
-                        'label' => $this->trans('delete'),
-                    ];
-                }
+        $this->before('index');
+        $items = $this->repository->getDataWithType($type, $this->dataSelect);
 
-            return $actions;
-        })->make(true);
+        return $this->getData($items);
     }
 
     public function getDataWithCategory($category)
@@ -73,12 +44,18 @@ class ProductController extends BackendController
         return $this->getData($items);
     }
 
-    public function index()
+    public function type($type)
     {
-    	$this->before(__FUNCTION__);
-        parent::index();
-        $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->typeCategory, $this->dataCategory);
-        
+        $this->before('index');
+        if (!in_array($type, config('developer.typeProduct'))) {
+            abort(403);
+        }
+        $this->view = $this->repositoryName.'.index';
+        $this->compacts['resource'] = 'product';
+        $this->compacts['heading'] = ucfirst($this->trans($type));
+        $this->compacts['type'] = $type;
+        $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($type, $this->dataCategory);
+
         return $this->viewRender();
     }
 
@@ -87,16 +64,23 @@ class ProductController extends BackendController
         $this->before('index');
         $this->compacts['category'] = $this->categoryRepository->findOrFail($category);
         
-        return $this->index();
+        return $this->type($this->compacts['category']->type);
     }
 
-    public function create()
+    public function createWithType($type)
     {
-    	$this->before(__FUNCTION__);
-        parent::create();
-        $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->typeCategory, $this->dataCategory);
+        $this->before(__FUNCTION__);
+        if (!in_array($type, config('developer.typeProduct'))) {
+            abort(403);
+        }
+        $this->view = $this->repositoryName.'.create';
+        $this->compacts['heading'] = 'Thêm ' . $this->trans($type);
+        $this->compacts['resource'] = $this->repositoryName;
+        $this->compacts['type'] = $type;
+        $this->compacts['listGuarantee'] = config('developer.guarantee');
+        $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($type, $this->dataCategory);
         $this->compacts['groupProperty'] = $this->propertyRepository->all($this->dataProperty)->groupBy('key');
-
+        
         return $this->viewRender();
     }
 
@@ -105,14 +89,16 @@ class ProductController extends BackendController
     	$this->before(__FUNCTION__);
         $data = $request->all();
         
-        return $this->storeData($data, $service);
+        return $this->storeData($data, $service, route('backend.product.type', $request->type));
     }
 
     public function edit($id)
     {
     	parent::edit($id);
         $this->before(__FUNCTION__, $this->compacts['item']);
-        $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->typeCategory, $this->dataCategory);
+        $this->compacts['type'] = $this->compacts['item']->type;
+        $this->compacts['listGuarantee'] = config('developer.guarantee');
+        $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->compacts['type'], $this->dataCategory);
         $this->compacts['groupProperty'] = $this->propertyRepository->all($this->dataProperty)->groupBy('key');
         $this->compacts['tags'] = $this->compacts['item']->tags->lists('name','name')->all();
         $this->compacts['item']->load('images');
@@ -126,7 +112,7 @@ class ProductController extends BackendController
         $entity = $this->repository->findOrFail($id);
         $this->before(__FUNCTION__, $entity);
 
-        return $this->updateData($data, $service, $entity);
+        return $this->updateData($data, $service, $entity, route('backend.product.type', $entity->type));
     }
 
     public function destroy(ProductService $service, $id)

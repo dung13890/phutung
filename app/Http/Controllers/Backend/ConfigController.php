@@ -37,6 +37,7 @@ class ConfigController extends BackendController
         if (!$data['box_right_image'] || !isset($data['box_right_image'])) {
             unset($data['box_right_image']);
         }
+        \Cache::flush();
         
         return $this->storeData($data, $service);
     }

@@ -17,14 +17,8 @@ class ProductRequest extends Request
         if ( !isset($all['locked']) || !$all['locked']) {
             $all['locked'] = false;
         }
-        if ( !isset($all['sale']) || !$all['sale']) {
-            $all['sale'] = false;
-        }
         if ( isset($all['price']) && !empty($all['price']) ) {
             $all['price'] = str_replace(',','',$all['price']);
-        }
-        if ( isset($all['price_sale']) && !empty($all['price_sale']) ) {
-            $all['price_sale'] = str_replace(',','',$all['price_sale']);
         }
         $this->replace($all);
         
@@ -57,6 +51,7 @@ class ProductRequest extends Request
                 'sale' => "sometimes|boolean",
                 'locked' => 'sometimes|boolean',
                 'image'=> 'required|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+                'type' => "required|in:". implode(',',config('developer.typeProduct'))
             ];
         }
     }

@@ -28,6 +28,7 @@
 </script>
 @endpush
 
+
 @push('index-table-thead')
 <thead>
     <tr>

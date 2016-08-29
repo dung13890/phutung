@@ -32,13 +32,25 @@ class PostRequest extends Request
      */
     public function rules()
     {
-        return [
-            'name' => "required|min:4|max:255",
-            'category_id' => "required",
-            'locked' => 'sometimes|boolean',
-            'image'=> 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
-            'seo_title' => "min:2|max:56",
-            'seo_description' => "min:2|max:120",
-        ];
+        if($this->method()=='PATCH')
+        {
+            return [
+                'name' => "required|min:4|max:255",
+                'category_id' => "required",
+                'locked' => 'sometimes|boolean',
+                'seo_title' => "min:2|max:56",
+                'seo_description' => "min:2|max:120",
+                'image' => 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+            ];
+        } else {
+            return [
+                'name' => "required|min:4|max:255",
+                'category_id' => "required",
+                'locked' => 'sometimes|boolean',
+                'seo_title' => "min:2|max:56",
+                'seo_description' => "min:2|max:120",
+                'image' => 'required|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+            ];
+        }
     }
 }

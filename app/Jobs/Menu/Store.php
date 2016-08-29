@@ -27,6 +27,7 @@ class Store extends Job
                 $this->type($pageRepository, $this->attributes['value']);
                 break;
             case 'post':
+            case 'accessary':
             case 'product':
                 $this->type($categoryRepository, $this->attributes['value']);
                 break;

@@ -2,7 +2,7 @@
 
 @push('prescripts')
 <script>
-	var datatableRoute = '{!! isset($category->id) ? route('backend.product.data.category', $category->id) : route('backend.product.data') !!}';
+	var datatableRoute = '{!! isset($category->id) ? route('backend.product.data.category', $category->id) : route('backend.product.data.type', $type) !!}';
 	var datatableColumns = [
         { data: 'id', name: 'id', searchable: false },
         { data: 'image', name: 'image'},
@@ -15,8 +15,9 @@
     	createdRow: function ( row, data, index ) {
             $('td', row).eq(0).css('display','none');
             if (data.actions.show) {
-                $('td',row).eq(1).html('<img width="30" class="img-thumbnail" src="'+laroute.route('image', {path:data.image})+'"/>');
+                $('td',row).eq(1).html('<img width="30" class="img-thumbnail" src="'+laroute.route('image', {path:data.image_thumbnail})+'"/>');
             }
+            $('td', row).eq(3).html( localeString(data.price));
             $('td', row).eq(4).html( data.locked == 0 ? '<span class="label label-primary">Actived</span>' : '<span class="label label-danger">Locked</span>');
             var actions = data.actions;
             if (!actions || actions.length < 1) { return; }
@@ -40,12 +41,20 @@
         <i class="caret"></i>
     </button>
     <ul class="dropdown-menu pull-left">
-        <li><a href="{!!route('backend.product.index')!!}">Tất cả</a></li>
+        <li><a href="{!!route('backend.product.type', $type)!!}">Tất cả</a></li>
         @foreach ($rootCategories as $rootCategory)
-        <li><a href="{{route('backend.product.category', $rootCategory->id)}}">{{$rootCategory->name}}</a></li>
+        <li><a href="{{ route('backend.product.category', $rootCategory->id) }}">{{ $rootCategory->name }}</a></li>
         @endforeach
     </ul>
 </div>
+@endpush
+
+@push('box-header-right')
+    @can ('product-write')
+    <div class="pull-right">
+        <a href="{{ route('backend.product.create.type', $type) }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tạo mới</a>
+    </div>
+    @endcan
 @endpush
 
 @push('index-table-thead')

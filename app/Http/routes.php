@@ -66,11 +66,13 @@ Route::group(['middlewareGroups' => ['web']], function () {
 		Route::get('page/tags', ['as'=>'backend.page.tags', 'uses'=>'PageController@getTags']);
 		Route::resource('page', 'PageController');
 
+		Route::get('product/data/type/{type}', ['as'=>'backend.product.data.type', 'uses'=>'ProductController@getDataWithType']);
+		Route::get('product/type/{type}', ['as'=>'backend.product.type', 'uses'=>'ProductController@type']);
 		Route::get('product/data/category/{category}', ['as'=>'backend.product.data.category', 'uses'=>'ProductController@getDataWithCategory']);
 		Route::get('product/category/{category}', ['as'=>'backend.product.category', 'uses'=>'ProductController@category']);
-		Route::get('product/data', ['as'=>'backend.product.data', 'uses'=>'ProductController@getData']);
 		Route::get('product/tags', ['as'=>'backend.product.tags', 'uses'=>'ProductController@getTags']);
-		Route::resource('product', 'ProductController');
+		Route::get('product/create/{type}', ['as'=>'backend.product.create.type', 'uses'=>'ProductController@createWithType']);
+		Route::resource('product', 'ProductController', [ 'only' => ['show', 'store', 'edit','update', 'destroy']]);
 
 		Route::resource('property', 'PropertyController', ['only' => [
                 'index','edit','store','update','destroy'

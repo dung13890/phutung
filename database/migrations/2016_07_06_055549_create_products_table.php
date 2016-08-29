@@ -14,14 +14,16 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('code');
+            $table->string('name', 100);
+            $table->string('code', 50);
             $table->string('slug')->index()->nullable();
             $table->string('image');
             $table->text('description');
             $table->integer('price');
-            $table->integer('price_sale');
-            $table->boolean('sale')->default(false);
+            $table->string('type', 20)->default('product');
+            $table->string('locale', 10);
+            $table->string('provider', 150);
+            $table->tinyInteger('guarantee')->default(1);
             $table->boolean('locked')->default(false);
             $table->boolean('featured')->default(false);
             $table->integer('user_id')->unsigned()->index();

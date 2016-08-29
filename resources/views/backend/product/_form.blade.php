@@ -18,6 +18,7 @@
 @endpush
 
 @push('form-fields')
+{{ Form::hidden('type',$type) }}
 <div class="form-group">
 	<div class="row">
 		<div class="col-sm-6">
@@ -32,21 +33,21 @@
 </div>
 
 <div class="form-group">
-	{{ Form::label('name', 'Price / Sale', ['class'=>'control-label']) }}
 	<div class="row">
 		<div class="col-sm-6">
-			<div class="input-group">
-				<span class="input-group-addon">{{ Form::radio('sale',false,true) }}</span>
-    			{{ Form::text('price',null, ['class' => 'form-control currency-mask', 'placeholder' => 'Price Listed']) }}
-			</div>
+			{{ Form::label('price', 'Price', ['class'=>'control-label']) }}
+    		{{ Form::text('price',null, ['class' => 'form-control currency-mask']) }}
 		</div>
 		<div class="col-sm-6">
-			<div class="input-group">
-				<span class="input-group-addon">{{ Form::radio('sale',true) }}</span>
-				{{ Form::text('price_sale',null, ['class' => 'form-control currency-mask', 'placeholder' => 'Price Sale']) }}
-			</div>
+			{{ Form::label('name', 'Bảo hành', ['class'=>'control-label']) }}
+    		{{ Form::select('guarantee',$listGuarantee, null,['class' => 'form-control']) }}
 		</div>
 	</div>
+</div>
+
+<div class="form-group">
+	{{ Form::label('provider', 'Nhà cung cấp', ['class'=>'control-label']) }}
+    {{ Form::text('provider',null, ['class' => 'form-control', 'placeholder' => 'Nhà cung cấp']) }}
 </div>
 
 <div class="form-group">

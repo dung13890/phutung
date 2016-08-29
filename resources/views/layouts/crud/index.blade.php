@@ -45,6 +45,7 @@
                     </div>
                     @endcan
                     @endif
+                    @stack('box-header-right')
                 </div>
                 <div class="box-body">
                     <div class="table-responsive">

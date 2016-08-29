@@ -1,7 +1,7 @@
 <div id="menu">
     <div id="menu-center">
         <div class="logo pull-left">
-            <a href="#" title="Trang chủ">
+            <a href="/" title="Trang chủ">
                 <img src="{{ route('image', $configs['logo']) }}" alt="LOGO"/>
             </a>
         </div><!-- /.logo -->
