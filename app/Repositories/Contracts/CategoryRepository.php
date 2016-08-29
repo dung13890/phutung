@@ -9,4 +9,6 @@ interface CategoryRepository extends AbstractRepository
 	public function getRootWithType($type, $columns = ['*']);
 
 	public function findBySlug($slug);
+
+	public function getFirstWithType($type, $columns = ['*']);
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Repositories\Contracts\ConfigRepository;
 use App\Repositories\Contracts\SlideRepository;
 use App\Repositories\Contracts\MenuRepository;
+use App\Repositories\Contracts\CategoryRepository;
 use League\Glide\ServerFactory;
 use League\Glide\Responses\LaravelResponseFactory;
 use League\Glide\Urls\UrlBuilderFactory;

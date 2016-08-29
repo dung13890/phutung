@@ -27,4 +27,9 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
         return $this->model->findBySlug($slug);
     }
 
+    public function getFirstWithType($type, $columns = ['*'])
+    {
+        return $this->model->where('parent_id', 0)->where('type', $type)->first();
+    }
+
 }

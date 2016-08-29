@@ -22,17 +22,17 @@
                     <i class="fa fa-cubes"></i> <span>Sản phẩm</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    @can('product-read')
-                    <li @if (Request::is('backend/product/type/product*')) class="active" @endif><a href="{{route('backend.product.type', 'product')}}"><i class="fa fa-circle-o"></i> Thiết bị</a></li>
-                    @endcan
                     @can('category-read')
                     <li @if (Request::is('backend/category/type/product*')) class="active" @endif><a href="{{route('backend.category.type','product')}}"><i class="fa fa-circle-o"></i> Danh mục thiết bị</a></li>
                     @endcan
                     @can('product-read')
-                    <li @if (Request::is('backend/product/type/accessary*')) class="active" @endif><a href="{{route('backend.product.type', 'accessary')}}"><i class="fa fa-circle-o"></i> Phụ tùng </a></li>
+                    <li @if (Request::is('backend/product/type/product*')) class="active" @endif><a href="{{route('backend.product.type', 'product')}}"><i class="fa fa-circle-o"></i> Thiết bị</a></li>
                     @endcan
                     @can('category-read')
                     <li @if (Request::is('backend/category/type/accessary*')) class="active" @endif><a href="{{route('backend.category.type','accessary')}}"><i class="fa fa-circle-o"></i> Danh mục phụ tùng</a></li>
+                    @endcan
+                    @can('product-read')
+                    <li @if (Request::is('backend/product/type/accessary*')) class="active" @endif><a href="{{route('backend.product.type', 'accessary')}}"><i class="fa fa-circle-o"></i> Phụ tùng </a></li>
                     @endcan
                     @can('property-read')
                     <li @if (Request::is('backend/property*')) class="active" @endif><a href="{{route('backend.property.index')}}"><i class="fa fa-circle-o"></i> Thuộc tính</a></li>
@@ -53,11 +53,11 @@
                     <i class="fa fa-book"></i> <span>Bài viết</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
+                    @can('category-read')
+                    <li @if (Request::is('backend/category/type/post*')) class="active" @endif><a href="{{route('backend.category.type','post')}}"><i class="fa fa-circle-o"></i> Danh mục bài viết</a></li>
+                    @endcan
                     @can('post-read')
                     <li @if (Request::is('backend/post*')) class="active" @endif><a href="{{route('backend.post.index')}}"><i class="fa fa-circle-o"></i> Danh sách</a></li>
-                    @endcan
-                    @can('category-read')
-                    <li @if (Request::is('backend/category/type/post*')) class="active" @endif><a href="{{route('backend.category.type','post')}}"><i class="fa fa-circle-o"></i> Danh mục</a></li>
                     @endcan
                 </ul>
             </li>

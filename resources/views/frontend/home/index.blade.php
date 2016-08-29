@@ -8,10 +8,10 @@
 <div id="home">
     <!-- Section-half -->
     <div class="section-half">
-        <div class="title">{{ $configs['box_left_name'] }}</div>
+        <div class="title"><a style="color:#fff;" href="{{ $configs['box_left_link'] }}">{{ $configs['box_left_name'] }}</a></div>
     </div>
     <div class="section-half">
-        <div class="title">{{ $configs['box_right_name'] }}</div>
+        <div class="title"><a style="color:#fff;" href="{{ $configs['box_right_link'] }}">{{ $configs['box_right_name'] }}</a></div>
     </div>
     <div class="clear"></div>
 
@@ -24,7 +24,7 @@
     </div>
     <div class="clear"></div>
 
-    <div class="title news-title">Tin tức & Sự kiện</div>
+    <div class="title news-title"><a style="color:#fff;" href="{{ route('category.show', $postCategory->slug) }}">Tin tức & Sự kiện</a></div>
     @if (count($posts))
     <!-- Section -->
     <?php
