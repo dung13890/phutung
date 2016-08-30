@@ -96,6 +96,7 @@
                     <li @if (Request::is('backend/slide*')) class="active" @endif><a href="{{route('backend.slide.index')}}"><i class="fa fa-circle-o"></i> Slide</a></li>
                     @endcan
                     <li @if (Request::is('backend/contact*')) class="active" @endif><a href="{{route('backend.contact.index')}}"><i class="fa fa-circle-o"></i> Liên hệ</a></li>
+                    <li @if (Request::is('backend/position*')) class="active" @endif><a href="{{route('backend.position.index')}}"><i class="fa fa-circle-o"></i> Chi nhánh</a></li>
                 </ul>
             </li>
             @endcan

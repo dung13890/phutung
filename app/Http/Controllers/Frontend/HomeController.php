@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Repositories\Contracts\PostRepository;
 use App\Repositories\Contracts\ContactRepository;
 use App\Repositories\Contracts\CategoryRepository;
+use App\Repositories\Contracts\PositionRepository;
 use App\Http\Requests\Frontend\ContactRequest;
 
 class HomeController extends FrontendController
@@ -17,13 +18,14 @@ class HomeController extends FrontendController
 
     protected $categoryRepository;
 
-    public function __construct(PostRepository $post, ContactRepository $contact, CategoryRepository $category)
+    public function __construct(PostRepository $post, ContactRepository $contact, CategoryRepository $category, PositionRepository $position)
     {
         parent::__construct();
 
         $this->postRepository = $post;
         $this->contactRepository = $contact;
         $this->categoryRepository = $category;
+        $this->positionRepository = $position;
     }
 
     public function index()
@@ -39,6 +41,7 @@ class HomeController extends FrontendController
     public function contact()
     {
         $this->compacts['heading'] = 'Liên hệ';
+        $this->compacts['positions'] = $this->positionRepository->getPosition(5);
         $this->view = 'home.contact';
 
         return $this->viewRender();

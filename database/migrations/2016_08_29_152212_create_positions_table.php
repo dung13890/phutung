@@ -18,6 +18,7 @@ class CreatePositionsTable extends Migration
             $table->string('address', 150);
             $table->string('phone', 50);
             $table->string('email', 50);
+            $table->boolean('locked')->default(false);
             $table->timestamps();
         });
     }

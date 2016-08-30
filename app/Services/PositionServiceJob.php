@@ -2,14 +2,14 @@
 
 namespace App\Services;
 
-use App\Services\Contracts\ContactService;
+use App\Services\Contracts\PositionService;
 use Illuminate\Database\Eloquent\Model;
-use App\Jobs\Contact\Store;
-use App\Jobs\Contact\Update;
-use App\Jobs\Contact\Delete;
-use App\Jobs\Contact\Destroy;
+use App\Jobs\Position\Store;
+use App\Jobs\Position\Update;
+use App\Jobs\Position\Delete;
+use App\Jobs\Position\Destroy;
 
-class ContactServiceJob extends AbstractServiceJob implements ContactService
+class PositionServiceJob extends AbstractServiceJob implements PositionService
 {
 	public function store(array $attributes)
 	{
@@ -18,7 +18,7 @@ class ContactServiceJob extends AbstractServiceJob implements ContactService
 
 	public function update(Model $entity, array $attributes)
 	{
-		//return $this->dispatch(new Update($entity, $attributes));
+		return $this->dispatch(new Update($entity, $attributes));
 	}
 
 	public function delete(Model $entity)

@@ -65,6 +65,9 @@ Route::group(['middlewareGroups' => ['web']], function () {
 		Route::get('page/tags', ['as'=>'backend.page.tags', 'uses'=>'PageController@getTags']);
 		Route::resource('page', 'PageController');
 
+		Route::get('position/data', ['as'=>'backend.position.data', 'uses'=>'PositionController@getData']);
+		Route::resource('position', 'PositionController');
+
 		Route::get('contact/data', ['as'=>'backend.contact.data', 'uses'=>'ContactController@getData']);
 		Route::resource('contact', 'ContactController', ['only' => ['index', 'show', 'destroy']]);
 

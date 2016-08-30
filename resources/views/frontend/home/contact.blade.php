@@ -118,14 +118,16 @@
                     Thông tin liên lạc
                     <span><img src="/assets/img/icon-address.png" style="width:26px;height:37px;"/></span>
                 </h3>
+                @foreach ($positions as $position)
                 <div class="branch">
                     <div class="title text-center">
-                        <strong>Trụ sở chính - Hà Nội</strong>
+                        <strong>{{ $position->name }}</strong>
                     </div>
-                    <p class="address">168 Phan Trọng Tuệ - Thanh Trì - Hà Nội</p>
-                    <p class="phone">ĐT: 04 3681 2043 / Fax: 04 3681 2042</p>
-                    <p class="email">Email: <a href="#">tanphat@tanphat.com</a></p>
+                    <p class="address">{{ $position->address }}</p>
+                    <p class="phone">ĐT: {{ $position->phone }}</p>
+                    <p class="email">Email: <a href="mailto:{{ $position->email }}">{{ $position->email }}</a></p>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
