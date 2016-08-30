@@ -3,6 +3,7 @@
 /public/vendor
 /public/assets
 /public/build
+/public/template
 /resources/assets/bower
 Homestead.yaml
 Homestead.json
