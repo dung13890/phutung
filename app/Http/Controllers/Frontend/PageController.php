@@ -23,7 +23,7 @@ class PageController extends FrontendController
             $this->compacts['keywords'] = $this->compacts['item']->seo->keywords;
         }
 
-        $this->compacts['pages'] = $this->repository->all($this->dataSelect);
+        $this->compacts['pages'] = $this->repository->getPage(5, $this->dataSelect);
         $this->view = 'page.show';
 
         return $this->viewRender();

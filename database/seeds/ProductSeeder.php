@@ -14,11 +14,17 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $categories = app(Category::class)->where('type','product');
+        $prodCategories = app(Category::class)->where('type','product');
+        $acceCategories = app(Category::class)->where('type','accessary');
         $properties = app(Property::class)->all();
-        factory(Product::class, 20)->create()->each(function($product) use ($categories, $properties) {
-        	$product->categories()->attach($categories->lists('id')->random(5)->all());
-        	$product->properties()->attach($properties->lists('id')->random(5)->all());
+        factory(Product::class, 40)->create()->each(function($product) use ($prodCategories, $acceCategories, $properties) {
+            $product->properties()->attach($properties->lists('id')->random(5)->all());
+        	if ($product->type == 'product') {
+                $product->categories()->attach($prodCategories->lists('id')->random(5)->all());
+            }
+            if ($product->type == 'accessary') {
+                $product->categories()->attach($acceCategories->lists('id')->random(5)->all());
+            }
         });
     }
 }

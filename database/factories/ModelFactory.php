@@ -43,6 +43,7 @@ $factory->define(App\Eloquent\Page::class, function (Faker\Generator $faker) {
         'intro' => $faker->text,
         'description' => $faker->paragraph(15, true),
         'featured' => rand(0,1),
+        'image' => '2016/08/backend/2/image/banner-004.jpg',
         'locked' => rand(0,1),
     ];
 });
@@ -55,7 +56,7 @@ $factory->define(App\Eloquent\Post::class, function (Faker\Generator $faker) {
         'user_id' => 2,
         'featured' => rand(0,1),
         'locked' => rand(0,1),
-        'image' => '2016/07/backend/2/product/thumb-1.jpg',
+        'image' => '2016/08/backend/2/post/big-news.jpg',
 
     ];
 });
@@ -64,11 +65,10 @@ $factory->define(App\Eloquent\Product::class, function (Faker\Generator $faker) 
     return [
         'name' => $faker->sentence(10, false),
         'description' => $faker->paragraph(15, true),
+        'type' => $faker->randomElement(config('developer.typeProduct')),
         'code' => $faker->ean8,
         'price' => $faker->randomNumber(6),
-        'sale' => rand(0,1),
-        'image' => '2016/07/backend/2/product/thumb-1.jpg',
-        'price_sale' => $faker->randomNumber(5),
+        'image' => '2016/08/backend/2/post/anonymous.jpg',
         'user_id' => 2,
         'locked' => rand(0,1),
         'featured' => rand(0,1),

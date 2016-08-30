@@ -15,6 +15,9 @@
     #news .big-news {
         width: 100%;
     }
+    #news .list-news .news:last-of-type {
+        border:0;
+    }
 </style>
 @endpush
 

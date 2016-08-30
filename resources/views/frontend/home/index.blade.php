@@ -23,8 +23,9 @@
         </ul>
     </div>
     <div class="clear"></div>
-
+    @if ($postCategory)
     <div class="title news-title"><a style="color:#fff;" href="{{ route('category.show', $postCategory->slug) }}">Tin tức & Sự kiện</a></div>
+    @endif
     @if (count($posts))
     <!-- Section -->
     <?php
