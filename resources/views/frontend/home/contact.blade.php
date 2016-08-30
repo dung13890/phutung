@@ -54,42 +54,42 @@
                     <div class="form-group">
                         <label for="" class="col-lg-2">Chủ đề:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('topic', null, ['class' => 'form-control', 'placeholder' => 'Chủ đề']) }}
+                            {{ Form::text('topic', null, ['class' => 'form-control input-sm', 'placeholder' => 'Chủ đề']) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="" class="col-lg-2">Họ và tên:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Họ và tên']) }}
+                            {{ Form::text('name', null, ['class' => 'form-control input-sm', 'placeholder' => 'Họ và tên']) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="" class="col-lg-2">Địa chỉ:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('address', null, ['class' => 'form-control', 'placeholder' => 'Địa chỉ']) }}
+                            {{ Form::text('address', null, ['class' => 'form-control input-sm', 'placeholder' => 'Địa chỉ']) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="" class="col-lg-2">Điện thoại:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('phone', null, ['class' => 'form-control', 'placeholder' => 'Điện thoại']) }}
+                            {{ Form::text('phone', null, ['class' => 'form-control input-sm', 'placeholder' => 'Điện thoại']) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="" class="col-lg-2">Fax:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('fax', null, ['class' => 'form-control', 'placeholder' => 'Fax']) }}
+                            {{ Form::text('fax', null, ['class' => 'form-control input-sm', 'placeholder' => 'Fax']) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="" class="col-lg-2">Email:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) }}
+                            {{ Form::text('email', null, ['class' => 'form-control input-sm', 'placeholder' => 'Email']) }}
                         </div>
                     </div>
                     <div class="form-group">
@@ -97,7 +97,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-lg-12">
-                            {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Nội dung...', 'rows' => 5]) }}
+                            {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Nội dung...', 'rows' => 4]) }}
                         </div>
                     </div>
 
