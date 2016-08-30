@@ -29,6 +29,6 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
 
     public function getPage($limit, $columns = ['*'])
     {
-        return $this->model->where('locked',false)->orderBy('id','DESC')->take($limit)->get($columns);
+        return $this->model->where('locked',false)->take($limit)->get($columns);
     }
 }
