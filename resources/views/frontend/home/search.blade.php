@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @push('prestyles')
-{{ HTML::style("template/css/contact.css") }}
+{{ HTML::style("template/css/search.css") }}
 <style>
 	#header {
 		background: url("{!! asset('assets/img/backend/banner-004.jpg') !!} ") no-repeat; background-size: 100% 100%;
@@ -32,14 +32,49 @@
     </div>
 </div><!-- /#header -->
 
-<div id="contact">
+<div id="search">
     <div class="row">
         <div class="col-lg-12">
             <div class="form">
                 <h3 class="title">
-                    Tìm đưọc {{ count($products['product']) }} thiết bị và {{ count($products['accessary']) }} phụ tùng
+                    Tìm được {{ $products->total() }} thiết bị và phụ tùng
                 </h3>
-                
+
+                @if ($products)
+                <?php
+                    $groupProduct = $products->groupBy('type');
+                ?>
+                <h4 class="text-uppercase"> Thiết bị</h3>
+                <div class="item">
+                    <ul class="list list-inline">
+                        @foreach ($groupProduct['product'] as $product)
+                        <li>
+                            <a href="{{ route('product.show', $product->slug) }}"><img src="{{ ( $product->image ) ? route('image',$product->image_small) :  asset('assets/img/backend/no_image.jpg') }}"/></a>
+                            <p>Bảo hành: {{ config("developer.guarantee.{$product->guarantee}") }}</p>
+                            <div class="name"><a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}"> {{ str_limit($product->name, 15) }}</a></div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <br>
+                <br>
+                <h4 class="text-uppercase"> Phụ kiện</h3>
+                <div class="item">
+                    <ul class="list list-inline">
+                        @foreach ($groupProduct['accessary'] as $accessary)
+                        <li>
+                            <a href="{{ route('product.show', $accessary->slug) }}"><img src="{{ ( $accessary->image ) ? route('image', $accessary->image_small) :  asset('assets/img/backend/no_image.jpg') }}"/></a>
+                            <p>Mã: {{ $accessary->code }}</p>
+                            <div class="name">
+                                <a title="{{ $accessary->name }}" href="{{ route('product.show', $accessary->slug) }}"> {{ str_limit($accessary->name, 15) }}</a>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+
+                <nav>{!! $products->appends('search', $value)->links() !!}</nav>
+                @endif
             </div>
         </div>
     </div>

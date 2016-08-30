@@ -53,7 +53,7 @@ class HomeController extends FrontendController
     {
         $this->view = "Thông tin tìm kiếm";
         $this->compacts['value'] = $request->search;
-        $this->compacts['products'] = $this->productRepository->search($this->compacts['value'])->groupBy('type');
+        $this->compacts['products'] = $this->productRepository->search($this->compacts['value']);
         $this->view = 'home.search';
 
         return $this->viewRender();

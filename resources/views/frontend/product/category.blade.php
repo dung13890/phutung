@@ -37,7 +37,7 @@
                     <p><strong>Mã Sản phẩm:</strong> {{ $product->code }}</p>
                     <p>Nhà cung cấp: {{ $product->provider }}</p>
                     <p>Bảo hành: {{ config("developer.guarantee.{$product->guarantee}") }}</p>
-                    <div class="name"><a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}"> {{ str_limit($product->name, 16) }}</a></div>
+                    <div class="name"><a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}"> {{ str_limit($product->name, 30) }}</a></div>
                 </li>
                 @endforeach
             </ul>
