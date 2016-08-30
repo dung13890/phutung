@@ -2,8 +2,13 @@
 
 @push('form-fields')
 <div class="form-group">
-	{{ Form::label('name', 'Name', ['class'=>'control-label']) }}
+	{{ Form::label('name', 'Tên trụ sở', ['class'=>'control-label']) }}
 	{{ Form::text('name',null, ['class' => 'form-control', 'placeholder' => 'required: your name.']) }}
+</div>
+
+<div class="form-group">
+	{{ Form::label('address', 'Địa chỉ', ['class'=>'control-label']) }}
+	{{ Form::text('address',null, ['class' => 'form-control']) }}
 </div>
 
 <div class="form-group">
@@ -17,10 +22,6 @@
     {{ Form::email('email',null, ['class' => 'form-control', 'placeholder' => 'required: email@domain.com']) }}
 </div>
 
-<div class="form-group">
-	{{ Form::label('address', 'Address', ['class'=>'control-label']) }}
-	{{ Form::text('address',null, ['class' => 'form-control']) }}
-</div>
 
 <div class="form-group">
 	<div class="checkbox">

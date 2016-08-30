@@ -36,4 +36,14 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
     {
         return $this->model->where('locked', false)->orderByRaw("RAND()")->take($limit)->get($columns);
     }
+
+    public function search($value, $limit = 10, $columns = ['*'])
+    {
+        return $this->model->where('name','LIKE','%'.$value.'%')
+        ->orWhere('code','LIKE','%'.$value.'%')
+        ->orWhere('provider','LIKE','%'.$value.'%')
+        ->orWhere('guarantee','LIKE','%'.$value.'%')
+        ->orWhere('price','LIKE','%'.$value.'%')
+        ->orderBy('id','DESC')->take($limit)->get($columns);
+    }
 }

@@ -22,10 +22,10 @@
         </div><!-- /.links -->
 
         <div class="form">
-            <form action="">
-                <input type="text" placeholder="Từ khóa"/>
-                <input type="submit" value=""/>
-            </form>
+            {{ Form::open(['url' => route('home.search'),'method' => 'GET']) }}
+                <input type="text" name="search" placeholder="Từ khóa" >
+                <input type="submit" value="">
+            {{ Form::close() }}
         </div><!-- /.form -->
     </div><!-- /#menu-center -->
 </div><!-- /#menu -->

@@ -3,13 +3,13 @@
 namespace App\Jobs\Category;
 
 use App\Jobs\Job;
-use App\Traits\Jobs\UploadToimageTrait;
+use App\Traits\Jobs\UploadToImageTrait;
 use App\Repositories\Contracts\CategoryRepository;
 use Illuminate\Database\Eloquent\Model;
 
 class Update extends Job
 {
-    use UploadToimageTrait;
+    use UploadToImageTrait;
 
     protected $attributes;
 

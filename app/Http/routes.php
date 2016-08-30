@@ -27,6 +27,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
 		Route::get('/', ['as'=>'home.index', 'uses'=>'HomeController@index']);
 		Route::get('lien-he', ['as' => 'home.contact', 'uses' => 'HomeController@contact']);
+		Route::get('tim-kiem', ['as' => 'home.search', 'uses' => 'HomeController@search']);
 		Route::POST('contact', ['as' => 'home.post.contact', 'uses' => 'HomeController@postContact']);
         Route::get('category/{slug}', ['as' => 'category.show', 'uses' => 'CategoryController@show']);
         Route::get('page/{slug}', ['as' => 'page.show', 'uses' => 'PageController@show']);
