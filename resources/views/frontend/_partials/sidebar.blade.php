@@ -1,9 +1,16 @@
+@push('prestyles')
+<style>
+    #header .links > ul > li.active > a{
+        color:#CD181F;
+    }
+</style>
+@endpush
 <div>
     <div class="links pull-left">
-        <div class="name">{{ str_limit($categoryName, 20) }}</div>
+        <div class="name">{{ str_limit($categories->first()->name, 20) }}</div>
         <ul class="list-unstyled">
         	@foreach ($categories as $category)
-            <li>
+            <li @if ($item->slug === $category->slug || (($item->parent) && $item->parent->slug === $category->slug)) class="active"  @endif >
             	<a href="{{ route(strtolower(class_basename($category)) . '.show', $category->slug) }}">{{ $category->name }}</a>
             	@if (count($category->children))
             		<ul class="submenu">

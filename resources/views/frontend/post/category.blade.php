@@ -26,7 +26,7 @@
     <div class="title text-center">
         <h1 class="page-title">{{ $item->name }}</h1>
     </div>
-    @include('frontend._partials.sidebar', ['categoryName' => $item->name, 'categories' => $categories])
+    @include('frontend._partials.sidebar', ['item' => $item, 'categories' => $categories])
 </div><!-- /#header -->
 
 <div id="news">
