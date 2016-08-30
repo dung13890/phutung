@@ -31,4 +31,14 @@ class ContactRequest extends Request
             'content' => 'min:2|max:300'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'topic.required'  =>  'Chủ đề không được bỏ trống.',
+            'name.required'  =>  'Tên của bạn không được bỏ trống.',
+            'email.required'  =>  'Email của bạn không được bỏ trống.',
+            'email.email' => 'Bạn phải nhập đúng định dạng email'
+        ];
+    }
 }

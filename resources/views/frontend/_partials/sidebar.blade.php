@@ -7,15 +7,17 @@
 @endpush
 <div>
     <div class="links pull-left">
-        <div class="name">{{ str_limit($categories->first()->name, 20) }}</div>
+        @if (count($categories))
+        <div class="name">{{ str_limit($categories->shift()->name, 20) }}</div>
+        @endif
         <ul class="list-unstyled">
         	@foreach ($categories as $category)
             <li @if ($item->slug === $category->slug || (($item->parent) && $item->parent->slug === $category->slug)) class="active"  @endif >
-            	<a href="{{ route(strtolower(class_basename($category)) . '.show', $category->slug) }}">{{ $category->name }}</a>
+            	<a title="{{ $category->name }}" href="{{ route(strtolower(class_basename($category)) . '.show', $category->slug) }}">{{ $category->name }}</a>
             	@if (count($category->children))
             		<ul class="submenu">
             		@foreach ($category->children as $children)
-                        <li><a href="{{ route(strtolower(class_basename($category)) . '.show', $children->slug) }}">{{ $children->name }}</a></li>
+                        <li><a title="{{ $children->name }}" href="{{ route(strtolower(class_basename($category)) . '.show', $children->slug) }}">{{ $children->name }}</a></li>
             		@endforeach
                     </ul>
             	@endif
