@@ -26,7 +26,7 @@
 @section('page-content')
 <div id="header">
     <div class="title text-center">
-        <h1 class="page-title">Liên hệ</h1>
+        <h1 class="page-title">Thông tin liên hệ</h1>
     </div>
     <div class="slogan pull-right">
         <span >Tân phát hân hạng được hỗ trợ quý khách</span>

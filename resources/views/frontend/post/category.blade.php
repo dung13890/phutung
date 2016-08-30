@@ -15,6 +15,9 @@
     #news .big-news {
         width: 100%;
     }
+    #news .big-news .caption a{
+        color:#fff;
+    }
     #news .list-news .news:last-of-type {
         border:0;
     }
@@ -38,8 +41,8 @@
 		?>
         <div class="big-news">
             <div class="image">
-                <a href="{{ route('post.show', $postFirst->slug) }}" title="{{ $postFirst->name }}"><img src="{{ ( $postFirst->image ) ? route('image',$postFirst->image_small) :  asset('assets/img/backend/no_image.jpg') }}" /></a>
-                <div class="caption">{{$postFirst->name }}</div>
+                <a href="{{ route('post.show', $postFirst->slug) }}" title="{{ $postFirst->name }}"><img src="{{ ( $postFirst->image ) ? route('image',$postFirst->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{$postFirst->name }}" /></a>
+                <div class="caption"><a href="{{ route('post.show', $postFirst->slug) }}" > {{$postFirst->name }}</a></div>
             </div>
             <div class="text">
                 <p>{{ $postFirst->intro }}</p>
@@ -50,7 +53,7 @@
             <div class="news">
                 <div class="image">
                     <a href="{{ route('post.show',$post->slug) }}" title="Xem chi tiết">
-                        <img src="{{ ( $post->image ) ? route('image',$post->image_tiny) :  asset('assets/img/backend/no_image.jpg') }}" />
+                        <img src="{{ ( $post->image ) ? route('image',$post->image_tiny) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $post->name }}" />
                     </a>
                 </div>
                 <div class="info">

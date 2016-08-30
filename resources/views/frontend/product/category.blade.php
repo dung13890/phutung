@@ -33,7 +33,7 @@
             <ul class="list list-inline">
                 @foreach($products as $product)
                 <li>
-                    <a href="{{ route('product.show', $product->slug) }}"><img src="{{ ( $product->image ) ? route('image',$product->image_small) :  asset('assets/img/backend/no_image.jpg') }}"/></a>
+                    <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}"><img src="{{ ( $product->image ) ? route('image',$product->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $product->name }}" /></a>
                     <p><strong>Mã Sản phẩm:</strong> {{ $product->code }}</p>
                     <p>Nhà cung cấp: {{ $product->provider }}</p>
                     <p>Bảo hành: {{ config("developer.guarantee.{$product->guarantee}") }}</p>

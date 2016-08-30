@@ -3,6 +3,10 @@
     #header .links > ul > li.active > a{
         color:#CD181F;
     }
+    #header .links > ul > li > a:hover{
+        color:#CD181F;
+        text-decoration: none;
+    }
 </style>
 @endpush
 <div>
