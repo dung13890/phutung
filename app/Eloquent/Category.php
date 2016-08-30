@@ -33,6 +33,11 @@ class Category extends Abstracts\Sluggable
         return $this->belongsToMany(Product::class)->orderBy('id','DESC');
     }
 
+    public function sameProducts()
+    {
+        return $this->products()->orderByRaw("RAND()")->take(8);
+    }
+
     public function menus()
     {
         return $this->morphMany(Menu::class, 'menuable');

@@ -25,7 +25,7 @@ class CategoryController extends FrontendController
     	
     	switch ($this->compacts['item']->type) {
     		case 'post':
-    			$this->compacts['posts'] = $this->compacts['item']->posts()->paginate(12, $this->dataPost);
+    			$this->compacts['posts'] = $this->compacts['item']->posts()->paginate(5, $this->dataPost);
     			$this->view = 'post.category';
     			break;
     		case 'product':

@@ -115,6 +115,9 @@
     color: #231f20;
     font-weight: 600;
 }
+#home .list .news .detail > a:hover {
+    color: #ec1c24;
+}
 
 #home .list .news .detail > div {
     font-size: 13px;
