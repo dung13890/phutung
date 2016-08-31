@@ -46,7 +46,7 @@
             </ul>
             <nav>{!! $products->render() !!}</nav>
         </div>
-        @elseif (count($categories) > 1)
+        @elseif (count($categories) > 2)
         @foreach ($categories->random(3) as $category)
         <div class="item">
             <div class="bigimg">

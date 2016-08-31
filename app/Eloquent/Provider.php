@@ -14,4 +14,9 @@ class Provider extends Model
     ];
 
     protected $appends = ['image_thumbnail','image_small'];
+
+    public function getImageTinyAttribute($value)
+    {
+        return app()['glide.builder']->getUrl($this->image,['p' => 'tiny']);
+    }
 }

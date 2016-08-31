@@ -96,7 +96,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-lg-12">
-                            {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => trans('respositories.content'), 'rows' => 4]) }}
+                            {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => trans('repositories.content'), 'rows' => 4]) }}
                         </div>
                     </div>
 

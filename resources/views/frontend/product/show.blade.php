@@ -55,7 +55,7 @@
                 <h3 class="code"><span class="text-uppercase">{{ $item->code }}</span></h3>
 
                 <div class="provider">
-                    {{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }} <img src="{{ (isset($item->provider)) ? route('image', $item->provider->image_tiny) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }}"/>
+                    {{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }} <img src="{{ (isset($item->provider) && $item->provider->image) ? route('image', $item->provider->image_tiny) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }}"/>
                 </div>
 
                 <div class="desc">
@@ -105,7 +105,7 @@
                     	@foreach ($randomProducts as $same)
                         <li>
                             <a href="{{ route('product.show', $same->slug) }}" title="{{ $same->name }}">
-                                <img src="{{ ( $same->image ) ? route('image',$same->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $same->name }}"/>
+                                <img src="{{ ( $same->image ) ? route('image', $same->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $same->name }}"/>
                             </a>
                             <p style="color:#e06b6b;">Model {{ str_limit($same->model, 20) }}</p>
                             <p>{{ str_limit($same->name, 20) }}</p>

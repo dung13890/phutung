@@ -8,13 +8,25 @@
         <div class="links pull-right">
             <ul class="list-unstyled">
                 <li @if (!parse_url(Request::url(), PHP_URL_PATH)) class="active" @endif >
-                    <a href="/" title="{{ trans('repositories.contact') }}">{{ trans('repositories.home') }}</a>
+                    <a href="/" title="{{ trans('repositories.home') }}">{{ trans('repositories.home') }}</a>
                 </li>
+                <li @if (parse_url(Request::url(), PHP_URL_PATH) === '/category/thiet-bi') class="active" @endif >
+                    <a href="/category/thiet-bi" title="{{ trans('repositories.product') }}">{{ trans('repositories.product') }}</a>
+                </li>
+                <li @if (parse_url(Request::url(), PHP_URL_PATH) === '/category/phu-tung') class="active" @endif >
+                    <a href="/category/phu-tung" title="{{ trans('repositories.accessary') }}">{{ trans('repositories.accessary') }}</a>
+                </li>
+                <li @if (parse_url(Request::url(), PHP_URL_PATH) === '/category/tin-tuc') class="active" @endif >
+                    <a href="/category/tin-tuc" title="{{ trans('repositories.post') }}">{{ trans('repositories.post') }}</a>
+                </li>
+
+                {{--
                 @foreach ($__menus as $__menu)
                 <li @if (parse_url(Request::url(), PHP_URL_PATH) === $__menu->src )  class="active" @endif>
                     <a href="{{ $__menu->src }}" title="{{ $__menu->name }}">{{ $__menu->name }}</a>
                 </li>
                 @endforeach
+                --}}
                 <li @if (parse_url(Request::url(), PHP_URL_PATH) === '/lien-he') class="active" @endif >
                     <a href="/lien-he" title="{{ trans('repositories.contact') }}">{{ trans('repositories.contact') }}</a>
                 </li>
