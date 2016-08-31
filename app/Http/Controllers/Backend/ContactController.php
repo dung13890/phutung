@@ -7,7 +7,7 @@ use App\Services\Contracts\ContactService;
 
 class ContactController extends BackendController
 {
-	protected $dataSelect = ['id','topic','name', 'phone', 'email','created_at'];
+	protected $dataSelect = ['id','topic','name', 'phone', 'address', 'email','created_at'];
 
 	public function __construct(ContactRepository $contact)
     {

@@ -15,7 +15,7 @@
     var datatableOptions = {
     	createdRow: function ( row, data, index ) {
             $('td', row).eq(0).css('display','none');
-            $('td', row).eq(1).html('<a title="'+ data.address +'" href="'+laroute.route('backend.conact.show', {contact:data.id})+'">'+data.name+'</a>');
+            $('td', row).eq(1).html('<a title="'+ data.address +'" href="'+laroute.route('backend.contact.show', {contact:data.id})+'">'+data.topic+'</a>');
             var actions = data.actions;
             if (!actions || actions.length < 1) { return; }
             var actionHtml = $('td', row).eq(6);
