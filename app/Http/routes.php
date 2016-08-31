@@ -70,7 +70,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 		Route::resource('position', 'PositionController');
 
 		Route::get('contact/data', ['as'=>'backend.contact.data', 'uses'=>'ContactController@getData']);
-		Route::resource('contact', 'ContactController', ['only' => ['index', 'show', 'destroy']]);
+		Route::resource('contact', 'ContactController', ['only' => ['index', 'edit', 'show', 'destroy']]);
 
 		Route::get('product/data/type/{type}', ['as'=>'backend.product.data.type', 'uses'=>'ProductController@getDataWithType']);
 		Route::get('product/type/{type}', ['as'=>'backend.product.type', 'uses'=>'ProductController@type']);

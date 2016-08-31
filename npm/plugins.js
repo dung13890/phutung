@@ -61,6 +61,10 @@ var plugins = {
       out: 'summernote/css/font'
     },
     {
+      in: 'magnific-popup/dist',
+      out: 'magnific-popup'
+    },
+    {
       in: 'select2/dist/js/select2.min.js',
       out: 'select2/js/select2.min.js'
     },

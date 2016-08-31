@@ -46,12 +46,25 @@
 </div>
 
 <div class="form-group">
+	<div class="row">
+		<div class="col-sm-6">
+			{{ Form::label('model', 'Model', ['class'=>'control-label']) }}
+    		{{ Form::text('model',null, ['class' => 'form-control']) }}
+		</div>
+		<div class="col-sm-6">
+			{{ Form::label('origin', 'Xuất xứ', ['class'=>'control-label']) }}
+    		{{ Form::text('origin', null, ['class' => 'form-control']) }}
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
 	{{ Form::label('provider', 'Nhà cung cấp', ['class'=>'control-label']) }}
     {{ Form::text('provider',null, ['class' => 'form-control', 'placeholder' => 'Nhà cung cấp']) }}
 </div>
 
 <div class="form-group">
-	{{ Form::label('description', 'Content', ['class'=>'control-label']) }}
+	{{ Form::label('description', 'Chi tiết', ['class'=>'control-label']) }}
     {{ Form::textarea('description',null, ['class' => 'form-control textarea-summernote']) }}
 </div>
 

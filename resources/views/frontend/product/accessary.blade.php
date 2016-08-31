@@ -63,6 +63,7 @@
         </div>
         @endforeach
         @endif
+        <nav>{!! $products->render() !!}</nav>
     </div>
 </div>
 @endsection

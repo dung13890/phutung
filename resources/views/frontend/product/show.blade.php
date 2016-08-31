@@ -2,6 +2,7 @@
 
 @push('prestyles')
 {{ HTML::style("template/css/product.css") }}
+{{ HTML::style("vendor/magnific-popup/magnific-popup.css") }}
 <style>
 	#header {
 		background: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ") no-repeat; background-size: 100% 100%;
@@ -37,14 +38,18 @@
         		<ul class="list-unstyled">
         			@foreach ($item->images->take(3) as $image)
         			<li>
-                        <img src="{{ ( $image->image ) ? route('image',$image->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $image->name }}" class="img-responsive"/>
+                        <a class="image-thumb" href="javascript:;" 
+                            data-default="{{ ( $image->image ) ? route('image',$image->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
+                            data-medium="{{ ( $image->image ) ? route('image',$image->image_medium) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $image->image ) ? route('image',$image->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $image->name }}" class="img-responsive"/></a>
                     </li>
                     @endforeach
         		</ul>
         	</div>
         	@endif
         	<div class="product-bigimage">
-                <img src="{{ ( $item->image ) ? route('image',$item->image_medium) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
+                <a class="popup-link" href="{{ ( $item->image ) ? route('image', $item->image_default) :  asset('assets/img/backend/no_image.jpg') }}" title="{{ $item->name }}">
+                    <img src="{{ ( $item->image ) ? route('image',$item->image_medium) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
+                </a>
             </div>
             <div class="product-info">
                 <h3 class="code"><span class="text-uppercase">{{ $item->code }}</span></h3>
@@ -55,10 +60,10 @@
 
                 <div class="desc">
                     <p>
-                        <strong>Model: </strong> G-SCAN 2 ASEAN KIT
+                        <strong>Model: </strong> {{ $item->model }}
                     </p>
                     <p>
-                        <strong>Xuất xứ: </strong> GIT Korea
+                        <strong>Xuất xứ: </strong> {{ $item->origin }}
                     </p>
                     <p>
                         <strong>Bảo hành: </strong> {{ config("developer.guarantee.{$item->guarantee}") }}
@@ -70,18 +75,7 @@
                 </div>
 
                 <div class="like-share">
-                    <div class="item">
-                        <a href="#">
-                            <img src="/assets/img/i-fb-like.png" alt="icon fb like"/> Thích
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="#">
-                            Chia sẻ
-                            <img src="/assets/img/i-fb-share.png" alt="icon fb share"/>
-                            <img src="/assets/img/i-google-share.png" alt="icon google share"/>
-                        </a>
-                    </div>
+                    <div class="fb-like" data-href="{{ Request::url() }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
                 </div>
             </div>
         </div>
@@ -90,17 +84,11 @@
             <ul class="tabs">
                 <li class="active">
                     <a href="#">Chi tiết</a>
-                </li>
-                <li>
-                    <a href="#">Videos</a>
-                </li>
-                <li>
-                    <a href="#">Hướng dẫn</a>
+                    <span class="right"></span>
                 </li>
             </ul>
             <div class="content">
-                <p>Từ xưa đến nay, Jose Mourinho vốn có tiếng là dị ứng với các ngôi sao và bởi thế ông chẳng mấy khi chiêu mộ những ngôi sao lớn. Vậy mà ở Man United, Mourinho đã đốc thúc CLB ký với Ibra và Pogba, những ngôi sao lớn với tầm ảnh hưởng bao trùm, qua đó có thể thấy những đổi thay mạnh mẽ đang xảy ra trong trái tim và trong khối óc “Người đặc biệt”.</p>
-                <p>Từ xưa đến nay, Jose Mourinho vốn có tiếng là dị ứng với các ngôi sao và bởi thế ông chẳng mấy khi chiêu mộ những ngôi sao lớn. Vậy mà ở Man United, Mourinho đã đốc thúc CLB ký với Ibra và Pogba, những ngôi sao lớn với tầm ảnh hưởng bao trùm, qua đó có thể thấy những đổi thay mạnh mẽ đang xảy ra trong trái tim và trong khối óc “Người đặc biệt”.</p>
+            {!! $item->description !!}
             </div>
         </div>
 
@@ -108,6 +96,7 @@
             <ul class="tabs">
                 <li class="active">
                     <a href="{{ route('category.show', $category->slug) }}">Sản phẩm cùng danh mục</a>
+                    <span class="right"></span>
                 </li>
             </ul>
             <div class="content">
@@ -115,21 +104,21 @@
                     <ul>
                     	@foreach ($randomProducts as $same)
                         <li>
-                            <a href="{{ route('product.show', $same->slug) }}" title="$same->name">
+                            <a href="{{ route('product.show', $same->slug) }}" title="{{ $same->name }}">
                                 <img src="{{ ( $same->image ) ? route('image',$same->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $same->name }}"/>
                             </a>
-                            <p style="color:#e06b6b;">{{ str_limit($same->name, 20) }}</p>
-                            <p>Bộ VXL Core i3 6100U</p>
+                            <p style="color:#e06b6b;">Model {{ str_limit($same->model, 20) }}</p>
+                            <p>{{ str_limit($same->name, 20) }}</p>
                             <a class="btn-detail" href="{{ route('product.show', $same->slug) }}" title="Xem chi tiết">Xem chi tiết</a>
                         </li>
                         @endforeach
                     </ul>
                 </div>
                 <div class="change">
-                    <a href="#">
+                    <a href="javascript:;" class="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
-                    <a href="#">
+                    <a href="javascript:;" class="next">
                         <span class="glyphicon glyphicon-chevron-right"></span>
                     </a>
                 </div>
@@ -139,3 +128,49 @@
 </div>
 
 @endsection
+
+@push('prescripts')
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+{{ HTML::script('vendor/magnific-popup/jquery.magnific-popup.min.js') }}
+<script type="text/javascript">
+    $('#product .product-tabs .content .change .prev').click(function() {
+        var marginLeft = $('#product .product-tabs .content .slider ul').css('margin-left');
+        marginLeft = marginLeft.replace('px', '');
+        marginLeft = parseInt(marginLeft) + 190;
+        if (marginLeft <= 0) {
+            $('#product .product-tabs .content .slider ul').animate({'margin-left': marginLeft});
+        }
+    });
+
+    $('#product .product-tabs .content .change .next').click(function() {
+        var items = $('#product .product-tabs .content .slider ul li').length;
+        var maxWidth = parseInt(items) * 190 - (190 * 3);
+        var marginLeft = $('#product .product-tabs .content .slider ul').css('margin-left');
+        marginLeft = marginLeft.replace('px', '');
+        marginLeft = parseInt(marginLeft - 190);
+        if ((maxWidth + marginLeft) != 0) {
+            $('#product .product-tabs .content .slider ul').animate({'margin-left': marginLeft});
+        }
+    });
+    $('a.image-thumb').on('click', function(e) {
+        e.preventDefault();
+        var imageDefault = $(this).data('default');
+        var imageMedium = $(this).data('medium');
+        $('.product-bigimage').find('a').attr('href', imageDefault);
+        $('.product-bigimage').find('img').attr('src', imageMedium);
+
+    });
+    $(function () {
+        $('.popup-link').magnificPopup({type:'image'});
+    })
+</script>
+@endpush

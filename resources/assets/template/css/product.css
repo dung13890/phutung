@@ -167,6 +167,7 @@
 }
 
 #product .product-tabs .content .slider ul {
+    width: 5000px;
     margin: 0;
     padding: 0;
 }
@@ -176,10 +177,9 @@
     list-style: none;
     display: inline-block;
     width: 179px;
-    /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);*/
     border: 1px solid #dddddd;
     text-align: center;
-    margin-right: 0.6%;
+    margin-right: 7px;
 }
 
 #product .product-tabs .content .slider ul li img {
@@ -193,4 +193,16 @@
     display: block;
     padding: 5px 0;
     color: #000000;
+}
+
+#product .product-tabs .tabs li span {
+    float: left;
+    width: 30px;
+    height: 40px;
+    display: block;
+}
+
+#product .product-tabs .tabs li.active span.right {
+    background: url('../img/bg-product-title-active.png') no-repeat;
+    background-size: 100% 100%;
 }

@@ -18,6 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('code', 50);
             $table->string('slug')->index()->nullable();
             $table->string('image');
+            $table->string('model');
+            $table->string('origin');
             $table->text('description');
             $table->integer('price');
             $table->string('type', 20)->default('product');
