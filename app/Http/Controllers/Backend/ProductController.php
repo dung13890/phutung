@@ -11,7 +11,7 @@ use App\Services\Contracts\ProductService;
 
 class ProductController extends BackendController
 {
-    protected $dataSelect = ['id', 'name', 'price', 'image', 'locked'];
+    protected $dataSelect = ['id', 'name', 'price', 'image', 'locale','locked'];
 
     protected $dataCategory = ['id', 'name', 'parent_id'];
 
@@ -59,6 +59,8 @@ class ProductController extends BackendController
         $this->view = $this->repositoryName.'.index';
         $this->compacts['resource'] = 'product';
         $this->compacts['heading'] = ucfirst($this->trans($type));
+        $this->compacts['listLocale'] = config('developer.locale');
+        $this->compacts['listLocale'][null] = 'All';
         $this->compacts['type'] = $type;
         $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($type, $this->dataCategory);
 
@@ -84,6 +86,7 @@ class ProductController extends BackendController
         $this->compacts['resource'] = $this->repositoryName;
         $this->compacts['type'] = $type;
         $this->compacts['listGuarantee'] = config('developer.guarantee');
+        $this->compacts['listLocale'] = config('developer.locale');
         $this->compacts['listProvider'] = $this->providerRepository->all($this->dataProvider)->lists('name','id')->prepend('Chọn','0');
         $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($type, $this->dataCategory);
         $this->compacts['groupProperty'] = $this->propertyRepository->all($this->dataProperty)->groupBy('key');
@@ -104,6 +107,7 @@ class ProductController extends BackendController
     	parent::edit($id);
         $this->before(__FUNCTION__, $this->compacts['item']);
         $this->compacts['type'] = $this->compacts['item']->type;
+        $this->compacts['listLocale'] = config('developer.locale');
         $this->compacts['listGuarantee'] = config('developer.guarantee');
         $this->compacts['listProvider'] = $this->providerRepository->all($this->dataProvider)->lists('name','id')->prepend('Chọn','0');
         $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->compacts['type'], $this->dataCategory);

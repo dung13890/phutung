@@ -68,6 +68,10 @@
 			{{ Form::label('provider_id', 'Nhà cung cấp', ['class'=>'control-label']) }}
     		{{ Form::select('provider_id', $listProvider, null, ['class' => 'form-control select2-provider']) }}
 		</div>
+		<div class="col-sm-6">
+			{{ Form::label('name', 'Ngôn ngữ', ['class'=>'control-label']) }}
+    		{{ Form::select('locale', $listLocale, null,['class' => 'form-control']) }}
+		</div>
 	</div>
 </div>
 

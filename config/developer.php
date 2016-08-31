@@ -26,5 +26,9 @@ return [
 		3 => '9 tháng',
 		4 => '12 tháng',
 		5 => '24 tháng',
+	],
+	'locale' => [
+		'vi' => 'Việt nam',
+		'en' => 'English'
 	]
 ];

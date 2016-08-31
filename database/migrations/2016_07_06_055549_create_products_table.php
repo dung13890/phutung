@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('price');
             $table->string('type', 20)->default('product');
-            $table->string('locale', 10);
+            $table->string('locale', 10)->default('vi');
             $table->integer('provider_id');
             $table->tinyInteger('guarantee')->default(1);
             $table->boolean('locked')->default(false);
