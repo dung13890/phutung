@@ -11,7 +11,7 @@
         <meta property="og:site_name" content="{!! $heading or $configs['name'] !!}" />
         <meta property="og:type"   content="website" />
         <meta property="og:title"  content="{!! $heading or $configs['name'] !!}" />
-        <meta property="og:description"  content="{!! $description or $configs['description'] !!}" />
+        <meta property="og:description"  content="{{ $description or $configs['description'] }}" />
         <meta property="og:image"  content="{!! $image or '/template/img/logo.png' !!}" />
         <meta property="og:image:type" content="image/jpeg">
         <meta property="og:image:width" content="300">

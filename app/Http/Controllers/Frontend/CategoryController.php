@@ -20,7 +20,7 @@ class CategoryController extends FrontendController
     {
     	$this->compacts['item'] = $this->repository->findBySlug($slug);
     	$this->compacts['heading'] = $this->compacts['item']->name;
-    	$this->compacts['description'] = $this->compacts['item']->description;
+    	$this->compacts['description'] = str_limit(strip_tags($this->compacts['item']->description), 156);
     	$this->compacts['banner'] = $this->compacts['item']->banner;
     	$this->compacts['categories'] = $this->repository->getRootWithType($this->compacts['item']->type, $this->dataSelect);
     	

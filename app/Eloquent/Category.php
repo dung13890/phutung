@@ -30,7 +30,8 @@ class Category extends Abstracts\Sluggable
 
     public function products()
     {
-        return $this->belongsToMany(Product::class)->where('locale', session('locale'))->orderBy('id','DESC');
+        $locale = session()->has('locale') ? session('locale') : 'vi';
+        return $this->belongsToMany(Product::class)->where('locale', $locale)->orderBy('id','DESC');
     }
 
     public function randomProducts()
