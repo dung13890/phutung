@@ -41,7 +41,6 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
     {
         return $this->model->where('name', 'LIKE', '%'.$value.'%')
         ->orWhere('code','LIKE','%'.$value.'%')
-        ->orWhere('provider','LIKE','%'.$value.'%')
         ->orWhere('guarantee','LIKE','%'.$value.'%')
         ->orWhere('price','LIKE','%'.$value.'%')
         ->orderBy('id','DESC')->paginate($paginate);
