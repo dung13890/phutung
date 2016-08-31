@@ -28,7 +28,7 @@
 <div id="device">
     <div class="main">
         <h4 class="text-uppercase">{{ $banner->name or '' }}</h4>
-        <p>{{ $item->description }}</p>
+        <p>{!! $item->description !!}</p>
         <div class="item">
             <ul class="list list-inline">
                 @foreach($products as $product)

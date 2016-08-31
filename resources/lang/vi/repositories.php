@@ -22,7 +22,7 @@ return [
     'role' => 'phân quyền',
     'profile' => 'profile',
     'category' => 'danh mục',
-    'post' => 'bài tin',
+    'post' => 'Tin tức',
     'page' => 'trang',
     'product' => 'thiết bị',
     'accessary' => 'phụ tùng',

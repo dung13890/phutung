@@ -34,7 +34,7 @@ class ProductController extends FrontendController
         $this->compacts['category'] = $this->compacts['item']->categories()->first();
         $this->compacts['banner'] = $this->compacts['category']->banner;
         $this->compacts['categories'] = $this->categoryRepository->getRootWithType($this->compacts['item']->type, $this->dataCategory);
-        $this->compacts['sameProducts'] = $this->compacts['category']->sameProducts;
+        $this->compacts['randomProducts'] = $this->compacts['category']->randomProducts;
 
         $this->view = 'product.show';
 

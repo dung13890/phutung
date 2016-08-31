@@ -1,4 +1,5 @@
 @push('prestyles')
+{{ HTML::style("vendor/summernote/css/summernote.css") }}
 {{ HTML::style('vendor/jasny-bootstrap/css/jasny-bootstrap.min.css') }}
 <style>
     .fileinput, .fileinput .fileinput-preview {
@@ -40,7 +41,7 @@
 
 <div class="form-group">
 	{{ Form::label('name', 'Description', ['class'=>'control-label']) }}
-	{{ Form::textarea('description',null, ['class' => 'form-control','rows'=>'3', 'placeholder'=>'Description...']) }}
+	{{ Form::textarea('description',null, ['class' => 'form-control textarea-summernote','rows'=>'3', 'placeholder'=>'Description...']) }}
 </div>
 
 <div class="form-group">
@@ -61,5 +62,24 @@
 </div>
 
 @push('prescripts')
+{{ HTML::script('vendor/summernote/js/summernote.min.js') }}
 {{ HTML::script('vendor/jasny-bootstrap/js/jasny-bootstrap.min.js') }}
+<script>
+    $(function () {
+        $('.textarea-summernote').summernote({
+            height:200,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['fontsize', ['fontsize']],
+                ['insert', ['link','picture','video']],
+                ['misc', ['fullscreen','undo','redo']]
+            ],
+            callbacks: {
+                onImageUpload: function(files) {
+                    sendImage(files[0], laroute.route('backend.summernote.image'), $(this));
+                }
+            }
+        });
+    })
+</script>
 @endpush

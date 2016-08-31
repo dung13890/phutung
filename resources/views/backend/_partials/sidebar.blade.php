@@ -50,11 +50,11 @@
             @can('post-read')
             <li class="treeview @if (Request::is('backend/post*') || Request::is('backend/category/type/post*')) active @endif">
                 <a href="#">
-                    <i class="fa fa-book"></i> <span>Bài viết</span> <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-book"></i> <span>Tin tức</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     @can('category-read')
-                    <li @if (Request::is('backend/category/type/post*')) class="active" @endif><a href="{{route('backend.category.type','post')}}"><i class="fa fa-circle-o"></i> Danh mục bài viết</a></li>
+                    <li @if (Request::is('backend/category/type/post*')) class="active" @endif><a href="{{route('backend.category.type','post')}}"><i class="fa fa-circle-o"></i> Danh mục tin tức</a></li>
                     @endcan
                     @can('post-read')
                     <li @if (Request::is('backend/post*')) class="active" @endif><a href="{{route('backend.post.index')}}"><i class="fa fa-circle-o"></i> Danh sách</a></li>

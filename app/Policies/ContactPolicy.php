@@ -5,7 +5,7 @@ namespace App\Policies;
 use App\Eloquent\User;
 use App\Eloquent\Contact;
 
-class ContactPolicy extends
+class ContactPolicy extends AbstractPolicy
 {
     public function read(User $user, Contact $ability)
     {

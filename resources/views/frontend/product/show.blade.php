@@ -113,7 +113,7 @@
             <div class="content">
                 <div class="slider">
                     <ul>
-                    	@foreach ($sameProducts as $same)
+                    	@foreach ($randomProducts as $same)
                         <li>
                             <a href="{{ route('product.show', $same->slug) }}" title="$same->name">
                                 <img src="{{ ( $same->image ) ? route('image',$same->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $same->name }}"/>

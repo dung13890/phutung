@@ -9,9 +9,15 @@
 	<div class="box-body no-padding">
 		<div class="slim-scroll">
 			<ul class="nav nav-stacked">
+				<?php
+					$count = 0;
+				?>
 				@foreach ($rootCategories as $rootCategory)
 				<?php
 					$checked = (isset($item) && isset($item->categories->keyBy('id')[$rootCategory->id])) ? true : false;
+					if ($count++ == 0) {
+						$checked = true;
+					}
 				?>
 				<li>
 					<div class="container-fluid checkbox">

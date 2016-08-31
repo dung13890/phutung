@@ -44,6 +44,7 @@
                 <?php
                     $groupProduct = $products->groupBy('type');
                 ?>
+                @if (isset($groupProduct['product']))
                 <h4 class="text-uppercase"> Thiết bị</h3>
                 <div class="item">
                     <ul class="list list-inline">
@@ -56,8 +57,10 @@
                         @endforeach
                     </ul>
                 </div>
+                @endif
                 <br>
                 <br>
+                @if (isset($groupProduct['accessary']))
                 <h4 class="text-uppercase"> Phụ kiện</h3>
                 <div class="item">
                     <ul class="list list-inline">
@@ -72,7 +75,7 @@
                         @endforeach
                     </ul>
                 </div>
-
+                @endif
                 <nav>{!! $products->appends('search', $value)->links() !!}</nav>
                 @endif
             </div>

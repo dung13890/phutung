@@ -21,8 +21,28 @@
 
 #accessary .item .list li {
     width: 32.9%;
+    box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.35);
+    padding-right: 0;
 }
 
 #accessary .item .list li img {
     width: 100%;
+}
+#accessary .item .list li p {
+    background: #D71921;
+    color: #fff;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#accessary .item .list li p span {
+    background-color: #fff;
+    color: #D71921;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 0 10px;
+    font-weight: bold;
+    border-radius: 3px;
 }

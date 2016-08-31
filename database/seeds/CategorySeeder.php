@@ -12,11 +12,25 @@ class CategorySeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        factory(Category::class, 15)->create();
-        $cateProduct = app(Category::class)->where('type','product')->where('parent_id',0)->get();
-        $cateAccessary = app(Category::class)->where('type','accessary')->where('parent_id',0)->get();
-        $catePost = app(Category::class)->where('type','post')->where('parent_id',0)->get();
+    {   
+        $categories = factory(Category::class, 15)->create();
+        $categories->find(1)->update([
+            'name' => 'tin tức',
+            'type' => 'post'
+        ]);
+        $categories->find(2)->update([
+            'name' => 'Thiết bị',
+            'type' => 'product'
+        ]);
+        $categories->find(3)->update([
+            'name' => 'Phụ tùng',
+            'type' => 'accessary'
+        ]);
+
+        // create children Category
+        $catePost = app(Category::class)->where('type','post')->where('parent_id',0)->where('id', '<>', 1)->get();
+        $cateProduct = app(Category::class)->where('type','product')->where('parent_id',0)->where('id', '<>', 2)->get();
+        $cateAccessary = app(Category::class)->where('type','accessary')->where('parent_id',0)->where('id', '<>', 3)->get();
         factory(Category::class, 40)->create()->each(function ($category) use ($cateProduct, $catePost, $cateAccessary) {
         	$category->images()->create([
                 'name' => 'CHẤT LƯỢNG VƯỢT TRỘI - GIÁ CẢ CẠNH TRANH',

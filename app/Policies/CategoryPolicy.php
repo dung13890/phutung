@@ -22,6 +22,18 @@ class CategoryPolicy extends AbstractPolicy
             return false;
         }
 
+        if ($ability->id) {
+            if ($ability->id == 1) {
+                return false;
+            }
+            if ($ability->id == 2) {
+                return false;
+            }
+            if ($user->id == 3) {
+                return false;
+            }
+        }
+
         return true;
     }
 }

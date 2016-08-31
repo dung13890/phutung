@@ -33,7 +33,7 @@ class Category extends Abstracts\Sluggable
         return $this->belongsToMany(Product::class)->orderBy('id','DESC');
     }
 
-    public function sameProducts()
+    public function randomProducts()
     {
         return $this->products()->orderByRaw("RAND()")->take(8);
     }
@@ -48,8 +48,8 @@ class Category extends Abstracts\Sluggable
         return $this->morphMany(Image::class, 'imageable');
     }
 
-    public function getBannerAttribute()
+    public function banner()
     {
-        return $this->images()->first();
+        return $this->morphOne(Image::class, 'imageable');
     }
 }
