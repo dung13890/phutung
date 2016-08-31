@@ -5,7 +5,7 @@
 
     <div class="info">
         <p>{{ $configs['address'] }}</p>
-        <p>ĐT: {{ $configs['phone'] }}</p>
+        <p>Phone: {{ $configs['phone'] }}</p>
         <p>Email: {{ $configs['email'] }}</p>
     </div>
 

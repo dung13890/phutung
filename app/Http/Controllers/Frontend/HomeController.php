@@ -37,6 +37,8 @@ class HomeController extends FrontendController
         $this->categoryRepository = $category;
         $this->positionRepository = $position;
         $this->productRepository = $product;
+
+        $this->setLocale();
     }
 
     public function index()
@@ -80,5 +82,12 @@ class HomeController extends FrontendController
         }
 
         return redirect(url()->previous())->with('flash_message_frontend',json_encode($this->e, true));
+    }
+
+    public function locale($locale)
+    {
+        session()->put('locale', $locale);
+
+        return $this->index();
     }
 }

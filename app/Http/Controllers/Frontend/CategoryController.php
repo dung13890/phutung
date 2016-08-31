@@ -13,6 +13,7 @@ class CategoryController extends FrontendController
     public function __construct(CategoryRepository $category)
     {
         parent::__construct($category);
+        $this->setLocale();
     }
 
     public function show($slug)

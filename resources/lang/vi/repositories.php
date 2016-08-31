@@ -47,4 +47,21 @@ return [
 
     'created_contact_unsuccessfully'  => 'Gửi thông tin thành công.',
     'created_contact_successfully'  => 'Lỗi gửi thông tin thất bại.',
+
+    'home' => 'Trang chủ',
+    'lang' => 'Ngôn ngữ',
+    'keywords' => 'Từ khóa...',
+    'post_event' => 'Tin tức & Sự kiện',
+    'view_detail' => 'Xem chi tiết',
+
+
+
+
+
+
+
+
+
+
+
 ];

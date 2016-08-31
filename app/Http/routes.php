@@ -33,6 +33,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('page/{slug}', ['as' => 'page.show', 'uses' => 'PageController@show']);
         Route::get('product/{slug}', ['as' => 'product.show', 'uses' => 'ProductController@show']);
         Route::get('post/{slug}', ['as' => 'post.show', 'uses' => 'PostController@show']);
+        Route::get('lang/{locale}', ['as' => 'home.locale', 'uses' => 'HomeController@locale']);
         
 	});
 

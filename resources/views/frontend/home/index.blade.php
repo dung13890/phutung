@@ -24,7 +24,7 @@
     </div>
     <div class="clear"></div>
     @if ($postCategory)
-    <div class="title news-title"><a style="color:#fff;" href="{{ route('category.show', $postCategory->slug) }}" title="Tin tức & Sự kiện" >Tin tức & Sự kiện</a></div>
+    <div class="title news-title"><a style="color:#fff;" href="{{ route('category.show', $postCategory->slug) }}" title="{{ trans('repositories.post_event') }}" >{{ trans('repositories.post_event') }}</a></div>
     @endif
     @if (count($posts))
     <!-- Section -->
@@ -49,7 +49,7 @@
                     <a href="{{ route('post.show',$post->slug) }}" title="{{ $post->name }}">{{ $post->name }}</a>
                     <div>
                         <span>{{ date('d/m/Y', strtotime($post->created_at)) }}</span>
-                        <span class="pull-right"><a href="{{ route('post.show',$post->slug) }}" title="Xem chi tiết">Xem chi tiết &raquo;</a></span>
+                        <span class="pull-right"><a href="{{ route('post.show',$post->slug) }}" title="{{ trans('repositories.view_detail') }}">{{ trans('repositories.view_detail') }} &raquo;</a></span>
                     </div>
                 </div>
             </div>

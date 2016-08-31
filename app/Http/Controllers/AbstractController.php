@@ -15,6 +15,8 @@ abstract class AbstractController extends Controller
 
     protected $compacts;
 
+    protected $locale;
+
     protected $view;
 
     protected $dataSelect = ['*'];
@@ -38,6 +40,12 @@ abstract class AbstractController extends Controller
             'object' => $this->trans($this->repositoryName),
         ];
         $this->user = Auth::guard($this->getGuard())->user();
+    }
+
+    public function setLocale()
+    {
+        $this->locale = session()->has('locale') ? session('locale') : 'vi';
+        \App::setLocale($this->locale);
     }
 
     public function repositorySetup($repository = null)
