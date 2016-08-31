@@ -27,7 +27,7 @@
 <div id="product">
     <div class="main">
     	<div>
-            Trang chủ >> {{ $category->name }} >> {{ $item->name }}
+            {{ trans('repositories.home') }} >> {{ $category->name }} >> {{ $item->name }}
         </div>
         <h3 class="product-title">
             <span class="text-uppercase">{{ str_limit($item->name, 40) }}</span>
@@ -55,7 +55,7 @@
                 <h3 class="code"><span class="text-uppercase">{{ $item->code }}</span></h3>
 
                 <div class="provider">
-                    {{ isset($item->provider) ? $item->provider->name : 'Nhà cung cấp' }} <img src="{{ (isset($item->provider)) ? route('image', $item->provider->image_tiny) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ isset($item->provider) ? $item->provider->name : 'Nhầ cung cấp' }}"/>
+                    {{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }} <img src="{{ (isset($item->provider)) ? route('image', $item->provider->image_tiny) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }}"/>
                 </div>
 
                 <div class="desc">
@@ -63,10 +63,10 @@
                         <strong>Model: </strong> {{ $item->model }}
                     </p>
                     <p>
-                        <strong>Xuất xứ: </strong> {{ $item->origin }}
+                        <strong>{{ trans('repositories.origin') }}: </strong> {{ $item->origin }}
                     </p>
                     <p>
-                        <strong>Bảo hành: </strong> {{ config("developer.guarantee.{$item->guarantee}") }}
+                        <strong>{{ trans('repositories.guarantee') }}: </strong> {{ config("developer.guarantee.{$item->guarantee}") }}
                     </p>
                 </div>
 
@@ -83,7 +83,7 @@
         <div class="product-tabs">
             <ul class="tabs">
                 <li class="active">
-                    <a href="#">Chi tiết</a>
+                    <a href="#">{{ trans('repositories.details') }}</a>
                     <span class="right"></span>
                 </li>
             </ul>
@@ -95,7 +95,7 @@
         <div class="product-tabs">
             <ul class="tabs">
                 <li class="active">
-                    <a href="{{ route('category.show', $category->slug) }}">Sản phẩm cùng danh mục</a>
+                    <a href="{{ route('category.show', $category->slug) }}">{{ trans('repositories.product_same') }}</a>
                     <span class="right"></span>
                 </li>
             </ul>
@@ -109,7 +109,7 @@
                             </a>
                             <p style="color:#e06b6b;">Model {{ str_limit($same->model, 20) }}</p>
                             <p>{{ str_limit($same->name, 20) }}</p>
-                            <a class="btn-detail" href="{{ route('product.show', $same->slug) }}" title="Xem chi tiết">Xem chi tiết</a>
+                            <a class="btn-detail" href="{{ route('product.show', $same->slug) }}" title="Xem chi tiết">{{ trans('repositories.view_detail') }}</a>
                         </li>
                         @endforeach
                     </ul>

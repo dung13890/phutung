@@ -128,7 +128,7 @@ class ProductController extends BackendController
         $entity = $this->repository->findOrFail($id);
         $this->before(__FUNCTION__, $entity);
 
-        return $this->deleteData($service, $entity);
+        return $this->deleteData($service, $entity, route('backend.product.type', $entity->type));
     }
 
     public function getTags()

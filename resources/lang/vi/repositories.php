@@ -33,6 +33,7 @@ return [
     'config' => 'cấu hình',
     'menu' => 'menu',
     'contact' => 'Liên hệ',
+    'provider' => 'Nhà cung cấp',
 
 
 
@@ -64,15 +65,9 @@ return [
     'phone' => 'Điện thoại',
     'content' => 'Nội dung',
     'about_us' => 'LIÊN HỆ VƠÍ CHÚNG TÔI',
-
-
-
-
-
-
-
-
-
-
-
+    'product_code' => 'Mã Sản phẩm',
+    'guarantee' => 'Bảo hành',
+    'origin' => 'Xuất xứ',
+    'details' => 'Chi tiết',
+    'product_same' => 'Sản phẩm cùng danh mục',
 ];

@@ -58,9 +58,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="" class="col-lg-2">{{ trans('repositories.last_name') }}:</label>
+                        <label for="" class="col-lg-2">{{ trans('repositories.full_name') }}:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('name', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.last_name')]) }}
+                            {{ Form::text('name', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.full_name')]) }}
                         </div>
                     </div>
 
