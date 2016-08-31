@@ -20,14 +20,14 @@ class Config extends Model
     public function getBoxLeftImageAttribute()
     {
     	if ($this->key == 'box_left_image') {
-        	return app()['glide.builder']->getUrl($this->value, ['p' => 'small']);
+        	return app()['glide.builder']->getUrl($this->value);
     	}
     }
 
     public function getBoxRightImageAttribute()
     {
     	if ($this->key == 'box_right_image') {
-        	return app()['glide.builder']->getUrl($this->value, ['p' => 'small']);
+        	return app()['glide.builder']->getUrl($this->value);
     	}
     }
 }
