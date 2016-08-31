@@ -140,6 +140,10 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Contracts\PositionRepository::class,
             \App\Repositories\PositionRepositoryEloquent::class
         );
+        $this->app->bind(
+            \App\Repositories\Contracts\ProviderRepository::class,
+            \App\Repositories\ProviderRepositoryEloquent::class
+        );
 
         $this->app->bind(
             \App\Services\Contracts\UserService::class,
@@ -196,6 +200,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             \App\Services\Contracts\PositionService::class,
             \App\Services\PositionServiceJob::class
+        );
+        $this->app->bind(
+            \App\Services\Contracts\ProviderService::class,
+            \App\Services\ProviderServiceJob::class
         );
 
         $this->composers();

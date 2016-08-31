@@ -6,6 +6,7 @@ use App\Http\Requests\Backend\ProductRequest;
 use App\Repositories\Contracts\ProductRepository;
 use App\Repositories\Contracts\CategoryRepository;
 use App\Repositories\Contracts\PropertyRepository;
+use App\Repositories\Contracts\ProviderRepository;
 use App\Services\Contracts\ProductService;
 
 class ProductController extends BackendController
@@ -16,15 +17,20 @@ class ProductController extends BackendController
 
     protected $dataProperty = ['id', 'key', 'name'];
 
+    protected $dataProvider = ['id', 'name'];
+
     protected $categoryRepository;
 
     protected $propertyRepository;
 
-    public function __construct(ProductRepository $product, CategoryRepository $category, PropertyRepository $property)
+    protected $providerRepository;
+
+    public function __construct(ProductRepository $product, CategoryRepository $category, PropertyRepository $property, ProviderRepository $provider)
     {
         parent::__construct($product);
         $this->categoryRepository = $category;
         $this->propertyRepository = $property;
+        $this->providerRepository = $provider;
     }
 
     public function getDataWithType($type)
@@ -78,6 +84,7 @@ class ProductController extends BackendController
         $this->compacts['resource'] = $this->repositoryName;
         $this->compacts['type'] = $type;
         $this->compacts['listGuarantee'] = config('developer.guarantee');
+        $this->compacts['listProvider'] = $this->providerRepository->all($this->dataProvider)->lists('name','id')->prepend('Chọn','0');
         $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($type, $this->dataCategory);
         $this->compacts['groupProperty'] = $this->propertyRepository->all($this->dataProperty)->groupBy('key');
         
@@ -98,6 +105,7 @@ class ProductController extends BackendController
         $this->before(__FUNCTION__, $this->compacts['item']);
         $this->compacts['type'] = $this->compacts['item']->type;
         $this->compacts['listGuarantee'] = config('developer.guarantee');
+        $this->compacts['listProvider'] = $this->providerRepository->all($this->dataProvider)->lists('name','id')->prepend('Chọn','0');
         $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->compacts['type'], $this->dataCategory);
         $this->compacts['groupProperty'] = $this->propertyRepository->all($this->dataProperty)->groupBy('key');
         $this->compacts['tags'] = $this->compacts['item']->tags->lists('name','name')->all();

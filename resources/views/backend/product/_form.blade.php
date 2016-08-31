@@ -11,6 +11,10 @@
 		border-radius: 0;
 		border: 1px solid #ccc;
 	}
+	.select2-container--default .select2-selection--single {
+		border-radius: 0;
+		height: 34px;
+	}
 	.animated {
 		animation-fill-mode: none;
 	}
@@ -59,8 +63,12 @@
 </div>
 
 <div class="form-group">
-	{{ Form::label('provider', 'Nhà cung cấp', ['class'=>'control-label']) }}
-    {{ Form::text('provider',null, ['class' => 'form-control', 'placeholder' => 'Nhà cung cấp']) }}
+	<div class="row">
+		<div class="col-sm-6">
+			{{ Form::label('provider_id', 'Nhà cung cấp', ['class'=>'control-label']) }}
+    		{{ Form::select('provider_id', $listProvider, null, ['class' => 'form-control select2-provider']) }}
+		</div>
+	</div>
 </div>
 
 <div class="form-group">
@@ -119,6 +127,7 @@
             }
 		});
 		select2Init(route);
+		$(".select2-provider").select2();
 	})
 </script>
 @endpush

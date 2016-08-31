@@ -37,6 +37,9 @@
                     @can('property-read')
                     <li @if (Request::is('backend/property*')) class="active" @endif><a href="{{route('backend.property.index')}}"><i class="fa fa-circle-o"></i> Thuộc tính</a></li>
                     @endcan
+                    @can('provider-read')
+                    <li @if (Request::is('backend/provider*')) class="active" @endif><a href="{{route('backend.provider.index')}}"><i class="fa fa-circle-o"></i> Nhà cung cấp</a></li>
+                    @endcan
                 </ul>
             </li>
             @endcan

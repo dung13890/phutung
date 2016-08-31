@@ -11,7 +11,7 @@ class Product extends Abstracts\Sluggable implements TaggableInterface
     use TaggableTrait, GetImageTrait;
 
     protected $fillable = [
-    	'name', 'code', 'image', 'description', 'provider', 'guarantee', 'price', 'model', 'origin', 'locale', 'type', 'locked', 'featured', 'user_id'
+    	'name', 'code', 'image', 'description', 'provider_id', 'guarantee', 'price', 'model', 'origin', 'locale', 'type', 'locked', 'featured', 'user_id'
     ];
 
     protected $appends = ['image_thumbnail','image_small','image_medium'];
@@ -24,6 +24,11 @@ class Product extends Abstracts\Sluggable implements TaggableInterface
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function provider()
+    {
+        return $this->belongsTo(Provider::class);
     }
 
     public function categories()

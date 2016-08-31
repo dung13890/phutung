@@ -13,18 +13,19 @@ class AbilitySeeder extends Seeder
     public function run()
     {
         $abilities = array(
-            'role-read', 'role-write',
-            'user-read', 'user-write',
-            'category-read', 'category-write',
-            'post-read', 'post-write',
-            'page-read', 'page-write',
-            'product-read', 'product-write',
-            'property-read', 'property-write',
-            'menu-read', 'menu-write',
-            'config-read', 'config-write',
-            'slide-read', 'slide-write',
-            'contact-read', 'contact-write',
-            'position-read', 'position-write',
+            // 'role-read', 'role-write',
+            // 'user-read', 'user-write',
+            // 'category-read', 'category-write',
+            // 'post-read', 'post-write',
+            // 'page-read', 'page-write',
+            // 'product-read', 'product-write',
+            // 'property-read', 'property-write',
+            // 'menu-read', 'menu-write',
+            // 'config-read', 'config-write',
+            // 'slide-read', 'slide-write',
+            // 'contact-read', 'contact-write',
+            // 'position-read', 'position-write',
+            'provider-read', 'provider-write',
         );
 
         foreach ($abilities as $ability) {
@@ -32,7 +33,7 @@ class AbilitySeeder extends Seeder
         }
         Bouncer::allow('system')->to($abilities);
         Bouncer::allow('admin')->to($abilities);
-        User::find(1)->assign('system');
-        User::find(2)->assign('admin');
+        // User::find(1)->assign('system');
+        // User::find(2)->assign('admin');
     }
 }

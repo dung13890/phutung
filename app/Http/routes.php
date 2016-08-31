@@ -93,6 +93,9 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('slide/data', ['as'=>'backend.slide.data', 'uses'=>'SlideController@getData']);
 		Route::resource('slide', 'SlideController');
 
+		Route::get('provider/data', ['as'=>'backend.provider.data', 'uses'=>'ProviderController@getData']);
+		Route::resource('provider', 'ProviderController');
+
         Route::resource('image', 'ImageController', ['only' => [
                 'index','store','update','destroy'
             ]
