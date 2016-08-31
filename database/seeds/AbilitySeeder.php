@@ -14,9 +14,9 @@ class AbilitySeeder extends Seeder
     {
         $abilities = array(
             'role-read', 'role-write',
-            'ủe-read', 'ủe-write',
+            'user-read', 'user-write',
             'category-read', 'category-write',
-            'pót-read', 'pót-write',
+            'post-read', 'post-write',
             'page-read', 'page-write',
             'product-read', 'product-write',
             'property-read', 'property-write',
@@ -33,7 +33,7 @@ class AbilitySeeder extends Seeder
         }
         Bouncer::allow('system')->to($abilities);
         Bouncer::allow('admin')->to($abilities);
-        Ủe::find(1)->asign('system');
-        Ủe::find(2)->asign('admin');
+        User::find(1)->asign('system');
+        User::find(2)->asign('admin');
     }
 }

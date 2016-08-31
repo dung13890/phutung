@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
          $this->call(AbilitySeeder::class);
          $this->call(ConfigSeeder::class);
          $this->call(CategorySeeder::class);
-         $this->call(PropertySeeder::class);
-         $this->call(PageSeeder::class);
-         $this->call(PostSeeder::class);
-         $this->call(ProductSeeder::class);
+         //$this->call(PropertySeeder::class);
+         //$this->call(PageSeeder::class);
+         //$this->call(PostSeeder::class);
+         //$this->call(ProductSeeder::class);
     }
 }
