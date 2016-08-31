@@ -16,6 +16,8 @@ return [
     'edit'  => "Cập nhật",
     'delete' => "Xóa",
     'show'  => "Xem",
+    'send' => 'Gửi',
+    'cancel' => 'Hủy bỏ',
 
     'dashboard' => 'bảng điều khiển',
     'user' => 'người dùng',
@@ -53,6 +55,15 @@ return [
     'keywords' => 'Từ khóa...',
     'post_event' => 'Tin tức & Sự kiện',
     'view_detail' => 'Xem chi tiết',
+    'info_contact' => 'Thông tin liên hệ',
+    'tanphat_support' => 'Tân phát hân hạng được hỗ trợ quý khách',
+    'form_error' => 'Làm ơn xem lại các trường đã nhập.',
+    'topic' => 'Chủ đề',
+    'last_name' => 'Họ và tên',
+    'address' => 'Địa chỉ',
+    'phone' => 'Điện thoại',
+    'content' => 'Nội dung',
+    'about_us' => 'LIÊN HỆ VƠÍ CHÚNG TÔI',
 
 
 

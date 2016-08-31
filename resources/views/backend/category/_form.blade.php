@@ -12,6 +12,9 @@
     .fileinput .fileinput-preview img {
         height: 150px;
     }
+    .animated {
+        animation-fill-mode: none;
+    }
 
 </style>
 @endpush

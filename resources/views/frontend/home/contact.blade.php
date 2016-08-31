@@ -26,10 +26,10 @@
 @section('page-content')
 <div id="header">
     <div class="title text-center">
-        <h1 class="page-title">Thông tin liên hệ</h1>
+        <h1 class="page-title">{{ trans('repositories.info_contact') }}</h1>
     </div>
     <div class="slogan pull-right">
-        <span >Tân phát hân hạng được hỗ trợ quý khách</span>
+        <span>{{ trans('repositories.tanphat_support') }}</span>
     </div>
 </div><!-- /#header -->
 
@@ -38,12 +38,11 @@
         <div class="col-lg-8">
             <div class="form">
                 <h3 class="title">
-                    Tân phát vui lòng được hỗ trợ quý khách
+                    {{ trans('repositories.tanphat_support') }}
                 </h3>
                 {{ Form::open(['url' => route('home.post.contact'), 'autocomplete'=>'off', 'class' => 'form-horizontal']) }}
                     @if (count($errors) > 0)
                     <div class="alert alert-danger">
-                        <strong>Lỗi!</strong> Làm ơn xem lại các trường đã nhập.<br><br>
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -52,37 +51,37 @@
                     </div>
                     @endif
                     <div class="form-group">
-                        <label for="" class="col-lg-2">Chủ đề:</label>
+                        <label for="" class="col-lg-2">{{ trans('repositories.topic') }}:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('topic', null, ['class' => 'form-control input-sm', 'placeholder' => 'Chủ đề']) }}
+                            {{ Form::text('topic', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.topic')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="" class="col-lg-2">Họ và tên:</label>
+                        <label for="" class="col-lg-2">{{ trans('repositories.last_name') }}:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('name', null, ['class' => 'form-control input-sm', 'placeholder' => 'Họ và tên']) }}
+                            {{ Form::text('name', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.last_name')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="" class="col-lg-2">Địa chỉ:</label>
+                        <label for="" class="col-lg-2">{{ trans('repositories.address') }}:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('address', null, ['class' => 'form-control input-sm', 'placeholder' => 'Địa chỉ']) }}
+                            {{ Form::text('address', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.address')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="" class="col-lg-2">Điện thoại:</label>
+                        <label for="" class="col-lg-2">{{ trans('repositories.phone') }}</label>
                         <div class="col-lg-10">
-                            {{ Form::text('phone', null, ['class' => 'form-control input-sm', 'placeholder' => 'Điện thoại']) }}
+                            {{ Form::text('phone', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.phone')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="" class="col-lg-2">Fax:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('fax', null, ['class' => 'form-control input-sm', 'placeholder' => 'Fax']) }}
+                            {{ Form::text('fax', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.phone')]) }}
                         </div>
                     </div>
 
@@ -93,19 +92,19 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-lg-12">Nội dung:</label>
+                        <label for="" class="col-lg-12">{{ trans('repositories.content') }}:</label>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-12">
-                            {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Nội dung...', 'rows' => 4]) }}
+                            {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => trans('respositories.content'), 'rows' => 4]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-lg-12">
                             <div class="text-right">
-                                <button class="btn btn-primary">Gửi</button>
-                                <a href="#" class="btn btn-default">Hủy bỏ</a>
+                                <button class="btn btn-primary">{{ trans('repositories.send') }}</button>
+                                <a href="#" class="btn btn-default">{{ trans('repositories.cancel') }}</a>
                             </div>
                         </div>
                     </div>
@@ -115,11 +114,11 @@
         <div class="col-lg-4">
             <div class="sidebar">
                 <h3 class="heading">
-                    Thông tin liên lạc
+                    {{ trans('repositories.info_contact') }}
                     <span><img src="/assets/img/icon-address.png" style="width:26px;height:37px;"/></span>
                 </h3>
                 <div class="text-center">
-                    <strong>LIÊN HỆ VƠÍ CHÚNG TÔI </strong>
+                    <strong>{{ trans('repositories.about_us') }}</strong>
                 </div>
 
                 @foreach ($positions as $position)
@@ -128,7 +127,7 @@
                         <strong>{{ $position->name }}</strong>
                     </div>
                     <p class="address">{{ $position->address }}</p>
-                    <p class="phone">ĐT: {{ $position->phone }}</p>
+                    <p class="phone">phone: {{ $position->phone }}</p>
                     <p class="email">Email: <a href="mailto:{{ $position->email }}">{{ $position->email }}</a></p>
                 </div>
                 @endforeach
