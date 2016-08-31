@@ -55,7 +55,7 @@
                 <h3 class="code"><span class="text-uppercase">{{ $item->code }}</span></h3>
 
                 <div class="provider">
-                    {{ isset($item->provider) ? $item->provider->name : 'Nhầ cung cấp' }} <img src="{{ (isset( $item->provider) && $item->proivder->image)? route('image',$item->provider->image_tiny) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ isset($item->provider) ? $item->provider->name : 'Nhầ cung cấp' }}"/>
+                    {{ isset($item->provider) ? $item->provider->name : 'Nhà cung cấp' }} <img src="{{ (isset( $item->provider) && $item->proivder->image)? route('image', $item->provider->image_tiny) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ isset($item->provider) ? $item->provider->name : 'Nhầ cung cấp' }}"/>
                 </div>
 
                 <div class="desc">
