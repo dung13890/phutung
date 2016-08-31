@@ -33,7 +33,7 @@ class AbilitySeeder extends Seeder
         }
         Bouncer::allow('system')->to($abilities);
         Bouncer::allow('admin')->to($abilities);
-        User::find(1)->asign('system');
-        User::find(2)->asign('admin');
+        User::find(1)->assign('system');
+        User::find(2)->assign('admin');
     }
 }
