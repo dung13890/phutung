@@ -216,7 +216,7 @@ class AppServiceProvider extends ServiceProvider
         });
         
         view()->composer('frontend.*', function ($view) {
-            $view->with('configs', Cache::remember('configs', 0, function () {
+            $view->with('configs', Cache::remember('configs', 60, function () {
                 return app(ConfigRepository::class)->all()->each(function ($item) {
                     if ($item->key == 'logo') {
                         return $item->value = $item->logo;
@@ -229,11 +229,11 @@ class AppServiceProvider extends ServiceProvider
                     }
                 })->lists('value','key');
             }));
-            $view->with('__menus', Cache::remember('__menus', 0, function () {
+            $view->with('__menus', Cache::remember('__menus', 60, function () {
                 return app(MenuRepository::class)->getRoot();
             }));
 
-            $view->with('__slides', Cache::remember('__slides', 0, function () {
+            $view->with('__slides', Cache::remember('__slides', 60, function () {
                 return app(SlideRepository::class)->getSlide(5);
             }));
         });
