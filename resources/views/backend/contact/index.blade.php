@@ -18,7 +18,7 @@
             $('td', row).eq(1).html('<a title="'+ data.address +'" href="'+laroute.route('backend.conact.show', {contact:data.id})+'">'+data.name+'</a>');
             var actions = data.actions;
             if (!actions || actions.length < 1) { return; }
-            var actionHtml = $('td', row).eq(5);
+            var actionHtml = $('td', row).eq(6);
             actionHtml.html('');
             if (actions.delete) { 
             	actionHtml.append('<a title ="'+actions.delete.label+'" class="btn btn-danger btn-xs handle-delete" href="'+actions.delete.uri+'"><i class="fa fa-times"></i></a>');
