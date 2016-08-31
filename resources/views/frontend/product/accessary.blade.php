@@ -47,7 +47,7 @@
             <nav>{!! $products->render() !!}</nav>
         </div>
         @elseif (count($categories) > 1)
-        @foreach ($categories->random(2) as $category)
+        @foreach ($categories->random(3) as $category)
         <div class="item">
             <div class="bigimg">
                 <img src="{{ ($category->banner ) ? route('image', $category->banner->image_banner) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $category->name }}"/>
