@@ -27,7 +27,7 @@ class ContactRequest extends Request
             'topic' => 'required|min:2|max:40',
             'name' => 'required|min:2|max:40',
             'email' => 'required|email|max:255|min:2',
-            'phone' => 'min:2|max:40',
+            'phone' => 'required|min:2|max:40',
             'content' => 'min:2|max:300'
         ];
     }
@@ -37,6 +37,7 @@ class ContactRequest extends Request
         return [
             'topic.required'  =>  'Chủ đề không được bỏ trống.',
             'name.required'  =>  'Tên của bạn không được bỏ trống.',
+            'phone.required'  =>  'Điện thoại của bạn không được bỏ trống.',
             'email.required'  =>  'Email của bạn không được bỏ trống.',
             'email.email' => 'Bạn phải nhập đúng định dạng email'
         ];

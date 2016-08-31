@@ -29,6 +29,7 @@
     <div class="main">
         <h4 class="text-uppercase">{{ $banner->name or '' }}</h4>
         <p>{!! $item->description !!}</p>
+        @if ($item->slug != 'phu-tung')
         <div class="item">
             <div class="bigimg">
                 <img src="{{ ( $item->banner ) ? route('image',$item->banner->image_banner) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}"/>
@@ -43,8 +44,9 @@
                 </li>
                 @endforeach
             </ul>
+            <nav>{!! $products->render() !!}</nav>
         </div>
-        @if (count($categories))
+        @else
         @foreach ($categories->random(2) as $category)
         <div class="item">
             <div class="bigimg">
@@ -55,7 +57,7 @@
                 <li>
                     <a title="{{ $random->name }}" href="{{ route('product.show', $random->slug) }}">
                         <img src="{{ ( $random->image ) ? route('image',$random->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $random->name }}" />
-                        <p>{{ str_limit($product->name, 15) }}<span >{{ $product->code }}</span></p>
+                        <p>{{ str_limit($random->name, 15) }}<span >{{ $random->code }}</span></p>
                     </a>
                 </li>
                 @endforeach
@@ -63,7 +65,6 @@
         </div>
         @endforeach
         @endif
-        <nav>{!! $products->render() !!}</nav>
     </div>
 </div>
 @endsection

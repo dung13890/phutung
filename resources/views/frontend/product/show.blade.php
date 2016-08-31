@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="price">
-                    Giá: {{ number_format($item->price) }} vnđ
+                    Giá: {{ number_format($item->price) }}
                 </div>
 
                 <div class="like-share">

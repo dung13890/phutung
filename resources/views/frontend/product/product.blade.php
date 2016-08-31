@@ -35,7 +35,7 @@
                 <li>
                     <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}"><img src="{{ ( $product->image ) ? route('image',$product->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $product->name }}" /></a>
                     <p><strong>Mã Sản phẩm:</strong> {{ $product->code }}</p>
-                    <p>Nhà cung cấp: {{ $product->provider }}</p>
+                    <p>Nhà cung cấp: {{ isset($product->provider) ? $product->provider->name : '' }}</p>
                     <p>Bảo hành: {{ config("developer.guarantee.{$product->guarantee}") }}</p>
                     <div class="name"><a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}"> {{ str_limit($product->name, 25) }}</a></div>
                 </li>

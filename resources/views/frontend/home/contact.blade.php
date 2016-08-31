@@ -89,7 +89,7 @@
                     <div class="form-group">
                         <label for="" class="col-lg-2">Email:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('email', null, ['class' => 'form-control input-sm', 'placeholder' => 'Email']) }}
+                            {{ Form::text('email', null, ['class' => 'form-control input-sm', 'placeholder' => 'email@domain.com']) }}
                         </div>
                     </div>
                     <div class="form-group">
@@ -118,6 +118,10 @@
                     Thông tin liên lạc
                     <span><img src="/assets/img/icon-address.png" style="width:26px;height:37px;"/></span>
                 </h3>
+                <div class="text-center">
+                    <strong>LIÊN HỆ VƠÍ CHÚNG TÔI </strong>
+                </div>
+
                 @foreach ($positions as $position)
                 <div class="branch">
                     <div class="title text-center">
