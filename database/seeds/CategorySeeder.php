@@ -13,7 +13,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {   
-        $categories = factory(Category::class, 15)->create();
+        $categories = factory(Category::class, 3)->create();
         $categories->find(1)->update([
             'name' => 'tin tức',
             'type' => 'post'
