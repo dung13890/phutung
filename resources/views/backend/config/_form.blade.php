@@ -93,8 +93,8 @@
 	{{ Form::label('scripts', 'Scripts', ['class'=>'control-label']) }}
     {{ Form::textarea('scripts',$items->keyBy('key')['scripts']['value'], ['class' => 'form-control','rows'=>'6', 'placeholder'=>'Scripts']) }}
 </div>
-
 @endpush
+
 
 @push('form-partials')
 @include('backend.config._seo')

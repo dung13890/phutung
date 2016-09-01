@@ -34,7 +34,7 @@
 
 <div class="form-group">
     {{ Form::label('slogan', 'Slogan', ['class'=>'control-label']) }}
-    {{ Form::text('slogan', isset($banner) ? $banner->name : null, ['class' => 'form-control']) }}
+    {{ Form::text('slogan', null, ['class' => 'form-control']) }}
 </div>
 
 <div class="form-group">

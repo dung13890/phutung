@@ -8,5 +8,7 @@ interface PageRepository extends AbstractRepository
 
 	public function findBySlug($slug);
 
-	public function getPage($limit, $columns = ['*']);
+	public function getByLocale($locale, $columns = ['*']);
+
+	public function getPage($limit, $locale = 'vi', $columns = ['*']);
 }

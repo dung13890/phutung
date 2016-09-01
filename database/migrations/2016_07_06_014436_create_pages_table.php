@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->text('intro');
             $table->text('description');
             $table->string('image');
+            $table->string('locale', 10)->default('vi');
             $table->boolean('featured')->default(false);
             $table->boolean('locked')->default(false);
             $table->timestamps();

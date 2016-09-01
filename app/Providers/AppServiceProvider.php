@@ -217,7 +217,8 @@ class AppServiceProvider extends ServiceProvider
         
         view()->composer('frontend.*', function ($view) {
             $view->with('configs', Cache::remember('configs', 60, function () {
-                return app(ConfigRepository::class)->all()->each(function ($item) {
+                $locale = session()->has('locale') ? session('locale') : 'vi';
+                return app(ConfigRepository::class)->getByLocale($locale)->each(function ($item) {
                     if ($item->key == 'logo') {
                         return $item->value = $item->logo;
                     }

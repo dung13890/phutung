@@ -12,14 +12,14 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
         parent::__construct($model);
     }
 
-    public function getDataWithType($type, $columns = ['*'])
+    public function getDataWithType($type, $locale = 'vi', $columns = ['*'])
     {
-    	return $this->model->where('type',$type)->get($columns);
+    	return $this->model->where('type',$type)->where('locale', $locale)->get($columns);
     }
 
-    public function getRootWithType($type, $columns = ['*'])
+    public function getRootWithType($type, $locale = 'vi', $columns = ['*'])
     {
-    	return $this->model->with('children')->where('parent_id',0)->where('type',$type)->get($columns);
+    	return $this->model->with('children')->where('locale', $locale)->where('parent_id',0)->where('type',$type)->get($columns);
     }
 
     public function findBySlug($slug)
@@ -27,9 +27,9 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
         return $this->model->findBySlug($slug);
     }
 
-    public function getFirstWithType($type, $columns = ['*'])
+    public function getFirstWithType($type, $locale = 'vi', $columns = ['*'])
     {
-        return $this->model->where('parent_id', 0)->where('type', $type)->first();
+        return $this->model->where('parent_id', 0)->where('type', $type)->where('locale', $locale)->first();
     }
 
 }

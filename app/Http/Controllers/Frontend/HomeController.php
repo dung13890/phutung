@@ -37,14 +37,12 @@ class HomeController extends FrontendController
         $this->categoryRepository = $category;
         $this->positionRepository = $position;
         $this->productRepository = $product;
-
-        $this->setLocale();
     }
 
     public function index()
     {
-    	$this->compacts['posts'] = $this->postRepository->getHome(5, $this->dataSelect);
-        $this->compacts['postCategory'] = $this->categoryRepository->getFirstWithType('post');
+    	$this->compacts['posts'] = $this->postRepository->getHome(5, $this->locale, $this->dataSelect);
+        $this->compacts['postCategory'] = $this->categoryRepository->getFirstWithType('post', $this->locale);
         $this->compacts['heading'] = 'Trang chủ';
     	$this->view = 'home.index';
 
@@ -55,7 +53,7 @@ class HomeController extends FrontendController
     {
         $this->view = "Thông tin tìm kiếm";
         $this->compacts['value'] = $request->search;
-        $this->compacts['products'] = $this->productRepository->search($this->compacts['value']);
+        $this->compacts['products'] = $this->productRepository->search($this->compacts['value'], $this->locale);
         $this->view = 'home.search';
 
         return $this->viewRender();
@@ -86,8 +84,10 @@ class HomeController extends FrontendController
 
     public function locale($locale)
     {
+        session()->forget('locale');
         session()->put('locale', $locale);
-
+        \Cache::flush();
+        
         return $this->index();
     }
 }

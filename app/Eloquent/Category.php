@@ -5,7 +5,7 @@ namespace App\Eloquent;
 class Category extends Abstracts\Sluggable
 {
     protected $fillable = [
-    	'name','parent_id','type','description','locked'
+    	'name','parent_id','type','description','locked', 'locale', 'slogan'
     ];
 
     protected $sluggable = [
@@ -25,7 +25,8 @@ class Category extends Abstracts\Sluggable
 
     public function posts()
     {
-        return $this->belongsToMany(Post::class)->orderBy('id', 'DESC');
+        $locale = session()->has('locale') ? session('locale') : 'vi';
+        return $this->belongsToMany(Post::class)->where('locale', $locale)->orderBy('id', 'DESC');
     }
 
     public function products()

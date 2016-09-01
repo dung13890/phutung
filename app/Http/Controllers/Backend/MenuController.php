@@ -14,7 +14,7 @@ class MenuController extends BackendController
 
 	protected $pageRepository;
 
-	protected $dataSelect = ['id','name','parent_id','order','src'];
+	protected $dataSelect = ['id','name','parent_id','order','src', 'locale'];
 
 	protected $dataCategory = ['id', 'name'];
 
@@ -32,20 +32,21 @@ class MenuController extends BackendController
     	$this->before(__FUNCTION__);
     	parent::index();
     	$this->compacts['action'] = 'Order sort';
-    	$this->compacts['categoryPost'] = $this->categoryRepository->getDataWithType('post',$this->dataCategory)->lists('name','id');
-        $this->compacts['categoryProduct'] = $this->categoryRepository->getDataWithType('product',$this->dataCategory)->lists('name','id');
-    	$this->compacts['categoryAccessary'] = $this->categoryRepository->getDataWithType('accessary',$this->dataCategory)->lists('name','id');
-    	$this->compacts['pages'] = $this->pageRepository->all($this->dataCategory)->lists('name','id');
-    	$this->compacts['items'] = $this->repository->getRoot($this->dataSelect);
+    	$this->compacts['categoryPost'] = $this->categoryRepository->getDataWithType('post', $this->locale, $this->dataCategory)->lists('name','id');
+        $this->compacts['categoryProduct'] = $this->categoryRepository->getDataWithType('product', $this->locale, $this->dataCategory)->lists('name','id');
+    	$this->compacts['categoryAccessary'] = $this->categoryRepository->getDataWithType('accessary', $this->locale, $this->dataCategory)->lists('name','id');
+    	$this->compacts['pages'] = $this->pageRepository->getByLocale($this->locale, $this->dataCategory)->lists('name','id');
+    	$this->compacts['items'] = $this->repository->getRoot($this->locale, $this->dataSelect);
     	return $this->viewRender();
     }
 
     public function store(MenuRequest $request, MenuService $service)
     {
     	$data = $request->only('value','type');
+        $data['locale'] = $this->locale;
     	$service->store($data);
 
-    	return $this->repository->getRoot($this->dataSelect);
+    	return $this->repository->getRoot($this->locale, $this->dataSelect);
     }
 
     public function serialize(MenuRequest $request, MenuService $service)

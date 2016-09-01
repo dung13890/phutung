@@ -23,38 +23,6 @@ class PostController extends BackendController
         $this->categoryRepository = $category;
     }
 
-    public function getData($items = null)
-    {
-        //$this->before('index');
-        return \Datatables::of($items ? $items : $this->repository->datatables($this->dataSelect))
-        ->editColumn('image', function ($item) {
-            return $item->image_thumbnail;
-        })
-        ->addColumn('actions', function ($item) {
-            $actions = [];
-                if ($this->before('show', $item, false)) {
-                    $actions['show'] = [
-                        'uri' => route($this->viewPrefix.$this->repositoryName.'.show', $item->id),
-                        'label' => $this->trans('show'),
-                    ];
-                }
-                if ($this->before('edit',$item, false)) {
-                    $actions['edit'] = [
-                        'uri' => route($this->viewPrefix.$this->repositoryName.'.edit', $item->id),
-                        'label' => $this->trans('edit'),
-                    ];
-                }
-                if ($this->before('delete',$item, false)) {
-                    $actions['delete'] = [
-                        'uri' => route($this->viewPrefix.$this->repositoryName.'.destroy', $item->id),
-                        'label' => $this->trans('delete'),
-                    ];
-                }
-
-            return $actions;
-        })->make(true);
-    }
-
     public function getDataWithCategory($category)
     {
         $this->before('index');
@@ -68,7 +36,7 @@ class PostController extends BackendController
     {
         $this->before(__FUNCTION__);
         parent::index();
-        $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->typeCategory, $this->dataCategory);
+        $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->typeCategory, $this->locale, $this->dataCategory);
         
         return $this->viewRender();
     }
@@ -85,7 +53,7 @@ class PostController extends BackendController
     {
         $this->before(__FUNCTION__);
         parent::create();
-        $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->typeCategory, $this->dataCategory);
+        $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->typeCategory, $this->locale, $this->dataCategory);
         
         return $this->viewRender();
     }
@@ -94,6 +62,7 @@ class PostController extends BackendController
     {
         $this->before(__FUNCTION__);
         $data = $request->all();
+        $data['locale'] = $this->locale;
         
         return $this->storeData($data, $service);
     }
@@ -107,7 +76,7 @@ class PostController extends BackendController
     {
         parent::edit($id);
         $this->before(__FUNCTION__, $this->compacts['item']);
-        $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->typeCategory, $this->dataCategory);
+        $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->typeCategory, $this->locale, $this->dataCategory);
         $this->compacts['tags'] = $this->compacts['item']->tags->lists('name','name')->all();
 
         return $this->viewRender();

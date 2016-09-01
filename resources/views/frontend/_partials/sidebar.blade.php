@@ -11,9 +11,7 @@
 @endpush
 <div>
     <div class="links pull-left">
-        @if (count($categories))
-        <div class="name">{{ str_limit($categories->shift()->name, 20) }}</div>
-        @endif
+        <div class="name">{{ str_limit($categoryFirst->name, 20) }}</div>
         <ul class="list-unstyled">
         	@foreach ($categories as $category)
             <li @if ($item->slug === $category->slug || (($item->parent) && $item->parent->slug === $category->slug)) class="active"  @endif >
@@ -29,5 +27,5 @@
             @endforeach
         </ul>
     </div>
-    <div class="slogan pull-right">{{ $banner->name or '' }}</div>
+    <div class="slogan pull-right">{{ $item->slogan or $item->name }}</div>
 </div>

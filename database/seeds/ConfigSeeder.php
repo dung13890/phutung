@@ -15,91 +15,220 @@ class ConfigSeeder extends Seeder
         app(Config::class)->create([
         	'key' => 'name',
         	'value' => 'Phụ tùng Tân Phát',
-        	'type' => 'seo'
+        	'locale' => 'vi',
+            'type' => 'seo'
         ]);
         app(Config::class)->create([
         	'key' => 'keywords',
         	'value' => '',
-        	'type' => 'seo'
+        	'locale' => 'vi',
+            'type' => 'seo'
         ]);
         app(Config::class)->create([
         	'key' => 'description',
         	'value' => '',
-        	'type' => 'seo'
+        	'locale' => 'vi',
+            'type' => 'seo'
         ]);
         app(Config::class)->create([
         	'key' => 'facebook',
         	'value' => '',
-        	'type' => 'social'
+        	'locale' => 'vi',
+            'type' => 'social'
         ]);
         app(Config::class)->create([
         	'key' => 'youtube',
         	'value' => '',
-        	'type' => 'social'
+        	'locale' => 'vi',
+            'type' => 'social'
         ]);
         app(Config::class)->create([
         	'key' => 'email',
         	'value' => 'tanphat@tanphat.com',
-        	'type' => 'string'
+        	'locale' => 'vi',
+            'type' => 'string'
         ]);
         app(Config::class)->create([
         	'key' => 'phone',
         	'value' => '04 3681 2043 | FAX: 043 3681 2042',
-        	'type' => 'string'
+        	'locale' => 'vi',
+            'type' => 'string'
         ]);
         app(Config::class)->create([
         	'key' => 'address',
         	'value' => 'Trụ sở chính: 168 Phan Trọng Tuệ - Thanh Trì - Hà Nội',
-        	'type' => 'string'
+        	'locale' => 'vi',
+            'type' => 'string'
         ]);
         app(Config::class)->create([
         	'key' => 'scripts',
         	'value' => '',
-        	'type' => 'text'
+        	'locale' => 'vi',
+            'type' => 'text'
         ]);
         app(Config::class)->create([
         	'key' => 'logo',
         	'value' => '',
-        	'type' => 'string'
+        	'locale' => 'vi',
+            'type' => 'string'
         ]);
         app(Config::class)->create([
         	'key' => 'slogan',
         	'value' => '',
-        	'type' => 'string'
+        	'locale' => 'vi',
+            'type' => 'string'
         ]);
         app(Config::class)->create([
         	'key' => 'introduce',
         	'value' => '',
-        	'type' => 'text'
+        	'locale' => 'vi',
+            'type' => 'text'
         ]);
         app(Config::class)->create([
             'key' => 'box_left_image',
             'value' => '',
+            'locale' => 'vi',
             'type' => 'text'
         ]);
         app(Config::class)->create([
             'key' => 'box_right_image',
             'value' => '',
+            'locale' => 'vi',
             'type' => 'text'
         ]);
         app(Config::class)->create([
             'key' => 'box_left_name',
             'value' => '',
+            'locale' => 'vi',
             'type' => 'text'
         ]);
         app(Config::class)->create([
             'key' => 'box_right_name',
             'value' => '',
+            'locale' => 'vi',
             'type' => 'text'
         ]);
         app(Config::class)->create([
             'key' => 'box_left_link',
             'value' => '',
+            'locale' => 'vi',
             'type' => 'text'
         ]);
         app(Config::class)->create([
             'key' => 'box_right_link',
             'value' => '',
+            'locale' => 'vi',
+            'type' => 'text'
+        ]);
+
+
+
+        app(Config::class)->create([
+            'key' => 'name',
+            'value' => 'Phụ tùng Tân Phát',
+            'locale' => 'en',
+            'type' => 'seo'
+        ]);
+        app(Config::class)->create([
+            'key' => 'keywords',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'seo'
+        ]);
+        app(Config::class)->create([
+            'key' => 'description',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'seo'
+        ]);
+        app(Config::class)->create([
+            'key' => 'facebook',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'social'
+        ]);
+        app(Config::class)->create([
+            'key' => 'youtube',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'social'
+        ]);
+        app(Config::class)->create([
+            'key' => 'email',
+            'value' => 'tanphat@tanphat.com',
+            'locale' => 'en',
+            'type' => 'string'
+        ]);
+        app(Config::class)->create([
+            'key' => 'phone',
+            'value' => '04 3681 2043 | FAX: 043 3681 2042',
+            'locale' => 'en',
+            'type' => 'string'
+        ]);
+        app(Config::class)->create([
+            'key' => 'address',
+            'value' => 'Trụ sở chính: 168 Phan Trọng Tuệ - Thanh Trì - Hà Nội',
+            'locale' => 'en',
+            'type' => 'string'
+        ]);
+        app(Config::class)->create([
+            'key' => 'scripts',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'text'
+        ]);
+        app(Config::class)->create([
+            'key' => 'logo',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'string'
+        ]);
+        app(Config::class)->create([
+            'key' => 'slogan',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'string'
+        ]);
+        app(Config::class)->create([
+            'key' => 'introduce',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'text'
+        ]);
+        app(Config::class)->create([
+            'key' => 'box_left_image',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'text'
+        ]);
+        app(Config::class)->create([
+            'key' => 'box_right_image',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'text'
+        ]);
+        app(Config::class)->create([
+            'key' => 'box_left_name',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'text'
+        ]);
+        app(Config::class)->create([
+            'key' => 'box_right_name',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'text'
+        ]);
+        app(Config::class)->create([
+            'key' => 'box_left_link',
+            'value' => '',
+            'locale' => 'en',
+            'type' => 'text'
+        ]);
+        app(Config::class)->create([
+            'key' => 'box_right_link',
+            'value' => '',
+            'locale' => 'en',
             'type' => 'text'
         ]);
     }

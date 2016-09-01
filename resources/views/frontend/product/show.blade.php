@@ -21,7 +21,7 @@
     <div class="title text-center">
         <h1 class="page-title">{{ $category->name }}</h1>
     </div>
-    @include('frontend._partials.sidebar', ['categories' => $categories])
+    @include('frontend._partials.sidebar', ['categoryFirst' => $category , 'categories' => $categories])
 </div><!-- /#header -->
 
 <div id="product">
@@ -55,7 +55,7 @@
                 <h3 class="code"><span class="text-uppercase">{{ $item->code }}</span></h3>
 
                 <div class="provider">
-                    {{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }} <img src="{{ (isset($item->provider) && $item->provider->image) ? route('image', $item->provider->image_tiny) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }}"/>
+                    {{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }} <img src="{{ (isset($item->provider) && $item->provider->image) ? route('image', $item->provider->image_default) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }}"/>
                 </div>
 
                 <div class="desc">

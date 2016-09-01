@@ -13,7 +13,6 @@ class CategoryController extends FrontendController
     public function __construct(CategoryRepository $category)
     {
         parent::__construct($category);
-        $this->setLocale();
     }
 
     public function show($slug)
@@ -22,7 +21,7 @@ class CategoryController extends FrontendController
     	$this->compacts['heading'] = $this->compacts['item']->name;
     	$this->compacts['description'] = str_limit(strip_tags($this->compacts['item']->description), 156);
     	$this->compacts['banner'] = $this->compacts['item']->banner;
-    	$this->compacts['categories'] = $this->repository->getRootWithType($this->compacts['item']->type, $this->dataSelect);
+    	$this->compacts['categories'] = $this->repository->getRootWithType($this->compacts['item']->type, $this->locale, $this->dataSelect);
     	
     	switch ($this->compacts['item']->type) {
     		case 'post':

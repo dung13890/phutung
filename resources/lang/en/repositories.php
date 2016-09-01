@@ -1,6 +1,8 @@
 <?php 
 
 return [
+    'locale' => 'English',
+
     'object.list' => 'list :object',
     'object.index' => 'Index :object',
     'object.create' => 'Create :object',
@@ -26,6 +28,7 @@ return [
     'category' => 'Category',
     'post' => 'Post',
     'page' => 'Page',
+    'production' => 'Production',
     'product' => 'Device',
     'accessary' => 'Accessary',
     'property' => 'Property',
@@ -34,6 +37,8 @@ return [
     'menu' => 'Menu',
     'contact' => 'Contact',
     'provider' => 'Provider',
+    'setting' => 'Setting',
+    'position' => 'Position',
 
 
 

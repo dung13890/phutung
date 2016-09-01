@@ -35,6 +35,7 @@ class PageController extends BackendController
     {
     	$this->before(__FUNCTION__);
         $data = $request->all();
+        $data['locale'] = $this->locale;
         
         return $this->storeData($data, $service);
     }

@@ -39,6 +39,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 	Route::group(['prefix' => '/backend', 'namespace' => 'Backend','middleware' => ['auth']], function () {
 		Route::get('/', 'DashboardController@index');
+		Route::get('lang/{locale}', ['as' => 'backend.locale', 'uses' => 'DashboardController@locale']);
 		Route::post('summernote/image', ['as' => 'backend.summernote.image', 'uses' => 'DashboardController@summernoteImage']);
 		Route::PATCH('notification/{notification}', array('as'=>'backend.notification.read', 'uses'=>'DashboardController@readNotification'));
 
@@ -86,10 +87,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
             ]
         ]);
 
-        Route::resource('config', 'ConfigController', ['only' => [
-                'index','store'
-            ]
-        ]);
+        Route::resource('config', 'ConfigController', ['only' => ['index', 'store']]);
 
         Route::get('slide/data', ['as'=>'backend.slide.data', 'uses'=>'SlideController@getData']);
 		Route::resource('slide', 'SlideController');
@@ -103,10 +101,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         ]);
 
         Route::POST('menu/serialize', ['as'=>'backend.menu.serialize','uses'=>'MenuController@serialize']);
-        Route::resource('menu', 'MenuController', ['only' => [
-                'index','store','update','destroy'
-            ]
-        ]);
+        Route::resource('menu', 'MenuController', ['only' => ['index','store','update','destroy']]);
 	});
 });
 

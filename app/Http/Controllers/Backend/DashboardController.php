@@ -37,4 +37,13 @@ class DashboardController extends BackendController
     {
         app(Notification::class)->findOrFail($id)->update(['read' => true]);
     }
+
+    public function locale($locale)
+    {
+        session()->forget('locale');
+        session()->put('locale', $locale);
+        \Cache::flush();
+        
+        return redirect(url()->previous());
+    }
 }

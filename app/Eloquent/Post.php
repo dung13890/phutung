@@ -11,7 +11,7 @@ class Post extends Abstracts\Sluggable implements TaggableInterface
     use TaggableTrait, GetImageTrait;
 
     protected $fillable = [
-    	'name','image','intro','description','featured','locked','user_id'
+    	'name','image','intro','description','featured','locked', 'locale', 'user_id'
     ];
 
     protected $appends = ['image_thumbnail','image_small'];

@@ -15,6 +15,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('locale', 10)->default('vi');
             $table->string('slug')->index()->nullable();
             $table->string('image');
             $table->text('intro');

@@ -26,30 +26,32 @@ class Store extends Job
     public function handle(ConfigRepository $repository)
     {
         $path = strtolower(class_basename($repository->getModel()));
+        $locale = $this->attributes['locale'];
+        unset($this->attributes['locale']);
 
         if (isset($this->attributes['logo']) && $this->attributes['logo']) {
-            $this->uploadImageConfig($this->attributes['logo'], 'logo', $path);
+            $this->uploadImageConfig($this->attributes['logo'], 'logo', $path, $locale);
             unset($this->attributes['logo']);
         }
 
         if (isset($this->attributes['box_left_image']) && $this->attributes['box_left_image']) {
-            $this->uploadImageConfig($this->attributes['box_left_image'], 'box_left_image', $path);
+            $this->uploadImageConfig($this->attributes['box_left_image'], 'box_left_image', $path, $locale);
             unset($this->attributes['box_left_image']);
         }
 
         if (isset($this->attributes['box_right_image']) && $this->attributes['box_right_image']) {
-            $this->uploadImageConfig($this->attributes['box_right_image'], 'box_right_image', $path);
+            $this->uploadImageConfig($this->attributes['box_right_image'], 'box_right_image', $path, $locale);
             unset($this->attributes['box_right_image']);
         }
 
         foreach ($this->attributes as $key => $value) {
-            $repository->findByKey($key)->update(['value' => $value]);
+            $repository->findByKey($key, $locale)->update(['value' => $value]);
         }
     }
 
-    public function uploadImageConfig(UploadedFile $file, $key, $path)
+    public function uploadImageConfig(UploadedFile $file, $key, $path, $locale)
     {
-        $image = app(ConfigRepository::class)->findByKey($key);
+        $image = app(ConfigRepository::class)->findByKey($key, $locale);
 
         if (!empty($image->value)) {
             $this->destroyFile($image->value);

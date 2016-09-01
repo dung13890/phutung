@@ -12,8 +12,8 @@ class MenuRepositoryEloquent extends AbstractRepositoryEloquent implements MenuR
         parent::__construct($model);
     }
 
-    public function getRoot($columns = ['*'])
+    public function getRoot($locale = 'vi', $columns = ['*'])
     {
-    	return $this->model->where('parent_id',0)->orderBy('order')->get($columns);
+    	return $this->model->with('children')->where('locale', $locale)->where('parent_id', 0)->orderBy('order')->get($columns);
     }
 }

@@ -28,7 +28,7 @@ class Store extends Job
         $category = $repository->create($this->attributes);
 
         if (isset($this->attributes['banner'])) {
-            $banner = $this->uploadToImage($this->attributes['banner'], null, $this->attributes['slogan']);
+            $banner = $this->uploadToImage($this->attributes['banner']);
             $category->images()->save($banner);
         }
 

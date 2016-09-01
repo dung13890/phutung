@@ -20,6 +20,7 @@ class CreateMenusTable extends Migration
             $table->string('menuable_type');
             $table->integer('order');
             $table->string('src');
+            $table->string('locale')->default('vi');
             $table->timestamps();
         });
     }

@@ -16,8 +16,7 @@ class ConfigController extends BackendController
     public function index()
     {
     	parent::index();
-    	$data['items'] = $this->repository->all();
-    	
+    	$data['items'] = $this->repository->getByLocale($this->locale);
     	return $this->viewRender($data, $this->repositoryName.'.create');
     }
 
@@ -37,6 +36,7 @@ class ConfigController extends BackendController
         if (!$data['box_right_image'] || !isset($data['box_right_image'])) {
             unset($data['box_right_image']);
         }
+        $data['locale'] = $this->locale;
         \Cache::flush();
         
         return $this->storeData($data, $service);

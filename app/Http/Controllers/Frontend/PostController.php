@@ -31,7 +31,7 @@ class PostController extends FrontendController
         }
         $this->compacts['category'] = $this->compacts['item']->categories()->first();
         $this->compacts['banner'] = $this->compacts['category']->banner;
-        $this->compacts['categories'] = $this->categoryRepository->getRootWithType('post', $this->dataCategory);
+        $this->compacts['categories'] = $this->categoryRepository->getRootWithType('post', $this->locale, $this->dataCategory);
         
         $this->view = 'post.show';
 

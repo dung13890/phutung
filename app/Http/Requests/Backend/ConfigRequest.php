@@ -31,6 +31,8 @@ class ConfigRequest extends Request
             'phone' => 'required|min:4|max:255',
             'address' => 'required|min:4|max:255',
             'logo'=> 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+            'box_left_image'=> 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+            'box_right_image'=> 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
         ];
     }
 }

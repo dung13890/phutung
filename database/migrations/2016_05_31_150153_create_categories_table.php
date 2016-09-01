@@ -15,9 +15,11 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('slogan');
             $table->string('slug')->nullable();
             $table->integer('parent_id')->index();
-            $table->string('type')->default('product');
+            $table->string('type', 20)->default('product');
+            $table->string('locale', 10)->default('vi');
             $table->text('description');
             $table->boolean('locked')->default(false);
             $table->timestamps();

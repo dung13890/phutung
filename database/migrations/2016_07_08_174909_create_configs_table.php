@@ -14,9 +14,10 @@ class CreateConfigsTable extends Migration
     {
         Schema::create('configs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('key')->index()->unique();
+            $table->string('key')->index();
             $table->text('value');
-            $table->string('type')->default('string');
+            $table->string('locale', 10)->default('vi');
+            $table->string('type');
         });
     }
 

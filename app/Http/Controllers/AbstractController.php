@@ -40,11 +40,15 @@ abstract class AbstractController extends Controller
             'object' => $this->trans($this->repositoryName),
         ];
         $this->user = Auth::guard($this->getGuard())->user();
+        $this->setLocale();
     }
 
     public function setLocale()
     {
         $this->locale = session()->has('locale') ? session('locale') : 'vi';
+        if (!in_array($this->locale, array_keys(config('developer.locale')))) {
+            abort(403);
+        }
         \App::setLocale($this->locale);
     }
 

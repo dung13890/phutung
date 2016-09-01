@@ -19,17 +19,20 @@
 @endpush
 
 @section('page-content')
+<?php
+    $categoryFirst = $categories->shift();
+?>
 <div id="header">
     <div class="title text-center">
         <h1 class="page-title">{{ $item->name }}</h1>
     </div>
-    @include('frontend._partials.sidebar', ['item' => $item, 'categories' => $categories])
+    @include('frontend._partials.sidebar', ['categoryFirst' => $categoryFirst , 'item' => $item, 'categories' => $categories])
 </div><!-- /#header -->
 <div id="accessary">
     <div class="main">
         <h4 class="text-uppercase">{{ $banner->name or '' }}</h4>
         <p>{!! $item->description !!}</p>
-        @if ($item->slug != 'phu-tung')
+        @if ($item->slug != 'phu-tung' && $item->slug != 'accessary')
         <div class="item">
             <div class="bigimg">
                 <img src="{{ ( $item->banner ) ? route('image',$item->banner->image_banner) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}"/>
@@ -46,8 +49,11 @@
             </ul>
             <nav>{!! $products->render() !!}</nav>
         </div>
-        @elseif (count($categories) > 2)
-        @foreach ($categories->random(3) as $category)
+        @else
+        @foreach ($categories->take(5) as $category)
+        <?php
+            //$categor->load('randomProducts');
+        ?>
         <div class="item">
             <div class="bigimg">
                 <img src="{{ ($category->banner ) ? route('image', $category->banner->image_banner) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $category->name }}"/>

@@ -14,7 +14,8 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
 
     public function datatables($columns = ['*'],  $with = [])
     {
-    	return $this->model->orderBy('id', 'desc')->get($columns);
+        $locale = session()->has('locale') ? session('locale') : 'vi';
+        return $this->model->with($with)->where('locale', $locale)->orderBy('id', 'desc')->get($columns);
     }
 
     public function allTags($paginate = 9)
@@ -27,8 +28,13 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
         return $this->model->findBySlug($slug);
     }
 
-    public function getPage($limit, $columns = ['*'])
+    public function getByLocale($locale, $columns = ['*'])
     {
-        return $this->model->where('locked',false)->take($limit)->get($columns);
+        return $this->model->where('locale', $locale)->where('locked', false)->get($columns);
+    }
+
+    public function getPage($limit, $locale = 'vi', $columns = ['*'])
+    {
+        return $this->model->where('locked',false)->where('locale', $locale)->take($limit)->get($columns);
     }
 }

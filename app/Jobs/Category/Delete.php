@@ -22,6 +22,9 @@ class Delete extends Job
      */
     public function handle(CategoryRepository $repository)
     {
+        if ($this->entity->id <= 6) {
+            return;
+        }
         if (count($this->entity->children)) {
             $this->entity->children()->delete();
         }

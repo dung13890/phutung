@@ -25,10 +25,12 @@ class CategoryController extends BackendController
         if (!in_array($type, config('developer.categories'))) {
             abort(403);
         }
+
         $this->view = $this->repositoryName.'.index';
         $this->compacts['heading'] = $this->trans('category') . ' ' . $this->trans($type);
         $this->compacts['action'] = ucfirst($this->trans($action));
-        $this->compacts['items'] = $this->repository->getRootWithType($type, $this->dataSelect);
+
+        $this->compacts['items'] = $this->repository->getRootWithType($type, $this->locale, $this->dataSelect);
         $this->compacts['listItems'] = (!isset($this->compacts['item'])) ? 
             $this->compacts['items']->lists('name','id')->prepend('Root',0) :
             $this->compacts['items']->lists('name','id')->forget($this->compacts['item']->id)->prepend('Root',0);
@@ -51,6 +53,7 @@ class CategoryController extends BackendController
     {
         $this->before(__FUNCTION__);
         $data = $request->all();
+        $data['locale'] = $this->locale;
 
         return $this->storeData($data, $service, url()->previous());
     }

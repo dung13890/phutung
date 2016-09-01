@@ -13,18 +13,36 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {   
-        $categories = factory(Category::class, 3)->create();
+        $categories = factory(Category::class, 6)->create();
         $categories->find(1)->update([
             'name' => 'tin tức',
-            'type' => 'post'
+            'type' => 'post',
+            'locale' => 'vi'
         ]);
         $categories->find(2)->update([
             'name' => 'Thiết bị',
-            'type' => 'product'
+            'type' => 'product',
+            'locale' => 'vi'
         ]);
         $categories->find(3)->update([
             'name' => 'Phụ tùng',
-            'type' => 'accessary'
+            'type' => 'accessary',
+            'locale' => 'vi'
+        ]);
+        $categories->find(4)->update([
+            'name' => 'News',
+            'type' => 'post',
+            'locale' => 'en'
+        ]);
+        $categories->find(5)->update([
+            'name' => 'Device',
+            'type' => 'product',
+            'locale' => 'en'
+        ]);
+        $categories->find(6)->update([
+            'name' => 'Accessary',
+            'type' => 'accessary',
+            'locale' => 'en'
         ]);
 
         // // create children Category

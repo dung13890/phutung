@@ -12,9 +12,9 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
         parent::__construct($model);
     }
 
-    public function getDataWithType($type, $columns = ['*'])
+    public function getDataWithType($type, $locale = 'vi', $columns = ['*'])
     {
-        return $this->model->where('type', $type)->orderBy('id', 'DESC')->get($columns);
+        return $this->model->where('type', $type)->where('locale', $locale)->orderBy('id', 'DESC')->get($columns);
     }
 
     public function allTags($paginate = 9)
@@ -37,12 +37,13 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
         return $this->model->where('locked', false)->orderByRaw("RAND()")->take($limit)->get($columns);
     }
 
-    public function search($value, $paginate = 16, $columns = ['*'])
+    public function search($value, $locale = 'vi', $paginate = 16, $columns = ['*'])
     {
         return $this->model->where('name', 'LIKE', '%'.$value.'%')
         ->orWhere('code','LIKE','%'.$value.'%')
         ->orWhere('guarantee','LIKE','%'.$value.'%')
         ->orWhere('price','LIKE','%'.$value.'%')
-        ->orderBy('id','DESC')->paginate($paginate);
+        ->orderBy('id','DESC')
+        ->where('locale', $locale)->paginate($paginate);
     }
 }

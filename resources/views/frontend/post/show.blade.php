@@ -20,7 +20,7 @@
     <div class="title text-center">
         <h1 class="page-title">{{ $category->name }}</h1>
     </div>
-    @include('frontend._partials.sidebar', ['categories' => $categories])
+    @include('frontend._partials.sidebar', ['categoryFirst' => $category, 'categories' => $categories])
 </div><!-- /#header -->
 
 <div id="intro">

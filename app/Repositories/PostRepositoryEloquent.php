@@ -14,7 +14,8 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
 
     public function datatables($columns = ['*'],  $with = [])
     {
-    	return $this->model->with($with)->orderBy('id', 'desc')->get($columns);
+        $locale = session()->has('locale') ? session('locale') : 'vi';
+    	return $this->model->with($with)->where('locale', $locale)->orderBy('id', 'desc')->get($columns);
     }
 
     public function allTags($paginate = 9)
@@ -22,9 +23,9 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
     	return $this->model->allTags()->paginate($paginate);
     }
 
-    public function getHome($limit, $columns = ['*'])
+    public function getHome($limit, $locale = 'vi', $columns = ['*'])
     {
-        return $this->model->where('featured', true)->where('locked', false)->orderBy('id', 'DESC')->take($limit)->get($columns);
+        return $this->model->where('featured', true)->where('locked', false)->where('locale', $locale)->orderBy('id', 'DESC')->take($limit)->get($columns);
     }
 
     public function findBySlug($slug)

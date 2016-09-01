@@ -1,6 +1,8 @@
 <?php 
 
 return [
+    'locale' => 'Tiếng việt',
+
     'object.list' => 'Danh sách :object',
     'object.index' => 'Quản lý :object',
     'object.create' => 'Thêm mới :object',
@@ -26,6 +28,7 @@ return [
     'category' => 'danh mục',
     'post' => 'Tin tức',
     'page' => 'trang',
+    'production' => 'Sản phẩm',
     'product' => 'Thiết bị',
     'accessary' => 'Phụ tùng',
     'property' => 'thuộc tính',
@@ -34,6 +37,8 @@ return [
     'menu' => 'menu',
     'contact' => 'Liên hệ',
     'provider' => 'Nhà cung cấp',
+    'setting' => 'Cài đặt',
+    'position' => 'Chi nhánh',
 
 
 
