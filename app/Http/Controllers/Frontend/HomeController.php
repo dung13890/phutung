@@ -43,7 +43,7 @@ class HomeController extends FrontendController
     {
     	$this->compacts['posts'] = $this->postRepository->getHome(5, $this->locale, $this->dataSelect);
         $this->compacts['postCategory'] = $this->categoryRepository->getFirstWithType('post', $this->locale);
-        $this->compacts['heading'] = 'Trang chủ';
+        $this->compacts['heading'] = $this->trans('home');
     	$this->view = 'home.index';
 
     	return $this->viewRender();
