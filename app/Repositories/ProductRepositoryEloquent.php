@@ -39,11 +39,13 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
 
     public function search($value, $locale = 'vi', $paginate = 16, $columns = ['*'])
     {
-        return $this->model->where('name', 'LIKE', '%'.$value.'%')
-        ->orWhere('code','LIKE','%'.$value.'%')
-        ->orWhere('guarantee','LIKE','%'.$value.'%')
-        ->orWhere('price','LIKE','%'.$value.'%')
-        ->orderBy('id','DESC')
-        ->where('locale', $locale)->paginate($paginate);
+        return $this->model->where('locale', $locale)
+        ->where(function ($query) use ($value) {
+            $query->where('name', 'LIKE', '%'.$value.'%')
+                    ->where('name', 'LIKE', '%'.$value.'%')
+                    ->orWhere('code','LIKE','%'.$value.'%')
+                    ->orWhere('guarantee','LIKE','%'.$value.'%')
+                    ->orWhere('price','LIKE','%'.$value.'%');
+        })->orderBy('id','DESC')->paginate($paginate);
     }
 }

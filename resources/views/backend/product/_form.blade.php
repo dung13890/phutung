@@ -68,12 +68,21 @@
 			{{ Form::label('provider_id', 'Nhà cung cấp', ['class'=>'control-label']) }}
     		{{ Form::select('provider_id', $listProvider, null, ['class' => 'form-control select2-provider']) }}
 		</div>
+		<div class="col-sm-6">
+			{{ Form::label('youtube', 'Link youtube', ['class'=>'control-label']) }}
+    		{{ Form::text('youtube', (isset($item) && $item->youtube) ? 'https://www.youtube.com/watch?v=' . $item->youtube : Null, ['class' => 'form-control', 'placeholder' => 'Link youtube']) }}
+		</div>
 	</div>
 </div>
 
 <div class="form-group">
 	{{ Form::label('description', 'Chi tiết', ['class'=>'control-label']) }}
     {{ Form::textarea('description',null, ['class' => 'form-control textarea-summernote']) }}
+</div>
+
+<div class="form-group">
+	{{ Form::label('guide', 'Hướng dẫn', ['class'=>'control-label']) }}
+    {{ Form::textarea('guide',null, ['class' => 'form-control textarea-summernote']) }}
 </div>
 
 <div class="form-group">

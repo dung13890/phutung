@@ -20,6 +20,9 @@ class ProductRequest extends Request
         if ( isset($all['price']) && !empty($all['price']) ) {
             $all['price'] = str_replace(',','',$all['price']);
         }
+        if (isset($all['youtube'])) {
+            $all['youtube'] = $this->getKeyYoutube($all['youtube']);
+        }
         $this->replace($all);
         
         return true;
@@ -58,5 +61,19 @@ class ProductRequest extends Request
                 'type' => "required|in:". implode(',',config('developer.typeProduct'))
             ];
         }
+    }
+
+    public function getKeyYoutube($url)
+    {
+        if(strlen($url) > 11)
+        {
+            if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
+            {
+                return $match[1];
+            }
+            else
+                return false;
+        }
+        return $url;
     }
 }

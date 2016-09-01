@@ -13,4 +13,6 @@ interface ProductRepository extends AbstractRepository
 	public function findBySlug($slug);
 
 	public function random($limit, $columns = ['*']);
+
+	public function search($value, $locale = 'vi', $paginate = 16, $columns = ['*']);
 }

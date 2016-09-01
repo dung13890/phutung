@@ -231,7 +231,8 @@ class AppServiceProvider extends ServiceProvider
                 })->lists('value','key');
             }));
             $view->with('__menus', Cache::remember('__menus', 60, function () {
-                return app(MenuRepository::class)->getRoot();
+                $locale = session()->has('locale') ? session('locale') : 'vi';
+                return app(MenuRepository::class)->getRoot($locale);
             }));
 
             $view->with('__slides', Cache::remember('__slides', 60, function () {
