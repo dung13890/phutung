@@ -88,6 +88,6 @@ class HomeController extends FrontendController
         session()->put('locale', $locale);
         \Cache::flush();
         
-        return $this->index();
+        return redirect(route('home.index'));
     }
 }
