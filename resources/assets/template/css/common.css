@@ -352,3 +352,9 @@ a:hover, a:focus {
     background: url('../img/bg-footer.png') no-repeat;
     background-size: 100% 100%;
 }
+
+#top .language a.active {
+    font-weight: bold;
+    font-size: 17px;
+    color: #CB181E;
+}
