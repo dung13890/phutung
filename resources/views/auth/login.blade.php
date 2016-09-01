@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Login')
+
 @section('content')
 
 <div class="login-box animated @if (count($errors) > 0) jello @else fadeInDown @endif">
