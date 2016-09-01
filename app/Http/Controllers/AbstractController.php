@@ -46,6 +46,7 @@ abstract class AbstractController extends Controller
     public function setLocale()
     {
         $this->locale = session()->has('locale') ? session('locale') : 'vi';
+        
         if (!in_array($this->locale, array_keys(config('developer.locale')))) {
             abort(403);
         }

@@ -40,7 +40,8 @@ class DashboardController extends BackendController
 
     public function locale($locale)
     {
-        //session()->forget('locale');
+        session()->forget('locale');
+        
         session()->put('locale', $locale);
         \Cache::flush();
         
