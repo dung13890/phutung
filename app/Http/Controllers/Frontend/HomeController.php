@@ -84,7 +84,6 @@ class HomeController extends FrontendController
 
     public function locale($locale)
     {
-        session()->forget('locale');
         session()->put('locale', $locale);
         \Cache::flush();
         
