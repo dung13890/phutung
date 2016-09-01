@@ -228,7 +228,7 @@
     padding: 0 20px 0 38px;
 }
 
-#product .product-tabs .tabs li:hover span.left {
+#product .product-tabs .tabs li:hover span.left, #product .product-tabs .tabs li.active span.left {
     display: block;
     background: url('../img/bg-product-title-left-active.png') no-repeat;
     background-size: 100% 100%;

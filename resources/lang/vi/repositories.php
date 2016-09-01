@@ -39,6 +39,7 @@ return [
     'provider' => 'Nhà cung cấp',
     'setting' => 'Cài đặt',
     'position' => 'Chi nhánh',
+    'guide' => 'Hướng dẫn',
 
 
 

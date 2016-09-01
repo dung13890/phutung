@@ -86,16 +86,20 @@
                     <a href="#details" data-toggle="tab">{{ trans('repositories.details') }}</a>
                     <span class="right"></span>
                 </li>
+                @if ($item->video)
                 <li>
                     <span class="left"></span>
                     <a href="#video" data-toggle="tab">Videos</a>
                     <span class="right"></span>
                 </li>
+                @endif
+                @if ($item->guide)
                 <li>
                     <span class="left"></span>
                     <a href="#guide" data-toggle="tab">{{ trans('repositories.guide') }}</a>
                     <span class="right"></span>
                 </li>
+                @endif
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="details">
@@ -105,7 +109,9 @@
                 </div>
                 <div class="tab-pane" id="video">
                     <div class="content">
+                        @if ($item->video)
                         <iframe width="100%" height="315" src="http://www.youtube.com/embed/{{$item->youtube}}?rel=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        @endif
                     </div>
                 </div>
                 <div class="tab-pane" id="guide">

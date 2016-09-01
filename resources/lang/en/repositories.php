@@ -39,6 +39,7 @@ return [
     'provider' => 'Provider',
     'setting' => 'Setting',
     'position' => 'Position',
+    'guide' => 'Guide',
 
 
 
