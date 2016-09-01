@@ -86,6 +86,7 @@ class HomeController extends FrontendController
     {
         session()->put('locale', $locale);
         \Cache::forget('__menus');
+        \Cache::forget('configs');
 
         return redirect(route('home.index'));
     }
