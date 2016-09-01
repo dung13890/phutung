@@ -44,7 +44,7 @@
             {{ Form::checkbox('locked', true, old('locked'), ['data-toggle'=>'toggle','data-size' => 'small']) }}	<b>Locked  </b>
         </label>
         <label>
-            {{ Form::checkbox('featured', true, old('featured'), ['data-toggle'=>'toggle','data-size' => 'small']) }}	<b>Nổi bật  </b>
+            {{ Form::checkbox('featured', true, old('featured'), ['data-toggle'=>'toggle','data-size' => 'small']) }}	<b>Hiện trang chủ  </b>
         </label>
     </div>
 </div>
