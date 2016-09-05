@@ -26,7 +26,7 @@ class ContactRequest extends Request
         return [
             'topic' => 'required|min:2|max:40',
             'name' => 'required|min:2|max:40',
-            'email' => 'required|email|max:255|min:2',
+            'email' => 'email|max:255|min:2',
             'phone' => 'required|min:2|max:40',
             'content' => 'min:2|max:300'
         ];
