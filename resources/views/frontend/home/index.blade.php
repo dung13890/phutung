@@ -2,16 +2,26 @@
 
 @push('prestyles')
 {{ HTML::style("template/css/home.css") }}
+<style>
+    #home .section-half .title a {
+        color:#fff;
+    }
+
+    #home .section-half .title a:hover {
+        color:#F1ED08;
+    }
+
+</style>
 @endpush
 
 @section('page-content')
 <div id="home">
     <!-- Section-half -->
     <div class="section-half">
-        <div class="title"><a style="color:#fff;" href="{{ $configs['box_left_link'] }}" title="{{ $configs['box_left_name'] }}">{{ $configs['box_left_name'] }}</a></div>
+        <div class="title"><a href="{{ $configs['box_left_link'] }}" title="{{ $configs['box_left_name'] }}">{{ $configs['box_left_name'] }}</a></div>
     </div>
     <div class="section-half">
-        <div class="title"><a style="color:#fff;" href="{{ $configs['box_right_link'] }}" title="{{ $configs['box_right_name'] }}">{{ $configs['box_right_name'] }}</a></div>
+        <div class="title"><a href="{{ $configs['box_right_link'] }}" title="{{ $configs['box_right_name'] }}">{{ $configs['box_right_name'] }}</a></div>
     </div>
     <div class="clear"></div>
 

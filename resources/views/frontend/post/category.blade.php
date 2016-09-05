@@ -18,6 +18,9 @@
     #news .big-news .caption a{
         color:#fff;
     }
+    #news .big-news .caption a:hover {
+        color:#F1ED08;
+    }
     #news .list-news .news:last-of-type {
         border:0;
     }
