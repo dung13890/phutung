@@ -67,6 +67,7 @@ return [
     'form_error' => 'Làm ơn xem lại các trường đã nhập.',
     'topic' => 'Chủ đề',
     'last_name' => 'Họ và tên',
+    'full_name' => 'Họ và tên',
     'address' => 'Địa chỉ',
     'phone' => 'Điện thoại',
     'content' => 'Nội dung',

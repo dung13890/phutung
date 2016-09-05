@@ -302,6 +302,11 @@ a:hover, a:focus {
     background-position: 7px 4px;
 }
 
+#header .links .submenu a:hover {
+    color: #CD181F;
+    text-decoration: none;
+}
+
 #header .links > ul > li:hover > .submenu {
     display: block;
 }
