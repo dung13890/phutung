@@ -86,7 +86,7 @@
                     <a href="#details" data-toggle="tab">{{ trans('repositories.details') }}</a>
                     <span class="right"></span>
                 </li>
-                @if ($item->video)
+                @if ($item->youtube)
                 <li>
                     <span class="left"></span>
                     <a href="#video" data-toggle="tab">Videos</a>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="tab-pane" id="video">
                     <div class="content">
-                        @if ($item->video)
+                        @if ($item->youtube)
                         <iframe width="100%" height="315" src="http://www.youtube.com/embed/{{$item->youtube}}?rel=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
                         @endif
                     </div>
