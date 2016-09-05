@@ -7,7 +7,7 @@
         color:#CD181F;
         text-decoration: none;
     }
-    #header .links > ul > li > a{
+    #header .links > .name > a{
         color:#fff;
     }
 

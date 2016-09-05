@@ -35,6 +35,8 @@ class SlideController extends BackendController
     {
         $this->before(__FUNCTION__);
         $data = $request->all();
+
+        \Cache::forget('__slides');
         
         return $this->storeData($data, $service);
     }
@@ -53,6 +55,8 @@ class SlideController extends BackendController
         $entity = $this->repository->findOrFail($id);
         $this->before(__FUNCTION__, $entity);
 
+        \Cache::forget('__slides');
+
         return $this->updateData($data, $service, $entity);
     }
 
@@ -60,6 +64,8 @@ class SlideController extends BackendController
     {
         $entity = $this->repository->findOrFail($id);
         $this->before(__FUNCTION__, $entity);
+
+        \Cache::forget('__slides');
 
         return $this->deleteData($service, $entity);
     }
