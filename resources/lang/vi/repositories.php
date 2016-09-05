@@ -70,7 +70,7 @@ return [
     'address' => 'Địa chỉ',
     'phone' => 'Điện thoại',
     'content' => 'Nội dung',
-    'about_us' => 'LIÊN HỆ VƠÍ CHÚNG TÔI',
+    'about_us' => 'LIÊN HỆ VỚI CHÚNG TÔI',
     'product_code' => 'Mã Sản phẩm',
     'guarantee' => 'Bảo hành',
     'origin' => 'Xuất xứ',

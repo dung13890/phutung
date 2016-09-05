@@ -42,7 +42,7 @@
                 </h3>
                 {{ Form::open(['url' => route('home.post.contact'), 'autocomplete'=>'off', 'class' => 'form-horizontal']) }}
                     @if (count($errors) > 0)
-                    <div class="alert alert-danger">
+                    <div id="validator" class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -141,6 +141,7 @@
 @push('prescripts')
 {{ HTML::script('vendor/toastr/toastr.min.js') }}
 <script>
+    var isValidator = {!! count($errors) !!};
     var flash_message_frontend = '{!!session("flash_message_frontend")!!}';
     $(function () {
         if (typeof flash_message_frontend !== 'undefined' && flash_message_frontend) {
@@ -162,6 +163,10 @@
                 "hideMethod": "fadeOut"
             }
             e.code == 0 ? toastr.success(e.message) : toastr.error(e.message);
+        }
+            console.log(isValidator);
+        if (isValidator) {
+            $(this).scrollTop(600);
         }
     });
 </script>
