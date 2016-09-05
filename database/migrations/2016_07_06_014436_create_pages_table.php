@@ -16,7 +16,7 @@ class CreatePagesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug')->index()->nullable();
-            $table->text('intro');
+            $table->string('slogan');
             $table->text('description');
             $table->string('image');
             $table->string('locale', 10)->default('vi');

@@ -13,8 +13,8 @@
 		</div>
 
 		<div class="form-group">
-			{{ Form::label('intro', 'Intro', ['class'=>'control-label']) }}
-		    {{ Form::textarea('intro',null, ['class' => 'form-control','rows'=>'3', 'placeholder'=>'Intro']) }}
+			{{ Form::label('slogan', 'Slogan', ['class'=>'control-label']) }}
+		    {{ Form::text('slogan', null, ['class' => 'form-control']) }}
 		</div>
 
 		<div class="form-group">

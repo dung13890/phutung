@@ -42,7 +42,7 @@
                 <li>
                     <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}">
                         <img src="{{ ( $product->image ) ? route('image',$product->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $product->name }}" />
-                        <p>{{ str_limit($product->name, 15) }}<span >{{ $product->code }}</span></p>
+                        <p class="text-center">{{ str_limit($product->name, 15) }}<span >{{ $product->code }}</span></p>
                     </a>
                 </li>
                 @endforeach
@@ -63,7 +63,7 @@
                 <li>
                     <a title="{{ $random->name }}" href="{{ route('product.show', $random->slug) }}">
                         <img src="{{ ( $random->image ) ? route('image',$random->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $random->name }}" />
-                        <p>{{ str_limit($random->name, 15) }}<span >{{ $random->code }}</span></p>
+                        <p class="text-center">{{ str_limit($random->name, 15) }}<span >{{ $random->code }}</span></p>
                     </a>
                 </li>
                 @endforeach

@@ -11,7 +11,7 @@ class Page extends Abstracts\Sluggable implements TaggableInterface
     use TaggableTrait, GetImageTrait;
 
     protected $fillable = [
-    	'name','intro','description', 'image', 'featured','locked', 'locale'
+    	'name', 'slogan', 'description', 'image', 'featured','locked', 'locale'
     ];
 
     protected $sluggable = [
