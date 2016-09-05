@@ -50,7 +50,7 @@
             <div class="text">
                 <p>{{ $postFirst->intro }}</p>
                 <br>
-                <p>{{ str_limit(strip_tags($postFirst->description), 226); }}</p>
+                <p>{{ str_limit(strip_tags($postFirst->description), 300) }}</p>
             </div>
         </div>
         <div class="list-news">
