@@ -8,7 +8,7 @@ class CategoryController extends FrontendController
 {
     protected $dataSelect = ['id', 'slug','name', 'type', 'description'];
 
-    protected $dataPost = ['id', 'slug', 'name', 'image', 'created_at', 'intro'];
+    protected $dataPost = ['id', 'slug', 'name', 'image', 'created_at', 'intro', 'description'];
 
     public function __construct(CategoryRepository $category)
     {
