@@ -7,11 +7,19 @@
         color:#CD181F;
         text-decoration: none;
     }
+    #header .links > ul > li > a{
+        color:#fff;
+    }
+
+    #header .links > .name > a:hover{
+        color:#CD181F;
+        text-decoration: none;
+    }
 </style>
 @endpush
 <div>
     <div class="links pull-left">
-        <div class="name">{{ str_limit($categoryFirst->name, 20) }}</div>
+        <div class="name"><a href="{{ route(strtolower(class_basename($categoryFirst)) . '.show', $categoryFirst->slug) }}" title="{{ $categoryFirst->name, 20) }}"> {{ str_limit($categoryFirst->name, 20) }} </a></div>
         <ul class="list-unstyled">
         	@foreach ($categories as $category)
             <li @if ($item->slug === $category->slug || (($item->parent) && $item->parent->slug === $category->slug)) class="active"  @endif >
