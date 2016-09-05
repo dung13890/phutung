@@ -51,7 +51,6 @@ class HomeController extends FrontendController
 
     public function search(Request $request)
     {
-        $this->view = "Thông tin tìm kiếm";
         $this->compacts['value'] = $request->search;
         $this->compacts['products'] = $this->productRepository->search($this->compacts['value'], $this->locale);
         $this->view = 'home.search';
