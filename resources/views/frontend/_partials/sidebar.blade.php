@@ -35,5 +35,5 @@
             @endforeach
         </ul>
     </div>
-    <div class="slogan pull-right">{{ $item->slogan or $configs['name'] }}</div>
+    <div class="slogan pull-right">{{ $item->slogan or $configs['slogan'] }}</div>
 </div>

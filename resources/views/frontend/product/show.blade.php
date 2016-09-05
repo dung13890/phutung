@@ -100,6 +100,13 @@
                     <span class="right"></span>
                 </li>
                 @endif
+                @if (count($item->properties))
+                <li>
+                    <span class="left"></span>
+                    <a href="#properties" data-toggle="tab">{{ trans('repositories.property') }}</a>
+                    <span class="right"></span>
+                </li>
+                @endif
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="details">
@@ -119,6 +126,15 @@
                     {!! $item->guide !!}
                     </div>
                 </div>
+                @if (count($item->properties))
+                <div class="tab-pane" id="properties">
+                    <div class="content">
+                        @foreach ($item->properties->groupBy('key') as $key => $value)
+                        <p><strong>{{ $key }}:</strong>  {{ $value->implode('name', ', ') }}</p>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
 
