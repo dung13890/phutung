@@ -1,18 +1,20 @@
 /* #contact -----------------------------------*/
+#contact {
+    margin-top: 30px;
+}
+
 #contact .form .title {
-    text-transform: uppercase;
-    font-size: 15px;
-    height: 40px;
-    line-height: 40px;
-    text-indent: 10px;
-    border-left: 13px solid #ec1c24;
+    font-size: 17px;
     font-weight: 600;
+    border-left: 13px solid #ec1c24;
     color: #999999;
     margin-bottom: 30px;
 }
 
-#contact .form .form-control {
-    border-radius: 0;
+#contact .form .title span {
+    display: block;
+    text-indent: 10px;
+    margin-bottom: 7px;
 }
 
 #contact .form textarea {
@@ -21,6 +23,10 @@
 
 #contact .form .btn {
     border-radius: 0;
+}
+
+#contact .form .btn-primary {
+    background-color: #2b5688;
 }
 
 #contact .sidebar {

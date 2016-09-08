@@ -94,7 +94,7 @@
 #home .list .news {
     float: left;
     width: 100%;
-    padding: 13.8px 12px;
+    padding: 12px;
     border-bottom: 1px solid #a6a8ab;
 }
 
@@ -125,7 +125,9 @@
     margin-bottom: 12px;
     color: #231f20;
     font-weight: 600;
+    overflow: hidden;
 }
+
 #home .list .news .detail > a:hover {
     color: #ec1c24;
 }

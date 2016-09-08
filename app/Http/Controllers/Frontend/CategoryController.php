@@ -22,14 +22,14 @@ class CategoryController extends FrontendController
     	$this->compacts['description'] = str_limit(strip_tags($this->compacts['item']->description), 156);
     	$this->compacts['banner'] = $this->compacts['item']->banner;
     	$this->compacts['categories'] = $this->repository->getRootWithType($this->compacts['item']->type, $this->locale, $this->dataSelect);
-    	
+
     	switch ($this->compacts['item']->type) {
     		case 'post':
     			$this->compacts['posts'] = $this->compacts['item']->posts()->paginate(5, $this->dataPost);
     			$this->view = 'post.category';
     			break;
     		case 'product':
-            $this->compacts['products'] = $this->compacts['item']->products()->paginate(4);
+                $this->compacts['products'] = $this->compacts['item']->products()->paginate(4);
                 $this->view = 'product.product';
                 break;
             case 'accessary':
@@ -39,9 +39,9 @@ class CategoryController extends FrontendController
     			$this->compacts['products'] = $this->compacts['item']->products()->paginate(3);
     			$this->view = 'product.accessary';
     			break;
-    		
+
     	}
-    	
+
     	return $this->viewRender();
     }
 }

@@ -7,7 +7,7 @@
 	#header {
 		background: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ") no-repeat; background-size: 100% 100%;
 	}
-	.main { 
+	.main {
 		min-height: 350px;
 	}
 	#header .links .submenu {
@@ -38,7 +38,7 @@
         		<ul class="list-unstyled">
         			@foreach ($item->images->take(3) as $image)
         			<li>
-                        <a class="image-thumb" href="javascript:;" 
+                        <a class="image-thumb" href="javascript:;"
                             data-default="{{ ( $image->image ) ? route('image',$image->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
                             data-medium="{{ ( $image->image ) ? route('image',$image->image_medium) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $image->image ) ? route('image',$image->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $image->name }}" class="img-responsive"/></a>
                     </li>

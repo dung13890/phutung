@@ -7,7 +7,7 @@
 	#header {
 		background: url("{!! asset('assets/img/backend/banner-004.jpg') !!} ") no-repeat; background-size: 100% 100%;
 	}
-	.main { 
+	.main {
 		min-height: 350px;
 	}
 	#header .links .submenu {
@@ -19,6 +19,10 @@
     }
     #header .slogan span {
         color: #078fdd;
+    }
+
+    #contact-textarea {
+        margin-top: 35px;
     }
 </style>
 @endpush
@@ -37,8 +41,9 @@
     <div class="row">
         <div class="col-lg-8">
             <div class="form">
-                <h3 class="title">
-                    {{ trans('repositories.tanphat_support') }}
+                <h3 class="title" class="text-uppercase">
+                    <span>Tân phát</span>
+                    <span>{{ trans('repositories.tanphat_support') }}</span>
                 </h3>
                 {{ Form::open(['url' => route('home.post.contact'), 'autocomplete'=>'off', 'class' => 'form-horizontal']) }}
                     @if (count($errors) > 0)
@@ -91,10 +96,8 @@
                             {{ Form::text('email', null, ['class' => 'form-control input-sm', 'placeholder' => 'email@domain.com']) }}
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="contact-textarea">
                         <label for="" class="col-lg-12">{{ trans('repositories.content') }}:</label>
-                    </div>
-                    <div class="form-group">
                         <div class="col-lg-12">
                             {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => trans('repositories.content'), 'rows' => 4]) }}
                         </div>
@@ -115,7 +118,9 @@
             <div class="sidebar">
                 <h3 class="heading">
                     {{ trans('repositories.info_contact') }}
-                    <span><img src="/assets/img/icon-address.png" style="width:26px;height:37px;"/></span>
+                    <span>
+                        <img src="/assets/img/icon-address.png" style="width:26px;height:37px;"/>
+                    </span>
                 </h3>
                 <div class="text-center">
                     <strong>{{ trans('repositories.about_us') }}</strong>
@@ -127,7 +132,7 @@
                         <strong>{{ $position->name }}</strong>
                     </div>
                     <p class="address">{{ $position->address }}</p>
-                    <p class="phone">phone: {{ $position->phone }}</p>
+                    <p class="phone">ĐT: {{ $position->phone }}</p>
                     <p class="email">Email: <a href="mailto:{{ $position->email }}">{{ $position->email }}</a></p>
                 </div>
                 @endforeach
