@@ -63,7 +63,7 @@ return [
     'post_event' => 'Tin tức & Sự kiện',
     'view_detail' => 'Xem chi tiết',
     'info_contact' => 'Thông tin liên hệ',
-    'tanphat_support' => 'Tân phát hân hạng được hỗ trợ quý khách',
+    'tanphat_support' => 'hân hạnh được hỗ trợ quý khách',
     'form_error' => 'Làm ơn xem lại các trường đã nhập.',
     'topic' => 'Chủ đề',
     'last_name' => 'Họ và tên',
