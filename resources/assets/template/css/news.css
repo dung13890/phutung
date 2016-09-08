@@ -36,6 +36,8 @@
 
 #news .big-news .text {
     padding-left: 7px;
+    text-align: justify;
+    line-height: 25px;
 }
 
 #news .list-news {
@@ -77,11 +79,13 @@
 }
 
 #news .list-news .news .info > a {
-    height: 70px;
+    height: 65px;
     display: inline-block;
     margin-bottom: 12px;
     color: #231f20;
     font-weight: 600;
+    font-size: 19px;
+    overflow: hidden;
 }
 
 #news .list-news .news .info > a:hover {

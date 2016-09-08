@@ -39,7 +39,7 @@
 
 <div id="contact">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-6">
             <div class="form">
                 <h3 class="title" class="text-uppercase">
                     <span>Tân phát</span>
@@ -114,7 +114,7 @@
                 {{ Form::close() }}
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-lg-offset-2">
             <div class="sidebar">
                 <h3 class="heading">
                     {{ trans('repositories.info_contact') }}

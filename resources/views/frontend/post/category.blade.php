@@ -6,7 +6,7 @@
 	#header {
 		background: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ") no-repeat; background-size: 100% 100%;
 	}
-	.main { 
+	.main {
 		min-height: 350px;
 	}
 	#header .links .submenu {
@@ -73,7 +73,7 @@
                 </div>
             </div>
             @endforeach
-            <nav>{!! $posts->render() !!}</nav>
+            <nav class="text-center">{!! $posts->render() !!}</nav>
         </div>
 
 		@endif
