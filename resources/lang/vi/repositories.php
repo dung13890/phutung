@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     'locale' => 'Tiếng việt',

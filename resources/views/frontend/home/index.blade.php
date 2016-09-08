@@ -18,21 +18,31 @@
 <div id="home">
     <!-- Section-half -->
     <div class="section-half">
-        <div class="title"><a href="{{ $configs['box_left_link'] }}" title="{{ $configs['box_left_name'] }}">{{ $configs['box_left_name'] }}</a></div>
+        <div class="title">
+            <a href="{{ $configs['box_left_link'] }}" title="{{ $configs['box_left_name'] }}">
+                {{ $configs['box_left_name'] }}
+            </a>
+        </div>
+        <div class="image">
+            <a href="{{ $configs['box_left_link'] }}" title="{{ $configs['box_left_name'] }}">
+                <img src="{{ route('image', $configs['box_left_image']) }}" alt="{{ $configs['box_left_name'] }}">
+            </a>
+        </div>
     </div>
     <div class="section-half">
-        <div class="title"><a href="{{ $configs['box_right_link'] }}" title="{{ $configs['box_right_name'] }}">{{ $configs['box_right_name'] }}</a></div>
+        <div class="title">
+            <a href="{{ $configs['box_right_link'] }}" title="{{ $configs['box_right_name'] }}">
+                {{ $configs['box_right_name'] }}
+            </a>
+        </div>
+        <div class="image">
+            <a href="{{ $configs['box_right_link'] }}" title="{{ $configs['box_right_name'] }}">
+                <img src="{{ route('image', $configs['box_right_image']) }}" alt="{{ $configs['box_right_name'] }}">
+            </a>
+        </div>
     </div>
     <div class="clear"></div>
 
-    <!-- Section -->
-    <div class="section">
-        <ul class="items">
-            <li><a href="{{ $configs['box_left_link'] }}" title="{{ $configs['box_left_name'] }}"><img src="{{ route('image', $configs['box_left_image']) }}" alt="{{ $configs['box_left_name'] }}"></a></li>
-            <li><a href="{{ $configs['box_right_link'] }}" title="{{ $configs['box_right_name'] }}"><img src="{{ route('image', $configs['box_right_image']) }}" alt="{{ $configs['box_right_name'] }}"></a></li>
-        </ul>
-    </div>
-    <div class="clear"></div>
     @if ($postCategory)
     <div class="title news-title"><a style="color:#fff;" href="{{ route('category.show', $postCategory->slug) }}" title="{{ trans('repositories.post_event') }}" >{{ trans('repositories.post_event') }}</a></div>
     @endif

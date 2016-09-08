@@ -1,6 +1,6 @@
 <div id="footer" class="clear">
     <div class="logo">
-        <img src="/template/img/logo-footer.png" alt="LOGO-FOOTER"/>
+        <img src="{{ route('image', $configs['logo']) }}" alt="LOGO"/>
     </div>
 
     <div class="info">
