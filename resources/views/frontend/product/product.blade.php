@@ -6,7 +6,7 @@
 	#header {
 		background: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ") no-repeat; background-size: 100% 100%;
 	}
-	.main { 
+	.main {
 		min-height: 350px;
 	}
 	#header .links .submenu {
@@ -30,7 +30,7 @@
 </div><!-- /#header -->
 <div id="device">
     <div class="main">
-        <h4 class="text-uppercase">{{ $banner->name or '' }}</h4>
+        <!-- <h4 class="text-uppercase">{{ $banner->name or '' }}</h4> -->
         <p>{!! $item->description !!}</p>
         <div class="item">
             <ul class="list list-inline">
@@ -38,8 +38,8 @@
                 <li>
                     <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}"><img src="{{ ( $product->image ) ? route('image',$product->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $product->name }}" /></a>
                     <p><strong>{{ trans('repositories.product_code') }}:</strong> {{ $product->code }}</p>
-                    <p>{{ trans('repositories.provider') }}: {{ isset($product->provider) ? $product->provider->name : '' }}</p>
-                    <p>{{ trans('repositories.guarantee') }}: {{ config("developer.guarantee.{$product->guarantee}") }}</p>
+                    <p><span class="text-uppercase">{{ trans('repositories.provider') }}</span>: {{ isset($product->provider) ? $product->provider->name : '' }}</p>
+                    <p><span class="text-uppercase">{{ trans('repositories.guarantee') }}</span>: {{ config("developer.guarantee.{$product->guarantee}") }}</p>
                     <div class="name"><a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}"> {{ str_limit($product->name, 25) }}</a></div>
                 </li>
                 @endforeach
