@@ -7,7 +7,7 @@
 	#header {
 		background: url("{!! asset('assets/img/backend/banner-004.jpg') !!} ") no-repeat; background-size: 100% 100%;
 	}
-	.main { 
+	.main {
 		min-height: 350px;
 	}
 	#header .links .submenu {
@@ -35,7 +35,7 @@
 
 <div id="contact">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-6">
             <div class="form">
                 <h3 class="title">
                     {{ trans('repositories.tanphat_support') }}
@@ -111,7 +111,7 @@
                 {{ Form::close() }}
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-lg-offset-2">
             <div class="sidebar">
                 <h3 class="heading">
                     {{ trans('repositories.info_contact') }}
