@@ -1,6 +1,7 @@
 /* #home --------------------------------------*/
 #home {
     width: 100%;
+    margin-top: 30px;
 }
 
 #home .section {
@@ -15,6 +16,16 @@
     width: 50%;
 }
 
+#home .section-half .image {
+    width: 100%;
+    padding: 15px;
+    background: #e6e7e8;
+}
+
+#home .section-half .image img {
+    width: 100%;
+    height: 100%;
+}
 
 #home .title {
     height: 35px;
@@ -37,7 +48,6 @@
 #home ul.items li {
     float: left;
     width: 47%;
-    height: 240px;
     list-style: none;
     margin-left: 2%;
     margin-bottom: 13px;
@@ -62,6 +72,7 @@
 #home .info img {
     width: 100%;
     height: 300px;
+    padding: 15px;
     border: 1px solid #a6a8ab;
 }
 
@@ -83,7 +94,7 @@
 #home .list .news {
     float: left;
     width: 100%;
-    padding: 12px;
+    padding: 13.8px 12px;
     border-bottom: 1px solid #a6a8ab;
 }
 
