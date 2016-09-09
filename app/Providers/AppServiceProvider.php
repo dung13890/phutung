@@ -219,8 +219,11 @@ class AppServiceProvider extends ServiceProvider
             $view->with('configs', Cache::remember('configs', 60, function () {
                 $locale = session()->has('locale') ? session('locale') : 'vi';
                 return app(ConfigRepository::class)->getByLocale($locale)->each(function ($item) {
-                    if ($item->key == 'logo') {
-                        return $item->value = $item->logo;
+                    if ($item->key == 'logo_header') {
+                        return $item->value = $item->logo_header;
+                    }
+                    if ($item->key == 'logo_footer') {
+                        return $item->value = $item->logo_footer;
                     }
                     if ($item->key == 'box_left_image') {
                         return $item->value = $item->box_left_image;

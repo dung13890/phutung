@@ -99,8 +99,8 @@
 @push('form-partials')
 @include('backend.config._seo')
 @include('backend.config._social')
-@include('backend.config._image', ['imageName' => 'logo_header', 'value' => $items->keyBy('key')['logo_header']['logo_header']])
-@include('backend.config._image', ['imageName' => 'logo_footer', 'value' => $items->keyBy('key')['logo_footer']['logo_footer']])
+@include('backend.config._image', ['imageName' => 'logo_header', 'value' => isset($items->keyBy('key')['logo_footer']) ? $items->keyBy('key')['logo_header']['logo_header'] : null])
+@include('backend.config._image', ['imageName' => 'logo_footer', 'value' => isset($items->keyBy('key')['logo_footer']) ? $items->keyBy('key')['logo_footer']['logo_footer'] : null])
 @endpush
 
 
