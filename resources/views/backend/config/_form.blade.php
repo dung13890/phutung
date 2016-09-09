@@ -39,7 +39,7 @@
 					</div>
 				</div>
 			</div>
-			@include('backend.config._image-group', ['imageName' => 'box_left_image', 'value' => $items->keyBy('key')['box_left_image']['box_left_image']])
+			<!-- @include('backend.config._image-group', ['imageName' => 'box_left_image', 'value' => $items->keyBy('key')['box_left_image']['box_left_image']]) -->
 		</div>
 		<div class="col-sm-6">
 			<div class="form-group">
@@ -52,13 +52,13 @@
 					</div>
 				</div>
 			</div>
-			@include('backend.config._image-group', ['imageName' => 'box_right_image', 'value' => $items->keyBy('key')['box_right_image']['box_right_image']])
+			<!-- @include('backend.config._image-group', ['imageName' => 'box_right_image', 'value' => $items->keyBy('key')['box_right_image']['box_right_image']]) -->
 		</div>
 	</div>
 </div>
 
 <hr>
-	
+
 <div class="form-group">
 	<div class="row">
 		<div class="col-sm-6">
@@ -99,7 +99,8 @@
 @push('form-partials')
 @include('backend.config._seo')
 @include('backend.config._social')
-@include('backend.config._image', ['imageName' => 'logo', 'value' => $items->keyBy('key')['logo']['logo']])
+@include('backend.config._image', ['imageName' => 'logo_header', 'value' => $items->keyBy('key')['logo_header']['logo_header']])
+@include('backend.config._image', ['imageName' => 'logo_footer', 'value' => $items->keyBy('key')['logo_footer']['logo_footer']])
 @endpush
 
 

@@ -29,20 +29,25 @@ class Store extends Job
         $locale = $this->attributes['locale'];
         unset($this->attributes['locale']);
 
-        if (isset($this->attributes['logo']) && $this->attributes['logo']) {
-            $this->uploadImageConfig($this->attributes['logo'], 'logo', $path, $locale);
-            unset($this->attributes['logo']);
+        if (isset($this->attributes['logo_header']) && $this->attributes['logo_header']) {
+            $this->uploadImageConfig($this->attributes['logo_header'], 'logo_header', $path, $locale);
+            unset($this->attributes['logo_header']);
         }
 
-        if (isset($this->attributes['box_left_image']) && $this->attributes['box_left_image']) {
-            $this->uploadImageConfig($this->attributes['box_left_image'], 'box_left_image', $path, $locale);
-            unset($this->attributes['box_left_image']);
+        if (isset($this->attributes['logo_footer']) && $this->attributes['logo_footer']) {
+            $this->uploadImageConfig($this->attributes['logo_footer'], 'logo_footer', $path, $locale);
+            unset($this->attributes['logo_footer']);
         }
 
-        if (isset($this->attributes['box_right_image']) && $this->attributes['box_right_image']) {
-            $this->uploadImageConfig($this->attributes['box_right_image'], 'box_right_image', $path, $locale);
-            unset($this->attributes['box_right_image']);
-        }
+        // if (isset($this->attributes['box_left_image']) && $this->attributes['box_left_image']) {
+        //     $this->uploadImageConfig($this->attributes['box_left_image'], 'box_left_image', $path, $locale);
+        //     unset($this->attributes['box_left_image']);
+        // }
+
+        // if (isset($this->attributes['box_right_image']) && $this->attributes['box_right_image']) {
+        //     $this->uploadImageConfig($this->attributes['box_right_image'], 'box_right_image', $path, $locale);
+        //     unset($this->attributes['box_right_image']);
+        // }
 
         foreach ($this->attributes as $key => $value) {
             $repository->findByKey($key, $locale)->update(['value' => $value]);
@@ -58,8 +63,8 @@ class Store extends Job
         }
 
         $src = $this->uploadFile($file, $path);
-        
+
         $image->update(['value' => $src]);
-        
+
     }
 }

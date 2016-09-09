@@ -24,21 +24,25 @@ class ConfigController extends BackendController
     {
     	$this->before(__FUNCTION__);
         $data = $request->only('name','keywords','description','facebook','youtube',
-        	'email','phone','address','scripts','logo','slogan','introduce', 'box_left_image', 'box_left_name', 'box_left_link',
-            'box_right_image', 'box_right_name', 'box_right_link');
+        	'email','phone','address','scripts','logo_header', 'logo_footer', 'slogan',
+            'introduce', 'box_left_name', 'box_left_link', 'box_right_name', 'box_right_link'
+        );
 
-        if (!$data['logo'] || !isset($data['logo'])) {
+        if (!$data['logo_header'] || !isset($data['logo_header'])) {
+            unset($data['logo_header']);
+        }
+        if (!$data['logo_footer'] || !isset($data['logo_footer'])) {
             unset($data['logo']);
         }
-        if (!$data['box_left_image'] || !isset($data['box_left_image'])) {
-            unset($data['box_left_image']);
-        }
-        if (!$data['box_right_image'] || !isset($data['box_right_image'])) {
-            unset($data['box_right_image']);
-        }
+        // if (!$data['box_left_image'] || !isset($data['box_left_image'])) {
+        //     unset($data['box_left_image']);
+        // }
+        // if (!$data['box_right_image'] || !isset($data['box_right_image'])) {
+        //     unset($data['box_right_image']);
+        // }
         $data['locale'] = $this->locale;
         \Cache::flush();
-        
+
         return $this->storeData($data, $service);
     }
 }
