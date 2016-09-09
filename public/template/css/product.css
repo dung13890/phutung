@@ -104,7 +104,7 @@
 #product .product-tabs .tabs {
     margin: 0;
     padding: 0;
-    height: 42px;
+    height: 35px;
     clear: both;
     border-bottom: 2px solid #ce1313;
     list-style: none;
@@ -116,11 +116,11 @@
 }
 
 #product .product-tabs .tabs li a {
-    height: 40px;
+    height: 33px;
     display: block;
     float: left;
     padding: 0 20px;
-    line-height: 40px;
+    line-height: 33px;
     background: #e5e5e5;
     color: #ce1313;
     text-transform: uppercase;
@@ -198,9 +198,10 @@
 #product .product-tabs .tabs li span {
     float: left;
     width: 30px;
-    height: 40px;
+    height: 34px;
     display: block;
 }
+
 #product .product-tabs .tabs li span.left {
     background: url('../img/bg-product-title-left.png') no-repeat;
     background-size: 100% 100%;

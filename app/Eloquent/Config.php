@@ -10,11 +10,18 @@ class Config extends Model
 
     public $timestamps = false;
 
-    public function getLogoAttribute()
+    public function getLogoHeaderAttribute()
     {
-    	if ($this->key == 'logo') {
+    	if ($this->key == 'logo_header') {
         	return app()['glide.builder']->getUrl($this->value);
     	}
+    }
+
+    public function getLogoFooterAttribute()
+    {
+        if ($this->key == 'logo_footer') {
+            return app()['glide.builder']->getUrl($this->value);
+        }
     }
 
     public function getBoxLeftImageAttribute()
