@@ -11,7 +11,7 @@ abstract class BackendController extends AbstractController
     protected $viewPrefix = 'backend.';
 
     protected $guard = 'backend';
-    
+
     public function getData($items = null)
     {
         //$this->before('index');
