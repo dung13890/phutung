@@ -102,7 +102,7 @@
         </label>
 
         <label>
-            {{ Form::checkbox('featured', true, old('locked'), ['data-toggle'=>'toggle','data-size' => 'small']) }}    <b>Featured  </b>
+            {{ Form::checkbox('featured', true, old('featured'), ['data-toggle'=>'toggle','data-size' => 'small']) }}    <b>Show Home  </b>
         </label>
     </div>
 </div>

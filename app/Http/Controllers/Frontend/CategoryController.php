@@ -35,7 +35,6 @@ class CategoryController extends FrontendController
             case 'accessary':
                 $this->compacts['categories']->load('banner');
                 $this->compacts['banner'] = $this->compacts['categories']->first()->banner;
-                //dd($this->compacts);
     			$this->compacts['products'] = $this->compacts['item']->products()->paginate(3);
     			$this->view = 'product.accessary';
     			break;

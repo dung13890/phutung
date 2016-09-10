@@ -3,11 +3,11 @@
 @push('prestyles')
 {{ HTML::style("template/css/home.css") }}
 <style>
-    #home .section-half .title a {
+    #home .title a {
         color:#fff;
     }
 
-    #home .section-half .title a:hover {
+    #home .title a:hover {
         color:#F1ED08;
     }
 
@@ -90,8 +90,8 @@
                         <li>
                             <a href="{{ route('product.show', ['slug' => $device->slug]) }}" title="{{ $device->name }}">
                                 <img src="{{ route('image', $device->image) }}" alt=""/>
-                                <span class="msp">{{ $accessary->code }}</span>
-                                <span>Model: {{ $accessary->model }}</span>
+                                <span class="msp">{{ $device->code }}</span>
+                                <span>Model: {{ $device->model }}</span>
                             </a>
                         </li>
                     @endforeach
@@ -103,7 +103,7 @@
     <div class="clear"></div>
 
     @if ($postCategory)
-    <div class="title news-title"><a style="color:#fff;" href="{{ route('category.show', $postCategory->slug) }}" title="{{ trans('repositories.post_event') }}" >{{ trans('repositories.post_event') }}</a></div>
+    <div class="title news-title"><a href="{{ route('category.show', $postCategory->slug) }}" title="{{ trans('repositories.post_event') }}" >{{ trans('repositories.post_event') }}</a></div>
     @endif
     @if (count($posts))
     <!-- Section -->
