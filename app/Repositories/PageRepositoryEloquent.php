@@ -37,4 +37,12 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
     {
         return $this->model->where('locked',false)->where('locale', $locale)->take($limit)->get($columns);
     }
+
+    public function getActivedByLocale($locale = 'vi', $columns = ['*'])
+    {
+        return $this->model
+            ->where('locked', false)
+            ->where('locale', $locale)
+            ->get($columns);
+    }
 }

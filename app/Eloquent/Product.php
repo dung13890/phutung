@@ -14,7 +14,7 @@ class Product extends Abstracts\Sluggable implements TaggableInterface
     	'name', 'code', 'image', 'description', 'provider_id', 'guide', 'youtube', 'guarantee', 'price', 'model', 'origin', 'locale', 'type', 'locked', 'featured', 'user_id'
     ];
 
-    protected $appends = ['image_thumbnail','image_small','image_medium'];
+    protected $appends = ['image_thumbnail','image_small','image_medium', 'image_accessary'];
 
     protected $sluggable = [
         'build_from' => 'name',
@@ -40,7 +40,7 @@ class Product extends Abstracts\Sluggable implements TaggableInterface
     {
         return $this->belongsToMany(Property::class);
     }
-    
+
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
@@ -49,5 +49,10 @@ class Product extends Abstracts\Sluggable implements TaggableInterface
     public function seo()
     {
         return $this->morphOne(Seo::class, 'seoable');
+    }
+
+    public function getImageAccessaryAttribute()
+    {
+        return app()['glide.builder']->getUrl($this->image,['p' => 'accessary']);
     }
 }

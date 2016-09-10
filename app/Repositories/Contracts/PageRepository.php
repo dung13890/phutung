@@ -11,4 +11,6 @@ interface PageRepository extends AbstractRepository
 	public function getByLocale($locale, $columns = ['*']);
 
 	public function getPage($limit, $locale = 'vi', $columns = ['*']);
+
+    public function getActivedByLocale($locale = 'vi', $columns = ['*']);
 }

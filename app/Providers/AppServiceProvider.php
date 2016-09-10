@@ -79,6 +79,11 @@ class AppServiceProvider extends ServiceProvider
                         'h' => 350,
                         'fit' => 'crop',
                     ],
+                    'accessary' =>[
+                        'w' => 245,
+                        'h' => 270,
+                        'fit' => 'crop'
+                    ]
                 ],
                 'response' => new LaravelResponseFactory(),
             ]);
@@ -208,13 +213,13 @@ class AppServiceProvider extends ServiceProvider
 
         $this->composers();
     }
-    
+
     public function composers()
     {
         view()->composer('backend.*', function ($view) {
             $view->with('me', \Auth::user());
         });
-        
+
         view()->composer('frontend.*', function ($view) {
             $view->with('configs', Cache::remember('configs', 60, function () {
                 $locale = session()->has('locale') ? session('locale') : 'vi';
