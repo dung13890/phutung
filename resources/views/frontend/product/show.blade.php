@@ -19,6 +19,8 @@
         color: #231f20;
     }
 </style>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 @endpush
 
 @section('page-content')
@@ -82,7 +84,12 @@
                 </div>
 
                 <div class="like-share">
-                    <div class="fb-like" data-href="{{ Request::url() }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+                   <table>
+                       <tr>
+                           <td><div class="fb-like" data-href="{{ Request::url() }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div></td>
+                           <td><g:plusone></g:plusone></td>
+                       </tr>
+                   </table>
                 </div>
             </div>
         </div>
