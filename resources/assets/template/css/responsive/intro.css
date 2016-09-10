@@ -1,0 +1,17 @@
+@media (max-width: 767px) {
+    #header {
+        display: none;
+    }
+
+    #intro {
+        margin-top: -30px;
+        padding: 15px;
+        text-align: justify;
+    }
+
+    #intro .title {
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+    }
+}

@@ -88,6 +88,7 @@ a:hover, a:focus {
 #menu .links {
     height: 40px;
     display: inline-block;
+    z-index: 99999;
 }
 
 #menu .links > ul > li {
@@ -152,6 +153,30 @@ a:hover, a:focus {
     outline: none !important;
 }
 
+#menu .toggle-menu {
+    width: 30px;
+    height: 21px;
+    border: none;
+    background: url('../img/btn-toggle-menu.png') no-repeat center center;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 20%;
+    right: 6px;
+    display: none;
+}
+
+#menu .icons {
+    display: none;
+    position: absolute;
+    top: 18%;
+    right: 11%;
+}
+
+#menu .icons img {
+    width: 23px;
+    height: 23px;
+}
+
 /* #slider ------------------------------------*/
 #slider {
     width: 100%;
@@ -165,8 +190,7 @@ a:hover, a:focus {
 #slider .carousel-control img {
     width: 50px;
     height: 50px;
-    position: absolute;
-    top: 40%;
+    margin-top: 70%;
 }
 
 #slider .carousel-indicators {
@@ -210,7 +234,19 @@ a:hover, a:focus {
 #content .main {
     float: right;
     width: 750px;
+    min-height: 350px;
     padding: 20px 0;
+}
+
+#content .breadcrumb {
+    background: #e6e6e6;
+    border-radius: 0;
+    border-bottom: 3px solid #e50d00;
+    display: none;
+}
+
+#content .breadcrumb .active {
+    font-weight: bold;
 }
 
 /* #header ------------------------------------*/
@@ -316,6 +352,62 @@ a:hover, a:focus {
 }
 
 #header .links > ul > li:hover > .submenu {
+    display: block;
+}
+
+#headerLinks {
+    margin-bottom: 60px;
+    display: none;
+}
+
+#headerLinks .name {
+    color: #c80000;
+    margin: auto;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    background: #c80000 url('../img/headerLinks-title.png') no-repeat center center;
+    background-size: 75% 92%;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#headerLinks ul {
+    background: url('../img/header-links.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+#headerLinks > ul > li {
+    width: 100%;
+    display: block;
+    background: url('../img/icon-arrow-right-normal.png') no-repeat;
+    background-size: 8px 13px;
+    background-position: 97% 50%;
+}
+
+#headerLinks > ul > li > a {
+    padding: 10px 27px 10px 0;
+    display: block;
+    border-bottom: 1px solid #bfc1c3;
+    color: #231f20;
+    text-transform: uppercase;
+    z-index: 99999;
+    padding-left: 20px;
+}
+
+#headerLinks .submenu {
+    list-style: none;
+}
+
+#headerLinks .submenu li {
+    margin-bottom: 1px;
+}
+
+#headerLinks .submenu a {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #ffffff;
+    color: #000000;
     display: block;
 }
 
