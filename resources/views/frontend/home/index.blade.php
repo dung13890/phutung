@@ -11,8 +11,18 @@
         color:#F1ED08;
     }
 
+    #home .section-half .image ul {
+        margin-top: 20px;
+    }
+
+    #home .section-half .image ul li {
+        width: 24.39%;
+        display: inline-block;
+    }
 </style>
 @endpush
+
+
 
 @section('page-content')
 <div id="home">
@@ -27,8 +37,21 @@
             <a href="{{ $configs['box_left_link'] }}" title="{{ $configs['box_left_name'] }}">
                 <img src="{{ route('image', $configs['box_left_image']) }}" alt="{{ $configs['box_left_name'] }}">
             </a>
+
+            @if(!$accessaries->isEmpty())
+                <ul class="list-unstyled">
+                    @foreach($accessaries as $accessary)
+                        <li>
+                            <a href="{{ route('product.show', ['slug' => $accessary->slug]) }}">
+                                <img src="{{ route('image', $accessary->image) }}" alt=""/>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
     </div>
+
     <div class="section-half">
         <div class="title">
             <a href="{{ $configs['box_right_link'] }}" title="{{ $configs['box_right_name'] }}">
@@ -39,8 +62,21 @@
             <a href="{{ $configs['box_right_link'] }}" title="{{ $configs['box_right_name'] }}">
                 <img src="{{ route('image', $configs['box_right_image']) }}" alt="{{ $configs['box_right_name'] }}">
             </a>
+
+            @if(!$devices->isEmpty())
+                <ul class="list-unstyled">
+                    @foreach($devices as $device)
+                        <li>
+                            <a href="{{ route('product.show', ['slug' => $device->slug]) }}">
+                                <img src="{{ route('image', $device->image) }}" alt=""/>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
     </div>
+
     <div class="clear"></div>
 
     @if ($postCategory)

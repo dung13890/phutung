@@ -100,6 +100,10 @@
         <label>
             {{ Form::checkbox('locked', true, old('locked'), ['data-toggle'=>'toggle','data-size' => 'small']) }}	<b>Locked  </b>
         </label>
+
+        <label>
+            {{ Form::checkbox('featured', true, old('locked'), ['data-toggle'=>'toggle','data-size' => 'small']) }}    <b>Featured  </b>
+        </label>
     </div>
 </div>
 @endpush

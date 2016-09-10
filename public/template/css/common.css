@@ -156,7 +156,7 @@ a:hover, a:focus {
 
 #slider .carousel-indicators {
     width: 34%;
-    height: 30px;
+    height: 35px;
     margin-left: 0;
     z-index: 99999;
     background: url('../img/slider-links.png') no-repeat;
