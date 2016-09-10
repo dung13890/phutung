@@ -55,7 +55,7 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
             ->where('locale', $locale)
             ->where('featured', 1)
             ->limit(3)
-            ->orderBy('created_at', 'DESC')
+            ->orderBy('id', 'DESC')
             ->get();
     }
 }

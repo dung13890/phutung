@@ -57,7 +57,7 @@
                 <img src="{{ route('image', $configs['box_left_image']) }}" alt="{{ $configs['box_left_name'] }}">
             </a>
 
-            @if(!$accessaries->isEmpty())
+            @if (!$accessaries->isEmpty())
                 <ul class="list-unstyled">
                     @foreach($accessaries as $accessary)
                         <li>
