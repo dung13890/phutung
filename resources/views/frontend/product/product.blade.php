@@ -44,7 +44,7 @@
                 </li>
                 @endforeach
             </ul>
-            <nav>{!! $products->render() !!}</nav>
+            <nav class="text-center">{!! $products->render() !!}</nav>
         </div>
     </div>
 </div>

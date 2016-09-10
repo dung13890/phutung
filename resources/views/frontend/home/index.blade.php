@@ -11,8 +11,37 @@
         color:#F1ED08;
     }
 
+    #home .section-half .image ul {
+        margin-top: 20px;
+    }
+
+    #home .section-half .image ul li {
+        width: 32.8%;
+        padding: 7px;
+        background: #ffffff;
+        display: inline-block;
+    }
+
+    #home .section-half .image ul li a span {
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        display: block;
+        color: #000000;
+    }
+
+    #home .section-half .image ul li a span.msp {
+        padding: 3px;
+        line-height: 24px;
+        background: url('/template/img/bg-home-msp.png') no-repeat;
+        background-size: 140% 100%;
+        text-indent: 47%;
+        font-weight: bold;
+    }
 </style>
 @endpush
+
+
 
 @section('page-content')
 <div id="home">
@@ -27,8 +56,23 @@
             <a href="{{ $configs['box_left_link'] }}" title="{{ $configs['box_left_name'] }}">
                 <img src="{{ route('image', $configs['box_left_image']) }}" alt="{{ $configs['box_left_name'] }}">
             </a>
+
+            @if(!$accessaries->isEmpty())
+                <ul class="list-unstyled">
+                    @foreach($accessaries as $accessary)
+                        <li>
+                            <a href="{{ route('product.show', ['slug' => $accessary->slug]) }}" title="{{ $accessary->name }}">
+                                <img src="{{ route('image', $accessary->image) }}" alt=""/>
+                                <span class="msp">{{ $accessary->code }}</span>
+                                <span>Model: {{ $accessary->model }}</span>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
     </div>
+
     <div class="section-half">
         <div class="title">
             <a href="{{ $configs['box_right_link'] }}" title="{{ $configs['box_right_name'] }}">
@@ -39,8 +83,23 @@
             <a href="{{ $configs['box_right_link'] }}" title="{{ $configs['box_right_name'] }}">
                 <img src="{{ route('image', $configs['box_right_image']) }}" alt="{{ $configs['box_right_name'] }}">
             </a>
+
+            @if(!$devices->isEmpty())
+                <ul class="list-unstyled">
+                    @foreach($devices as $device)
+                        <li>
+                            <a href="{{ route('product.show', ['slug' => $device->slug]) }}" title="{{ $device->name }}">
+                                <img src="{{ route('image', $device->image) }}" alt=""/>
+                                <span class="msp">{{ $accessary->code }}</span>
+                                <span>Model: {{ $accessary->model }}</span>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
     </div>
+
     <div class="clear"></div>
 
     @if ($postCategory)

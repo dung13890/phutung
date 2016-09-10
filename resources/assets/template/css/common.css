@@ -1,7 +1,22 @@
 /* Initialize ---------------------------------*/
+@font-face {
+    font-family: PhutungFont;
+    src: url('../fonts/MyriadPro-Black.otf') format('opentype'),
+        url('../fonts/MyriadPro-BlackIt.otf') format('opentype'),
+        url('../fonts/MyriadPro-BlackSemiExt.otf') format('opentype'),
+        url('../fonts/MyriadPro-Bold.otf') format('opentype'),
+        url('../fonts/MyriadPro-BoldIt.otf') format('opentype'),
+        url('../fonts/MyriadPro-It.otf') format('opentype'),
+        url('../fonts/MyriadPro-Light.otf') format('opentype'),
+        url('../fonts/MyriadPro-LightIt.otf') format('opentype'),
+        url('../fonts/MyriadPro-Regular.otf') format('opentype');
+}
+
+
 body {
-    background: #ffffff;
-    font-family: tahoma;
+    font-family: PhutungFont;
+    background-color: #ffffff;
+
 }
 
 ::-webkit-input-placeholder {
@@ -156,7 +171,7 @@ a:hover, a:focus {
 
 #slider .carousel-indicators {
     width: 34%;
-    height: 30px;
+    height: 35px;
     margin-left: 0;
     z-index: 99999;
     background: url('../img/slider-links.png') no-repeat;

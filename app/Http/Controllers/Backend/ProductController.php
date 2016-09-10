@@ -11,7 +11,7 @@ use App\Services\Contracts\ProductService;
 
 class ProductController extends BackendController
 {
-    protected $dataSelect = ['id', 'name', 'price', 'image', 'locked'];
+    protected $dataSelect = ['id', 'name', 'price', 'image', 'locked', 'featured'];
 
     protected $dataCategory = ['id', 'name', 'parent_id'];
 
@@ -59,7 +59,7 @@ class ProductController extends BackendController
         $this->view = $this->repositoryName.'.index';
         $this->compacts['resource'] = 'product';
         $this->compacts['heading'] = ucfirst($this->trans($type));
-        
+
         $this->compacts['type'] = $type;
         $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($type, $this->locale, $this->dataCategory);
 
@@ -70,7 +70,7 @@ class ProductController extends BackendController
     {
         $this->before('index');
         $this->compacts['category'] = $this->categoryRepository->findOrFail($category);
-        
+
         return $this->type($this->compacts['category']->type);
     }
 
@@ -84,12 +84,12 @@ class ProductController extends BackendController
         $this->compacts['heading'] = 'Thêm ' . $this->trans($type);
         $this->compacts['resource'] = $this->repositoryName;
         $this->compacts['type'] = $type;
-        
+
         $this->compacts['listGuarantee'] = config('developer.guarantee');
         $this->compacts['listProvider'] = $this->providerRepository->all($this->dataProvider)->lists('name','id')->prepend('Chọn','0');
         $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($type, $this->locale, $this->dataCategory);
         $this->compacts['groupProperty'] = $this->propertyRepository->all($this->dataProperty)->groupBy('key');
-        
+
         return $this->viewRender();
     }
 
@@ -98,7 +98,7 @@ class ProductController extends BackendController
     	$this->before(__FUNCTION__);
         $data = $request->all();
         $data['locale'] = $this->locale;
-        
+
         return $this->storeData($data, $service, route('backend.product.type', $request->type));
     }
 
@@ -107,12 +107,12 @@ class ProductController extends BackendController
     	parent::edit($id);
         $this->before(__FUNCTION__, $this->compacts['item']);
         $this->compacts['type'] = $this->compacts['item']->type;
-        
+
         $this->compacts['listGuarantee'] = config('developer.guarantee');
         $this->compacts['listProvider'] = $this->providerRepository->all($this->dataProvider)->lists('name','id')->prepend('Chọn','0');
         $this->compacts['rootCategories'] = $this->categoryRepository->getRootWithType($this->compacts['type'], $this->locale, $this->dataCategory);
         $this->compacts['groupProperty'] = $this->propertyRepository->all($this->dataProperty)->groupBy('key');
-        
+
         $this->compacts['tags'] = $this->compacts['item']->tags->lists('name','name')->all();
         $this->compacts['item']->load('images');
 

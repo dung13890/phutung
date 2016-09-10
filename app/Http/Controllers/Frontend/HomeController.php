@@ -41,6 +41,8 @@ class HomeController extends FrontendController
 
     public function index()
     {
+        $this->compacts['accessaries'] = $this->productRepository->getFeatured('accessary', $this->locale);
+        $this->compacts['devices'] = $this->productRepository->getFeatured('product', $this->locale);
     	$this->compacts['posts'] = $this->postRepository->getHome(5, $this->locale, $this->dataSelect);
         $this->compacts['postCategory'] = $this->categoryRepository->getFirstWithType('post', $this->locale);
         $this->compacts['heading'] = $this->trans('home');
