@@ -8,7 +8,7 @@ use App\Services\Contracts\PageService;
 
 class PageController extends BackendController
 {
-    protected $dataSelect = ['id','name','intro','created_at','locked'];
+    protected $dataSelect = ['id','name','created_at','locked'];
 
     public function __construct(PageRepository $page)
     {
@@ -19,7 +19,7 @@ class PageController extends BackendController
     {
         $this->before(__FUNCTION__);
         parent::index();
-        
+
         return $this->viewRender();
     }
 
@@ -36,7 +36,7 @@ class PageController extends BackendController
     	$this->before(__FUNCTION__);
         $data = $request->all();
         $data['locale'] = $this->locale;
-        
+
         return $this->storeData($data, $service);
     }
 

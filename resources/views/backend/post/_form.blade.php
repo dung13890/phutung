@@ -64,12 +64,6 @@
 	$(function () {
 		$('.textarea-summernote').summernote({
 		  	height:300,
-		  	toolbar: [
-			    ['style', ['bold', 'italic', 'underline', 'clear']],
-			    ['fontsize', ['fontsize']],
-			    ['insert', ['link','picture','video']],
-			    ['misc', ['fullscreen','undo','redo']]
-			],
 			callbacks: {
 			  	onImageUpload: function(files) {
                     sendImage(files[0], laroute.route('backend.summernote.image'), $(this));

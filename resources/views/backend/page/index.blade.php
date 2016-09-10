@@ -17,10 +17,10 @@
             if (!actions || actions.length < 1) { return; }
             var actionHtml = $('td', row).eq(3);
             actionHtml.html('');
-            if (actions.edit) { 
+            if (actions.edit) {
             	actionHtml.append('<a title ="'+actions.edit.label+'" class="btn btn-default btn-xs" href="'+actions.edit.uri+'"><i class="fa fa-pencil"></i></a>');
             }
-            if (actions.delete) { 
+            if (actions.delete) {
             	actionHtml.append('<a title ="'+actions.delete.label+'" class="btn btn-danger btn-xs handle-delete" href="'+actions.delete.uri+'"><i class="fa fa-times"></i></a>');
             }
         }

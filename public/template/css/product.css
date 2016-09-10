@@ -19,6 +19,10 @@
     float: left;
 }
 
+#product .product-detail .product-bigimage img {
+    padding: 10px;
+}
+
 #product .product-detail .product-images {
     width: 15%;
 }
