@@ -40,7 +40,7 @@ $factory->define(App\Eloquent\Property::class, function (Faker\Generator $faker)
 $factory->define(App\Eloquent\Page::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->sentence(10, false),
-        'intro' => $faker->text,
+        // 'intro' => $faker->text,
         'description' => $faker->paragraph(15, true),
         'featured' => rand(0,1),
         'image' => '2016/08/backend/2/image/banner-004.jpg',

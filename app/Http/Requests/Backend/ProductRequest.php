@@ -17,6 +17,9 @@ class ProductRequest extends Request
         if ( !isset($all['locked']) || !$all['locked']) {
             $all['locked'] = false;
         }
+        if ( !isset($all['featured']) || !$all['featured']) {
+            $all['featured'] = false;
+        }
         if ( isset($all['price']) && !empty($all['price']) ) {
             $all['price'] = str_replace(',','',$all['price']);
         }
@@ -24,7 +27,7 @@ class ProductRequest extends Request
             $all['youtube'] = $this->getKeyYoutube($all['youtube']);
         }
         $this->replace($all);
-        
+
         return true;
     }
 
@@ -43,6 +46,7 @@ class ProductRequest extends Request
                 'category_id' => "required|not_in:0",
                 'sale' => "sometimes|boolean",
                 'locked' => 'sometimes|boolean',
+                'featured' => 'sometimes|boolean',
                 'seo_title' => "min:2|max:56",
                 'seo_description' => "min:2|max:120",
                 'image'=> 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
@@ -55,6 +59,7 @@ class ProductRequest extends Request
                 'category_id' => "required|not_in:0",
                 'sale' => "sometimes|boolean",
                 'locked' => 'sometimes|boolean',
+                'featured' => 'sometimes|boolean',
                 'image'=> 'required|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
                 'seo_title' => "min:2|max:56",
                 'seo_description' => "min:2|max:120",

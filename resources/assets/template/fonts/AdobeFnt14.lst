@@ -1,0 +1,337 @@
+%!Adobe-FontList 1.14
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:ArialMT
+FamilyName:Arial
+StyleName:Regular
+FullName:Arial
+MenuName:Arial
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\arial.ttf
+DataFormat:sfntData
+FileLength:772192
+FileModTime:1290309864
+WeightClass:400
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Arial-BoldMT
+FamilyName:Arial
+StyleName:Bold
+FullName:Arial Bold
+MenuName:Arial
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\arialbd.ttf
+DataFormat:sfntData
+FileLength:748720
+FileModTime:1290309864
+WeightClass:700
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Arial-BoldItalicMT
+FamilyName:Arial
+StyleName:Bold Italic
+FullName:Arial Bold Italic
+MenuName:Arial
+StyleBits:3
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\arialbi.ttf
+DataFormat:sfntData
+FileLength:561616
+FileModTime:1290309864
+WeightClass:700
+WidthClass:5
+AngleClass:1
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Arial-ItalicMT
+FamilyName:Arial
+StyleName:Italic
+FullName:Arial Italic
+MenuName:Arial
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\ariali.ttf
+DataFormat:sfntData
+FileLength:555588
+FileModTime:1290309864
+WeightClass:400
+WidthClass:5
+AngleClass:1
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MinionPro-Regular
+FamilyName:Minion Pro
+StyleName:Regular
+FullName:Minion Pro
+MenuName:Minion Pro
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\MinionPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:217280
+FileModTime:1329281626
+WeightClass:400
+WidthClass:5
+AngleClass:0
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MyriadPro-Black
+FamilyName:Myriad Pro
+StyleName:Black
+FullName:Myriad Pro Black
+MenuName:Myriad Pro Black
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\MyriadPro-Black.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:97944
+FileModTime:1193839846
+WeightClass:900
+WidthClass:5
+AngleClass:0
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MyriadPro-BlackIt
+FamilyName:Myriad Pro
+StyleName:Black Italic
+FullName:Myriad Pro Black Italic
+MenuName:Myriad Pro Black
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\MyriadPro-BlackIt.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:102232
+FileModTime:1193839846
+WeightClass:900
+WidthClass:5
+AngleClass:1
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MyriadPro-BlackSemiExt
+FamilyName:Myriad Pro
+StyleName:Black SemiExtended
+FullName:Myriad Pro Black SemiExtended
+MenuName:Myriad Pro Black SemiExt
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\MyriadPro-BlackSemiExt.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:94204
+FileModTime:1193839846
+WeightClass:900
+WidthClass:6
+AngleClass:0
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MyriadPro-Bold
+FamilyName:Myriad Pro
+StyleName:Bold
+FullName:Myriad Pro Bold
+MenuName:Myriad Pro
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\MyriadPro-Bold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:103472
+FileModTime:1329281628
+WeightClass:700
+WidthClass:5
+AngleClass:0
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MyriadPro-BoldIt
+FamilyName:Myriad Pro
+StyleName:Bold Italic
+FullName:Myriad Pro Bold Italic
+MenuName:Myriad Pro
+StyleBits:3
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\MyriadPro-BoldIt.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:107056
+FileModTime:1329281628
+WeightClass:700
+WidthClass:5
+AngleClass:1
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MyriadPro-It
+FamilyName:Myriad Pro
+StyleName:Italic
+FullName:Myriad Pro Italic
+MenuName:Myriad Pro
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\MyriadPro-It.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:105656
+FileModTime:1329281628
+WeightClass:400
+WidthClass:5
+AngleClass:1
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MyriadPro-Light
+FamilyName:Myriad Pro
+StyleName:Light
+FullName:Myriad Pro Light
+MenuName:Myriad Pro Light
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\MyriadPro-Light.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:94260
+FileModTime:1193839848
+WeightClass:300
+WidthClass:5
+AngleClass:0
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MyriadPro-LightIt
+FamilyName:Myriad Pro
+StyleName:Light Italic
+FullName:Myriad Pro Light Italic
+MenuName:Myriad Pro Light
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\MyriadPro-LightIt.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:99532
+FileModTime:1193839848
+WeightClass:300
+WidthClass:5
+AngleClass:1
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MyriadPro-Regular
+FamilyName:Myriad Pro
+StyleName:Regular
+FullName:Myriad Pro
+MenuName:Myriad Pro
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\MyriadPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:101732
+FileModTime:1329281628
+WeightClass:400
+WidthClass:5
+AngleClass:0
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:UVNSangSongNang
+FamilyName:UVN Sang Song Nang
+StyleName:Regular
+FullName:UVN Sang Song Nang
+MenuName:UVN Sang Song Nang
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\UVNSangSong_N.TTF
+DataFormat:sfntData
+FileLength:67528
+FileModTime:998415326
+WeightClass:400
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:UVNThanhPhoNang
+FamilyName:UVN Thanh Pho Nang
+StyleName:Regular
+FullName:UVN Thanh Pho Nang
+MenuName:UVN Thanh Pho Nang
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\Ta\BSH\BSH_CI_01 - Sua 1.5,1.15 Folder - Final 26-11-2013\Document fonts\UVNThanhPhoNang.TTF
+DataFormat:sfntData
+FileLength:91464
+FileModTime:1004057276
+WeightClass:400
+WidthClass:5
+AngleClass:0
+%EndFont
+

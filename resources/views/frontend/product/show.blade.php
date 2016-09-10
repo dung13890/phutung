@@ -13,6 +13,11 @@
 	#header .links .submenu {
 		z-index: 1000;
 	}
+
+    #header .slogan {
+        background: #ffe100;
+        color: #231f20;
+    }
 </style>
 @endpush
 
@@ -27,7 +32,9 @@
 <div id="product">
     <div class="main">
     	<div>
-            {{ trans('repositories.home') }} >> {{ $category->name }} >> {{ $item->name }}
+            <a href="/" title="Trang chủ">{{ trans('repositories.home') }}</a> >>
+            <a href="{{ route('category.show', ['slug' => $category->slug]) }}">{{ $category->name }}</a> >>
+            {{ $item->name }}
         </div>
         <h3 class="product-title">
             <span class="text-uppercase">{{ str_limit($item->name, 40) }}</span>

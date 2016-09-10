@@ -6,7 +6,7 @@
 	#header {
 		background: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ") no-repeat; background-size: 100% 100%;
 	}
-	.main { 
+	.main {
 		min-height: 350px;
 	}
 	#header .links .submenu {
@@ -30,7 +30,7 @@
 </div><!-- /#header -->
 <div id="accessary">
     <div class="main">
-        <h4 class="text-uppercase">{{ $banner->name or '' }}</h4>
+        <!-- <h4 class="text-uppercase">{{ $banner->name or '' }}</h4> -->
         <p>{!! $item->description !!}</p>
         @if ($item->slug != 'phu-tung' && $item->slug != 'accessary')
         <div class="item">
