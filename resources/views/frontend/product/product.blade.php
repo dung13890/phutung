@@ -2,19 +2,13 @@
 
 @push('prestyles')
 {{ HTML::style("template/css/device.css") }}
+{{ HTML::style('template/css/responsive/device.css') }}
 <style>
 	#header {
-		background: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ") no-repeat; background-size: 100% 100%;
+		background-image: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
 	}
-	.main {
-		min-height: 350px;
-	}
-	#header .links .submenu {
-		z-index: 1000;
-	}
-    #news .big-news {
-        width: 100%;
-    }
 </style>
 @endpush
 
@@ -28,6 +22,18 @@
     </div>
     @include('frontend._partials.sidebar', ['categoryFirst' => $categoryFirst, 'item' => $item, 'categories' => $categories])
 </div><!-- /#header -->
+
+<ol class="breadcrumb">
+    <li>
+        <a href="/" title="{{ trans('repositories.home') }}">
+            {{ trans('repositories.home') }}
+        </a>
+    </li>
+    <li>
+        {{ $item->name}}
+    </li>
+</ol>
+
 <div id="device">
     <div class="main">
         <!-- <h4 class="text-uppercase">{{ $banner->name or '' }}</h4> -->

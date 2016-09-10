@@ -154,8 +154,8 @@ a:hover, a:focus {
 }
 
 #menu .toggle-menu {
-    width: 30px;
-    height: 21px;
+    width: 23px;
+    height: 18px;
     border: none;
     background: url('../img/btn-toggle-menu.png') no-repeat center center;
     background-size: 100% 100%;
@@ -173,8 +173,8 @@ a:hover, a:focus {
 }
 
 #menu .icons img {
-    width: 23px;
-    height: 23px;
+    width: 20px;
+    height: 20px;
 }
 
 /* #slider ------------------------------------*/
@@ -333,6 +333,7 @@ a:hover, a:focus {
     left: 265px;
     list-style: none;
     display: none;
+    z-index: 999999;
 }
 
 #header .links .submenu li {

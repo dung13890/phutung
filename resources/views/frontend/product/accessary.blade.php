@@ -2,15 +2,12 @@
 
 @push('prestyles')
 {{ HTML::style("template/css/accessary.css") }}
+{{ HTML::style('template/css/responsive/accessary.css') }}
 <style>
 	#header {
-		background: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ") no-repeat; background-size: 100% 100%;
-	}
-	.main {
-		min-height: 350px;
-	}
-	#header .links .submenu {
-		z-index: 1000;
+		background-image: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
 	}
     #news .big-news {
         width: 100%;
@@ -28,6 +25,18 @@
     </div>
     @include('frontend._partials.sidebar', ['categoryFirst' => $categoryFirst , 'item' => $item, 'categories' => $categories])
 </div><!-- /#header -->
+
+<ol class="breadcrumb">
+    <li>
+        <a href="/" title="{{ trans('respositories.home') }}">
+            {{ trans('repositories.home') }}
+        </a>
+    </li>
+    <li class="active">
+        {{ $item->name }}
+    </li>
+</ol>
+
 <div id="accessary">
     <div class="main">
         <p>{!! $item->description !!}</p>

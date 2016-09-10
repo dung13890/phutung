@@ -2,15 +2,12 @@
 
 @push('prestyles')
 {{ HTML::style("template/css/intro.css") }}
+{{ HTML::style('template/css/responsive/intro.css') }}
 <style>
 	#header {
-		background: url("{!! ( $item->image ) ? route('image',$item->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ") no-repeat; background-size: 100% 100%;
-	}
-	.main { 
-		min-height: 350px;
-	}
-	#header .links .submenu {
-		z-index: 1000;
+		background-image: url("{!! ( $item->image ) ? route('image',$item->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
 	}
 </style>
 @endpush

@@ -12,12 +12,17 @@
     }
 
     #device {
-        margin-top: 0;
+        margin-top: -30px;
         padding: 15px;
     }
 
     #device .item .list li {
         width: 100%;
+        border: 1px solid #cccccc;
+    }
+
+    #device .item .list li .name {
+        text-indent: 20%;
     }
 
     #device .item .type {
