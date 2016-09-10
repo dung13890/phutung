@@ -21,12 +21,12 @@
 
 #accessary .item .list li {
     width: 32.9%;
-    box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.35);
     padding-right: 0;
 }
 
 #accessary .item .list li img {
     width: 100%;
+    height: 100%;
 }
 
 #accessary .item .list li p {

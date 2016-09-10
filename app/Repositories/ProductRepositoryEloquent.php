@@ -47,4 +47,15 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
                     ->orWhere('price','LIKE','%'.$value.'%');
         })->orderBy('id','DESC')->paginate($paginate);
     }
+
+    public function getFeatured($type, $locale = 'vi')
+    {
+        return $this->model
+            ->where('type', $type)
+            ->where('locale', $locale)
+            ->where('featured', 1)
+            ->limit(4)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+    }
 }

@@ -39,15 +39,15 @@ class Store extends Job
             unset($this->attributes['logo_footer']);
         }
 
-        // if (isset($this->attributes['box_left_image']) && $this->attributes['box_left_image']) {
-        //     $this->uploadImageConfig($this->attributes['box_left_image'], 'box_left_image', $path, $locale);
-        //     unset($this->attributes['box_left_image']);
-        // }
+        if (isset($this->attributes['box_left_image']) && $this->attributes['box_left_image']) {
+            $this->uploadImageConfig($this->attributes['box_left_image'], 'box_left_image', $path, $locale);
+            unset($this->attributes['box_left_image']);
+        }
 
-        // if (isset($this->attributes['box_right_image']) && $this->attributes['box_right_image']) {
-        //     $this->uploadImageConfig($this->attributes['box_right_image'], 'box_right_image', $path, $locale);
-        //     unset($this->attributes['box_right_image']);
-        // }
+        if (isset($this->attributes['box_right_image']) && $this->attributes['box_right_image']) {
+            $this->uploadImageConfig($this->attributes['box_right_image'], 'box_right_image', $path, $locale);
+            unset($this->attributes['box_right_image']);
+        }
 
         foreach ($this->attributes as $key => $value) {
             $repository->findByKey($key, $locale)->update(['value' => $value]);
