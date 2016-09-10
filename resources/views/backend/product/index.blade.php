@@ -20,7 +20,7 @@
             }
             $('td', row).eq(3).html( localeString(data.price));
             $('td', row).eq(4).html( data.locked == 0 ? '<span class="label label-primary">Actived</span>' : '<span class="label label-danger">Locked</span>');
-            $('td', row).eq(5).html( data.featured == 0 ? '<span class="label label-primary">Yes</span>' : '<span class="label label-danger">No</span>');
+            $('td', row).eq(5).html( data.featured == 1 ? '<span class="label label-primary">Yes</span>' : '<span class="label label-danger">No</span>');
             var actions = data.actions;
             if (!actions || actions.length < 1) { return; }
             var actionHtml = $('td', row).eq(6);
@@ -67,7 +67,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Status</th>
-        <th>Featured</th>
+        <th>Show Home</th>
         <th>Actions</th>
     </tr>
 </thead>
