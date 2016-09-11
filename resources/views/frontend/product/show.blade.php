@@ -70,6 +70,23 @@
                     <img src="{{ ( $item->image ) ? route('image',$item->image_medium) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
                 </a>
             </div>
+
+            <?php $images = $item->images->take(3); ?>
+            @if(!$images->isEmpty())
+                <div id="mobileProductImages" class="carousel slide visible-xs-block" data-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach (images as $i => $image)
+                            <div class="item{{ ($i == 0) ? ' active' : ''}}">
+                                {{-- HTML::image(route('image', $image->image_default), $image->name, ['class' => 'img-responsive']) --}}
+                                {{ HTML::image('http://redmine.tanphat.com/image//2016/09/backend/2/image/1-download-8.jpg?p=thumbnail&s=319ea16a0d8e4c52090ef4f614e7fec0', 'sdfsdf', ['class' => 'img-responsive']) }}
+                            </div>
+                        @endforeach
+                    </div>
+                    <a class="left carousel-control" href="#mobileProductImages" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                    <a class="right carousel-control" href="#mobileProductImages" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+            @endif
+
             <div class="product-info">
                 <h3 class="code"><span class="text-uppercase">{{ $item->code }}</span></h3>
 
@@ -173,14 +190,14 @@
                 <div class="slider">
                     <ul>
                     	@foreach ($randomProducts as $same)
-                        <li>
-                            <a href="{{ route('product.show', $same->slug) }}" title="{{ $same->name }}">
-                                <img src="{{ ( $same->image ) ? route('image', $same->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $same->name }}"/>
-                            </a>
-                            <p style="color:#e06b6b;">Model {{ str_limit($same->model, 20) }}</p>
-                            <p>{{ str_limit($same->name, 20) }}</p>
-                            <a class="btn-detail" href="{{ route('product.show', $same->slug) }}" title="Xem chi tiết">{{ trans('repositories.view_detail') }}</a>
-                        </li>
+                            <li>
+                                <a href="{{ route('product.show', $same->slug) }}" title="{{ $same->name }}">
+                                    <img src="{{ ( $same->image ) ? route('image', $same->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $same->name }}"/>
+                                </a>
+                                <p style="color:#e06b6b;">Model {{ str_limit($same->model, 20) }}</p>
+                                <p>{{ str_limit($same->name, 20) }}</p>
+                                <a class="btn-detail" href="{{ route('product.show', $same->slug) }}" title="Xem chi tiết">{{ trans('repositories.view_detail') }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
@@ -191,6 +208,28 @@
                     <a href="javascript:;" class="next">
                         <span class="glyphicon glyphicon-chevron-right"></span>
                     </a>
+                </div>
+
+                <div id="mobileProductList" class="carousel slide visible-xs-block" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        @foreach($randomProducts as $i => $same)
+                            <li data-target="#mobileProductList" data-slide-to="{{ $i }}" class="{{ ($i == 0) ? 'active' : '' }}"></li>
+                        @endforeach
+                    </ol>
+                    <div class="carousel-inner">
+                        @foreach ($randomProducts as $i => $same)
+                            <div class="item{{ ($i == 0) ? ' active' : ''}}">
+                                <a href="{{ route('product.show', $same->slug) }}" title="{{ $same->name }}">
+                                    {{ HTML::image(( $same->image ) ? route('image', $same->image_thumbnail) :  asset('assets/img/backend/no_image.jpg'), 'product-same') }}
+                                </a>
+                                <p style="color:#e06b6b;">Model {{ str_limit($same->model, 20) }}</p>
+                                <p>{{ str_limit($same->name, 20) }}</p>
+                                <a class="btn-detail" href="{{ route('product.show', $same->slug) }}" title="{{ $same->name }}">Xem chi tiết</a>
+                            </div>
+                        @endforeach
+                    </div>
+                    <a class="left carousel-control" href="#mobileProductList" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                    <a class="right carousel-control" href="#mobileProductList" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
             </div>
         </div>
