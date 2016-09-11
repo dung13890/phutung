@@ -1,0 +1,38 @@
+@media (max-width: 767px) {
+    #slider {
+        display: none;
+    }
+
+    #content {
+        margin-top: -30px;
+    }
+
+    #header .links {
+        display: none;
+    }
+
+    #contact {
+        margin-top: -20px;
+    }
+
+    #contact .row {
+        margin: 0;
+    }
+
+    #contact .row div[class^="col-"] {
+        padding-right: 0;
+    }
+
+    #contact .form .title {
+        margin: 40px 0 30px 0;
+        border: 0;
+        font-size: 17px;
+        line-height: 20px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    #contact .form label {
+        display: none;
+    }
+}

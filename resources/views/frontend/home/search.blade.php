@@ -1,25 +1,27 @@
 @extends('layouts.frontend')
 
 @push('prestyles')
-{{ HTML::style("template/css/search.css") }}
-<style>
-	#header {
-		background: url("{!! asset('assets/img/backend/banner-004.jpg') !!} ") no-repeat; background-size: 100% 100%;
-	}
-	.main { 
-		min-height: 350px;
-	}
-	#header .links .submenu {
-		z-index: 1000;
-	}
+    {{ HTML::style("template/css/search.css") }}
+    <style>
+    	#header {
+    		background: url("{!! asset('assets/img/backend/banner-004.jpg') !!} ") no-repeat; background-size: 100% 100%;
+    	}
+        #header .slogan {
+            background-color: #fff;
+        }
+        #header .slogan span {
+            color: #078fdd;
+        }
+        #content {
+            margin-top: -30px;
+        }
 
-    #header .slogan {
-        background-color: #fff;
-    }
-    #header .slogan span {
-        color: #078fdd;
-    }
-</style>
+        @media (max-width: 767px) {
+            #slider {
+                display: none;
+            }
+        }
+    </style>
 @endpush
 
 @section('page-content')

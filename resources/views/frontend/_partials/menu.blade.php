@@ -27,5 +27,25 @@
                 <input type="submit" value="">
             {{ Form::close() }}
         </div><!-- /.form -->
+
+        <ul class="icons list-inline">
+            <li>
+                <a href="javascript:;" class="show-search">
+                    {{ HTML::image('/template/img/i-search.png', 'i-search') }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ $configs['youtube'] }}">
+                    {{ HTML::image('template/img/i-white-youtube.png', 'i-white-youtube') }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ $configs['facebook'] }}">
+                    {{ HTML::image('template/img/i-white-fb.png') }}
+                </a>
+            </li>
+        </ul>
+
+        <button type="button" class="toggle-menu" display="0"></button>
     </div><!-- /#menu-center -->
 </div><!-- /#menu -->

@@ -2,28 +2,15 @@
 
 @push('prestyles')
 {{ HTML::style("template/css/contact.css") }}
+{{ HTML::style('template/css/responsive/contact.css') }}
 {{ HTML::style('vendor/toastr/toastr.min.css') }}
+
 <style>
 	#header {
-		background: url("{!! asset('assets/img/backend/banner-004.jpg') !!} ") no-repeat; background-size: 100% 100%;
+		background-image: url("{!! asset('assets/img/backend/banner-004.jpg') !!} ");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
 	}
-	.main {
-		min-height: 350px;
-	}
-	#header .links .submenu {
-		z-index: 1000;
-	}
-
-    #header .slogan {
-        background-color: #fff;
-    }
-    #header .slogan span {
-        color: #078fdd;
-    }
-
-    #contact-textarea {
-        margin-top: 35px;
-    }
 </style>
 @endpush
 
@@ -47,13 +34,17 @@
                 </h3>
                 {{ Form::open(['url' => route('home.post.contact'), 'autocomplete'=>'off', 'class' => 'form-horizontal']) }}
                     @if (count($errors) > 0)
-                    <div id="validator" class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div id="validator" class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     @endif
                     <div class="form-group">
                         <label for="" class="col-lg-2">{{ trans('repositories.topic') }}:</label>

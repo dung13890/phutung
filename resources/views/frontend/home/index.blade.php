@@ -1,47 +1,9 @@
 @extends('layouts.frontend')
 
 @push('prestyles')
-{{ HTML::style("template/css/home.css") }}
-<style>
-    #home .title a {
-        color:#fff;
-    }
-
-    #home .title a:hover {
-        color:#F1ED08;
-    }
-
-    #home .section-half .image ul {
-        margin-top: 20px;
-    }
-
-    #home .section-half .image ul li {
-        width: 32.8%;
-        padding: 7px;
-        background: #ffffff;
-        display: inline-block;
-    }
-
-    #home .section-half .image ul li a span {
-        width: 100%;
-        height: 30px;
-        line-height: 30px;
-        display: block;
-        color: #000000;
-    }
-
-    #home .section-half .image ul li a span.msp {
-        padding: 3px;
-        line-height: 24px;
-        background: url('/template/img/bg-home-msp.png') no-repeat;
-        background-size: 140% 100%;
-        text-indent: 47%;
-        font-weight: bold;
-    }
-</style>
+    {{ HTML::style("template/css/home.css") }}
+    {{ HTML::style('template/css/responsive/home.css') }}
 @endpush
-
-
 
 @section('page-content')
 <div id="home">

@@ -1,0 +1,22 @@
+@media (max-width: 767px) {
+    #slider {
+        display: none;
+    }
+
+    #content {
+        margin-top: -30px;
+    }
+
+    #header .links {
+        display: none;
+    }
+
+    #accessary {
+        margin-top: 0;
+        padding: 15px;
+    }
+
+    #accessary .item .list li {
+        width: 100%;
+    }
+}

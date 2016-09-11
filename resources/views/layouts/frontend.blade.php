@@ -16,8 +16,10 @@
         <meta property="og:image:type" content="image/jpeg">
         <meta property="og:image:width" content="300">
         <meta property="og:image:height" content="300">
+
         {{ HTML::style('vendor/bootstrap/css/bootstrap.min.css') }}
         {{ HTML::style('template/css/common.css') }}
+        {{ HTML::style('template/css/responsive/common.css') }}
     	@stack('prestyles')
     </head>
     <body>
@@ -35,6 +37,7 @@
         {{ HTML::script('vendor/jquery/jquery.min.js') }}
         {{ HTML::script('vendor/bootstrap/js/bootstrap.min.js') }}
         {{ HTML::style(elixir('assets/js/frontend/frontend.js')) }}
+        {{ HTML::script('template/js/app.js') }}
         @stack('prescripts')
     </body>
 </html>
