@@ -1,3 +1,5 @@
+<div id="headerLinks" class="clear"></div><!-- /#headerLinks -->
+
 <div id="footer" class="clear">
     <div class="logo">
         <img src="{{ route('image', $configs['logo_footer']) }}" alt="LOGO"/>

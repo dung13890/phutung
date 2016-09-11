@@ -1,26 +1,21 @@
 @extends('layouts.frontend')
 
 @push('prestyles')
-{{ HTML::style("template/css/product.css") }}
-{{ HTML::style("vendor/magnific-popup/magnific-popup.css") }}
-<style>
-	#header {
-		background: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ") no-repeat; background-size: 100% 100%;
-	}
-	.main {
-		min-height: 350px;
-	}
-	#header .links .submenu {
-		z-index: 1000;
-	}
-
-    #header .slogan {
-        background: #ffe100;
-        color: #231f20;
-    }
-</style>
-
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+    {{ HTML::style("template/css/product.css") }}
+    {{ HTML::style('template/css/responsive/product.css') }}
+    {{ HTML::style("vendor/magnific-popup/magnific-popup.css") }}
+    <style>
+    	#header {
+    		background-image: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+    	}
+        #header .slogan {
+            background: #ffe100;
+            color: #231f20;
+        }
+    </style>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 @endpush
 
 @section('page-content')
@@ -31,15 +26,30 @@
     @include('frontend._partials.sidebar', ['categoryFirst' => $category , 'categories' => $categories])
 </div><!-- /#header -->
 
+<ol class="breadcrumb">
+    <li>
+        <a href="/" title="Trang chủ">{{ trans('repositories.home') }}</a>
+    </li>
+    <li>
+        <a href="{{ route('category.show', ['slug' => $category->slug]) }}">{{ $category->name }}</a>
+    </li>
+    <li class="active">{{ $item->name }}</li>
+</ol>
+
 <div id="product">
     <div class="main">
-    	<div>
+    	<div class="visible-md-block visible-sm-block visible-lg-block">
             <a href="/" title="Trang chủ">{{ trans('repositories.home') }}</a> >>
             <a href="{{ route('category.show', ['slug' => $category->slug]) }}">{{ $category->name }}</a> >>
             {{ $item->name }}
         </div>
         <h3 class="product-title">
-            <span class="text-uppercase">{{ str_limit($item->name, 40) }}</span>
+            <span class="text-uppercase visible-lg-block visible-md-block visible-sm-block">
+                {{ str_limit($item->name, 40) }}
+            </span>
+            <span class="text-uppercase visible-xs-block">
+                {{ str_limit($item->name, 20) }}
+            </span>
         </h3>
         <div class="product-detail">
         	@if (count($item->images))

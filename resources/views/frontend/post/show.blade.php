@@ -1,18 +1,15 @@
 @extends('layouts.frontend')
 
 @push('prestyles')
-{{ HTML::style("template/css/intro.css") }}
-<style>
-	#header {
-		background: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ") no-repeat; background-size: 100% 100%;
-	}
-	.main { 
-		min-height: 350px;
-	}
-	#header .links .submenu {
-		z-index: 1000;
-	}
-</style>
+    {{ HTML::style("template/css/intro.css") }}
+    {{ HTML::style('template/css/responsive/intro.css') }}
+    <style>
+    	#header {
+    		background-image: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+    	}
+    </style>
 @endpush
 
 @section('page-content')
@@ -22,6 +19,22 @@
     </div>
     @include('frontend._partials.sidebar', ['categoryFirst' => $category, 'categories' => $categories])
 </div><!-- /#header -->
+
+<ol class="breadcrumb">
+    <li>
+        <a href="/" title="{{ trans('respositories.home') }}">
+            {{ trans('repositories.home') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('category.show', ['slug' => $category->slug]) }}" title="{{ $category->name }}">
+            {{ $category->name }}
+        </a>
+    </li>
+    <li class="active">
+        {{ $item->name }}
+    </li>
+</ol>
 
 <div id="intro">
     <div class="main">
