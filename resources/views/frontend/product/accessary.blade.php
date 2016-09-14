@@ -40,13 +40,12 @@
 <div id="accessary">
     <div class="main">
         <p>{!! $item->description !!}</p>
-        @if ($item->slug != 'phu-tung' || $item->slug != 'accessary')
+        @if ($item->id != 3 && $item->id != 6)
         <div class="item">
             <div class="bigimg">
                 <img src="{{ ( $item->banner ) ? route('image',$item->banner->image_banner) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}"/>
             </div>
             <ul class="list list-inline">
-                <?php //dd($products); ?>
                 @foreach($products as $product)
                     <li>
                         <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}">
