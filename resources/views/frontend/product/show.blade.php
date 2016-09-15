@@ -75,10 +75,9 @@
             @if(!$images->isEmpty())
                 <div id="mobileProductImages" class="carousel slide visible-xs-block" data-ride="carousel">
                     <div class="carousel-inner">
-                        @foreach (images as $i => $image)
+                        @foreach ($images as $i => $image)
                             <div class="item{{ ($i == 0) ? ' active' : ''}}">
-                                {{-- HTML::image(route('image', $image->image_default), $image->name, ['class' => 'img-responsive']) --}}
-                                {{ HTML::image('http://redmine.tanphat.com/image//2016/09/backend/2/image/1-download-8.jpg?p=thumbnail&s=319ea16a0d8e4c52090ef4f614e7fec0', 'sdfsdf', ['class' => 'img-responsive']) }}
+                                {{ HTML::image(route('image', $image->image_default), $image->name, ['class' => 'img-responsive']) }}
                             </div>
                         @endforeach
                     </div>

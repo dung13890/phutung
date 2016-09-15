@@ -35,10 +35,10 @@ class ContactRequest extends Request
     public function messages()
     {
         return [
-            'topic.required'  =>  'Chủ đề không được bỏ trống.',
+            'topic.required' =>  'Chủ đề không được bỏ trống.',
             'name.required'  =>  'Tên của bạn không được bỏ trống.',
-            'phone.required'  =>  'Điện thoại của bạn không được bỏ trống.',
-            'email.required'  =>  'Email của bạn không được bỏ trống.',
+            'phone.required' =>  'Điện thoại của bạn không được bỏ trống.',
+            'email.required' =>  'Email của bạn không được bỏ trống.',
             'email.email' => 'Bạn phải nhập đúng định dạng email'
         ];
     }

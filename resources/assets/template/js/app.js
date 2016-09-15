@@ -1,10 +1,10 @@
 $(document).ready(function(){
     // toggle mobile menu
-    $('#menu .links > ul').css('height', $(window).height());
     $('#menu .toggle-menu').click(function(){
         var display = $(this).attr('display');
         if (display == 0) {
             $(this).attr('display', 1);
+            $('#menu .links > ul').css('height', $(window).height());
             $('#menu .links').animate({'left': '-15%'}, 450, function(){
                 $('body').css({
                     'overflow-y': 'hidden'
@@ -17,6 +17,8 @@ $(document).ready(function(){
                     'overflow-y': 'scroll'
                 });
             });
+
+            $('#menu .links > ul').css('height', 0);
         }
     });
 

@@ -56,7 +56,11 @@
         <div class="big-news">
             <div class="image">
                 <a href="{{ route('post.show', $postFirst->slug) }}" title="{{ $postFirst->name }}"><img src="{{ ( $postFirst->image ) ? route('image',$postFirst->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{$postFirst->name }}" /></a>
-                <div class="caption"><a href="{{ route('post.show', $postFirst->slug) }}" > {{ $postFirst->name }}</a></div>
+                <div class="caption text-center">
+                    <a href="{{ route('post.show', $postFirst->slug) }}" >
+                        {{ $postFirst->name }}
+                    </a>
+                </div>
             </div>
             <div class="text">
                 <p>{{ $postFirst->intro }}</p>

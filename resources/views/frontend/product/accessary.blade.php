@@ -58,23 +58,23 @@
             <nav class="text-center">{!! $products->render() !!}</nav>
         </div>
         @else
-        @foreach ($categories->take(5) as $category)
-        <div class="item">
-            <div class="bigimg">
-                <img src="{{ ($category->banner ) ? route('image', $category->banner->image_banner) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $category->name }}"/>
-            </div>
-            <ul class="list list-inline">
-                @foreach($category->randomProducts->take(3) as $random)
-                <li>
-                    <a title="{{ $random->name }}" href="{{ route('product.show', $random->slug) }}">
-                        <img src="{{ ( $random->image ) ? route('image',$random->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $random->name }}" />
-                        <p class="text-center">{{ str_limit($random->name, 15) }}<span >{{ $random->code }}</span></p>
-                    </a>
-                </li>
-                @endforeach
-            </ul>
-        </div>
-        @endforeach
+            @foreach ($categories->take(5) as $category)
+                <div class="item">
+                    <div class="bigimg">
+                        <img src="{{ ($category->banner ) ? route('image', $category->banner->image_banner) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $category->name }}"/>
+                    </div>
+                    <ul class="list list-inline">
+                        @foreach($category->randomProducts->take(3) as $random)
+                        <li>
+                            <a title="{{ $random->name }}" href="{{ route('product.show', $random->slug) }}">
+                                <img src="{{ ( $random->image ) ? route('image',$random->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $random->name }}" />
+                                <p class="text-center">{{ str_limit($random->name, 15) }}<span >{{ $random->code }}</span></p>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endforeach
         @endif
     </div>
 </div>

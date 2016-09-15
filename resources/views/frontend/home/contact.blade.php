@@ -28,9 +28,9 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form">
-                <h3 class="title" class="text-uppercase">
-                    <span>Tân phát</span>
-                    <span>{{ trans('repositories.tanphat_support') }}</span>
+                <h3 class="title">
+                    <span class="text-uppercase">Tân phát</span>
+                    <span class="text-uppercase">{{ trans('repositories.tanphat_support') }}</span>
                 </h3>
                 {{ Form::open(['url' => route('home.post.contact'), 'autocomplete'=>'off', 'class' => 'form-horizontal']) }}
                     @if (count($errors) > 0)
@@ -46,49 +46,60 @@
                             </div>
                         </div>
                     @endif
+
                     <div class="form-group">
-                        <label for="" class="col-lg-2">{{ trans('repositories.topic') }}:</label>
+                        <label for="topic" class="col-lg-2">
+                            {{ trans('repositories.topic') }}:
+                        </label>
                         <div class="col-lg-10">
                             {{ Form::text('topic', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.topic')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="" class="col-lg-2">{{ trans('repositories.full_name') }}:</label>
+                        <label for="name" class="col-lg-2">
+                            {{ trans('repositories.full_name') }}:
+                        </label>
                         <div class="col-lg-10">
                             {{ Form::text('name', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.full_name')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="" class="col-lg-2">{{ trans('repositories.address') }}:</label>
+                        <label for="address" class="col-lg-2">
+                            {{ trans('repositories.address') }}:
+                        </label>
                         <div class="col-lg-10">
                             {{ Form::text('address', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.address')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="" class="col-lg-2">{{ trans('repositories.phone') }}</label>
+                        <label for="phone" class="col-lg-2">
+                            {{ trans('repositories.phone') }}
+                        </label>
                         <div class="col-lg-10">
                             {{ Form::text('phone', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.phone')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="" class="col-lg-2">Fax:</label>
+                        <label for="fax" class="col-lg-2">Fax:</label>
                         <div class="col-lg-10">
                             {{ Form::text('fax', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.phone')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="" class="col-lg-2">Email:</label>
+                        <label for="email" class="col-lg-2">Email:</label>
                         <div class="col-lg-10">
-                            {{ Form::text('email', null, ['class' => 'form-control input-sm', 'placeholder' => 'email@domain.com']) }}
+                            {{ Form::email('email', null, ['class' => 'form-control input-sm', 'placeholder' => 'email@domain.com']) }}
                         </div>
                     </div>
                     <div class="form-group" id="contact-textarea">
-                        <label for="" class="col-lg-12">{{ trans('repositories.content') }}:</label>
+                        <label for="content" class="col-lg-12">
+                            {{ trans('repositories.content') }}:
+                        </label>
                         <div class="col-lg-12">
                             {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => trans('repositories.content'), 'rows' => 4]) }}
                         </div>
@@ -97,8 +108,12 @@
                     <div class="form-group">
                         <div class="col-lg-12">
                             <div class="text-right">
-                                <button class="btn btn-primary">{{ trans('repositories.send') }}</button>
-                                <a href="#" class="btn btn-default">{{ trans('repositories.cancel') }}</a>
+                                <button class="btn btn-primary">
+                                    {{ trans('repositories.send') }}
+                                </button>
+                                <a href="#" class="btn btn-default">
+                                    {{ trans('repositories.cancel') }}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -124,7 +139,12 @@
                     </div>
                     <p class="address">{{ $position->address }}</p>
                     <p class="phone">ĐT: {{ $position->phone }}</p>
-                    <p class="email">Email: <a href="mailto:{{ $position->email }}">{{ $position->email }}</a></p>
+                    <p class="email">
+                        Email:
+                        <a href="mailto:{{ $position->email }}">
+                            <u>{{ $position->email }}</u>
+                        </a>
+                    </p>
                 </div>
                 @endforeach
             </div>
