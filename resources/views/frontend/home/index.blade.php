@@ -24,7 +24,7 @@
                     @foreach($accessaries as $accessary)
                         <li>
                             <a href="{{ route('product.show', ['slug' => $accessary->slug]) }}" title="{{ $accessary->name }}">
-                                <img src="{{ route('image', $accessary->image) }}" alt=""/>
+                                <img src="{{ route('image', $accessary->image_thumbnail) }}" alt=""/>
                                 <span class="msp">{{ $accessary->code }}</span>
                                 <span>Model: {{ str_limit($accessary->model, 10) }}</span>
                             </a>
@@ -51,7 +51,7 @@
                     @foreach($devices as $device)
                         <li>
                             <a href="{{ route('product.show', ['slug' => $device->slug]) }}" title="{{ $device->name }}">
-                                <img src="{{ route('image', $device->image) }}" alt=""/>
+                                <img src="{{ route('image', $device->image_thumbnail) }}" alt=""/>
                                 <span class="msp">{{ $device->code }}</span>
                                 <span>Model: {{ str_limit($device->model) }}</span>
                             </a>
