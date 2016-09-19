@@ -38,7 +38,6 @@ class CategoryController extends FrontendController
     			$this->compacts['products'] = $this->compacts['item']->products()->paginate(3);
     			$this->view = 'product.accessary';
     			break;
-
     	}
 
     	return $this->viewRender();
