@@ -68,7 +68,17 @@
 			  	onImageUpload: function(files) {
                     sendImage(files[0], laroute.route('backend.summernote.image'), $(this));
                 }
-            }
+            },
+            toolbar: [
+                ['style', ['style', 'ol', 'ul', 'paragraph', 'height']],
+                ['font', ['fontname', 'fontsize', 'color', 'strikethrough', 'superscript', 'subscript', 'bold', 'italic', 'underline', 'clear']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['insert', ['picture', 'link', 'video', 'table', 'hr']],
+                ['misc', ['redo', 'undo', 'fullscreen', 'codeview', 'help']]
+            ]
 		});
 		select2Init(laroute.route('backend.post.tags'));
 

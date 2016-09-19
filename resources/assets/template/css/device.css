@@ -56,12 +56,13 @@
 
 #device .item .list li .name {
     width: 100%;
-    height: 50px;
-    background: #e6e7e8 url('../img/bg-device-name.png') no-repeat;
-    background-size: 50px 100%;
-    line-height: 50px;
+    padding: 10px 20px 10px 40px;
+    height: 70px;
+    overflow: hidden;
+    background: #e6e7e8 url(../img/bg-device-name.png) no-repeat;
+    background-size: 45px 100%;
     text-transform: uppercase;
-    text-indent: 37%;
+    text-align: center;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 14px;
 }
