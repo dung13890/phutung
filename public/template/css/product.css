@@ -1,10 +1,10 @@
 /* #product -----------------------------------*/
 #product .product-title {
     width: 100%;
-    height: 50px;
-    background: #e5e5e5 url('../img/product-title.png') no-repeat;
-    line-height: 50px;
-    text-indent: 30px;
+    padding: 5px 10px;
+    height: auto;
+    text-align: justify;
+    background: #e5e5e5 url(../img/product-title.png) no-repeat;
 }
 
 #product .product-detail {

@@ -18,8 +18,13 @@
         <meta property="og:image:height" content="300">
 
         {{ HTML::style('vendor/bootstrap/css/bootstrap.min.css') }}
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
         {{ HTML::style('template/css/common.css') }}
         {{ HTML::style('template/css/responsive/common.css') }}
+
     	@stack('prestyles')
     </head>
     <body>
