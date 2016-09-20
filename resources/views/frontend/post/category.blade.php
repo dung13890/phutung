@@ -72,7 +72,7 @@
         	@foreach ($posts as $post)
             <div class="news">
                 <div class="image">
-                    <a href="{{ route('post.show',$post->slug) }}" title="Xem chi tiết"> {{$post->name}}
+                    <a href="{{ route('post.show',$post->slug) }}" title="Xem chi tiết">
                         <img src="{{ ( $post->image ) ? route('image',$post->image_tiny) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $post->name }}" />
                     </a>
                 </div>
