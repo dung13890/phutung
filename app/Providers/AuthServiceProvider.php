@@ -28,6 +28,7 @@ class AuthServiceProvider extends ServiceProvider
         \App\Eloquent\Contact::class => \App\Policies\ContactPolicy::class,
         \App\Eloquent\Position::class => \App\Policies\PositionPolicy::class,
         \App\Eloquent\Provider::class => \App\Policies\ProviderPolicy::class,
+        \App\Eloquent\File::class => \App\Policies\FilePolicy::class,
     ];
 
     /**

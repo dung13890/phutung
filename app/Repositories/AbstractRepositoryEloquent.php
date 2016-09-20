@@ -70,7 +70,7 @@ abstract class AbstractRepositoryEloquent
 
     public function paginate($limit = null, $columns = ['*'])
     {
-        return $this->model->orderBy('id','DESC')->paginate($limit, $columns);
+        return $this->model->where('locked', false)->orderBy('id','DESC')->paginate($limit, $columns);
     }
 
     public function datatables($columns = ['*'], $with = [])

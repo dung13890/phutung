@@ -42,6 +42,9 @@
     	<h3 >{{ $item->name }}</h3>
     	<br>
     	{!! $item->description !!}
+
+        <br>
+        @include('frontend._partials.file')
     </div>
 </div>
 

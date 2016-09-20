@@ -40,6 +40,8 @@ return [
     'setting' => 'Cài đặt',
     'position' => 'Chi nhánh',
     'guide' => 'Hướng dẫn',
+    'file' => 'Tài liệu',
+    'docs' => 'Tài liệu Tham khảo',
 
 
 
@@ -76,5 +78,6 @@ return [
     'guarantee' => 'Bảo hành',
     'origin' => 'Xuất xứ',
     'details' => 'Chi tiết',
+    'view_all' => 'Tất cả',
     'product_same' => 'Sản phẩm cùng danh mục',
 ];

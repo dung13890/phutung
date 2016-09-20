@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Cache;
 use App\Repositories\Contracts\ConfigRepository;
 use App\Repositories\Contracts\SlideRepository;
+use App\Repositories\Contracts\FileRepository;
 use App\Repositories\Contracts\MenuRepository;
 use App\Repositories\Contracts\CategoryRepository;
 use League\Glide\ServerFactory;
@@ -149,6 +150,10 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Contracts\ProviderRepository::class,
             \App\Repositories\ProviderRepositoryEloquent::class
         );
+        $this->app->bind(
+            \App\Repositories\Contracts\FileRepository::class,
+            \App\Repositories\FileRepositoryEloquent::class
+        );
 
         $this->app->bind(
             \App\Services\Contracts\UserService::class,
@@ -210,6 +215,10 @@ class AppServiceProvider extends ServiceProvider
             \App\Services\Contracts\ProviderService::class,
             \App\Services\ProviderServiceJob::class
         );
+        $this->app->bind(
+            \App\Services\Contracts\FileService::class,
+            \App\Services\FileServiceJob::class
+        );
 
         $this->composers();
     }
@@ -246,6 +255,14 @@ class AppServiceProvider extends ServiceProvider
             $view->with('__slides', Cache::remember('__slides', 60, function () {
                 return app(SlideRepository::class)->getSlide(5);
             }));
+
+            $view->with('__files', Cache::remember('__files', 60, function () {
+                return app(FileRepository::class)->getFile(5);
+            }));
+
+            view()->composer(['frontend.post.*', 'frontend.page.show'], function ($view) {
+
+            });
         });
     }
 }

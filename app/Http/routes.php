@@ -28,6 +28,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
 		Route::get('/', ['as'=>'home.index', 'uses'=>'HomeController@index']);
 		Route::get('lien-he', ['as' => 'home.contact', 'uses' => 'HomeController@contact']);
+		Route::get('tai-lieu-tham-khao', ['as' => 'home.file', 'uses' => 'HomeController@getListFile']);
 		Route::get('tim-kiem', ['as' => 'home.search', 'uses' => 'HomeController@search']);
 		Route::POST('contact', ['as' => 'home.post.contact', 'uses' => 'HomeController@postContact']);
         Route::get('category/{slug}', ['as' => 'category.show', 'uses' => 'CategoryController@show']);
@@ -92,6 +93,9 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
         Route::get('slide/data', ['as'=>'backend.slide.data', 'uses'=>'SlideController@getData']);
 		Route::resource('slide', 'SlideController');
+
+		Route::get('file/data', ['as'=>'backend.file.data', 'uses'=>'FileController@getData']);
+		Route::resource('file', 'FileController');
 
 		Route::get('provider/data', ['as'=>'backend.provider.data', 'uses'=>'ProviderController@getData']);
 		Route::resource('provider', 'ProviderController');

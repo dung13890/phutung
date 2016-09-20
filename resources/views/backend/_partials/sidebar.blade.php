@@ -98,6 +98,7 @@
                     @can('slide-read')
                     <li @if (Request::is('backend/slide*')) class="active" @endif><a href="{{route('backend.slide.index')}}"><i class="fa fa-circle-o"></i> Slide</a></li>
                     @endcan
+                    <li @if (Request::is('backend/file*')) class="active" @endif><a href="{{route('backend.file.index')}}"><i class="fa fa-circle-o"></i> {{ trans('repositories.file') }}</a></li>
                     <li @if (Request::is('backend/contact*')) class="active" @endif><a href="{{route('backend.contact.index')}}"><i class="fa fa-circle-o"></i> {{ trans('repositories.contact') }}</a></li>
                     <li @if (Request::is('backend/position*')) class="active" @endif><a href="{{route('backend.position.index')}}"><i class="fa fa-circle-o"></i> {{ trans('repositories.position') }}</a></li>
                 </ul>

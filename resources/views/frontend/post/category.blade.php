@@ -72,12 +72,12 @@
         	@foreach ($posts as $post)
             <div class="news">
                 <div class="image">
-                    <a href="{{ route('post.show',$post->slug) }}" title="Xem chi tiết">
+                    <a href="{{ route('post.show',$post->slug) }}" title="Xem chi tiết"> {{$post->name}}
                         <img src="{{ ( $post->image ) ? route('image',$post->image_tiny) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $post->name }}" />
                     </a>
                 </div>
                 <div class="info">
-                    <a href="{{ route('post.show',$post->slug) }}" title="Xem chi tiết">Công ty cổ phần thiết bị Tân Phát tổ chức tham quan du lịch tại Đà Nẵng</a>
+                    <a href="{{ route('post.show',$post->slug) }}" title="Xem chi tiết">{{ $post->name }}</a>
                     <div class="detail">
                         <span>{{ date('d/m/Y', strtotime($post->created_at)) }}</span>
                         <a href="{{ route('post.show',$post->slug) }}" title="Xem chi tiết" class="pull-right">Xem chi tiết &raquo;</a>
@@ -86,6 +86,8 @@
             </div>
             @endforeach
             <nav class="text-center">{!! $posts->render() !!}</nav>
+            <br>
+            @include('frontend._partials.file')
         </div>
 
 		@endif

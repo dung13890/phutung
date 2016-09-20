@@ -29,7 +29,9 @@
     	<h3 class="title">{{ $item->name }}</h3>
     	<br>
     	{!! $item->description !!}
+        @include('frontend._partials.file')
     </div>
 </div>
+
 
 @endsection

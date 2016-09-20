@@ -38,6 +38,13 @@ class Update extends Job
             $this->attributes['image'] = $this->uploadFile($this->attributes['image'], $path);
         }
 
+        if (isset($this->attributes['file'])) {
+            if (!empty($this->entity->file)) {
+                $this->destroyFile($this->entity->file);
+            }
+            $this->attributes['file'] = $this->uploadFile($this->attributes['file'], $path, 'file');
+        }
+
         $repository->update($this->entity, $this->attributes);
 
         $dataSeo = [

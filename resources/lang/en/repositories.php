@@ -39,7 +39,9 @@ return [
     'provider' => 'Provider',
     'setting' => 'Setting',
     'position' => 'Position',
+    'file' => 'File',
     'guide' => 'Guide',
+    'docs' => 'Documents',
 
 
 
@@ -74,5 +76,6 @@ return [
     'guarantee' => 'Guarantee',
     'origin' => 'Origin',
     'details' => 'Details',
+    'view_all' => 'View All',
     'product_same' => 'Related Product',
 ];
