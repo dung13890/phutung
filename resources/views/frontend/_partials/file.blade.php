@@ -1,3 +1,4 @@
+@if (count($__files))
 <h4>{{ trans('repositories.docs') }}</h4>
 <ul>
 	@foreach ($__files as $file)
@@ -5,3 +6,4 @@
 	@endforeach
 </ul>
 <a href="{{ route('home.file') }}">{{ trans('repositories.view_all') }} ...</a>
+@endif
