@@ -44,11 +44,12 @@ class Handler extends ExceptionHandler
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $e)
-    {
-        if ($e) {
-            // return response()->view('errors.401', [], 401);
-        } else {
-            return parent::render($request, $e);
-        }
+    {   
+        return parent::render($request, $e);
+        // if ($e) {
+        //     // return response()->view('errors.401', [], 401);
+        // } else {
+        //     return parent::render($request, $e);
+        // }
     }
 }

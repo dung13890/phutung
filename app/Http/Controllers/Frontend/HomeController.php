@@ -72,6 +72,7 @@ class HomeController extends FrontendController
     public function postContact(ContactRequest $request)
     {
         $data = $request->all();
+
         try {
             $this->contactRepository->create($data);
             $this->e['message'] = $this->trans('created_contact_unsuccessfully');
