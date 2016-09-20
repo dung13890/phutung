@@ -13,7 +13,7 @@
 
 Route::group(['middlewareGroups' => ['web']], function () {
 
-	Route::get('image/{path}', ['as' => 'image', 'uses' => 'Backend\DashboardController@getReponseImage'])->where('path', '(.*?)');
+	Route::get('image{path}', ['as' => 'image', 'uses' => 'Backend\DashboardController@getReponseImage'])->where('path', '(.*?)');
 	Route::get('file/{path}', ['as' => 'file', 'uses' => 'Backend\DashboardController@getReponseFile'])->where('path', '(.*?)');
 	
 	Route::group(['namespace' => 'Auth'], function () {
