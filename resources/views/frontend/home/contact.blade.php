@@ -32,7 +32,7 @@
                     <span class="text-uppercase">Tân phát</span>
                     <span class="text-uppercase">{{ trans('repositories.tanphat_support') }}</span>
                 </h3>
-                {{ Form::open(['url' => route('home.post.contact'), 'autocomplete'=>'off', 'class' => 'form-horizontal']) }}
+                {{ Form::open(['url' => route('home.post.contact'), 'class' => 'form-horizontal']) }}
                     @if (count($errors) > 0)
                         <div class="form-group">
                             <div class="col-xs-12">

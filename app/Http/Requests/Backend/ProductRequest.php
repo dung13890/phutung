@@ -50,6 +50,7 @@ class ProductRequest extends Request
                 'seo_title' => "min:2|max:56",
                 'seo_description' => "min:2|max:120",
                 'image'=> 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+                'file'=> 'mimes:pdf,jpg,doc,xls,xlsx,png|max:1200',
             ];
         }
         else{
@@ -61,6 +62,7 @@ class ProductRequest extends Request
                 'locked' => 'sometimes|boolean',
                 'featured' => 'sometimes|boolean',
                 'image'=> 'required|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
+                'file'=> 'mimes:pdf,jpg,doc,xls,xlsx,png|max:1200',
                 'seo_title' => "min:2|max:56",
                 'seo_description' => "min:2|max:120",
                 'type' => "required|in:". implode(',',config('developer.typeProduct'))

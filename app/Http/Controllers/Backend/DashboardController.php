@@ -33,6 +33,15 @@ class DashboardController extends BackendController
     	return $service->getReponseImage($path, $params);
     }
 
+    public function getReponseFile($path)
+    {
+        $file = \Storage::disk('file')->get($path);
+        $destinationPath = \Storage::disk('file')->getDriver()->getAdapter()->getPathPrefix() . $path;
+        $ext = pathinfo($destinationPath, PATHINFO_EXTENSION);
+
+        return \Response::make($file, 200, array('Content-Type' => $ext));
+    }
+
     public function readNotification($id)
     {
         app(Notification::class)->findOrFail($id)->update(['read' => true]);

@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('code', 50);
             $table->string('slug')->index()->nullable();
             $table->string('image');
+            $table->string('file');
             $table->string('model');
             $table->string('youtube');
             $table->text('guide');

@@ -96,6 +96,14 @@
 </div>
 
 <div class="form-group">
+    <label for="file">Tài liệu đính kèm</label>
+    {{ Form::file('file') }}
+    @if (isset($item) && $item->file)
+    <a href="{{ route('file', $item->file) }}">{{ $item->file }}</a>
+    @endif
+</div>
+
+<div class="form-group">
 	<div class="checkbox">
         <label>
             {{ Form::checkbox('locked', true, old('locked'), ['data-toggle'=>'toggle','data-size' => 'small']) }}	<b>Locked  </b>
@@ -135,7 +143,7 @@
             toolbar: [
                 ['style', ['style', 'ol', 'ul', 'paragraph', 'height']],
                 ['font', ['fontname', 'fontsize', 'color', 'strikethrough', 'superscript', 'subscript', 'bold', 'italic', 'underline', 'clear']],
-                ['fontsize', ['fontsize']],
+                ['fontsize', ['fontsize' , 'underline']],
                 ['color', ['color']],
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['height', ['height']],

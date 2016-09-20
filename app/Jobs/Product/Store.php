@@ -27,9 +27,15 @@ class Store extends Job
     {
         $path = strtolower(class_basename($repository->getModel()));
         $this->attributes['user_id'] = \Auth::user()->id;
+
         if (isset($this->attributes['image'])) {
             $this->attributes['image'] = $this->uploadFile($this->attributes['image'], $path);
         }
+
+        if (isset($this->attributes['file'])) {
+            $this->attributes['file'] = $this->uploadFile($this->attributes['file'], $path, 'file');
+        }
+
         $product = $repository->create($this->attributes);
         $product->categories()->sync($this->attributes['category_id']);
         if (isset($this->attributes['tags'])) {

@@ -67,7 +67,7 @@
         	@endif
         	<div class="product-bigimage">
                 <a class="popup-link" href="{{ ( $item->image ) ? route('image', $item->image_default) :  asset('assets/img/backend/no_image.jpg') }}" title="{{ $item->name }}">
-                    <img src="{{ ( $item->image ) ? route('image',$item->image_medium) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
+                    <img src="{{ ( $item->image ) ? route('image',$item->image_default) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
                 </a>
             </div>
 
@@ -152,6 +152,10 @@
                 <div class="tab-pane active" id="details">
                     <div class="content">
                     {!! $item->description !!}
+
+                    @if ($item->file)
+                    <a target="_blank" href="{{ route('file', $item->file) }}">Tài liệu tham khảo</a>
+                    @endif
                     </div>
                 </div>
                 <div class="tab-pane" id="video">
