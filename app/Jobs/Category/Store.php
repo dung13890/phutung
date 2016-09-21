@@ -32,7 +32,7 @@ class Store extends Job
             $category->images()->save($banner);
         }
 
-        return $category;
+        return $category; 
     }
 
 }
