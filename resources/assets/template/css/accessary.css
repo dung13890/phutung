@@ -1,6 +1,5 @@
 /* #accessary ---------------------------------*/
 #accessary {
-    margin-top: 30px;
     min-height: 300px;
 }
 
@@ -41,7 +40,6 @@
 #accessary .item .list li p strong {
     height: 65px;
     overflow: hidden;
-    display: block;
 }
 
 #accessary .item .list li p span {
@@ -52,5 +50,9 @@
     padding: 3px 10px;
     font-weight: bold;
     border-radius: 3px;
-    display: block;
+}
+
+#content .main {
+    width: 780px;
+    padding: 0 0 20px;
 }

@@ -51,8 +51,10 @@
                             <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}">
                                 <img src="{{ ( $product->image_accessary ) ? route('image',$product->image_accessary) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $product->name }}" />
                                 <p class="text-center">
-                                    {{ str_limit($product->name, 10) }}
-                                    <span>{{ str_limit($product->code, 7) }}</span>
+                                    <span title="{{ $product->name }}">
+                                        {{ str_limit($product->name, 15) }}
+                                    </span>
+                                    <span title="{{ $product->code }}">{{ str_limit($product->code, 7) }}</span>
                                 </p>
                             </a>
                         </li>
@@ -73,10 +75,10 @@
                                     <img src="{{ ( $random->image ) ? route('image',$random->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $random->name }}" />
                                     <p class="text-center">
                                         <strong>
-                                            {{ $random->name }}
+                                            {{ str_limit($random->name, 15) }}
                                         </strong>
                                         <span>
-                                            {{ $random->code }}
+                                            {{ str_limit($random->code, 10) }}
                                         </span>
                                     </p>
                                 </a>
