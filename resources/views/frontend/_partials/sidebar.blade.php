@@ -20,7 +20,7 @@
 <div>
     <div class="links pull-left">
         <div class="name"><a href="{{ route(strtolower(class_basename($categoryFirst)) . '.show', $categoryFirst->slug) }}" title="{{ $categoryFirst->name }}"> {{ str_limit($categoryFirst->name, 20) }} </a></div>
-        <ul class="list-unstyled">
+        <ul class="list-unstyled clearfix">
         	@foreach ($categories as $category)
             <li @if ($item->slug === $category->slug || (($item->parent) && $item->parent->slug === $category->slug)) class="active"  @endif >
             	<a title="{{ $category->name }}" href="{{ route(strtolower(class_basename($category)) . '.show', $category->slug) }}">{{ $category->name }}</a>
