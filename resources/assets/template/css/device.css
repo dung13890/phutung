@@ -96,3 +96,12 @@
     color: #ffffff; 
     text-transform: uppercase;
 }
+
+#header {
+    height: 400px;
+}
+
+#content .main {
+    margin-top: -65px;
+    position: relative;
+}
