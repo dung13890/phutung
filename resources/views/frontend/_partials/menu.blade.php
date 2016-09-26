@@ -7,9 +7,6 @@
         </div><!-- /.logo -->
         <div class="links pull-right">
             <ul class="list-unstyled">
-                <li @if (!parse_url(Request::url(), PHP_URL_PATH)) class="active" @endif >
-                    <a href="/" title="{{ trans('repositories.home') }}">{{ trans('repositories.home') }}</a>
-                </li>
                 @foreach ($__menus as $__menu)
                     <li @if (parse_url(Request::url(), PHP_URL_PATH) === $__menu->src )  class="active" @endif>
                         <a href="{{ $__menu->src }}" title="{{ $__menu->name }}">{{ $__menu->name }}</a>

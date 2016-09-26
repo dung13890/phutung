@@ -9,6 +9,7 @@
     width: 100%;
     padding: 13px;
     background: #e6e7e8;
+    font-family: arial;
 }
 
 #home .section-half {
@@ -44,6 +45,7 @@
     line-height: 30px;
     display: block;
     color: #000000;
+    font-family: arial;
 }
 
 #home .section-half .image ul li a span.msp {
@@ -59,11 +61,11 @@
     height: 35px;
     margin-bottom: 20px;
     background: url('../img/bg-heading.png') no-repeat;
-    background-size: 75% 100%;
+    background-size: 45% 100%;
     background-position: center center;
-    line-height: 33px;
+    line-height: 40px;
     text-align: center;
-    font-size: 17px;
+    font-size: 15px;
     color: #ffffff;
     text-transform: uppercase;
 }
@@ -96,7 +98,7 @@
 
 #home .news-title {
     margin-top: 30px;
-    background-size: 50% 100%;
+    background-size: 40% 100%;
 }
 
 #home .info {
@@ -114,6 +116,7 @@
 
 #home .info .text {
     padding: 10px;
+    min-height: 106px;
 }
 
 #home .info .text a {
