@@ -58,7 +58,7 @@
                         </p>
                         <div class="name">
                             <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}">
-                                {{ $product->name }}
+                                {{ str_limit($product->name, 45) }}
                             </a>
                         </div>
                     </li>

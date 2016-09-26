@@ -74,7 +74,7 @@ return [
     'phone' => 'Điện thoại',
     'content' => 'Nội dung',
     'about_us' => 'LIÊN HỆ VỚI CHÚNG TÔI',
-    'product_code' => 'Mã Sản phẩm',
+    'product_code' => 'MÃ SẢN PHẨM',
     'guarantee' => 'Bảo hành',
     'origin' => 'Xuất xứ',
     'details' => 'Chi tiết',

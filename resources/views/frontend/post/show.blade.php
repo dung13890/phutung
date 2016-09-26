@@ -44,7 +44,6 @@
     	{!! $item->description !!}
 
         <br>
-        @include('frontend._partials.file')
     </div>
 </div>
 
