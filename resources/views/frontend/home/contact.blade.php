@@ -20,7 +20,7 @@
         <h1 class="page-title">{{ trans('repositories.info_contact') }}</h1>
     </div>
     <div class="slogan pull-right">
-        <span>{{ trans('repositories.tanphat_support') }}</span>
+        <span>Tân phát {{ trans('repositories.tanphat_support') }}</span>
     </div>
 </div><!-- /#header -->
 
@@ -48,51 +48,51 @@
                     @endif
 
                     <div class="form-group">
-                        <label for="topic" class="col-lg-2">
+                        <label for="topic" class="col-lg-3">
                             {{ trans('repositories.topic') }}:
                         </label>
-                        <div class="col-lg-10">
+                        <div class="col-lg-9">
                             {{ Form::text('topic', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.topic')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="name" class="col-lg-2">
+                        <label for="name" class="col-lg-3">
                             {{ trans('repositories.full_name') }}:
                         </label>
-                        <div class="col-lg-10">
+                        <div class="col-lg-9">
                             {{ Form::text('name', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.full_name')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="address" class="col-lg-2">
+                        <label for="address" class="col-lg-3">
                             {{ trans('repositories.address') }}:
                         </label>
-                        <div class="col-lg-10">
+                        <div class="col-lg-9">
                             {{ Form::text('address', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.address')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="phone" class="col-lg-2">
+                        <label for="phone" class="col-lg-3">
                             {{ trans('repositories.phone') }}
                         </label>
-                        <div class="col-lg-10">
+                        <div class="col-lg-9">
                             {{ Form::text('phone', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.phone')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="fax" class="col-lg-2">Fax:</label>
-                        <div class="col-lg-10">
+                        <label for="fax" class="col-lg-3">Fax:</label>
+                        <div class="col-lg-9">
                             {{ Form::text('fax', null, ['class' => 'form-control input-sm', 'placeholder' => trans('repositories.phone')]) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="email" class="col-lg-2">Email:</label>
-                        <div class="col-lg-10">
+                        <label for="email" class="col-lg-3">Email:</label>
+                        <div class="col-lg-9">
                             {{ Form::email('email', null, ['class' => 'form-control input-sm', 'placeholder' => 'email@domain.com']) }}
                         </div>
                     </div>
