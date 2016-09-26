@@ -1,10 +1,12 @@
 /* #product -----------------------------------*/
 #product .product-title {
     width: 100%;
-    padding: 5px 10px;
+    padding: 15px;
     height: auto;
     text-align: justify;
     background: #e5e5e5 url(../img/product-title.png) no-repeat;
+    font-family: arial;
+    font-size: 22px;
 }
 
 #product .product-detail {
@@ -72,6 +74,7 @@
 
 #product .product-detail .product-info .desc {
     padding: 0 10px;
+    font-family: arial;
 }
 
 #product .product-detail .product-info .price {
@@ -81,6 +84,7 @@
     font-size: 21px;
     padding: 5px 0;
     text-align: center;
+    font-family: arial;
 }
 
 #product .product-detail .product-info .like-share {
@@ -112,6 +116,7 @@
     clear: both;
     border-bottom: 2px solid #ce1313;
     list-style: none;
+    font-family: arial;
 }
 
 #product .product-tabs .tabs li {
@@ -164,6 +169,7 @@
 #product .product-tabs .content .slider {
     width: 100%;
     overflow: hidden;
+    font-family: arial;
 }
 
 #product .product-tabs .content .slider ul {
@@ -249,4 +255,13 @@
     background: #ce1313;
     color: #ffffff;
     text-decoration: none;
+}
+
+#header .links > ul > li:before{
+    font-family: 'Glyphicons Halflings';
+    content: "\e250";
+    margin-left: -20px;
+    float: left;
+    padding: 9px 0;
+    color: #EC1C24;
 }

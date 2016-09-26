@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->string('origin');
             $table->text('description');
             $table->integer('price');
+            $table->string('unit');
             $table->string('type', 20)->default('product');
             $table->string('locale', 10)->default('vi');
             $table->integer('provider_id');

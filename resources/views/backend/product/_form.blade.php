@@ -38,9 +38,13 @@
 
 <div class="form-group">
 	<div class="row">
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			{{ Form::label('price', 'Price', ['class'=>'control-label']) }}
     		{{ Form::text('price',null, ['class' => 'form-control currency-mask']) }}
+		</div>
+		<div class="col-sm-2">
+			{{ Form::label('unit', 'Đơn vị', ['class'=>'control-label']) }}
+    		{{ Form::text('unit',null, ['class' => 'form-control']) }}
 		</div>
 		<div class="col-sm-6">
 			{{ Form::label('name', 'Bảo hành', ['class'=>'control-label']) }}

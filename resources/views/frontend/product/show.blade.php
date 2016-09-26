@@ -67,7 +67,7 @@
         	@endif
         	<div class="product-bigimage">
                 <a class="popup-link" href="{{ ( $item->image ) ? route('image', $item->image_default) :  asset('assets/img/backend/no_image.jpg') }}" title="{{ $item->name }}">
-                    <img src="{{ ( $item->image ) ? route('image',$item->image_default) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
+                    <img src="{{ ( $item->image ) ? route('image',$item->image_medium) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
                 </a>
             </div>
 
@@ -77,7 +77,7 @@
                     <div class="carousel-inner">
                         @foreach ($images as $i => $image)
                             <div class="item{{ ($i == 0) ? ' active' : ''}}">
-                                {{ HTML::image(route('image', $image->image_default), $image->name, ['class' => 'img-responsive']) }}
+                                {{ HTML::image(route('image', $image->image_medium), $image->name, ['class' => 'img-responsive']) }}
                             </div>
                         @endforeach
                     </div>
@@ -90,7 +90,9 @@
                 <h3 class="code"><span class="text-uppercase">{{ $item->code }}</span></h3>
 
                 <div class="provider">
-                    {{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }} <img src="{{ (isset($item->provider) && $item->provider->image) ? route('image', $item->provider->image_default) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }}"/>
+                    <p class="text-center">{{ trans('repositories.provider') }}</p>
+                    {{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }} 
+                    <img src="{{ (isset($item->provider) && $item->provider->image) ? route('image', $item->provider->image_default) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }}"/>
                 </div>
 
                 <div class="desc">
@@ -106,7 +108,7 @@
                 </div>
 
                 <div class="price">
-                    Giá: {{ number_format($item->price) }}
+                    Giá: {{ number_format($item->price) }} {{ $item->unit }}
                 </div>
 
                 <div class="like-share">
