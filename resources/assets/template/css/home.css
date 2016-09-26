@@ -98,7 +98,7 @@
 
 #home .news-title {
     margin-top: 30px;
-    background-size: 40% 100%;
+    background-size: 35% 100%;
 }
 
 #home .info {
@@ -116,7 +116,7 @@
 
 #home .info .text {
     padding: 10px;
-    min-height: 106px;
+    min-height: 100px;
 }
 
 #home .info .text a {

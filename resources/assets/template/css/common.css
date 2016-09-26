@@ -430,6 +430,7 @@ a:hover, a:focus {
 #footer .info {
     float: left;
     margin-top: 9px;
+    font-family: arial;
 }
 
 #footer .links {
@@ -443,7 +444,7 @@ a:hover, a:focus {
 
 #footer .info p {
     margin: 5px 0;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 #footer .links img {
