@@ -46,7 +46,9 @@ class UploadServiceJob extends AbstractServiceJob implements UploadService
             return $server->getImageResponse($path, $params);
         } catch (SignatureException $e) {
             //abort(403, $e->getMessage());
-            return redirect(asset('assets/img/backend/no_image.jpg'));
+            //return redirect(asset('assets/img/backend/no_image.jpg'));
         }
+
+        return $server->getImageResponse($path, $params);
 	}
 }
