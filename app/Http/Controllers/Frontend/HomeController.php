@@ -68,6 +68,7 @@ class HomeController extends FrontendController
     public function getListFile()
     {
         $this->compacts['items'] = $this->fileRepository->paginate(10);
+        $this->compacts['items']->load('category');
         $this->view = 'home.file';
 
         return $this->viewRender();

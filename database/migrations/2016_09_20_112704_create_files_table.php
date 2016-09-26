@@ -16,6 +16,7 @@ class CreateFilesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('file');
+            $table->integer('category_id');
             $table->text('description');
             $table->boolean('locked')->default(false);
             $table->timestamps();

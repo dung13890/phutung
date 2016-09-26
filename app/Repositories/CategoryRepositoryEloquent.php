@@ -12,6 +12,11 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
         parent::__construct($model);
     }
 
+    public function getDataWithLocale($locale = 'vi', $columns = ['*'])
+    {
+        return $this->model->where('type', '<>', 'post')->where('locale', $locale)->get($columns);
+    }
+
     public function getDataWithType($type, $locale = 'vi', $columns = ['*'])
     {
     	return $this->model->where('type',$type)->where('locale', $locale)->get($columns);

@@ -35,7 +35,7 @@
                     @foreach ($items as $item)
                     <div class="news">
                         <div class="info">
-                            <a href="{{ route('file', $item->file) }}" title="Xem chi tiết">{{ $item->name }}</a>
+                            <a href="{{ route('file', $item->file) }}" title="Xem chi tiết">{{ $item->name }} - {{ $item->category->name }}</a>
                             <div class="detail">
                                 <p>{{ $item->description }}</p>
                                 <span class="pull-right">{{ date('d/m/Y', strtotime($item->created_at)) }}</span>

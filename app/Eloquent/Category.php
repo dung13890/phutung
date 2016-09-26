@@ -54,4 +54,9 @@ class Category extends Abstracts\Sluggable
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
 }

@@ -29,13 +29,15 @@ class CategoryController extends FrontendController
     			$this->view = 'post.category';
     			break;
     		case 'product':
-                $this->compacts['products'] = $this->compacts['item']->products()->paginate(4);
+                $this->compacts['products'] = $this->compacts['item']->products()->with('provider')->paginate(4);
+                $this->compacts['files'] = $this->compacts['item']->files()->where('locked', false)->take(5)->get();
                 $this->view = 'product.product';
                 break;
             case 'accessary':
                 $this->compacts['categories']->load('banner');
                 $this->compacts['banner'] = $this->compacts['categories']->first()->banner;
-    			$this->compacts['products'] = $this->compacts['item']->products()->paginate(3);
+    			$this->compacts['products'] = $this->compacts['item']->products()->with('provider')->paginate(3);
+                $this->compacts['files'] = $this->compacts['item']->files()->where('locked', false)->take(5)->get();
     			$this->view = 'product.accessary';
     			break;
     	}

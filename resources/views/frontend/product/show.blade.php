@@ -200,7 +200,7 @@
                                     <img src="{{ ( $same->image ) ? route('image', $same->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $same->name }}"/>
                                 </a>
                                 <p style="color:#e06b6b;">Model {{ str_limit($same->model, 20) }}</p>
-                                <p>{{ str_limit($same->name, 20) }}</p>
+                                <p title="{{ $same->name }}" >{{ str_limit($same->name, 12) }}</p>
                                 <a class="btn-detail" href="{{ route('product.show', $same->slug) }}" title="Xem chi tiết">{{ trans('repositories.view_detail') }}</a>
                             </li>
                         @endforeach

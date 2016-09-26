@@ -256,10 +256,6 @@ class AppServiceProvider extends ServiceProvider
                 return app(SlideRepository::class)->getSlide(5);
             }));
 
-            $view->with('__files', Cache::remember('__files', 60, function () {
-                return app(FileRepository::class)->getFile(5);
-            }));
-
             view()->composer(['frontend.post.*', 'frontend.page.show'], function ($view) {
 
             });

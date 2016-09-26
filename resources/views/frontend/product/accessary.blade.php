@@ -62,6 +62,8 @@
             @endforeach
         </ul>
         <nav class="text-center">{!! $products->render() !!}</nav>
+        <br>
+        @include('frontend._partials.file', ['files' => $files])
     </div>
     @else
     <div class="main">

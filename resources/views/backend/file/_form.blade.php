@@ -2,6 +2,15 @@
 
 @push('form-fields')
 <div class="form-group">
+    <div class="row">
+        <div class="col-sm-6">
+            {{ Form::label('category_id', 'Chuyên mục', ['class'=>'control-label']) }}
+            {{ Form::select('category_id', $listCategory, null, ['class' => 'form-control']) }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
 	<div class="row">
 		<div class="col-sm-6">
 			{{ Form::label('name', 'Name', ['class'=>'control-label']) }}
