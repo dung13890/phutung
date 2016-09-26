@@ -38,55 +38,58 @@
 </ol>
 
 <div id="accessary">
+    @if ($item->id != 3 && $item->id != 6)
     <div class="main">
         <p>{!! $item->description !!}</p>
-        @if ($item->id != 3 && $item->id != 6)
+    </div>
+    <div class="item">
+        <div class="bigimg">
+            <img src="{{ ( $item->banner ) ? route('image',$item->banner->image_banner) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}"/>
+        </div>
+        <ul class="list list-inline">
+            @foreach($products as $product)
+                <li>
+                    <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}">
+                        <img src="{{ ( $product->image_accessary ) ? route('image',$product->image_accessary) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $product->name }}" />
+                        <p class="text-center">
+                            <strong title="{{ $product->name }}">
+                                {{ str_limit($product->name, 15) }}
+                            </strong>
+                            <span title="{{ $product->code }}">{{ str_limit($product->code, 7) }}</span>
+                        </p>
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+        <nav class="text-center">{!! $products->render() !!}</nav>
+    </div>
+    @else
+    <div class="main">
+        <p>{!! $item->description !!}</p>
+        @foreach ($categories->take(5) as $category)
             <div class="item">
                 <div class="bigimg">
-                    <img src="{{ ( $item->banner ) ? route('image',$item->banner->image_banner) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}"/>
+                    <img src="{{ ($category->banner ) ? route('image', $category->banner->image_banner) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $category->name }}"/>
                 </div>
                 <ul class="list list-inline">
-                    @foreach($products as $product)
+                    @foreach($category->randomProducts->take(3) as $random)
                         <li>
-                            <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}">
-                                <img src="{{ ( $product->image_accessary ) ? route('image',$product->image_accessary) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $product->name }}" />
+                            <a title="{{ $random->name }}" href="{{ route('product.show', $random->slug) }}">
+                                <img src="{{ ( $random->image ) ? route('image',$random->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $random->name }}" />
                                 <p class="text-center">
-                                    <span title="{{ $product->name }}">
-                                        {{ str_limit($product->name, 15) }}
+                                    <strong>
+                                        {{ str_limit($random->name, 15) }}
+                                    </strong>
+                                    <span>
+                                        {{ str_limit($random->code, 10) }}
                                     </span>
-                                    <span title="{{ $product->code }}">{{ str_limit($product->code, 7) }}</span>
                                 </p>
                             </a>
                         </li>
                     @endforeach
                 </ul>
-                <nav class="text-center">{!! $products->render() !!}</nav>
             </div>
-        @else
-            @foreach ($categories->take(5) as $category)
-                <div class="item">
-                    <div class="bigimg">
-                        <img src="{{ ($category->banner ) ? route('image', $category->banner->image_banner) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $category->name }}"/>
-                    </div>
-                    <ul class="list list-inline">
-                        @foreach($category->randomProducts->take(3) as $random)
-                            <li>
-                                <a title="{{ $random->name }}" href="{{ route('product.show', $random->slug) }}">
-                                    <img src="{{ ( $random->image ) ? route('image',$random->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $random->name }}" />
-                                    <p class="text-center">
-                                        <strong>
-                                            {{ str_limit($random->name, 15) }}
-                                        </strong>
-                                        <span>
-                                            {{ str_limit($random->code, 10) }}
-                                        </span>
-                                    </p>
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endforeach
+        @endforeach
         @endif
     </div>
 </div>
