@@ -37,6 +37,9 @@
 <div id="device">
     <div class="main">
         <p>{!! $item->description !!}</p>
+        @if ($item->id != 2 && $item->id != 5)
+        <h3 class="title">{{ $item->name }}</h3>
+        @endif
         <div class="item">
             <ul class="list list-inline">
                 @foreach($products as $product)
