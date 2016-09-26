@@ -87,7 +87,6 @@
             @endforeach
             <nav class="text-center">{!! $posts->render() !!}</nav>
             <br>
-            @include('frontend._partials.file')
         </div>
 
 		@endif
