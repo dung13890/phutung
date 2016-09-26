@@ -75,7 +75,7 @@
                     @foreach($category->randomProducts->take(3) as $random)
                         <li>
                             <a title="{{ $random->name }}" href="{{ route('product.show', $random->slug) }}">
-                                <img src="{{ ( $random->image ) ? route('image',$random->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $random->name }}" />
+                                <img src="{{ ( $random->image ) ? route('image',$random->image_accessary) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $random->name }}" />
                                 <p class="text-center">
                                     <strong>
                                         {{ str_limit($random->name, 15) }}

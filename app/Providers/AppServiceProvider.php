@@ -81,8 +81,8 @@ class AppServiceProvider extends ServiceProvider
                         'fit' => 'crop',
                     ],
                     'accessary' =>[
-                        'w' => 245,
-                        'h' => 270,
+                        'w' => 400,
+                        'h' => 420,
                         'fit' => 'crop'
                     ]
                 ],
