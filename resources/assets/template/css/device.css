@@ -71,6 +71,9 @@
     color: #333;
 }
 
+#device .item .list li .name a:hover {
+    color: #CD181F;
+}
 
 #header .links > ul > li:before{
     content: "\e313";
