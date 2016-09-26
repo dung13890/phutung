@@ -50,9 +50,9 @@
 
 #home .section-half .image ul li a span.msp {
     padding: 3px;
-    line-height: 24px;
+    line-height: 16px;
     background: url('/template/img/bg-home-msp.png') no-repeat;
-    background-size: 140% 100%;
+    background-size: 140% 75%;
     text-indent: 47%;
     font-weight: bold;
 }
