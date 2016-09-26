@@ -76,7 +76,7 @@
 }
 
 #header .links > ul > li:before{
-    content: "\e313";
+    content: "\e250";
     margin-left: -20px;
     float: left;
     padding: 7px 0;
