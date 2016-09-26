@@ -51,7 +51,8 @@
 
 #product .product-detail .product-info .code {
     height: 50px;
-    background: #890000;
+    background: url('../img/code_sku.png') no-repeat;
+    background-size: 100% 100%;
     color: #ffffff;
     line-height: 50px;
     text-align: center;
