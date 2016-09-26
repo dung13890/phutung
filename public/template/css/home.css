@@ -50,9 +50,9 @@
 
 #home .section-half .image ul li a span.msp {
     padding: 3px;
-    line-height: 24px;
+    line-height: 16px;
     background: url('/template/img/bg-home-msp.png') no-repeat;
-    background-size: 140% 100%;
+    background-size: 140% 75%;
     text-indent: 47%;
     font-weight: bold;
 }
@@ -98,7 +98,7 @@
 
 #home .news-title {
     margin-top: 30px;
-    background-size: 40% 100%;
+    background-size: 35% 100%;
 }
 
 #home .info {
@@ -116,7 +116,7 @@
 
 #home .info .text {
     padding: 10px;
-    min-height: 106px;
+    min-height: 100px;
 }
 
 #home .info .text a {

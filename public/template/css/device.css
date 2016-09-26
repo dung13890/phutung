@@ -16,6 +16,7 @@
 #device .item {
     width: 100%;
     margin-top: 20px;
+    font-family: arial;
 }
 
 #device .item .type {
@@ -57,7 +58,6 @@
 #device .item .list li .name {
     width: 100%;
     padding: 10px 20px 10px 40px;
-    height: 70px;
     overflow: hidden;
     background: #e6e7e8 url(../img/bg-device-name.png) no-repeat;
     background-size: 45px 100%;
@@ -65,4 +65,34 @@
     text-align: center;
     font-weight: bold;
     font-size: 14px;
+}
+
+#device .item .list li .name a {
+    color: #333;
+}
+
+#device .item .list li .name a:hover {
+    color: #CD181F;
+}
+
+#header .links > ul > li:before{
+    font-family: 'Glyphicons Halflings';
+    content: "\e250";
+    margin-left: -20px;
+    float: left;
+    padding: 9px 0;
+    color: #EC1C24;
+}
+
+#device h3.title {
+    height: 40px;
+    margin-bottom: 30px;
+    background: url('../img/title.png') no-repeat;
+    background-size: 75% 100%;
+    background-position: center center;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    color: #ffffff; 
+    text-transform: uppercase;
 }

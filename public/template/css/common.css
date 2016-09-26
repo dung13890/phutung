@@ -285,8 +285,6 @@ a:hover, a:focus {
 
 #header .links {
     margin-top: 21px;
-    background: url('../img/header-links.png') no-repeat;
-    background-size: 100% 100%;
     position: absolute;
 }
 
@@ -301,6 +299,9 @@ a:hover, a:focus {
 
 #header .links > ul {
     width: 300px;
+    background: url('../img/header-links.png') no-repeat;
+    background-size: 100% 100%;
+    font-family: arial;
 }
 
 #header .links > ul > li {
@@ -430,6 +431,7 @@ a:hover, a:focus {
 #footer .info {
     float: left;
     margin-top: 9px;
+    font-family: arial;
 }
 
 #footer .links {
@@ -443,7 +445,7 @@ a:hover, a:focus {
 
 #footer .info p {
     margin: 5px 0;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 #footer .links img {
