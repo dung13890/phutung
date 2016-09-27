@@ -101,7 +101,7 @@
                             {{ trans('repositories.content') }}:
                         </label>
                         <div class="col-lg-12">
-                            {{ Form::textarea('content', null, ['class' => 'form-control']) }}
+                            {{ Form::textarea('content', null, ['class' => 'form-control', 'rows' => 4]) }}
                         </div>
                     </div>
 
