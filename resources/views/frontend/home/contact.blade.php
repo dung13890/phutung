@@ -52,7 +52,7 @@
                             {{ trans('repositories.topic') }}:
                         </label>
                         <div class="col-lg-9">
-                            {{ Form::text('topic', null, ['class' => 'form-control input-sm') }}
+                            {{ Form::text('topic', null, ['class' => 'form-control input-sm']) }}
                         </div>
                     </div>
 
@@ -61,7 +61,7 @@
                             {{ trans('repositories.full_name') }}:
                         </label>
                         <div class="col-lg-9">
-                            {{ Form::text('name', null, ['class' => 'form-control input-sm') }}
+                            {{ Form::text('name', null, ['class' => 'form-control input-sm']) }}
                         </div>
                     </div>
 
@@ -70,7 +70,7 @@
                             {{ trans('repositories.address') }}:
                         </label>
                         <div class="col-lg-9">
-                            {{ Form::text('address', null, ['class' => 'form-control input-sm') }}
+                            {{ Form::text('address', null, ['class' => 'form-control input-sm']) }}
                         </div>
                     </div>
 
@@ -79,21 +79,21 @@
                             {{ trans('repositories.phone') }}
                         </label>
                         <div class="col-lg-9">
-                            {{ Form::text('phone', null, ['class' => 'form-control input-sm') }}
+                            {{ Form::text('phone', null, ['class' => 'form-control input-sm']) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="fax" class="col-lg-3">Fax:</label>
                         <div class="col-lg-9">
-                            {{ Form::text('fax', null, ['class' => 'form-control input-sm') }}
+                            {{ Form::text('fax', null, ['class' => 'form-control input-sm']) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="email" class="col-lg-3">Email:</label>
                         <div class="col-lg-9">
-                            {{ Form::email('email', null, ['class' => 'form-control input-sm') }}
+                            {{ Form::email('email', null, ['class' => 'form-control input-sm']) }}
                         </div>
                     </div>
                     <div class="form-group" id="contact-textarea">
@@ -101,7 +101,7 @@
                             {{ trans('repositories.content') }}:
                         </label>
                         <div class="col-lg-12">
-                            {{ Form::textarea('content', null, ['class' => 'form-control') }}
+                            {{ Form::textarea('content', null, ['class' => 'form-control']) }}
                         </div>
                     </div>
 
