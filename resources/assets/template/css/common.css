@@ -208,10 +208,10 @@ a:hover, a:focus {
 }
 
 #slider .carousel-indicators li {
-    width: 15%;
+    width: 16%;
     height: 5px;
     background: #d0d2d3;
-    margin-top: 20px;
+    margin-top: 33px;
 }
 
 #slider .carousel-indicators li.active {
@@ -302,6 +302,7 @@ a:hover, a:focus {
     background: url('../img/header-links.png') no-repeat;
     background-size: 100% 100%;
     font-family: arial;
+    font-size: 13px;
 }
 
 #header .links > ul > li {
@@ -346,7 +347,7 @@ a:hover, a:focus {
     border: 1px solid #ffffff;
     color: #000000;
     display: block;
-    padding: 10px 5px;
+    padding: 6px 5px;
     text-indent: 7%;
     background: rgba(230, 231, 232, 0.8) url('../img/i-header-submneu.png') no-repeat;
     background-size: 17px 17px;
@@ -430,7 +431,7 @@ a:hover, a:focus {
 
 #footer .info {
     float: left;
-    margin-top: 9px;
+    margin-top: 4px;
     font-family: arial;
 }
 
@@ -444,7 +445,7 @@ a:hover, a:focus {
 }
 
 #footer .info p {
-    margin: 5px 0;
+    margin: 2px 0;
     font-weight: 500;
 }
 

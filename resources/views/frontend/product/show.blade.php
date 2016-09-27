@@ -89,7 +89,7 @@
             <div class="product-info">
                 <h3 class="code"><span class="text-uppercase">{{ $item->code }}</span></h3>
 
-                <div class="provider">
+                <div class="provider text-center">
                     <p class="text-center">{{ trans('repositories.provider') }}</p>
                     {{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }} 
                     <img src="{{ (isset($item->provider) && $item->provider->image) ? route('image', $item->provider->image_default) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }}"/>
