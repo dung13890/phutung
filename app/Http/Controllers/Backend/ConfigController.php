@@ -33,7 +33,7 @@ class ConfigController extends BackendController
             unset($data['logo_header']);
         }
         if (!$data['logo_footer'] || !isset($data['logo_footer'])) {
-            unset($data['logo']);
+            unset($data['logo_footer']);
         }
         if (!$data['box_left_image'] || !isset($data['box_left_image'])) {
             unset($data['box_left_image']);

@@ -97,10 +97,6 @@
     text-transform: uppercase;
 }
 
-#header {
-    height: 400px;
-}
-
 #content .main {
     margin-top: 0;
     width: 780px;
