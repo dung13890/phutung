@@ -9,7 +9,7 @@ class Slide extends Model
 {
 	use GetImageTrait;
 
-    protected $fillable = ['name','image','link','locked'];
+    protected $fillable = ['name','image','link','locked', 'sort'];
 
     protected $appends = ['image_thumbnail','image_slide'];
 

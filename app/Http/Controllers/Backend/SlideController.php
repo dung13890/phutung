@@ -8,7 +8,7 @@ use App\Services\Contracts\SlideService;
 
 class SlideController extends BackendController
 {
-    protected $dataSelect = ['id','image','name','locked'];
+    protected $dataSelect = ['id', 'image', 'name', 'sort', 'locked'];
 
     public function __construct(SlideRepository $slide)
     {

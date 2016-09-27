@@ -17,6 +17,7 @@ class CreateSlidesTable extends Migration
             $table->string('name');
             $table->string('link');
             $table->string('image');
+            $table->integer('sort');
             $table->boolean('locked')->default(false);
         });
     }

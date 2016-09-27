@@ -14,6 +14,6 @@ class SlideRepositoryEloquent extends AbstractRepositoryEloquent implements Slid
 
     public function getSlide($limit, $columns = ['*'])
     {
-    	return $this->model->where('locked',false)->orderBy('id','DESC')->take($limit)->get($columns);
+    	return $this->model->where('locked',false)->orderBy('sort', 'ASC')->take($limit)->get($columns);
     }
 }
