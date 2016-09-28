@@ -80,6 +80,11 @@ class AppServiceProvider extends ServiceProvider
                         'h' => 350,
                         'fit' => 'crop',
                     ],
+                    'product' => [
+                        'w' => 420,
+                        'h' => 420,
+                        'fit' => 'crop'
+                    ],
                     'accessary' =>[
                         'w' => 400,
                         'h' => 420,

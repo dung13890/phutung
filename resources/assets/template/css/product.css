@@ -22,7 +22,7 @@
 }
 
 #product .product-detail .product-bigimage img {
-    padding: 10px;
+    /*padding: 10px;*/
 }
 
 #product .product-detail .product-images {
@@ -36,7 +36,7 @@
 
 #product .product-detail .product-images ul img {
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35);
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 
 #product .product-detail .product-bigimage {
@@ -75,7 +75,7 @@
 }
 
 #product .product-detail .product-info .desc {
-    padding: 0 10px;
+    padding: 15px;
     font-family: arial;
 }
 
@@ -84,13 +84,13 @@
     border-bottom: 1px solid #e5e5e5;
     color: #ce1313;
     font-size: 21px;
-    padding: 5px 0;
+    padding: 15px 0;
     text-align: center;
     font-family: arial;
 }
 
 #product .product-detail .product-info .like-share {
-    padding: 12px 10px;
+    padding: 15px 10px;
     text-align: center;
 }
 

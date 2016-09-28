@@ -53,6 +53,11 @@ class Product extends Abstracts\Sluggable implements TaggableInterface
 
     public function getImageAccessaryAttribute()
     {
-        return app()['glide.builder']->getUrl($this->image,['p' => 'accessary']);
+        return app()['glide.builder']->getUrl($this->image, ['p' => 'accessary']);
+    }
+
+    public function getImageProductAttribute()
+    {
+        return app()['glide.builder']->getUrl($this->image, ['p' => 'product']);
     }
 }

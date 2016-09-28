@@ -108,7 +108,7 @@
                     <div class="form-group">
                         <div class="col-lg-12">
                             <div class="text-right">
-                                <button class="btn btn-primary">
+                                <button class="btn btn-default">
                                     {{ trans('repositories.send') }}
                                 </button>
                                 <a href="#" class="btn btn-default">

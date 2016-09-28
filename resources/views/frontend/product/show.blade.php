@@ -15,7 +15,6 @@
             color: #231f20;
         }
     </style>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
 @endpush
 
 @section('page-content')
@@ -41,7 +40,7 @@
     	<div class="visible-md-block visible-sm-block visible-lg-block">
             <a href="/" title="Trang chủ">{{ trans('repositories.home') }}</a> >>
             <a href="{{ route('category.show', ['slug' => $category->slug]) }}">{{ $category->name }}</a> >>
-            {{ $item->name }}
+            <span style="text-transform: capitalize">{{ $item->name }}</span>
         </div>
         <h3 class="product-title">
             <span class="text-uppercase visible-lg-block visible-md-block visible-sm-block">
@@ -52,22 +51,27 @@
             </span>
         </h3>
         <div class="product-detail">
-        	@if (count($item->images))
-        	<div class="product-images">
-        		<ul class="list-unstyled">
+            <div class="product-images">
+                <ul class="list-unstyled">
+                    <li>
+                        <a class="image-thumb" href="javascript:;"
+                            data-default="{{ ( $item->image ) ? route('image',$item->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
+                            data-medium="{{ ( $item->image ) ? route('image',$item->image_product) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $item->image ) ? route('image',$item->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/></a>
+                    </li>
+        	   @if (count($item->images))
         			@foreach ($item->images->take(3) as $image)
         			<li>
                         <a class="image-thumb" href="javascript:;"
                             data-default="{{ ( $image->image ) ? route('image',$image->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
-                            data-medium="{{ ( $image->image ) ? route('image',$image->image_medium) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $image->image ) ? route('image',$image->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $image->name }}" class="img-responsive"/></a>
+                            data-medium="{{ ( $image->image ) ? route('image',$image->image_product) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $image->image ) ? route('image',$image->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $image->name }}" class="img-responsive"/></a>
                     </li>
                     @endforeach
-        		</ul>
-        	</div>
-        	@endif
+        	   @endif
+                </ul>
+            </div>
         	<div class="product-bigimage">
                 <a class="popup-link" href="{{ ( $item->image ) ? route('image', $item->image_default) :  asset('assets/img/backend/no_image.jpg') }}" title="{{ $item->name }}">
-                    <img src="{{ ( $item->image ) ? route('image',$item->image_medium) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
+                    <img src="{{ ( $item->image ) ? route('image',$item->image_product) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
                 </a>
             </div>
 
@@ -246,6 +250,7 @@
 @push('prescripts')
 
 <div id="fb-root"></div>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
