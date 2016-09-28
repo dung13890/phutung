@@ -29,4 +29,9 @@ class Image extends Model
     {
         return app()['glide.builder']->getUrl($this->image,['p' => 'banner']);
     }
+
+    public function getImageProductAttribute($value)
+    {
+        return app()['glide.builder']->getUrl($this->image, ['p' => 'product']);
+    }
 }

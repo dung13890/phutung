@@ -62,8 +62,8 @@
         			@foreach ($item->images->take(3) as $image)
         			<li>
                         <a class="image-thumb" href="javascript:;"
-                            data-default="{{ ( $image->image ) ? route('image',$image->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
-                            data-medium="{{ ( $image->image ) ? route('image',$image->image_product) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $image->image ) ? route('image',$image->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $image->name }}" class="img-responsive"/></a>
+                            data-default="{{ ( $image->image ) ? route('image', $image->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
+                            data-medium="{{ ( $image->image ) ? route('image', $image->image_product) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $image->image ) ? route('image',$image->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $image->name }}" class="img-responsive"/></a>
                     </li>
                     @endforeach
         	   @endif
