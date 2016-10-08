@@ -20,7 +20,7 @@
 
         <div class="form">
             {{ Form::open(['url' => route('home.search'),'method' => 'GET']) }}
-                <input type="text" name="search" placeholder="{{ trans('repositories.keywords') }}" >
+                <input type="text" name="search" placeholder="{{ trans('repositories.keywords') }}" onfocus="this.placeholder = ''">
                 <input type="submit" value="">
             {{ Form::close() }}
         </div><!-- /.form -->

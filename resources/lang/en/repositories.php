@@ -65,7 +65,7 @@ return [
     'post_event' => 'News & Event',
     'view_detail' => 'View Details',
     'info_contact' => 'Info Contact',
-    'tanphat_support' => 'Tan Phat Support',
+    'tanphat_support' => 'Support',
     'topic' => 'Topic',
     'full_name' => 'Full Name',
     'address' => 'Address',
