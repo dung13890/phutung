@@ -30,7 +30,7 @@
 ?>
 <div id="header">
     <div class="title text-center">
-        <h1 class="page-title">{{ $categoryFirst->name }}</h1>
+        <h1 class="page-title">{{ trans('repositories.news') }}</h1>
     </div>
     @include('frontend._partials.sidebar', ['categoryFirst' => $categoryFirst , 'item' => $item, 'categories' => $categories])
 </div><!-- /#header -->
