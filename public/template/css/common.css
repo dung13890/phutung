@@ -95,6 +95,7 @@ a:hover, a:focus {
     float: left;
     height: 40px;
     margin-left: -18px;
+    position: relative;
 }
 
 #menu .links > ul > li > a {
@@ -117,6 +118,34 @@ a:hover, a:focus {
     background: url('../img/bg-menu-item-active.png') no-repeat;
     background-size: 100% 100%;
     color: #ec1c24;
+}
+
+#menu .links > ul > li > ul.submenu {
+    width: 200px;
+    padding-left: 0;
+    background-color: rgba(0,0,0,0.8);
+    border-top: 1px solid #ffffff;
+    position: absolute;
+    top: 40px;
+    left: 16px;
+    z-index: 9999999;
+    list-style: none;
+    display: none;
+}
+
+#menu .links > ul > li:hover > ul.submenu {
+    display: block;
+}
+
+#menu .links > ul > li > ul.submenu > li > a {
+    padding: 4px 0;
+    color: #ffffff;
+    display: block;
+    text-indent: 20px;
+}
+
+#menu .links > ul > li > ul.submenu > li > a:hover {
+    background-color: #ce0d0e;
 }
 
 #menu .form {
@@ -165,6 +194,11 @@ a:hover, a:focus {
     display: none;
 }
 
+#menu .closesidenav {
+    display: none;
+    font-size: 30px;
+}
+
 #menu .icons {
     display: none;
     position: absolute;
@@ -208,10 +242,10 @@ a:hover, a:focus {
 }
 
 #slider .carousel-indicators li {
-    width: 15%;
+    width: 16%;
     height: 5px;
     background: #d0d2d3;
-    margin-top: 20px;
+    margin-top: 33px;
 }
 
 #slider .carousel-indicators li.active {
@@ -302,6 +336,7 @@ a:hover, a:focus {
     background: url('../img/header-links.png') no-repeat;
     background-size: 100% 100%;
     font-family: arial;
+    font-size: 13px;
 }
 
 #header .links > ul > li {
@@ -346,7 +381,7 @@ a:hover, a:focus {
     border: 1px solid #ffffff;
     color: #000000;
     display: block;
-    padding: 10px 5px;
+    padding: 6px 5px;
     text-indent: 7%;
     background: rgba(230, 231, 232, 0.8) url('../img/i-header-submneu.png') no-repeat;
     background-size: 17px 17px;
@@ -430,7 +465,7 @@ a:hover, a:focus {
 
 #footer .info {
     float: left;
-    margin-top: 9px;
+    margin-top: 4px;
     font-family: arial;
 }
 
@@ -444,7 +479,7 @@ a:hover, a:focus {
 }
 
 #footer .info p {
-    margin: 5px 0;
+    margin: 2px 0;
     font-weight: 500;
 }
 

@@ -95,6 +95,7 @@ a:hover, a:focus {
     float: left;
     height: 40px;
     margin-left: -18px;
+    position: relative;
 }
 
 #menu .links > ul > li > a {
@@ -117,6 +118,34 @@ a:hover, a:focus {
     background: url('../img/bg-menu-item-active.png') no-repeat;
     background-size: 100% 100%;
     color: #ec1c24;
+}
+
+#menu .links > ul > li > ul.submenu {
+    width: 200px;
+    padding-left: 0;
+    background-color: rgba(0,0,0,0.8);
+    border-top: 1px solid #ffffff;
+    position: absolute;
+    top: 40px;
+    left: 16px;
+    z-index: 9999999;
+    list-style: none;
+    display: none;
+}
+
+#menu .links > ul > li:hover > ul.submenu {
+    display: block;
+}
+
+#menu .links > ul > li > ul.submenu > li > a {
+    padding: 4px 0;
+    color: #ffffff;
+    display: block;
+    text-indent: 20px;
+}
+
+#menu .links > ul > li > ul.submenu > li > a:hover {
+    background-color: #ce0d0e;
 }
 
 #menu .form {
@@ -163,6 +192,11 @@ a:hover, a:focus {
     top: 20%;
     right: 6px;
     display: none;
+}
+
+#menu .closesidenav {
+    display: none;
+    font-size: 30px;
 }
 
 #menu .icons {
