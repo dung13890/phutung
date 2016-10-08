@@ -86,12 +86,20 @@
     margin-bottom: 12px;
     color: #231f20;
     font-weight: 600;
-    font-size: 19px;
+    font-size: 15px;
     overflow: hidden;
 }
 
 #news .list-news .news .info > a:hover {
     color: #ec1c24;
     text-decoration: none;
+}
+
+#news .main h4.text-uppercase a {
+    color: #231f20;
+}
+
+#news .main h4.text-uppercase a:hover {
+    color: #ec1c24;
 }
 
