@@ -80,6 +80,10 @@ var plugins = {
       in: 'toastr/toastr.min.css',
       out: 'toastr/toastr.min.css'
     },
+    {
+      in: 'bootstrap-colorpicker/dist',
+      out: 'colorpicker'
+    },
   ],
   vue: [
     {

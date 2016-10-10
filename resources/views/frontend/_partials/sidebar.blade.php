@@ -15,6 +15,10 @@
         color:#CD181F;
         text-decoration: none;
     }
+    #header .slogan{
+        background: {{  $item->slogan_color_bg ? $item->slogan_color_bg : '#ffe100' }} !important;
+        color: {{  $item->slogan_color_text ? $item->slogan_color_text : '#231f20' }} !important;
+    }
 </style>
 @endpush
 <div>

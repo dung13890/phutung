@@ -1,6 +1,7 @@
 @push('prestyles')
 {{ HTML::style("vendor/summernote/css/summernote.css") }}
 {{ HTML::style('vendor/jasny-bootstrap/css/jasny-bootstrap.min.css') }}
+{{ HTML::style('vendor/colorpicker/css/bootstrap-colorpicker.min.css') }}
 <style>
     .fileinput, .fileinput .fileinput-preview {
         width: 100%;
@@ -33,8 +34,26 @@
 </div>
 
 <div class="form-group">
-    {{ Form::label('slogan', 'Slogan', ['class'=>'control-label']) }}
-    {{ Form::text('slogan', null, ['class' => 'form-control']) }}
+    <div class="row">
+        <div class="col-md-6">
+            {{ Form::label('slogan', 'Slogan', ['class'=>'control-label']) }}
+            {{ Form::text('slogan', null, ['class' => 'form-control']) }}
+        </div>
+        <div class="col-sm-3">
+            {{ Form::label('slogan_color_bg', 'Background Color', ['class'=>'control-label']) }}
+            <div class="input-group colorpicker-component">
+                {{ Form::text('slogan_color_bg', null, ['class' => 'form-control']) }}
+                <span class="input-group-addon"><i></i></span>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            {{ Form::label('slogan_color_text', 'Text Color', ['class'=>'control-label']) }}
+            <div class="input-group colorpicker-component">
+                {{ Form::text('slogan_color_text', null, ['class' => 'form-control']) }}
+                <span class="input-group-addon"><i></i></span>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="form-group">
@@ -67,6 +86,7 @@
 @push('prescripts')
 {{ HTML::script('vendor/summernote/js/summernote.min.js') }}
 {{ HTML::script('vendor/jasny-bootstrap/js/jasny-bootstrap.min.js') }}
+{{ HTML::script('vendor/colorpicker/js/bootstrap-colorpicker.min.js') }}
 <script>
     $(function () {
         $('.textarea-summernote').summernote({
@@ -77,6 +97,8 @@
                 }
             }
         });
+
+        $('.colorpicker-component').colorpicker();
     })
 </script>
 @endpush

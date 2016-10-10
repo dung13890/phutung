@@ -5,7 +5,7 @@ namespace App\Eloquent;
 class Category extends Abstracts\Sluggable
 {
     protected $fillable = [
-    	'name','parent_id','type','description','locked', 'locale', 'slogan'
+    	'name','parent_id','type','description','locked', 'locale', 'slogan', 'slogan_color_bg', 'slogan_color_text'
     ];
 
     protected $sluggable = [
