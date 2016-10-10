@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     'locale' => 'English',
@@ -78,4 +78,8 @@ return [
     'details' => 'Details',
     'view_all' => 'View All',
     'product_same' => 'Related Product',
+
+    'introduction' => 'Introduction',
+    'device' => 'Device',
+    'news' => 'News',
 ];

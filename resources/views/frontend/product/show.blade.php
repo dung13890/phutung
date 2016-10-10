@@ -95,7 +95,7 @@
 
                 <div class="provider text-center">
                     <p class="text-center">{{ trans('repositories.provider') }}</p>
-                    {{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }} 
+                    {{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }}
                     <img src="{{ (isset($item->provider) && $item->provider->image) ? route('image', $item->provider->image_default) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ isset($item->provider) ? $item->provider->name : trans('repositories.provider') }}"/>
                 </div>
 
@@ -135,7 +135,7 @@
                 @if ($item->youtube)
                 <li>
                     <span class="left"></span>
-                    <a href="#video" data-toggle="tab">Videos</a>
+                    <a href="#video" data-toggle="tab">Video</a>
                     <span class="right"></span>
                 </li>
                 @endif

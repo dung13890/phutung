@@ -19,7 +19,7 @@
 @section('page-content')
 <div id="header">
     <div class="title text-center">
-        <h1 class="page-title">{{ $item->name }}</h1>
+        <h1 class="page-title">{{ trans('repositories.introduction') }}</h1>
     </div>
     @include('frontend._partials.sidebar', ['categoryFirst' => $pageFirst, 'item' => $item, 'categories' => $pages])
 </div><!-- /#header -->
@@ -31,6 +31,4 @@
     	{!! $item->description !!}
     </div>
 </div>
-
-
 @endsection
