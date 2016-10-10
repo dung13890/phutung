@@ -18,20 +18,6 @@
             <a href="{{ $configs['box_left_link'] }}" title="{{ $configs['box_left_name'] }}">
                 <img src="{{ route('image', $configs['box_left_image']) }}" alt="{{ $configs['box_left_name'] }}">
             </a>
-
-            @if (!$accessaries->isEmpty())
-                <ul class="list-unstyled">
-                    @foreach($accessaries as $accessary)
-                        <li>
-                            <a href="{{ route('product.show', ['slug' => $accessary->slug]) }}" title="{{ $accessary->name }}">
-                                <img src="{{ route('image', $accessary->image_thumbnail) }}" alt=""/>
-                                <span class="msp">{{ $accessary->code }}</span>
-                                <span>Model: {{ str_limit($accessary->model, 10) }}</span>
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            @endif
         </div>
     </div>
 
@@ -45,20 +31,6 @@
             <a href="{{ $configs['box_right_link'] }}" title="{{ $configs['box_right_name'] }}">
                 <img src="{{ route('image', $configs['box_right_image']) }}" alt="{{ $configs['box_right_name'] }}">
             </a>
-
-            @if(!$devices->isEmpty())
-                <ul class="list-unstyled">
-                    @foreach($devices as $device)
-                        <li>
-                            <a href="{{ route('product.show', ['slug' => $device->slug]) }}" title="{{ $device->name }}">
-                                <img src="{{ route('image', $device->image_thumbnail) }}" alt=""/>
-                                <span class="msp">{{ $device->code }}</span>
-                                <span>Model: {{ str_limit($device->model) }}</span>
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            @endif
         </div>
     </div>
 

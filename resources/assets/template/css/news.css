@@ -81,9 +81,9 @@
 }
 
 #news .list-news .news .info > a {
-    height: 65px;
+    height: 40px;
     display: inline-block;
-    margin-bottom: 12px;
+    margin-bottom: 0px;
     color: #231f20;
     font-weight: 600;
     font-size: 15px;

@@ -56,16 +56,11 @@
         <div class="big-news">
             <div class="image">
                 <a href="{{ route('post.show', $postFirst->slug) }}" title="{{ $postFirst->name }}"><img src="{{ ( $postFirst->image ) ? route('image',$postFirst->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{$postFirst->name }}" /></a>
-                <div class="caption text-center">
-                    <a href="{{ route('post.show', $postFirst->slug) }}" >
-                        {{ $postFirst->name }}
-                    </a>
-                </div>
             </div>
             <div class="text">
                 <p>{{ $postFirst->intro }}</p>
                 <br>
-                <p>{{ str_limit(strip_tags($postFirst->description), 300) }}</p>
+                <p>{{ str_limit(strip_tags($postFirst->description), 350) }}</p>
             </div>
         </div>
         <div class="list-news">
@@ -78,6 +73,9 @@
                 </div>
                 <div class="info">
                     <a href="{{ route('post.show',$post->slug) }}" title="Xem chi tiết">{{ $post->name }}</a>
+                    <div class="intro">
+                        <p>{{ str_limit($post->intro, 150) }}</p>
+                    </div>
                     <div class="detail">
                         <span>{{ date('d/m/Y', strtotime($post->created_at)) }}</span>
                         <a href="{{ route('post.show',$post->slug) }}" title="Xem chi tiết" class="pull-right">Xem chi tiết &raquo;</a>
