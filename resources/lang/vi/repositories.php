@@ -56,6 +56,9 @@ return [
     'updated_unsuccessfully'  => 'Lỗi cập nhật.',
     'updated_successfully'  => 'Cập nhật thành công.',
 
+    'created_unsuccessfully'  => 'Lỗi thêm mới.',
+    'created_successfully'  => 'Thêm mới thành công.',
+
     'created_contact_unsuccessfully'  => 'Gửi thông tin thành công.',
     'created_contact_successfully'  => 'Lỗi gửi thông tin thất bại.',
 

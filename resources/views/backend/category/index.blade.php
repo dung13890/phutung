@@ -32,11 +32,20 @@
 <div class="nav-tabs-custom">
     <ul class="nav nav-tabs">
         <li class="active"><a href="#list" data-toggle="tab" >Lists</a></li>
+        @if (isset($item) && ($item->id == 2 || $item->id == 5))
+        <li ><a href="#design" data-toggle="tab" >Design</a></li>
+        @endif
     </ul>
     <div class="tab-content">
         <div class="tab-pane active block-style" id="list"></div>
+        @if (isset($item) && ($item->id == 2 || $item->id == 5))
+        <div class="tab-pane block-style" id="design">
+            @include('backend.category._design')
+        </div>
+        @endif
     </div>
 </div>
+
 @endpush
 
 @push('prescripts')

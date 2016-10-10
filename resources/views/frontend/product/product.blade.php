@@ -39,7 +39,6 @@
         <p>{!! $item->description !!}</p>
         @if ($item->id != 2 && $item->id != 5)
         <h3 class="title">{{ $item->name }}</h3>
-        @endif
         <div class="item">
             <ul class="list list-inline">
                 @foreach($products as $product)
@@ -71,6 +70,35 @@
             <br>
             @include('frontend._partials.file', ['files' => $files])
         </div>
+        @else
+        <div class="item">
+            <ul class="list list-inline">
+                @foreach($item->designs as $design)
+                    <li>
+                        <a title="{{ $design->name }}" href="{{ $design->link }}">
+                            <img src="{{ ( $design->image ) ? route('image',$design->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $design->name }}" />
+                        </a>
+                        <p>
+                            <strong>{{ trans('repositories.product_code') }}:</strong>
+                            {{ $design->code }}
+                        </p>
+                        <p>
+                            <span class="text-uppercase">{{ trans('repositories.provider') }}</span>:
+                            {{ $design->provider }}
+                        </p>
+
+                        <div class="name">
+                            <a title="{{ $design->name }}" href="{{ $design->link }}">
+                                {{ str_limit($design->name, 20) }}
+                            </a>
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+            <br>
+            @include('frontend._partials.file', ['files' => $files])
+        </div>
+        @endif
     </div>
 </div>
 @endsection

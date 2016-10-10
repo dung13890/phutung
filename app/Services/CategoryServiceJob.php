@@ -8,6 +8,7 @@ use App\Jobs\Category\Store;
 use App\Jobs\Category\Update;
 use App\Jobs\Category\Delete;
 use App\Jobs\Category\Destroy;
+use App\Jobs\Category\StoreDesign;
 
 class CategoryServiceJob extends AbstractServiceJob implements CategoryService
 {
@@ -29,5 +30,10 @@ class CategoryServiceJob extends AbstractServiceJob implements CategoryService
 	public function destroy(array $ids)
 	{
 		return $this->dispatch(new Destroy($ids));
+	}
+
+	public function storeDesign(Model $entity, array $attributes)
+	{
+		return $this->dispatch(New StoreDesign($entity, $attributes));
 	}
 }

@@ -54,7 +54,10 @@ return [
     'object_deleted_unsuccessfully'  => 'Error Deleted :object',
 
     'updated_unsuccessfully'  => 'Error Updated',
-    'updated_successfully'  => 'Created Success',
+    'updated_successfully'  => 'Updated Success',
+
+    'created_unsuccessfully'  => 'Error Created',
+    'created_successfully'  => 'Created Success',
 
     'created_contact_unsuccessfully'  => 'Send Success.',
     'created_contact_successfully'  => 'Error Send fail',

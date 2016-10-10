@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\CategoryRequest;
+use App\Http\Requests\Backend\DesignRequest;
 use App\Repositories\Contracts\CategoryRepository;
 use App\Services\Contracts\CategoryService;
 
@@ -63,6 +64,10 @@ class CategoryController extends BackendController
         parent::edit($id);
         $this->before(__FUNCTION__, $this->compacts['item']);
 
+        if ($id == 2 || $id == 5) {
+            $this->compacts['designs'] = $this->compacts['item']->designs;
+        }
+
         return $this->dataRender($this->compacts['item']->type, 'edit');
     }
 
@@ -79,5 +84,41 @@ class CategoryController extends BackendController
         $entity = $this->repository->findOrFail($id);
         $this->before(__FUNCTION__, $entity);
         return $this->deleteData($service, $entity);
+    }
+
+    public function storeDesign(DesignRequest $request, CategoryService $service, $id)
+    {
+        if ($id != 2 && $id !=5) {
+            return;
+        }
+
+        $entity = $this->repository->findOrFail($id);
+        $data = $request->all();
+
+        try {
+            $service->storeDesign($entity, $data);
+            $this->e['message'] = $this->trans('created_successfully');
+        } catch (\Exception $e) {
+            dd($e);
+            $this->e['code'] = 100;
+            $this->e['message'] = $this->trans('created_unsuccessfully');
+        }
+
+        return redirect(url()->previous())->with('flash_message',json_encode($this->e, true));
+    }
+
+    public function deleteDesign($id)
+    {
+        try {
+            app(\App\Eloquent\Design::class)->destroy($id);
+            $this->e['message'] = $this->trans('deleted_successfully');
+        } catch (\Exception $e) {
+            $this->e['code'] = 100;
+            $this->e['message'] = $this->trans('deleted_unsuccessfully');
+        }
+
+        if (\Request::ajax() || \Request::wantsJson()) {
+            return session()->flash('flash_message', json_encode($this->e, true));
+        }
     }
 }

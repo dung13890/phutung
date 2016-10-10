@@ -50,6 +50,11 @@ class Category extends Abstracts\Sluggable
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    public function designs()
+    {
+        return $this->morphMany(Design::class, 'designable')->orderBy('order', 'ASC');
+    }
+
     public function banner()
     {
         return $this->morphOne(Image::class, 'imageable');

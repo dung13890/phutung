@@ -57,6 +57,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
 		Route::get('profile', ['as'=>'backend.profile', 'uses'=>'ProfileController@userShow']);
 		Route::PATCH('profile/update', ['as'=>'backend.profile.update', 'uses'=>'ProfileController@userUpdate']);
 
+		Route::PATCH('category/design/{category}', ['as'=>'backend.category.design','uses'=>'CategoryController@storeDesign']);
+		Route::DELETE('category/design/delete/{design}', ['as'=>'backend.category.design.destroy','uses'=>'CategoryController@deleteDesign']);
 		Route::get('category/type/{type}', ['as'=>'backend.category.type', 'uses'=>'CategoryController@withType']);
 		Route::resource('category', 'CategoryController');
 
