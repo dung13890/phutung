@@ -50,7 +50,12 @@
     <div class="row">
         <div class="col-sm-4">
             {{ Form::label('price', 'Price', ['class'=>'control-label']) }}
-            {{ Form::text('price',null, ['class' => 'form-control currency-mask']) }}
+            <div class="input-group">
+                <div class="input-group-addon">
+                    {{ Form::checkbox('price_show', true, old('price_show')) }}
+                </div>
+                {{ Form::text('price',null, ['class' => 'form-control currency-mask']) }}
+            </div>
         </div>
         <div class="col-sm-2">
             {{ Form::label('unit', 'Đơn vị', ['class'=>'control-label']) }}
@@ -136,7 +141,7 @@
         </label>
 
         <label>
-            {{ Form::checkbox('featured', true, old('featured'), ['data-toggle'=>'toggle','data-size' => 'small']) }}    <b>Show Home  </b>
+            {{ Form::checkbox('featured', true, old('featured'), ['data-toggle'=>'toggle','data-size' => 'small']) }}    <b>Hiện trong danh mục </b>
         </label>
     </div>
 </div>

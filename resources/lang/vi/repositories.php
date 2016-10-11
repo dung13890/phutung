@@ -83,6 +83,7 @@ return [
     'details' => 'Chi tiết',
     'view_all' => 'Tất cả',
     'product_same' => 'Sản phẩm cùng danh mục',
+    'qty' => 'Số lượng',
 
     'introduction' => 'Giới thiệu',
     'device' => 'Thiết bị',

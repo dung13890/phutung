@@ -90,6 +90,7 @@
                 </div>
             @endif
 
+            @if ($item->type == 'product')
             <div class="product-info">
                 <h3 class="code"><span class="text-uppercase">{{ $item->code }}</span></h3>
 
@@ -101,18 +102,20 @@
 
                 <div class="desc">
                     <p>
-                        <strong>Model: </strong> {{ $item->model }}
+                        <strong>Model</strong><b>:</b> {{ $item->model }}
                     </p>
                     <p>
-                        <strong>{{ trans('repositories.origin') }}: </strong> {{ $item->origin }}
+                        <strong>{{ trans('repositories.origin') }}</strong><b>:</b> {{ $item->origin }}
                     </p>
                     <p>
-                        <strong>{{ trans('repositories.guarantee') }}: </strong> {{ config("developer.guarantee.{$item->guarantee}") }}
+                        <strong>{{ trans('repositories.guarantee') }}</strong><b>:</b> {{ config("developer.guarantee.{$item->guarantee}") }}
+                    </p>
+                    <p>
+                        <strong>{{ trans('repositories.qty') }}</strong><b>:</b> {{ $item->qty }}
                     </p>
                 </div>
-
                 <div class="price">
-                    Giá: {{ number_format($item->price) }} {{ $item->unit }}
+                    Giá: {{ $item->price_show ? number_format($item->price) . ' ' .$item->unit : trans('repositories.contact') }}
                 </div>
 
                 <div class="like-share">
@@ -124,6 +127,9 @@
                    </table>
                 </div>
             </div>
+
+            @endif
+
         </div>
 
         <div class="product-tabs">
@@ -158,10 +164,6 @@
                 <div class="tab-pane active" id="details">
                     <div class="content">
                     {!! $item->description !!}
-
-                    @if ($item->file)
-                    <a target="_blank" href="{{ route('file', $item->file) }}">Tài liệu tham khảo</a>
-                    @endif
                     </div>
                 </div>
                 <div class="tab-pane" id="video">
@@ -174,6 +176,10 @@
                 <div class="tab-pane" id="guide">
                     <div class="content">
                     {!! $item->guide !!}
+                    <br>
+                    @if ($item->file)
+                    <a target="_blank" href="{{ route('file', $item->file) }}">Tài liệu tham khảo</a>
+                    @endif
                     </div>
                 </div>
                 @if (count($item->properties))

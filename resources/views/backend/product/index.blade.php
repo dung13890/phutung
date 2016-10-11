@@ -67,7 +67,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Status</th>
-        <th>Show Home</th>
+        <th>Show in Category</th>
         <th>Actions</th>
     </tr>
 </thead>

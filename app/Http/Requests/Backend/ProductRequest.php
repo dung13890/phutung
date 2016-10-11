@@ -23,6 +23,9 @@ class ProductRequest extends Request
         if ( isset($all['price']) && !empty($all['price']) ) {
             $all['price'] = str_replace(',','',$all['price']);
         }
+        if ( isset($all['price_show']) && !empty($all['price_show']) ) {
+            $all['price_show'] = str_replace(',','',$all['price_show']);
+        }
         if (isset($all['youtube'])) {
             $all['youtube'] = $this->getKeyYoutube($all['youtube']);
         }

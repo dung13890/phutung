@@ -52,6 +52,12 @@
     margin: 10px 0;
 }
 
+#device .item .list li strong, #device .item .list li span  {
+    display: inline-block;
+    text-indent: 0px;
+    max-width: 120px;
+}
+
 #device .item .list li p {
     text-indent: 10px;
     margin: 0 0 5px;
@@ -90,7 +96,7 @@
     height: 40px;
     margin-bottom: 30px;
     background: url('../img/title.png') no-repeat;
-    background-size: 45% 100%;
+    background-size: 48% 100%;
     background-position: center center;
     line-height: 40px;
     text-align: center;

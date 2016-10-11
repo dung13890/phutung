@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
             $table->string('icon');
             $table->text('description');
             $table->integer('price');
+            $table->boolean('price_show')->default(false);
             $table->string('unit');
             $table->string('type', 20)->default('product');
             $table->string('locale', 10)->default('vi');

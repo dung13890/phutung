@@ -138,14 +138,17 @@ a:hover, a:focus {
 }
 
 #menu .links > ul > li > ul.submenu > li > a {
-    padding: 4px 0;
+    padding: 4px 0 4px 20px;
     color: #ffffff;
     display: block;
-    text-indent: 20px;
+    font-family: arial;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 #menu .links > ul > li > ul.submenu > li > a:hover {
     background-color: #ce0d0e;
+    font-family: PhutungFont;
 }
 
 #menu .form {
@@ -384,8 +387,13 @@ a:hover, a:focus {
     padding: 6px 5px;
     text-indent: 7%;
     background: rgba(230, 231, 232, 0.8) url('../img/i-header-submneu.png') no-repeat;
-    background-size: 17px 17px;
+    background-size: 12px 12px;
     background-position: 7px 4px;
+}
+
+#header .links .submenu a:hover {
+    color: #CD181F;
+    text-decoration: none;
 }
 
 #header .links > ul > li:hover > .submenu {

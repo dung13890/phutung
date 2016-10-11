@@ -11,7 +11,7 @@ class Product extends Abstracts\Sluggable implements TaggableInterface
     use TaggableTrait, GetImageTrait;
 
     protected $fillable = [
-    	'name', 'code', 'image', 'file', 'description', 'provider_id', 'guide', 'youtube', 'guarantee', 'icon', 'qty','price', 'unit', 'model', 'origin', 'locale', 'type', 'locked', 'featured', 'user_id'
+    	'name', 'code', 'image', 'file', 'description', 'price_show','provider_id', 'guide', 'youtube', 'guarantee', 'icon', 'qty','price', 'unit', 'model', 'origin', 'locale', 'type', 'locked', 'featured', 'user_id'
     ];
 
     protected $appends = ['image_thumbnail','image_small','image_medium', 'image_accessary'];

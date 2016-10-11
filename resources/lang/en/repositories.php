@@ -81,6 +81,7 @@ return [
     'details' => 'Details',
     'view_all' => 'View All',
     'product_same' => 'Related Product',
+    'qty' => 'Quantity',
 
     'introduction' => 'Introduction',
     'device' => 'Device',

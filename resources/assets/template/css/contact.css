@@ -38,6 +38,7 @@
 
 #contact .form textarea {
     resize: none;
+    margin-top: 8px;
 }
 
 #contact .form .btn {

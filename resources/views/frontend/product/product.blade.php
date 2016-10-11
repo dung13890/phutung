@@ -47,16 +47,16 @@
                             <img src="{{ ( $product->image_small ) ? route('image',$product->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $product->name }}" />
                         </a>
                         <p>
-                            <strong>{{ trans('repositories.product_code') }}:</strong>
-                            {{ $product->code }}
+                            <strong>{{ trans('repositories.product_code') }}</strong>
+                            <b>:</b>{{ $product->code }}
                         </p>
                         <p>
-                            <span class="text-uppercase">{{ trans('repositories.provider') }}</span>:
-                            {{ isset($product->provider) ? $product->provider->name : '' }}
+                            <span class="text-uppercase">{{ trans('repositories.provider') }}</span>
+                            <b>:</b>{{ isset($product->provider) ? $product->provider->name : '' }}
                         </p>
                         <p>
-                            <span class="text-uppercase">{{ trans('repositories.guarantee') }}</span>:
-                            {{ config("developer.guarantee.{$product->guarantee}") }}
+                            <span class="text-uppercase">{{ trans('repositories.guarantee') }}</span>
+                            <b>:</b>{{ config("developer.guarantee.{$product->guarantee}") }}
                         </p>
                         <div class="name">
                             <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}">

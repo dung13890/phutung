@@ -37,7 +37,7 @@ class Category extends Abstracts\Sluggable
 
     public function randomProducts()
     {
-        return $this->products()->orderByRaw("RAND()")->take(8);
+        return $this->products()->where('locked', false)->where('featured', true)->orderByRaw("RAND()")->take(8);
     }
 
     public function menus()
