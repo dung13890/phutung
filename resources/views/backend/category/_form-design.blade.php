@@ -15,16 +15,6 @@
                     </div>
 
                     <div class="form-group">
-                        {{ Form::label('design_code', 'code', ['class'=>'control-label']) }}
-                        {{ Form::text('design_code', null, ['class' => 'form-control']) }}
-                    </div>
-
-                    <div class="form-group">
-                        {{ Form::label('design_provider', 'Nhà cung cấp', ['class'=>'control-label']) }}
-                        {{ Form::text('design_provider',null, ['class' => 'form-control']) }}
-                    </div>
-
-                    <div class="form-group">
                         {{ Form::label('design_link', 'Link', ['class'=>'control-label']) }}
                         {{ Form::text('design_link',null, ['class' => 'form-control']) }}
                     </div>

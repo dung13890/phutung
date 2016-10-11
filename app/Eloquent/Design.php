@@ -10,7 +10,7 @@ class Design extends Model
 	use GetImageTrait;
 
     protected $fillable = [
-    	'name', 'code', 'provider', 'other', 'image', 'link', 'order'
+    	'name', 'image', 'link', 'order'
     ];
 
     protected $appends = ['image_thumbnail','image_medium'];

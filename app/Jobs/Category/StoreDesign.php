@@ -33,8 +33,6 @@ class StoreDesign extends Job
 
         $this->entity->designs()->create([
             'name' => $this->attributes['design_name'],
-            'code' => $this->attributes['design_code'],
-            'provider' => $this->attributes['design_provider'],
             'image' => $this->attributes['design_image'],
             'link' => $this->attributes['design_link'],
             'order' => $this->attributes['design_order'],

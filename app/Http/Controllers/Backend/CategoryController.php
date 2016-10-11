@@ -99,7 +99,6 @@ class CategoryController extends BackendController
             $service->storeDesign($entity, $data);
             $this->e['message'] = $this->trans('created_successfully');
         } catch (\Exception $e) {
-            dd($e);
             $this->e['code'] = 100;
             $this->e['message'] = $this->trans('created_unsuccessfully');
         }

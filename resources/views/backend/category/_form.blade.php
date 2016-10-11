@@ -40,7 +40,7 @@
             {{ Form::text('slogan', null, ['class' => 'form-control']) }}
         </div>
         <div class="col-sm-3">
-            {{ Form::label('slogan_color_bg', 'Background Color', ['class'=>'control-label']) }}
+            {{ Form::label('slogan_color_bg', 'Background', ['class'=>'control-label']) }}
             <div class="input-group colorpicker-component">
                 {{ Form::text('slogan_color_bg', null, ['class' => 'form-control']) }}
                 <span class="input-group-addon"><i></i></span>

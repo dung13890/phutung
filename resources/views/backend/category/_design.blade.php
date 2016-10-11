@@ -14,8 +14,6 @@
             <div class="box-body">
             	{{ HTML::image( ( $design->image )? route('image',$design->image_medium) :  asset('assets/img/backend/avatar.png'),'', ['class' => 'img-responsive']) }}
             	<br>
-            	<p><b>Code: </b> {{ $design->code }}</p>
-            	<p><b>Nhà cung cấp: </b> {{ $design->provider }}</p>
             	<p><b>STT: </b> {{ $design->order }}</p>
             </div>
         </div>
