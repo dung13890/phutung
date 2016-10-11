@@ -283,7 +283,7 @@
     margin-bottom: 4px;
 }
 
-.like-share-accessary {
+#product .product-detail .product-bigimage .like-share-accessary {
     margin-top: -35px;
     float: right;
 }
