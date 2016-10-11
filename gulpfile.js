@@ -29,6 +29,7 @@ elixir(function(mix) {
     .copy(config.paths.plugins.template.in, config.paths.plugins.template.out)
     .bower(config.paths.plugins.bower, plugins.bower)
     .vue(config.paths.plugins.vue, plugins.vue)
+    .copy('resources/assets/bxslider', 'public/vendor/bxslider')
     .sass('backend/*.scss','public/assets/css/backend/backend.css')
     .styles([
         '../bower/sweetalert/dist/sweetalert.css',
