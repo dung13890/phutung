@@ -61,6 +61,11 @@ class Product extends Abstracts\Sluggable implements TaggableInterface
         return app()['glide.builder']->getUrl($this->image, ['p' => 'product']);
     }
 
+    public function getImageThumbnailSmallAttribute()
+    {
+        return app()['glide.builder']->getUrl($this->image, ['p' => 'thumbnail_small']);
+    }
+
     public function getIconDefaultAttribute()
     {
         return app()['glide.builder']->getUrl($this->icon);

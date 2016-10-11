@@ -51,6 +51,7 @@
             </span>
         </h3>
         <div class="product-detail">
+            @if ($item->type == 'product')
             <div class="product-images">
                 <ul class="list-unstyled">
                     <li>
@@ -58,7 +59,7 @@
                             data-default="{{ ( $item->image ) ? route('image',$item->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
                             data-medium="{{ ( $item->image ) ? route('image',$item->image_product) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $item->image ) ? route('image',$item->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/></a>
                     </li>
-        	   @if (count($item->images))
+        	        @if (count($item->images))
         			@foreach ($item->images->take(3) as $image)
         			<li>
                         <a class="image-thumb" href="javascript:;"
@@ -66,14 +67,49 @@
                             data-medium="{{ ( $image->image ) ? route('image', $image->image_product) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $image->image ) ? route('image',$image->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $image->name }}" class="img-responsive"/></a>
                     </li>
                     @endforeach
-        	   @endif
+        	        @endif
                 </ul>
             </div>
         	<div class="product-bigimage">
                 <a class="popup-link" href="{{ ( $item->image ) ? route('image', $item->image_default) :  asset('assets/img/backend/no_image.jpg') }}" title="{{ $item->name }}">
                     <img src="{{ ( $item->image ) ? route('image',$item->image_product) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
                 </a>
+
             </div>
+            @else
+            <!-- Accessary -->
+            <div class="product-images" style="width: 22%;">
+                <ul class="list-unstyled">
+                    <li>
+                        <a class="image-thumb" href="javascript:;"
+                            data-default="{{ ( $item->image ) ? route('image', $item->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
+                            data-medium="{{ ( $item->image ) ? route('image', $item->image_medium) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $item->image ) ? route('image',$item->image_thumbnail_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/></a>
+                    </li>
+                    @if (count($item->images))
+                    @foreach ($item->images->take(3) as $image)
+                    <li>
+                        <a class="image-thumb" href="javascript:;"
+                            data-default="{{ ( $image->image ) ? route('image', $image->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
+                            data-medium="{{ ( $image->image ) ? route('image', $image->image_medium) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $image->image ) ? route('image',$image->image_thumbnail_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $image->name }}" class="img-responsive"/></a>
+                    </li>
+                    @endforeach
+                    @endif
+                </ul>
+            </div>
+            <div class="product-bigimage" style="width: 77%">
+                <a class="popup-link" href="{{ ( $item->image ) ? route('image', $item->image_default) :  asset('assets/img/backend/no_image.jpg') }}" title="{{ $item->name }}">
+                    <img src="{{ ( $item->image ) ? route('image',$item->image_medium) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
+                </a>
+                <div class="like-share-accessary">
+                   <table>
+                       <tr>
+                           <td><div class="fb-like" data-href="{{ Request::url() }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div></td>
+                           <td><g:plusone></g:plusone></td>
+                       </tr>
+                   </table>
+                </div>
+            </div>
+            @endif
 
             <?php $images = $item->images->take(3); ?>
             @if(!$images->isEmpty())
@@ -127,9 +163,7 @@
                    </table>
                 </div>
             </div>
-
             @endif
-
         </div>
 
         <div class="product-tabs">
