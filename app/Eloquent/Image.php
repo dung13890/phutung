@@ -34,4 +34,9 @@ class Image extends Model
     {
         return app()['glide.builder']->getUrl($this->image, ['p' => 'product']);
     }
+
+    public function getImageThumbnailSmallAttribute($value)
+    {
+        return app()['glide.builder']->getUrl($this->image, ['p' => 'thumbnail_small']);
+    }
 }
