@@ -80,7 +80,7 @@
                                         {{ str_limit($random->name, 12) }}
                                     </strong>
                                     @if ($random->icon)
-                                    <img style="width: 100px; margin-left: 10px;" src="{{ route('image', $random->icon_default) }}">
+                                    <img  src="{{ route('image', $random->icon_default) }}">
                                     @else
                                     <span>
                                         {{ str_limit($random->code, 10) }}
