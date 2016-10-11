@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('slogan');
             $table->text('description');
             $table->string('image');
+            $table->integer('sort')->default(0);
             $table->string('locale', 10)->default('vi');
             $table->boolean('featured')->default(false);
             $table->boolean('locked')->default(false);

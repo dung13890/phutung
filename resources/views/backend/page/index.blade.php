@@ -6,16 +6,17 @@
 	var datatableColumns = [
         { data: 'id', name: 'id', searchable: false },
         { data: 'name', name: 'name'},
+        { data: 'sort', name: 'sort'},
         { data: 'locked', orderable: true, name: 'locked'},
         { data: 'actions', name: 'actions', orderable: false, searchable: false, sClass: "text-center"}
     ];
     var datatableOptions = {
     	createdRow: function ( row, data, index ) {
             $('td', row).eq(0).css('display','none');
-            $('td', row).eq(2).html( data.locked == 0 ? '<span class="label label-primary">Actived</span>' : '<span class="label label-danger">Locked</span>');
+            $('td', row).eq(3).html( data.locked == 0 ? '<span class="label label-primary">Actived</span>' : '<span class="label label-danger">Locked</span>');
             var actions = data.actions;
             if (!actions || actions.length < 1) { return; }
-            var actionHtml = $('td', row).eq(3);
+            var actionHtml = $('td', row).eq(4);
             actionHtml.html('');
             if (actions.edit) {
             	actionHtml.append('<a title ="'+actions.edit.label+'" class="btn btn-default btn-xs" href="'+actions.edit.uri+'"><i class="fa fa-pencil"></i></a>');
@@ -34,6 +35,7 @@
     <tr>
         <th style="display:none">ID</th>
         <th>Name</th>
+        <th>Số thứ tự</th>
         <th>Status</th>
         <th>Actions</th>
     </tr>

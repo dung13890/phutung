@@ -43,6 +43,7 @@ class PageRepositoryEloquent extends AbstractRepositoryEloquent implements PageR
         return $this->model
             ->where('locked', false)
             ->where('locale', $locale)
+            ->orderBy('sort', 'ASC')
             ->get($columns);
     }
 }

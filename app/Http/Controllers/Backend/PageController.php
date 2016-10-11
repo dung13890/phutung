@@ -8,7 +8,7 @@ use App\Services\Contracts\PageService;
 
 class PageController extends BackendController
 {
-    protected $dataSelect = ['id','name','created_at','locked'];
+    protected $dataSelect = ['id', 'name', 'created_at', 'locked', 'sort'];
 
     public function __construct(PageRepository $page)
     {

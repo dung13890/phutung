@@ -48,15 +48,15 @@
                         </a>
                         <p>
                             <strong>{{ trans('repositories.product_code') }}</strong>
-                            <b>:</b>{{ $product->code }}
+                            <b>:</b> {{ $product->code }}
                         </p>
                         <p>
                             <span class="text-uppercase">{{ trans('repositories.provider') }}</span>
-                            <b>:</b>{{ isset($product->provider) ? $product->provider->name : '' }}
+                            <b>:</b> {{ isset($product->provider) ? $product->provider->name : '' }}
                         </p>
                         <p>
                             <span class="text-uppercase">{{ trans('repositories.guarantee') }}</span>
-                            <b>:</b>{{ config("developer.guarantee.{$product->guarantee}") }}
+                            <b>:</b> {{ config("developer.guarantee.{$product->guarantee}") }}
                         </p>
                         <div class="name">
                             <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}">
