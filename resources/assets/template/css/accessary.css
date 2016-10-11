@@ -55,6 +55,10 @@
     font-weight: bold;
     border-radius: 3px;
 }
+#accessary .item .list li p img {
+    width: 100px;
+    margin-left: 10px;
+}
 
 #content .main {
     width: 780px;

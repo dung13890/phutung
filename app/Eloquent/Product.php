@@ -11,7 +11,7 @@ class Product extends Abstracts\Sluggable implements TaggableInterface
     use TaggableTrait, GetImageTrait;
 
     protected $fillable = [
-    	'name', 'code', 'image', 'file', 'description', 'provider_id', 'guide', 'youtube', 'guarantee', 'price', 'unit', 'model', 'origin', 'locale', 'type', 'locked', 'featured', 'user_id'
+    	'name', 'code', 'image', 'file', 'description', 'provider_id', 'guide', 'youtube', 'guarantee', 'icon', 'qty','price', 'unit', 'model', 'origin', 'locale', 'type', 'locked', 'featured', 'user_id'
     ];
 
     protected $appends = ['image_thumbnail','image_small','image_medium', 'image_accessary'];
@@ -59,5 +59,10 @@ class Product extends Abstracts\Sluggable implements TaggableInterface
     public function getImageProductAttribute()
     {
         return app()['glide.builder']->getUrl($this->image, ['p' => 'product']);
+    }
+
+    public function getIconDefaultAttribute()
+    {
+        return app()['glide.builder']->getUrl($this->icon);
     }
 }

@@ -23,6 +23,8 @@ class CreateProductsTable extends Migration
             $table->string('youtube');
             $table->text('guide');
             $table->string('origin');
+            $table->string('qty');
+            $table->string('icon');
             $table->text('description');
             $table->integer('price');
             $table->string('unit');

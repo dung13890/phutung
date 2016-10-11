@@ -32,6 +32,10 @@ class Store extends Job
             $this->attributes['image'] = $this->uploadFile($this->attributes['image'], $path);
         }
 
+        if (isset($this->attributes['icon'])) {
+            $this->attributes['icon'] = $this->uploadFile($this->attributes['icon'], $path);
+        }
+
         if (isset($this->attributes['file'])) {
             $this->attributes['file'] = $this->uploadFile($this->attributes['file'], $path, 'file');
         }

@@ -74,14 +74,18 @@
                     @foreach($category->randomProducts->take(3) as $random)
                         <li>
                             <a title="{{ $random->name }}" href="{{ route('product.show', $random->slug) }}">
-                                <img src="{{ ( $random->image ) ? route('image',$random->image_accessary) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $random->name }}" />
+                                <img src="{{ ( $random->image ) ? route('image', $random->image_accessary) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $random->name }}" />
                                 <p class="text-center">
                                     <strong>
-                                        {{ str_limit($random->name, 15) }}
+                                        {{ str_limit($random->name, 12) }}
                                     </strong>
+                                    @if ($random->icon)
+                                    <img style="width: 100px; margin-left: 10px;" src="{{ route('image', $random->icon_default) }}">
+                                    @else
                                     <span>
                                         {{ str_limit($random->code, 10) }}
                                     </span>
+                                    @endif
                                 </p>
                             </a>
                         </li>

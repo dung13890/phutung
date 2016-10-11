@@ -38,6 +38,17 @@ class Update extends Job
             $this->attributes['image'] = $this->uploadFile($this->attributes['image'], $path);
         }
 
+        if (isset($this->attributes['icon'])) {
+            if (!empty($this->entity->icon)) {
+                $this->destroyFile($this->entity->icon);
+            }
+            if (file_exists($this->attributes['icon'])) {
+                $this->attributes['icon'] = $this->uploadFile($this->attributes['icon'], $path);
+            } else {
+                $this->attributes['icon'] = null;
+            }
+        }
+
         if (isset($this->attributes['file'])) {
             if (!empty($this->entity->file)) {
                 $this->destroyFile($this->entity->file);
