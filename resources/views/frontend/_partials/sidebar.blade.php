@@ -21,6 +21,7 @@
     }
 </style>
 @endpush
+
 <div>
     <div class="links pull-left">
         <div class="name"><a href="{{ route(strtolower(class_basename($categoryFirst)) . '.show', $categoryFirst->slug) }}" title="{{ $categoryFirst->name }}"> {{ str_limit($categoryFirst->name, 20) }} </a></div>
