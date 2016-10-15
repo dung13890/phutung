@@ -13,11 +13,14 @@
 @endpush
 
 @section('page-content')
+<?php
+    $categoryFirst = $categories->shift();
+?>
 <div id="header">
     <div class="title text-center">
         <h1 class="page-title">{{ trans('repositories.news') }}</h1>
     </div>
-    @include('frontend._partials.sidebar', ['categoryFirst' => $category, 'categories' => $categories])
+    @include('frontend._partials.sidebar', ['categoryFirst' => $categoryFirst, 'categories' => $categories])
 </div><!-- /#header -->
 
 <ol class="breadcrumb">
