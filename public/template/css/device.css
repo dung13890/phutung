@@ -55,7 +55,7 @@
 #device .item .list li strong, #device .item .list li span  {
     display: inline-block;
     text-indent: 0px;
-    max-width: 120px;
+    min-width: 110px;
 }
 
 #device .item .list li p {

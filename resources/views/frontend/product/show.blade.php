@@ -4,6 +4,8 @@
     {{ HTML::style("template/css/product.css") }}
     {{ HTML::style('template/css/responsive/product.css') }}
     {{ HTML::style("vendor/magnific-popup/magnific-popup.css") }}
+
+    {{ HTML::style('vendor/bxslider/jquery.bxslider.css') }}
     <style>
     	#header {
     		background-image: url("{!! ( $banner ) ? route('image',$banner->image_banner) :  asset('assets/img/backend/no_image.jpg') !!} ");
@@ -13,6 +15,33 @@
         #header .slogan {
             background: #ffe100;
             color: #231f20;
+        }
+
+        .product-detail {
+            height: 420px;
+        }
+
+        .product-images {
+            height: 412px;
+            overflow-y: hidden;
+        }
+
+        .bx-wrapper .bx-prev {
+            opacity: 0.8;
+            background: url("{{ URL::to('vendor/bxslider/images/controls.png') }}") no-repeat 1px -21px;
+        }
+
+        .bx-wrapper .bx-prev:hover {
+            background: url("{{ URL::to('vendor/bxslider/images/controls.png') }}") no-repeat 1px -21px;
+        }
+
+        .bx-wrapper .bx-next {
+            opacity: 0.8;
+            background: url("{{ URL::to('vendor/bxslider/images/controls.png') }}") no-repeat 1px -64px;
+        }
+
+        .bx-wrapper .bx-next:hover {
+            background: url("{{ URL::to('vendor/bxslider/images/controls.png') }}") no-repeat 1px -64px;
         }
     </style>
 @endpush
@@ -59,26 +88,25 @@
                             data-default="{{ ( $item->image ) ? route('image',$item->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
                             data-medium="{{ ( $item->image ) ? route('image',$item->image_product) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $item->image ) ? route('image',$item->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/></a>
                     </li>
-        	        @if (count($item->images))
-        			@foreach ($item->images->take(3) as $image)
-        			<li>
-                        <a class="image-thumb" href="javascript:;"
-                            data-default="{{ ( $image->image ) ? route('image', $image->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
-                            data-medium="{{ ( $image->image ) ? route('image', $image->image_product) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $image->image ) ? route('image',$image->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $image->name }}" class="img-responsive"/></a>
-                    </li>
-                    @endforeach
-        	        @endif
+            	    @if(count($item->images))
+            			@foreach($item->images as $image)
+                			<li>
+                                <a class="image-thumb" href="javascript:;"
+                                    data-default="{{ ( $image->image ) ? route('image', $image->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
+                                    data-medium="{{ ( $image->image ) ? route('image', $image->image_product) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $image->image ) ? route('image',$image->image_thumbnail) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $image->name }}" class="img-responsive"/></a>
+                            </li>
+                        @endforeach
+            	    @endif
                 </ul>
             </div>
         	<div class="product-bigimage">
                 <a class="popup-link" href="{{ ( $item->image ) ? route('image', $item->image_default) :  asset('assets/img/backend/no_image.jpg') }}" title="{{ $item->name }}">
                     <img src="{{ ( $item->image ) ? route('image',$item->image_product) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
                 </a>
-
             </div>
             @else
             <!-- Accessary -->
-            <div class="product-images" style="width: 22%;">
+            <div class="product-images" style="width: 22%; height: 433px;" id="accessary-images">
                 <ul class="list-unstyled">
                     <li>
                         <a class="image-thumb" href="javascript:;"
@@ -86,7 +114,7 @@
                             data-medium="{{ ( $item->image ) ? route('image', $item->image_medium) :  asset('assets/img/backend/no_image.jpg') }}"><img src="{{ ( $item->image ) ? route('image',$item->image_thumbnail_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/></a>
                     </li>
                     @if (count($item->images))
-                    @foreach ($item->images->take(3) as $image)
+                    @foreach ($item->images as $image)
                     <li>
                         <a class="image-thumb" href="javascript:;"
                             data-default="{{ ( $image->image ) ? route('image', $image->image_default) :  asset('assets/img/backend/no_image.jpg') }}"
@@ -101,12 +129,14 @@
                     <img src="{{ ( $item->image ) ? route('image',$item->image_medium) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $item->name }}" class="img-responsive"/>
                 </a>
                 <div class="like-share-accessary">
-                   <table>
-                       <tr>
-                           <td><div class="fb-like" data-href="{{ Request::url() }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div></td>
-                           <td><g:plusone></g:plusone></td>
-                       </tr>
-                   </table>
+                    <div class="like-share">
+                       <table>
+                           <tr>
+                               <td><div class="fb-like" data-href="{{ Request::url() }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div></td>
+                               <td><div class="g-plusone" data-annotation="none" data-href="{{ Request::url() }}"></div></td>
+                           </tr>
+                       </table>
+                    </div>
                 </div>
             </div>
             @endif
@@ -158,7 +188,9 @@
                    <table>
                        <tr>
                            <td><div class="fb-like" data-href="{{ Request::url() }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div></td>
-                           <td><g:plusone></g:plusone></td>
+                           <td>
+                               <div class="g-plusone" data-annotation="none" data-href="{{ Request::url() }}"></div>
+                           </td>
                        </tr>
                    </table>
                 </div>
@@ -289,8 +321,9 @@
 
 @push('prescripts')
 
+
 <div id="fb-root"></div>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -332,4 +365,23 @@
         $('.popup-link').magnificPopup({type:'image'});
     })
 </script>
+
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'vi'}
+</script>
+
+{{ HTML::script('vendor/bxslider/jquery.bxslider.min.js') }}
+
+<script type="text/javascript">
+    $('.product-images > ul').bxSlider({
+        mode: 'vertical',
+        minSlides: 4,
+        slideMargin: 0,
+    });
+
+    $('.bx-wrapper .bx-prev').css({top: '23px', left: '33%'});
+    $('.bx-wrapper .bx-next').css({top: 'auto', left: '33%', bottom: '10px'});
+    $('#accessary-images .bx-wrapper .bx-next').css({bottom: '134px'});
+</script>
+
 @endpush

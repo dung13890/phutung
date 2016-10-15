@@ -56,8 +56,8 @@ class AppServiceProvider extends ServiceProvider
                         'fit' => 'crop',
                     ],
                     'thumbnail_small' => [
-                        'w' => 150,
-                        'h' => 150,
+                        'w' => 145,
+                        'h' => 140,
                         'fit' => 'crop',
                     ],
                     'small' => [
