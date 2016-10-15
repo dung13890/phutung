@@ -17,7 +17,7 @@
     }
     #header .slogan{
         background: {{  $item->slogan_color_bg ? $item->slogan_color_bg : '#CE191F' }} !important;
-        color: {{  $item->slogan_color_text ? $item->slogan_color_text : '#FFFFFF' }} !important;
+        color: {{  $item->slogan_color_text ? $item->slogan_color_text : '#fff' }} !important;
     }
 </style>
 @endpush
