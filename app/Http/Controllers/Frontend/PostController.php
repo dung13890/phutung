@@ -29,7 +29,7 @@ class PostController extends FrontendController
             $this->compacts['keywords'] = $this->compacts['item']->seo->keywords;
         }
 
-        $this->compacts['category'] = $this->compacts['item']->categories()->first();
+        $this->compacts['category'] = $this->compacts['item']->categories->last();
         $this->compacts['banner'] = $this->compacts['category']->banner;
         $this->compacts['categories'] = $this->categoryRepository->getRootWithType('post', $this->locale, $this->dataCategory);
 
