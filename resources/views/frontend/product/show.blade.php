@@ -133,7 +133,7 @@
                        <table>
                            <tr>
                                <td><div class="fb-like" data-href="{{ Request::url() }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div></td>
-                               <td><div class="g-plusone" data-annotation="none" data-height="14" data-href="{{ Request::url() }}"></div></td>
+                               <td style="padding-top: 9px;"><div class="g-plusone" data-annotation="none" data-height="14" data-href="{{ Request::url() }}"></div></td>
                            </tr>
                        </table>
                     </div>
@@ -188,7 +188,7 @@
                    <table>
                        <tr>
                            <td><div class="fb-like" data-href="{{ Request::url() }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div></td>
-                           <td>
+                           <td style="padding-top: 9px;">
                                <div class="g-plusone" data-annotation="none" data-height="14" data-href="{{ Request::url() }}"></div>
                            </td>
                        </tr>
