@@ -46,7 +46,7 @@
     ?>
     <div class="section">
         <div class="info">
-            <a href="{{ route('post.show',$postFirst->slug) }}" title="{{ $postFirst->name }}"><img src="{{ ( $postFirst->image ) ? route('image',$postFirst->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $postFirst->name }}" ></a>
+            <a href="{{ route('post.show',$postFirst->slug) }}" title="{{ $postFirst->name }}"><img src="{{ ( $postFirst->image ) ? route('image',$postFirst->image_medium) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $postFirst->name }}" ></a>
             <div class="text">
                 <a href="{{ route('post.show',$postFirst->slug) }}" title="{{ $postFirst->name }}">{{ $postFirst->name }}</a>
                 <p>{{ str_limit($postFirst->intro, 100) }}</p>
