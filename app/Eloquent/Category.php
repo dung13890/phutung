@@ -5,7 +5,7 @@ namespace App\Eloquent;
 class Category extends Abstracts\Sluggable
 {
     protected $fillable = [
-    	'name','parent_id','type','description','locked', 'locale', 'slogan', 'slogan_color_bg', 'slogan_color_text'
+    	'name','parent_id','type','description','locked', 'locale', 'slogan', 'slogan_color_bg', 'slogan_color_text', 'order'
     ];
 
     protected $sluggable = [
@@ -15,7 +15,7 @@ class Category extends Abstracts\Sluggable
 
     public function children()
     {
-        return $this->hasMany(self::class, 'parent_id', 'id');
+        return $this->hasMany(self::class, 'parent_id', 'id')->orderBy('order');
     }
 
     public function parent()

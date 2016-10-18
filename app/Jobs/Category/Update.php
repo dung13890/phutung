@@ -28,6 +28,9 @@ class Update extends Job
      */
     public function handle(CategoryRepository $repository)
     {
+        if ($this->entity->id <= 6 ) {
+            unset($this->attributes['order']);
+        }
         if (isset($this->attributes['type'])) {
             unset($this->attributes['type']);
         }

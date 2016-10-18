@@ -24,7 +24,7 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
 
     public function getRootWithType($type, $locale = 'vi', $columns = ['*'])
     {
-    	return $this->model->with('children')->where('locale', $locale)->where('parent_id',0)->where('type',$type)->get($columns);
+    	return $this->model->with('children')->where('locale', $locale)->where('parent_id',0)->where('type',$type)->orderBy('order')->get($columns);
     }
 
     public function findBySlug($slug)

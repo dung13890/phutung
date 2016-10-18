@@ -22,6 +22,7 @@ class CreateCategoriesTable extends Migration
             $table->string('locale', 10)->default('vi');
             $table->string('slogan_color_bg')->default('#ffe100');
             $table->string('slogan_color_text')->default('#231f20');
+            $table->integer('order')->default(0);
             $table->text('description');
             $table->boolean('locked')->default(false);
             $table->timestamps();
