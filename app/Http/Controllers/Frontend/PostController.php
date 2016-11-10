@@ -27,6 +27,7 @@ class PostController extends FrontendController
         if ($this->compacts['item']->seo) {
             $this->compacts['description'] = $this->compacts['item']->seo->description;
             $this->compacts['keywords'] = $this->compacts['item']->seo->keywords;
+            $this->compacts['image'] = route('image', $this->compacts['item']->image_small);
         }
 
         $this->compacts['category'] = $this->compacts['item']->categories->last();
