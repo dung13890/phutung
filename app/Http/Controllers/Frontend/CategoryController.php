@@ -21,6 +21,9 @@ class CategoryController extends FrontendController
     	$this->compacts['heading'] = $this->compacts['item']->name;
     	$this->compacts['description'] = str_limit(strip_tags($this->compacts['item']->description), 156);
     	$this->compacts['banner'] = $this->compacts['item']->banner;
+        if (isset($this->compacts['banner'])) {
+            $this->compacts['image_social'] = route('image', $this->compacts['banner']->image_default);
+        }
     	$this->compacts['categories'] = $this->repository->getRootWithType($this->compacts['item']->type, $this->locale, $this->dataSelect);
 
     	switch ($this->compacts['item']->type) {
