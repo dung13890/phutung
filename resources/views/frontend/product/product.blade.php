@@ -46,9 +46,9 @@
                         <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}">
                             <img src="{{ ( $product->image_small ) ? route('image',$product->image_small) :  asset('assets/img/backend/no_image.jpg') }}" alt="{{ $product->name }}" />
                         </a>
-                        <p>
+                        <p title="{{ $product->code }}">
                             <strong>{{ trans('repositories.product_code') }}</strong>
-                            <b>:</b> {{ $product->code }}
+                            <b>:</b> {{ str_limit($product->code, 10) }}
                         </p>
                         <p>
                             <span class="text-uppercase">{{ trans('repositories.provider') }}</span>
@@ -60,7 +60,7 @@
                         </p>
                         <div class="name">
                             <a title="{{ $product->name }}" href="{{ route('product.show', $product->slug) }}">
-                                {{ str_limit($product->name, 20) }}
+                                {{ str_limit($product->name, 18) }}
                             </a>
                         </div>
                     </li>
